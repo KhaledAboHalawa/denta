@@ -1,0 +1,52 @@
+name: denta
+description: "Dental application"
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State Management
+  equatable: ^3.0.0
+  flutter_bloc: ^9.1.1
+
+  # Storage
+  shared_preferences: ^2.5.6
+
+  # Dependency Injection & Service Locator
+  get_it: ^9.3.0
+  injectable: ^3.0.0
+
+  # Networking
+  dio: ^5.11.1
+
+  # UI & Styling
+  cached_network_image: ^4.0.4
+  flutter_svg: ^2.3.0
+  skeletonizer: ^3.0.0
+
+  # Internationalization & Utilities
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+  # Code Generation
+  build_runner: 2.16.1
+  injectable_generator: ^3.1.3
+  lean_builder: ^1.2.2
+
+  
+
+flutter:
+  uses-material-design: true
+  generate: true
+

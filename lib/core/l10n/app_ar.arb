@@ -1,0 +1,6 @@
+{
+  "@@locale": "ar",
+  "appTitle": "دنتا",
+  "welcomeUser": "أهلاً، {name}",
+  "patientsCount": "{count, plural, =0{لا يوجد مرضى} =1{مريض واحد} =2{مريضان} few{{count} مرضى} many{{count} مريضًا} other{{count} مريض}}"
+}

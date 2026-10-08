@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+  "appTitle": "Denta",
+  "welcomeUser": "Welcome, {name}",
+  "@welcomeUser": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "patientsCount": "{count, plural, =0{No patients} =1{1 patient} other{{count} patients}}",
+  "@patientsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  }
+}
