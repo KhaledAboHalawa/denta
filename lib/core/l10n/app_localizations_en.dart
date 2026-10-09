@@ -28,4 +28,51 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get noContentError => 'No content available.';
+
+  @override
+  String get badRequestError => 'Bad request. Please check your input.';
+
+  @override
+  String get unAuthenticationError =>
+      'Authentication failed. Please login again.';
+
+  @override
+  String get forbiddenError => 'Access forbidden.';
+
+  @override
+  String get internalServerError =>
+      'Internal server error. Please try again later.';
+
+  @override
+  String get notFoundError => 'Resource not found.';
+
+  @override
+  String get conflictError => 'A conflict occurred. Please retry.';
+
+  @override
+  String get apiLogicalError => 'API returned a logical error.';
+
+  @override
+  String get connectTimeoutError => 'Connection timeout occurred.';
+
+  @override
+  String get cancelError => 'Request was cancelled.';
+
+  @override
+  String get receiveTimeoutError => 'Receive timeout occurred.';
+
+  @override
+  String get sendTimeoutError => 'Send timeout occurred.';
+
+  @override
+  String get cacheError => 'Cache error occurred.';
+
+  @override
+  String get noInternetConnectionError => 'No internet connection.';
+
+  @override
+  String get defaultError => 'An unexpected error occurred.';
 }

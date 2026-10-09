@@ -2,5 +2,20 @@
   "@@locale": "ar",
   "appTitle": "دنتا",
   "welcomeUser": "أهلاً، {name}",
-  "patientsCount": "{count, plural, =0{لا يوجد مرضى} =1{مريض واحد} =2{مريضان} few{{count} مرضى} many{{count} مريضًا} other{{count} مريض}}"
+  "patientsCount": "{count, plural, =0{لا يوجد مرضى} =1{مريض واحد} =2{مريضان} few{{count} مرضى} many{{count} مريضًا} other{{count} مريض}}",
+  "noContentError": "لا يوجد محتوى متاح.",
+  "badRequestError": "طلب غير صالح. يرجى التحقق من المدخلات.",
+  "unAuthenticationError": "فشل في المصادقة. يرجى تسجيل الدخول مجددًا.",
+  "forbiddenError": "تم رفض الوصول.",
+  "internalServerError": "خطأ داخلي في الخادم. يرجى المحاولة مرة أخرى لاحقًا.",
+  "notFoundError": "المورد غير موجود.",
+  "conflictError": "حدث تعارض. يرجى إعادة المحاولة.",
+  "apiLogicalError": "أرجع الخادم خطأ منطقياً.",
+  "connectTimeoutError": "انتهت مهلة الاتصال.",
+  "cancelError": "تم إلغاء الطلب.",
+  "receiveTimeoutError": "انتهت مهلة الاستلام.",
+  "sendTimeoutError": "انتهت مهلة الإرسال.",
+  "cacheError": "حدث خطأ في الذاكرة المؤقتة.",
+  "noInternetConnectionError": "لا يوجد اتصال بالإنترنت.",
+  "defaultError": "حدث خطأ غير متوقع."
 }

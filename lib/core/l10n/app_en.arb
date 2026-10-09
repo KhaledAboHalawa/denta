@@ -8,5 +8,20 @@
   "patientsCount": "{count, plural, =0{No patients} =1{1 patient} other{{count} patients}}",
   "@patientsCount": {
     "placeholders": { "count": { "type": "int" } }
-  }
+  },
+  "noContentError": "No content available.",
+  "badRequestError": "Bad request. Please check your input.",
+  "unAuthenticationError": "Authentication failed. Please login again.",
+  "forbiddenError": "Access forbidden.",
+  "internalServerError": "Internal server error. Please try again later.",
+  "notFoundError": "Resource not found.",
+  "conflictError": "A conflict occurred. Please retry.",
+  "apiLogicalError": "API returned a logical error.",
+  "connectTimeoutError": "Connection timeout occurred.",
+  "cancelError": "Request was cancelled.",
+  "receiveTimeoutError": "Receive timeout occurred.",
+  "sendTimeoutError": "Send timeout occurred.",
+  "cacheError": "Cache error occurred.",
+  "noInternetConnectionError": "No internet connection.",
+  "defaultError": "An unexpected error occurred."
 }

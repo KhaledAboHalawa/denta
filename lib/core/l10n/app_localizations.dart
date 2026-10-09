@@ -115,6 +115,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =0{No patients} =1{1 patient} other{{count} patients}}'**
   String patientsCount(int count);
+
+  /// No description provided for @noContentError.
+  ///
+  /// In en, this message translates to:
+  /// **'No content available.'**
+  String get noContentError;
+
+  /// No description provided for @badRequestError.
+  ///
+  /// In en, this message translates to:
+  /// **'Bad request. Please check your input.'**
+  String get badRequestError;
+
+  /// No description provided for @unAuthenticationError.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentication failed. Please login again.'**
+  String get unAuthenticationError;
+
+  /// No description provided for @forbiddenError.
+  ///
+  /// In en, this message translates to:
+  /// **'Access forbidden.'**
+  String get forbiddenError;
+
+  /// No description provided for @internalServerError.
+  ///
+  /// In en, this message translates to:
+  /// **'Internal server error. Please try again later.'**
+  String get internalServerError;
+
+  /// No description provided for @notFoundError.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource not found.'**
+  String get notFoundError;
+
+  /// No description provided for @conflictError.
+  ///
+  /// In en, this message translates to:
+  /// **'A conflict occurred. Please retry.'**
+  String get conflictError;
+
+  /// No description provided for @apiLogicalError.
+  ///
+  /// In en, this message translates to:
+  /// **'API returned a logical error.'**
+  String get apiLogicalError;
+
+  /// No description provided for @connectTimeoutError.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection timeout occurred.'**
+  String get connectTimeoutError;
+
+  /// No description provided for @cancelError.
+  ///
+  /// In en, this message translates to:
+  /// **'Request was cancelled.'**
+  String get cancelError;
+
+  /// No description provided for @receiveTimeoutError.
+  ///
+  /// In en, this message translates to:
+  /// **'Receive timeout occurred.'**
+  String get receiveTimeoutError;
+
+  /// No description provided for @sendTimeoutError.
+  ///
+  /// In en, this message translates to:
+  /// **'Send timeout occurred.'**
+  String get sendTimeoutError;
+
+  /// No description provided for @cacheError.
+  ///
+  /// In en, this message translates to:
+  /// **'Cache error occurred.'**
+  String get cacheError;
+
+  /// No description provided for @noInternetConnectionError.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection.'**
+  String get noInternetConnectionError;
+
+  /// No description provided for @defaultError.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred.'**
+  String get defaultError;
 }
 
 class _AppLocalizationsDelegate

@@ -1,4 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/widgets.dart';
+
+import '../di/dependency_injection.dart';
+import '../l10n/app_localizations.dart';
+import '../localization/locale_cubit.dart';
 
 class Failure<T> {
   int statusCode;
@@ -6,7 +11,6 @@ class Failure<T> {
   bool success;
   int status;
   String? prettyMessage;
-  Map<String, dynamic>? jsonErrorObject;
 
   Failure({
     required this.statusCode,
@@ -14,7 +18,6 @@ class Failure<T> {
     required this.success,
     required this.status,
     this.prettyMessage,
-    this.jsonErrorObject,
   });
 }
 
@@ -42,7 +45,7 @@ class ApiResponseCode {
   static const int defaultError = -7;
 }
 
-enum DataSource {
+enum ErrorType {
   noContent,
   badRequest,
   unAuth,
@@ -61,131 +64,147 @@ enum DataSource {
 }
 
 class ApiResponseMessage {
-  static String noContentError = 'No content available.';
-  static String badRequestError = 'Bad request. Please check your input.';
-  static String unAuthenticationError =
-      'Authentication failed. Please login again.';
-  static String forbiddenError = 'Access forbidden.';
-  static String internalServerError =
-      'Internal server error. Please try again later.';
-  static String notFoundError = 'Resource not found.';
+  static AppLocalizations get _currentL10n {
+    if (getIt.isRegistered<LocaleCubit>()) {
+      return lookupAppLocalizations(getIt<LocaleCubit>().state);
+    }
+    return lookupAppLocalizations(const Locale('en'));
+  }
 
-  static String conflictError = 'A conflict occurred. Please retry.';
-  static String apiLogicalError = 'API returned a logical error.';
-  static String connectTimeoutError = 'Connection timeout occurred.';
-  static String cancelError = 'Request was cancelled.';
-  static String receiveTimeoutError = 'Receive timeout occurred.';
-  static String sendTimeoutError = 'Send timeout occurred.';
-  static String cacheError = 'Cache error occurred.';
-  static String noInternetConnectionError = 'No internet connection.';
-  static String defaultError = 'An unexpected error occurred.';
+  static AppLocalizations of([BuildContext? context]) {
+    if (context != null) {
+      final l10n = AppLocalizations.of(context);
+      if (l10n != null) return l10n;
+    }
+    return _currentL10n;
+  }
+
+  static String get noContentError => _currentL10n.noContentError;
+  static String get badRequestError => _currentL10n.badRequestError;
+  static String get unAuthenticationError =>
+      _currentL10n.unAuthenticationError;
+  static String get forbiddenError => _currentL10n.forbiddenError;
+  static String get internalServerError =>
+      _currentL10n.internalServerError;
+  static String get notFoundError => _currentL10n.notFoundError;
+  static String get conflictError => _currentL10n.conflictError;
+  static String get apiLogicalError => _currentL10n.apiLogicalError;
+  static String get connectTimeoutError => _currentL10n.connectTimeoutError;
+  static String get cancelError => _currentL10n.cancelError;
+  static String get receiveTimeoutError => _currentL10n.receiveTimeoutError;
+  static String get sendTimeoutError => _currentL10n.sendTimeoutError;
+  static String get cacheError => _currentL10n.cacheError;
+  static String get noInternetConnectionError =>
+      _currentL10n.noInternetConnectionError;
+  static String get defaultError => _currentL10n.defaultError;
 }
 
-extension DataSourceExtension on DataSource {
-  Failure getFailure() {
+extension DataSourceExtension on ErrorType {
+  Failure getFailure([BuildContext? context]) {
+    final l10n = ApiResponseMessage.of(context);
     switch (this) {
-      case DataSource.noContent:
+      case ErrorType.noContent:
         return Failure(
           statusCode: ApiResponseCode.noContent,
-          message: ApiResponseMessage.noContentError,
+          message: l10n.noContentError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.badRequest:
+      case ErrorType.badRequest:
         return Failure(
           statusCode: ApiResponseCode.badRequest,
-          message: ApiResponseMessage.badRequestError,
+          message: l10n.badRequestError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.conflict:
+      case ErrorType.conflict:
         return Failure(
           statusCode: ApiResponseCode.conflict,
-          message: ApiResponseMessage.conflictError,
+          message: l10n.conflictError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.forbidden:
+      case ErrorType.forbidden:
         return Failure(
           statusCode: ApiResponseCode.forbidden,
-          message: ApiResponseMessage.forbiddenError,
+          message: l10n.forbiddenError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.unAuth:
+      case ErrorType.unAuth:
         return Failure(
           statusCode: ApiResponseCode.unAuth,
           status: ApiInternalStatus.failure,
-          message: ApiResponseMessage.unAuthenticationError,
+          message: l10n.unAuthenticationError,
           success: false,
         );
-      case DataSource.notFound:
+      case ErrorType.notFound:
         return Failure(
           statusCode: ApiResponseCode.notFound,
-          message: ApiResponseMessage.notFoundError,
+          message: l10n.notFoundError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.internalServerError:
+      case ErrorType.internalServerError:
         return Failure(
           statusCode: ApiResponseCode.internalServerError,
-          message: ApiResponseMessage.internalServerError,
+          message: l10n.internalServerError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.connectTimeout:
+      case ErrorType.connectTimeout:
         return Failure(
           statusCode: ApiResponseCode.connectTimeout,
-          message: ApiResponseMessage.connectTimeoutError,
+          message: l10n.connectTimeoutError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.cancel:
+      case ErrorType.cancel:
         return Failure(
           statusCode: ApiResponseCode.cancel,
-          message: ApiResponseMessage.cancelError,
+          message: l10n.cancelError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.receiveTimeout:
+      case ErrorType.receiveTimeout:
         return Failure(
           statusCode: ApiResponseCode.receiveTimeout,
-          message: ApiResponseMessage.receiveTimeoutError,
+          message: l10n.receiveTimeoutError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.sendTimeout:
+      case ErrorType.sendTimeout:
         return Failure(
           statusCode: ApiResponseCode.sendTimeout,
-          message: ApiResponseMessage.sendTimeoutError,
+          message: l10n.sendTimeoutError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.cacheError:
+      case ErrorType.cacheError:
         return Failure(
           statusCode: ApiResponseCode.cacheError,
-          message: ApiResponseMessage.cacheError,
+          message: l10n.cacheError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.noInternetConnection:
+      case ErrorType.noInternetConnection:
         return Failure(
           statusCode: ApiResponseCode.noInternetConnection,
-          message: ApiResponseMessage.noInternetConnectionError,
+          message: l10n.noInternetConnectionError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.defaultError:
+      case ErrorType.defaultError:
         return Failure(
           statusCode: ApiResponseCode.defaultError,
-          message: ApiResponseMessage.defaultError,
+          message: l10n.defaultError,
           status: ApiInternalStatus.failure,
           success: false,
         );
-      case DataSource.apiLogicError:
+      case ErrorType.apiLogicError:
         return Failure(
           statusCode: ApiResponseCode.apiLogicalError,
-          message: ApiResponseMessage.apiLogicalError,
+          message: l10n.apiLogicalError,
           status: ApiInternalStatus.failure,
           success: false,
         );
@@ -196,51 +215,36 @@ extension DataSourceExtension on DataSource {
 class ErrorHandler implements Exception {
   late Failure failure;
 
-  ErrorHandler.handle(dynamic error) {
+  ErrorHandler.handle(dynamic error, [BuildContext? context]) {
     if (error is DioException) {
-      failure = _handleError(error);
+      failure = _handleError(error, context);
     } else {
-      failure = DataSource.defaultError.getFailure();
+      failure = ErrorType.defaultError.getFailure(context);
     }
   }
 }
 
-Failure _handleError(DioException error) {
+Failure _handleError(DioException error, [BuildContext? context]) {
+  final l10n = ApiResponseMessage.of(context);
   switch (error.type) {
     case DioExceptionType.transformTimeout:
-      return DataSource.sendTimeout.getFailure();
+      return ErrorType.sendTimeout.getFailure(context);
     case DioExceptionType.connectionTimeout:
-      return DataSource.connectTimeout.getFailure();
+      return ErrorType.connectTimeout.getFailure(context);
     case DioExceptionType.sendTimeout:
-      return DataSource.sendTimeout.getFailure();
+      return ErrorType.sendTimeout.getFailure(context);
     case DioExceptionType.receiveTimeout:
-      return DataSource.receiveTimeout.getFailure();
+      return ErrorType.receiveTimeout.getFailure(context);
     case DioExceptionType.badResponse:
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.data != null) {
         String errorsMessage = "";
-        Map<String, dynamic> jsonObjectErrors = {};
         dynamic jsonObject = error.response?.data;
         int? statusCode = error.response?.statusCode;
         if (jsonObject != null) {
-          if (jsonObject.containsKey("errors")) {
-            jsonObjectErrors = jsonObject['errors'];
-            if (jsonObjectErrors.isNotEmpty) {
-              Iterable keys = jsonObjectErrors.keys;
-              for (String key in keys) {
-                if (errorsMessage.isNotEmpty) {
-                  errorsMessage =
-                      '$errorsMessage\n\n ${jsonObjectErrors[key][0]}';
-                } else {
-                  errorsMessage = " ${jsonObjectErrors[key][0].toString()}";
-                }
-              }
-            }
-          } else {
-            errorsMessage =
-                jsonObject['error'] ?? ApiResponseMessage.badRequestError;
-          }
+          errorsMessage =
+              jsonObject['error'] ?? l10n.badRequestError;
         }
         return Failure(
           statusCode:
@@ -248,21 +252,20 @@ Failure _handleError(DioException error) {
               jsonObject['statusCode'] ??
               ApiResponseCode.badRequest,
           status: ApiInternalStatus.failure,
-          message: jsonObject['error'] ?? ApiResponseMessage.badRequestError,
+          message: jsonObject['error'] ?? l10n.badRequestError,
           success: false,
-          jsonErrorObject: jsonObjectErrors,
           prettyMessage: errorsMessage,
         );
       } else {
-        return DataSource.badRequest.getFailure();
+        return ErrorType.badRequest.getFailure(context);
       }
     case DioExceptionType.cancel:
-      return DataSource.cancel.getFailure();
+      return ErrorType.cancel.getFailure(context);
     case DioExceptionType.unknown:
-      return DataSource.defaultError.getFailure();
+      return ErrorType.defaultError.getFailure(context);
     case DioExceptionType.connectionError:
-      return DataSource.defaultError.getFailure();
+      return ErrorType.defaultError.getFailure(context);
     case DioExceptionType.badCertificate:
-      return DataSource.defaultError.getFailure();
+      return ErrorType.defaultError.getFailure(context);
   }
 }

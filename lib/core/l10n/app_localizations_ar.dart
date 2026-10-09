@@ -31,4 +31,51 @@ class AppLocalizationsAr extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get noContentError => 'لا يوجد محتوى متاح.';
+
+  @override
+  String get badRequestError => 'طلب غير صالح. يرجى التحقق من المدخلات.';
+
+  @override
+  String get unAuthenticationError =>
+      'فشل في المصادقة. يرجى تسجيل الدخول مجددًا.';
+
+  @override
+  String get forbiddenError => 'تم رفض الوصول.';
+
+  @override
+  String get internalServerError =>
+      'خطأ داخلي في الخادم. يرجى المحاولة مرة أخرى لاحقًا.';
+
+  @override
+  String get notFoundError => 'المورد غير موجود.';
+
+  @override
+  String get conflictError => 'حدث تعارض. يرجى إعادة المحاولة.';
+
+  @override
+  String get apiLogicalError => 'أرجع الخادم خطأ منطقياً.';
+
+  @override
+  String get connectTimeoutError => 'انتهت مهلة الاتصال.';
+
+  @override
+  String get cancelError => 'تم إلغاء الطلب.';
+
+  @override
+  String get receiveTimeoutError => 'انتهت مهلة الاستلام.';
+
+  @override
+  String get sendTimeoutError => 'انتهت مهلة الإرسال.';
+
+  @override
+  String get cacheError => 'حدث خطأ في الذاكرة المؤقتة.';
+
+  @override
+  String get noInternetConnectionError => 'لا يوجد اتصال بالإنترنت.';
+
+  @override
+  String get defaultError => 'حدث خطأ غير متوقع.';
 }
