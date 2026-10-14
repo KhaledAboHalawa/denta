@@ -4,63 +4,109 @@ import 'app_colors.dart';
 import 'app_typography.dart';
 
 abstract final class AppTheme {
-  static ThemeData light() => _build(_lightScheme);
-  static ThemeData dark() => _build(_darkScheme);
+  static final ColorScheme _lightScheme =
+      ColorScheme.fromSeed(
+        seedColor: AppPalette.primary,
+        brightness: Brightness.light,
+      ).copyWith(
+        primary: AppPalette.primary,
+        onPrimary: AppPalette.white,
+        secondary: AppPalette.secondary,
+        onSecondary: AppPalette.accent,
+        secondaryContainer: AppPalette.secondary,
+        onSecondaryContainer: AppPalette.accent,
+        tertiary: AppPalette.accent,
+        onTertiary: AppPalette.white,
+        error: AppPalette.error,
+        onError: AppPalette.white,
+        surface: AppPalette.background,
+        onSurface: AppPalette.textMain,
+        outline: AppPalette.primary,
+      );
 
-  static final ColorScheme _lightScheme = ColorScheme.fromSeed(
-    seedColor: AppColors.dentaBlue,
+  static final ColorScheme _darkScheme =
+      ColorScheme.fromSeed(
+        seedColor: AppPalette.primary,
+        brightness: Brightness.dark,
+      ).copyWith(
+        primary: AppPalette.primary,
+        onPrimary: AppPalette.white,
+        secondary: AppPalette.secondary,
+        onSecondary: AppPalette.accent,
+        secondaryContainer: AppPalette.accent,
+        onSecondaryContainer: AppPalette.white,
+        tertiary: AppPalette.secondary,
+        onTertiary: AppPalette.accent,
+        error: AppPalette.error,
+        onError: AppPalette.white,
+        surface: AppPalette.accent,
+        onSurface: AppPalette.secondary,
+        outline: AppPalette.primary,
+      );
+
+  static final ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
     brightness: Brightness.light,
-  ).copyWith(
-    primary: AppColors.dentaBlue,
-    onPrimary: AppColors.white,
-    secondary: AppColors.softLavender,
-    onSecondary: AppColors.deepNavy,
-    secondaryContainer: AppColors.softLavender,
-    onSecondaryContainer: AppColors.deepNavy,
-    tertiary: AppColors.deepNavy,
-    onTertiary: AppColors.white,
-    surface: AppColors.white,
-    onSurface: AppColors.deepNavy,
-  );
+    colorScheme: _lightScheme,
 
-  static final ColorScheme _darkScheme = ColorScheme.fromSeed(
-    seedColor: AppColors.dentaBlue,
-    brightness: Brightness.dark,
-  ).copyWith(
-    primary: AppColors.softLavender,
-    onPrimary: AppColors.deepNavy,
-    secondary: AppColors.dentaBlue,
-    onSecondary: AppColors.white,
-    secondaryContainer: AppColors.dentaBlue,
-    onSecondaryContainer: AppColors.white,
-    surface: AppColors.deepNavy,
-    onSurface: AppColors.white,
-  );
+    extensions: const [AppColorsExtension.light],
 
-  static ThemeData _build(ColorScheme scheme) {
-    return ThemeData(
-      useMaterial3: true,
-      brightness: scheme.brightness,
-      colorScheme: scheme,
-      scaffoldBackgroundColor: scheme.surface,
-      fontFamily: AppTypography.fontFamily,
-      textTheme: AppTypography.textTheme.apply(
-        bodyColor: scheme.onSurface,
-        displayColor: scheme.onSurface,
-      ),
-      appBarTheme: AppBarTheme(
-        backgroundColor: scheme.surface,
-        foregroundColor: scheme.onSurface,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-      ),
-      iconTheme: IconThemeData(color: scheme.primary),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: scheme.primary,
-          foregroundColor: scheme.onPrimary,
+    scaffoldBackgroundColor: _lightScheme.surface,
+
+    fontFamily: AppTypography.fontFamily,
+
+    textTheme: AppTypography.textTheme,
+
+    appBarTheme: AppBarTheme(
+      backgroundColor: _lightScheme.surface,
+      foregroundColor: _lightScheme.onSurface,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+    ),
+
+    iconTheme: IconThemeData(color: _lightScheme.primary),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        textStyle: AppTypography.textTheme.labelLarge,
+        backgroundColor: _lightScheme.primary,
+        foregroundColor: _lightScheme.onPrimary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(color: _lightScheme.primary, width: 1),
         ),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       ),
-    );
-  }
+    ),
+  );
+
+  static final ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    colorScheme: _darkScheme,
+
+    extensions: const [AppColorsExtension.dark],
+
+    scaffoldBackgroundColor: _darkScheme.surface,
+
+    fontFamily: AppTypography.fontFamily,
+
+    textTheme: AppTypography.textTheme,
+
+    appBarTheme: AppBarTheme(
+      backgroundColor: _darkScheme.surface,
+      foregroundColor: _darkScheme.onSurface,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+    ),
+
+    iconTheme: IconThemeData(color: _darkScheme.secondary),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _darkScheme.primary,
+        foregroundColor: _darkScheme.onPrimary,
+      ),
+    ),
+  );
 }

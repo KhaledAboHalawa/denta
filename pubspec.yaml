@@ -7,21 +7,35 @@ environment:
   sdk: ^3.13.2
 
 dependencies:
-  cached_network_image: ^4.0.4
-  dio: ^5.11.1
-  equatable: ^3.0.0
   flutter:
     sdk: flutter
-  flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^2.3.0
-  get_it: ^9.3.0
-  go_router: ^18.0.2
-  injectable: ^3.0.0
-  intl: any
+
+  # State Management
+  equatable: ^3.0.0
+  flutter_bloc: ^9.1.1
+
+  # Storage
   shared_preferences: ^2.5.6
+
+  # Dependency Injection & Service Locator
+  get_it: ^9.3.0
+  injectable: ^3.0.0
+
+  # Networking
+  dio: ^5.11.1
+
+  # Routing
+  go_router: ^18.0.2
+
+  # UI & Styling
+  cached_network_image: ^4.0.4
+  flutter_svg: ^2.3.0
   skeletonizer: ^3.0.0
+
+  # Internationalization & Utilities
+  intl: any
 
 dev_dependencies:
 
@@ -37,14 +51,20 @@ flutter:
   uses-material-design: true
   generate: true
 
+  assets:
+    - assets/images/
+    - assets/icons/
+
   fonts:
     - family: PlusJakartaSans
       fonts:
-        - asset: assets/fonts/plus_jakarta/PlusJakartaSans-Regular.ttf
+        - asset: assets/fonts/PlusJakartaSans-Regular.ttf
           weight: 400
-        - asset: assets/fonts/plus_jakarta/PlusJakartaSans-Medium.ttf
+        - asset: assets/fonts/PlusJakartaSans-Medium.ttf
           weight: 500
-        - asset: assets/fonts/plus_jakarta/PlusJakartaSans-SemiBold.ttf
+        - asset: assets/fonts/PlusJakartaSans-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/plus_jakarta/PlusJakartaSans-Bold.ttf
+        - asset: assets/fonts/PlusJakartaSans-Bold.ttf
           weight: 700
+        - asset: assets/fonts/PlusJakartaSans-ExtraBold.ttf
+          weight: 800
