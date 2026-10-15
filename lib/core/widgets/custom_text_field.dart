@@ -16,13 +16,15 @@ class CustomTextField extends StatefulWidget {
     required this.focusNode,
     this.onSubmitted,
     this.labelText,
+    this.keyboardType,
   });
   final String hint;
   final String? labelText;
+  final TextInputType? keyboardType;
   final FocusNode focusNode;
   final void Function(String value)? onSubmitted;
   final bool? canRequestFocus;
-  final String? Function(String?)? validator;
+  final String? Function(String? value)? validator;
   final void Function(String)? onChange;
   final TextEditingController controller;
   final bool isPassword;
@@ -33,6 +35,13 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool _obscureText = true;
+  @override
+  void didUpdateWidget(covariant CustomTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    widget.focusNode.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +52,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (widget.labelText != null) Text(widget.labelText!),
         SizedBox(height: 6),
         SizedBox(
-          height: 56,
+          height: 60,
           child: TextFormField(
             canRequestFocus: widget.canRequestFocus ?? true,
             validator: widget.validator,
+            keyboardType: widget.keyboardType,
             focusNode: widget.focusNode,
             onFieldSubmitted: widget.onSubmitted,
-            onTapOutside: (event) => widget.focusNode.unfocus(),
             onChanged: widget.onChange,
             controller: widget.controller,
             obscureText: widget.isPassword && _obscureText,
@@ -100,50 +109,48 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       ),
                     )
                   : null,
-              filled: true,
               fillColor: Colors.transparent,
-              labelText: widget.hint,
-              labelStyle: context.text.captionDefault,
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 12,
+              hintText: widget.hint,
+              hintStyle: context.text.captionDefault.copyWith(
+                color: (widget.focusNode.hasFocus)
+                    ? Theme.of(context).primaryColor
+                    : null,
               ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: context.appColors.info,
                   width: 1.0,
                 ),
-                borderRadius: BorderRadius.circular(12.0),
+                borderRadius: BorderRadius.circular(8.0),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Theme.of(context).primaryColor,
                   width: 1.0,
                 ),
-                borderRadius: BorderRadius.circular(12.0),
+                borderRadius: BorderRadius.circular(8.0),
               ),
               disabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: context.appColors.info,
                   width: 1.0,
                 ),
-                borderRadius: BorderRadius.circular(12.0),
+                borderRadius: BorderRadius.circular(8.0),
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: context.appColors.error,
                   width: 1.0,
                 ),
-                borderRadius: BorderRadius.circular(12.0),
+                borderRadius: BorderRadius.circular(8.0),
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12.0),
+                borderRadius: BorderRadius.circular(8.0),
               ),
             ),
             cursorHeight: 20,
-            style: context.text.captionDefault.copyWith(
-              color: Theme.of(context).colorScheme.primary,
-            ),
+            style: context.text.bodyDefault,
           ),
         ),
       ],

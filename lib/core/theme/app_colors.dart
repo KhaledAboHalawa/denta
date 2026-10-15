@@ -16,6 +16,7 @@ abstract final class AppPalette {
   static const Color white = Color(0xFFFFFFFF);
   static const Color background = Color(0xFFFFFFFF);
   static const Color textMain = Color(0xFF1C1D1D);
+  static const Color infoLight = Color(0xFFD9E2E7);
   static const Color textLight = Color(0xFFEDEDFB);
   static const Color inputFill = Color(0xFFF7F7F9);
 }
@@ -28,6 +29,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.info,
     required this.inputFill,
     required this.error,
+    required this.infoLight,
   });
 
   final Color success;
@@ -35,12 +37,14 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color error;
   final Color info;
   final Color inputFill;
+  final Color infoLight;
 
   static const light = AppColorsExtension(
     success: AppPalette.success,
     warning: AppPalette.warning,
     error: AppPalette.error,
     info: AppPalette.info,
+    infoLight: AppPalette.infoLight,
     inputFill: AppPalette.inputFill,
   );
 
@@ -49,6 +53,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     warning: AppPalette.warning,
     error: AppPalette.error,
     info: AppPalette.info,
+    infoLight: AppPalette.infoLight,
     inputFill: Color(0xFF252B40),
   );
 
@@ -58,6 +63,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? warning,
     Color? error,
     Color? info,
+    Color? infoLight,
     Color? inputFill,
   }) {
     return AppColorsExtension(
@@ -65,6 +71,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       warning: warning ?? this.warning,
       error: error ?? this.error,
       info: info ?? this.info,
+      infoLight: infoLight ?? this.infoLight,
       inputFill: inputFill ?? this.inputFill,
     );
   }
@@ -81,6 +88,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       warning: Color.lerp(warning, other.warning, t)!,
       error: Color.lerp(error, other.error, t)!,
       info: Color.lerp(info, other.info, t)!,
+      infoLight: Color.lerp(infoLight, other.infoLight, t)!,
       inputFill: Color.lerp(inputFill, other.inputFill, t)!,
     );
   }
