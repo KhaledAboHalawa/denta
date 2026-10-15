@@ -68,6 +68,9 @@ abstract final class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+        minimumSize: Size(0, 0),
+        elevation: 0,
         textStyle: AppTypography.textTheme.labelLarge,
         backgroundColor: _lightScheme.primary,
         foregroundColor: _lightScheme.onPrimary,
@@ -75,7 +78,6 @@ abstract final class AppTheme {
           borderRadius: BorderRadius.circular(12),
           side: BorderSide(color: _lightScheme.primary, width: 1),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       ),
     ),
   );
@@ -104,8 +106,15 @@ abstract final class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        minimumSize: Size(0, 0),
         backgroundColor: _darkScheme.primary,
         foregroundColor: _darkScheme.onPrimary,
+        textStyle: AppTypography.textTheme.labelLarge,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(color: _lightScheme.primary, width: 1),
+        ),
       ),
     ),
   );

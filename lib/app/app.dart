@@ -1,4 +1,5 @@
 import 'package:denta/core/localization/locale_cubit.dart';
+import 'package:denta/core/routing/app_router.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final locale = context.watch<LocaleCubit>().state;
     final themeMode = context.watch<ThemeCubit>().state;
-    return MaterialApp(
+    return MaterialApp.router(
       locale: locale,
       themeMode: themeMode,
       theme: AppTheme.lightTheme,
@@ -22,12 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Scaffold(
-        body: LayoutBuilder(
-          builder: (context, constraints) =>
-              Center(child: Text('hello', style: context.text.captionDefault)),
-        ),
-      ),
+      routerConfig: router,
     );
   }
 }
