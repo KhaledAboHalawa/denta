@@ -205,6 +205,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'An unexpected error occurred.'**
   String get defaultError;
+
+  /// No description provided for @registerFirstNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your First name here'**
+  String get registerFirstNameHint;
+
+  /// No description provided for @registerFirstNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get registerFirstNameLabel;
+
+  /// No description provided for @registerLastNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Last name here'**
+  String get registerLastNameHint;
+
+  /// No description provided for @registerLastNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get registerLastNameLabel;
+
+  /// No description provided for @registerEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your university email here'**
+  String get registerEmailHint;
+
+  /// No description provided for @registerEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'University E-mail'**
+  String get registerEmailLabel;
+
+  /// No description provided for @registerContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get registerContinue;
+
+  /// No description provided for @registerPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Password here'**
+  String get registerPasswordHint;
+
+  /// No description provided for @registerPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get registerPasswordLabel;
+
+  /// No description provided for @registerConfirmPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Confirm Password here'**
+  String get registerConfirmPasswordHint;
+
+  /// No description provided for @registerConfirmPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get registerConfirmPasswordLabel;
+
+  /// No description provided for @registerCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get registerCreateAccount;
+
+  /// No description provided for @registerSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up your profile and find the right care, nearby.'**
+  String get registerSubTitle;
+
+  /// No description provided for @registerDivider.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get registerDivider;
+
+  /// No description provided for @registerAlreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account? '**
+  String get registerAlreadyHaveAccount;
+
+  /// No description provided for @registerSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get registerSignIn;
 }
 
 class _AppLocalizationsDelegate

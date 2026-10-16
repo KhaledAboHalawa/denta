@@ -2,9 +2,9 @@ import 'package:denta/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
 class AuthAppBar extends StatelessWidget {
-  const AuthAppBar({super.key, this.onlyLogo = false});
-
+  const AuthAppBar({super.key, this.onlyLogo = false, this.onBack});
   final bool onlyLogo;
+  final VoidCallback? onBack;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,7 +15,7 @@ class AuthAppBar extends StatelessWidget {
           if (!onlyLogo)
             IconButton(
               iconSize: 20,
-              onPressed: () {},
+              onPressed: onBack,
               icon: Icon(Icons.arrow_back_ios_new),
               style: IconButton.styleFrom(
                 tapTargetSize: .shrinkWrap,

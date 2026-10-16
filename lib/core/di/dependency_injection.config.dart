@@ -15,6 +15,7 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../features/register/presentation/bloc/register_bloc.dart' as _i771;
 import '../localization/locale_cubit.dart' as _i960;
 import '../network/localizaton_interceptor.dart' as _i356;
 import '../shared/theming/cubit/theming_cubit.dart' as _i137;
@@ -33,6 +34,7 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
+    gh.lazySingleton<_i771.RegisterBloc>(() => _i771.RegisterBloc());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
     gh.lazySingleton<_i960.LocaleCubit>(
       () => _i960.LocaleCubit(gh<_i460.SharedPreferences>()),

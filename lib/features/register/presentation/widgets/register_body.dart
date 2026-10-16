@@ -1,47 +1,19 @@
-import 'package:denta/core/utils/app_validators.dart';
-import 'package:denta/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/auth/auth_app_bar.dart';
 import '../../../../core/widgets/auth/auth_divider.dart';
 import '../../../../core/widgets/auth/auth_text_banner.dart';
+import '../../../../core/widgets/auth/slide_switcher.dart';
 import '../../../../core/widgets/auth/social_auth_section.dart';
-import '../../../../core/widgets/custom_text_field.dart';
+import '../bloc/register_bloc.dart';
+import 'first_register_form.dart';
+import 'second_register_form.dart';
 
-class RegisterBody extends StatefulWidget {
+class RegisterBody extends StatelessWidget {
   const RegisterBody({super.key});
-
-  @override
-  State<RegisterBody> createState() => _RegisterBodyState();
-}
-
-class _RegisterBodyState extends State<RegisterBody> {
-  late final TextEditingController firstNameController;
-  late final TextEditingController lastNameController;
-  late final TextEditingController emailController;
-
-  late final List<FocusNode> nodes;
-
-  @override
-  void initState() {
-    super.initState();
-    firstNameController = TextEditingController();
-    lastNameController = TextEditingController();
-    emailController = TextEditingController();
-
-    nodes = [FocusNode(), FocusNode(), FocusNode()];
-  }
-
-  @override
-  void dispose() {
-    firstNameController.dispose();
-    lastNameController.dispose();
-    emailController.dispose();
-    for (var node in nodes) {
-      node.dispose();
-    }
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,87 +22,71 @@ class _RegisterBodyState extends State<RegisterBody> {
       child: Column(
         children: [
           SizedBox(height: MediaQuery.of(context).padding.top + 35),
-          const AuthAppBar(onlyLogo: false),
+          AuthAppBar(
+            onlyLogo: false,
+            onBack: () {
+              context.read<RegisterBloc>().doIntent(RegisterBackEvent());
+            },
+          ),
           const SizedBox(height: 34),
-          const AuthTextBanner(
-            title: "Create Account",
-            subTitle: "Set up your profile and find the right care, nearby.",
+          AuthTextBanner(
+            title: AppLocalizations.of(context)!.registerCreateAccount,
+            subTitle: AppLocalizations.of(context)!.registerSubTitle,
           ),
           Expanded(
-            child: SingleChildScrollView(
-              hitTestBehavior: HitTestBehavior.opaque,
-              keyboardDismissBehavior: .manual,
-              physics: ClampingScrollPhysics(),
-              padding: const EdgeInsets.only(top: 37, left: 20, right: 20),
-              child: Column(
-                children: [
-                  CustomTextField(
-                    controller: firstNameController,
-                    hint: 'Enter your First name here',
-                    focusNode: nodes[0],
-                    validator: (value) => AppValidators.validateName(value),
-                    onSubmitted: (_) {
-                      nodes[1].requestFocus();
-                    },
-                    labelText: 'First Name',
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextField(
-                    controller: lastNameController,
-                    hint: 'Enter your Last name here',
-                    focusNode: nodes[1],
-                    onSubmitted: (_) {
-                      nodes[2].requestFocus();
-                    },
-                    labelText: 'Last Name',
-                  ),
-                  const SizedBox(height: 15),
-                  CustomTextField(
-                    controller: emailController,
-                    hint: 'Enter your university email here',
-                    focusNode: nodes[2],
-                    onSubmitted: (_) {
-                      nodes[2].unfocus();
-                    },
-                    labelText: 'University E-mail',
-                  ),
-                  const SizedBox(height: 24),
-                  CustomButton(
-                    title: 'Continue',
-                    isLoading: false,
-                    onPressed: () {},
-                  ),
-                  const SizedBox(height: 48),
-                  const AuthDivider(title: 'Register'),
-                  const SizedBox(height: 24),
-                  const SocialAuthSection(),
-                  SizedBox(
-                    height:
-                        MediaQuery.of(context).size.height -
-                        (35 +
-                            34 * 2 +
-                            200 +
-                            37 +
-                            90 * 3 +
-                            24 +
-                            24 +
-                            48 +
-                            30 +
-                            56 +
-                            20),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('Already have an account? '),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text('Sign in'),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
+                  keyboardDismissBehavior:
+                      ScrollViewKeyboardDismissBehavior.manual,
+                  padding: const EdgeInsets.only(top: 37, left: 20, right: 20),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight - 37,
+                    ),
+                    child: IntrinsicHeight(
+                      child: Column(
+                        children: [
+                          BlocBuilder<RegisterBloc, RegisterState>(
+                            buildWhen: (prev, curr) =>
+                                prev.registerPageIndex !=
+                                curr.registerPageIndex,
+                            builder: (context, state) {
+                              return SlideSwitcher(
+                                index: state.registerPageIndex,
+                                children: [
+                                  const FirstRegisterForm(
+                                    key: ValueKey('first'),
+                                  ),
+                                  const SecondRegisterForm(
+                                    key: ValueKey('second'),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                          const SizedBox(height: 48),
+                          AuthDivider(title: AppLocalizations.of(context)!.registerDivider),
+                          const SizedBox(height: 24),
+                          const SocialAuthSection(),
+                          const Spacer(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(AppLocalizations.of(context)!.registerAlreadyHaveAccount),
+                              TextButton(
+                                onPressed: () {},
+                                child: Text(AppLocalizations.of(context)!.registerSignIn),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ],

@@ -78,4 +78,53 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get defaultError => 'حدث خطأ غير متوقع.';
+
+  @override
+  String get registerFirstNameHint => 'أدخل اسمك الأول هنا';
+
+  @override
+  String get registerFirstNameLabel => 'الاسم الأول';
+
+  @override
+  String get registerLastNameHint => 'أدخل اسم العائلة هنا';
+
+  @override
+  String get registerLastNameLabel => 'اسم العائلة';
+
+  @override
+  String get registerEmailHint => 'أدخل بريدك الجامعي هنا';
+
+  @override
+  String get registerEmailLabel => 'البريد الجامعي';
+
+  @override
+  String get registerContinue => 'متابعة';
+
+  @override
+  String get registerPasswordHint => 'أدخل كلمة المرور هنا';
+
+  @override
+  String get registerPasswordLabel => 'كلمة المرور';
+
+  @override
+  String get registerConfirmPasswordHint => 'أدخل تأكيد كلمة المرور هنا';
+
+  @override
+  String get registerConfirmPasswordLabel => 'تأكيد كلمة المرور';
+
+  @override
+  String get registerCreateAccount => 'إنشاء حساب';
+
+  @override
+  String get registerSubTitle =>
+      'أنشئ ملفك الشخصي واعثر على الرعاية المناسبة بالقرب منك.';
+
+  @override
+  String get registerDivider => 'التسجيل';
+
+  @override
+  String get registerAlreadyHaveAccount => 'لديك حساب بالفعل؟ ';
+
+  @override
+  String get registerSignIn => 'تسجيل الدخول';
 }

@@ -75,4 +75,53 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get defaultError => 'An unexpected error occurred.';
+
+  @override
+  String get registerFirstNameHint => 'Enter your First name here';
+
+  @override
+  String get registerFirstNameLabel => 'First Name';
+
+  @override
+  String get registerLastNameHint => 'Enter your Last name here';
+
+  @override
+  String get registerLastNameLabel => 'Last Name';
+
+  @override
+  String get registerEmailHint => 'Enter your university email here';
+
+  @override
+  String get registerEmailLabel => 'University E-mail';
+
+  @override
+  String get registerContinue => 'Continue';
+
+  @override
+  String get registerPasswordHint => 'Enter your Password here';
+
+  @override
+  String get registerPasswordLabel => 'Password';
+
+  @override
+  String get registerConfirmPasswordHint => 'Enter your Confirm Password here';
+
+  @override
+  String get registerConfirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get registerCreateAccount => 'Create Account';
+
+  @override
+  String get registerSubTitle =>
+      'Set up your profile and find the right care, nearby.';
+
+  @override
+  String get registerDivider => 'Register';
+
+  @override
+  String get registerAlreadyHaveAccount => 'Already have an account? ';
+
+  @override
+  String get registerSignIn => 'Sign in';
 }

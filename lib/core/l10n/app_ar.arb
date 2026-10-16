@@ -17,5 +17,21 @@
   "sendTimeoutError": "انتهت مهلة الإرسال.",
   "cacheError": "حدث خطأ في الذاكرة المؤقتة.",
   "noInternetConnectionError": "لا يوجد اتصال بالإنترنت.",
-  "defaultError": "حدث خطأ غير متوقع."
+  "defaultError": "حدث خطأ غير متوقع.",
+  "registerFirstNameHint": "أدخل اسمك الأول هنا",
+  "registerFirstNameLabel": "الاسم الأول",
+  "registerLastNameHint": "أدخل اسم العائلة هنا",
+  "registerLastNameLabel": "اسم العائلة",
+  "registerEmailHint": "أدخل بريدك الجامعي هنا",
+  "registerEmailLabel": "البريد الجامعي",
+  "registerContinue": "متابعة",
+  "registerPasswordHint": "أدخل كلمة المرور هنا",
+  "registerPasswordLabel": "كلمة المرور",
+  "registerConfirmPasswordHint": "أدخل تأكيد كلمة المرور هنا",
+  "registerConfirmPasswordLabel": "تأكيد كلمة المرور",
+  "registerCreateAccount": "إنشاء حساب",
+  "registerSubTitle": "أنشئ ملفك الشخصي واعثر على الرعاية المناسبة بالقرب منك.",
+  "registerDivider": "التسجيل",
+  "registerAlreadyHaveAccount": "لديك حساب بالفعل؟ ",
+  "registerSignIn": "تسجيل الدخول"
 }
