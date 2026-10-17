@@ -74,7 +74,10 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
             focusNode: nodes[1],
             keyboardType: .visiblePassword,
             isPassword: true,
-            validator: (value) => AppValidators.validatePassword(value),
+            validator: (value) => AppValidators.validateConfirmPassword(
+              value,
+              passwordController.text,
+            ),
             onSubmitted: (_) {
               if (_formKey.currentState!.validate()) {
                 context.read<RegisterBloc>().doIntent(

@@ -69,6 +69,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
               ),
               suffixIcon: widget.isPassword
                   ? IconButton(
+                      style: IconButton.styleFrom(
+                        highlightColor: Colors.transparent,
+                      ),
                       icon: AnimatedCrossFade(
                         firstChild: Icon(
                           Icons.visibility_outlined,

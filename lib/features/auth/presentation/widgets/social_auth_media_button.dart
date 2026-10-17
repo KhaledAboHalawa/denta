@@ -13,7 +13,7 @@ class SocialAuthMediaButton extends StatelessWidget {
       onTap: onTap,
       behavior: .translucent,
       child: Container(
-        height: 58,
+        height: 56,
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
