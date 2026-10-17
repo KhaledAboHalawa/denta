@@ -51,6 +51,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         SizedBox(
           height: 60,
           child: TextFormField(
+            enableInteractiveSelection: !widget.isPassword,
             canRequestFocus: widget.canRequestFocus ?? true,
             validator: widget.validator,
             keyboardType: widget.keyboardType,

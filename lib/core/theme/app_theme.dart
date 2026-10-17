@@ -80,6 +80,9 @@ abstract final class AppTheme {
         ),
       ),
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      selectionHandleColor: Colors.transparent,
+    ),
   );
 
   static final ThemeData darkTheme = ThemeData(
