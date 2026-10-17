@@ -1,3 +1,4 @@
+import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
 
 class SlideSwitcher extends StatefulWidget {
@@ -45,6 +46,9 @@ class _SlideSwitcherState extends State<SlideSwitcher> {
                 : (_forward ? -1.0 : 1.0);
 
             return SlideTransition(
+              textDirection: AppLocalizations.of(context)!.localeName == "ar"
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
               position: Tween<Offset>(
                 begin: Offset(dx, 0),
                 end: Offset.zero,
