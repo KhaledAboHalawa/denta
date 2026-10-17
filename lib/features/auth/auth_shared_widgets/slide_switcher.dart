@@ -35,13 +35,7 @@ class _SlideSwitcherState extends State<SlideSwitcher> {
           layoutBuilder: (currentChild, previousChildren) {
             return Stack(
               alignment: Alignment.topCenter,
-              children: [
-                ...previousChildren.map(
-                  (child) =>
-                      Positioned(top: 0, left: 0, right: 0, child: child),
-                ),
-                ?currentChild,
-              ],
+              children: [...previousChildren, ?currentChild],
             );
           },
           transitionBuilder: (child, animation) {

@@ -1,7 +1,8 @@
+import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../theme/app_typography.dart';
+import '../../../core/theme/app_typography.dart';
 
 class AuthDivider extends StatelessWidget {
   const AuthDivider({super.key, required this.title});
@@ -10,7 +11,6 @@ class AuthDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width - 40,
-      height: 20,
       child: Row(
         mainAxisAlignment: .center,
         children: [
@@ -20,7 +20,7 @@ class AuthDivider extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Text(
-              "Or $title with",
+              "${AppLocalizations.of(context)!.or} $title ${AppLocalizations.of(context)!.withh}",
               style: context.text.bodyDefault.copyWith(
                 color: context.appColors.info,
               ),

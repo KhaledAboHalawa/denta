@@ -92,7 +92,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get registerLastNameLabel => 'اسم العائلة';
 
   @override
-  String get registerEmailHint => 'أدخل بريدك الجامعي هنا';
+  String get registerEmailHint => 'yourname@university.edu.eg';
 
   @override
   String get registerEmailLabel => 'البريد الجامعي';
@@ -101,7 +101,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get registerContinue => 'متابعة';
 
   @override
-  String get registerPasswordHint => 'أدخل كلمة المرور هنا';
+  String get registerPasswordHint =>
+      '...أدخل كلمة مرور مكونة من 8 أحرف على الأقل هنا';
 
   @override
   String get registerPasswordLabel => 'كلمة المرور';
@@ -127,4 +128,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get registerSignIn => 'تسجيل الدخول';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get withh => 'بواسطة';
 }

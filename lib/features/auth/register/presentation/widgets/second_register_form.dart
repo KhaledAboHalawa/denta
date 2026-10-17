@@ -3,9 +3,9 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/app_validators.dart';
-import '../../../../core/widgets/custom_button.dart';
-import '../../../../core/widgets/custom_text_field.dart';
+import '../../../../../core/utils/app_validators.dart';
+import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../core/widgets/custom_text_field.dart';
 import '../../domain/entities/register_request_params.dart';
 import '../bloc/register_bloc.dart';
 
@@ -34,6 +34,7 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
     );
 
     nodes = [FocusNode(), FocusNode()];
+    nodes[0].requestFocus();
   }
 
   @override
@@ -56,6 +57,7 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
             controller: passwordController,
             hint: AppLocalizations.of(context)!.registerPasswordHint,
             focusNode: nodes[0],
+            keyboardType: .visiblePassword,
             isPassword: true,
             validator: (value) => AppValidators.validatePassword(value),
             onSubmitted: (_) {
@@ -70,6 +72,7 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
             controller: confirmPasswordController,
             hint: AppLocalizations.of(context)!.registerConfirmPasswordHint,
             focusNode: nodes[1],
+            keyboardType: .visiblePassword,
             isPassword: true,
             validator: (value) => AppValidators.validatePassword(value),
             onSubmitted: (_) {
@@ -84,7 +87,8 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
                 );
               }
             },
-            labelText: AppLocalizations.of(context)!.registerConfirmPasswordLabel,
+            labelText: AppLocalizations.of(context)!
+                .registerConfirmPasswordLabel,
           ),
           const SizedBox(height: 24),
           CustomButton(

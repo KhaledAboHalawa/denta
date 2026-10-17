@@ -1,12 +1,12 @@
 import 'package:denta/core/di/dependency_injection.dart';
 import 'package:denta/core/l10n/app_localizations.dart';
-import 'package:denta/features/register/domain/entities/register_request_params.dart';
+import 'package:denta/features/auth/register/domain/entities/register_request_params.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/app_validators.dart';
-import '../../../../core/widgets/custom_button.dart';
-import '../../../../core/widgets/custom_text_field.dart';
+import '../../../../../core/utils/app_validators.dart';
+import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../core/widgets/custom_text_field.dart';
 import '../bloc/register_bloc.dart';
 
 class FirstRegisterForm extends StatefulWidget {
@@ -61,6 +61,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             controller: firstNameController,
             hint: AppLocalizations.of(context)!.registerFirstNameHint,
             focusNode: nodes[0],
+            keyboardType: .name,
             validator: (value) => AppValidators.validateName(value),
             onSubmitted: (_) {
               if (firstNameController.text.isNotEmpty) {
@@ -74,6 +75,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             controller: lastNameController,
             hint: AppLocalizations.of(context)!.registerLastNameHint,
             focusNode: nodes[1],
+            keyboardType: .name,
             validator: (value) => AppValidators.validateName(value),
             onSubmitted: (_) {
               if (lastNameController.text.isNotEmpty) {
@@ -87,6 +89,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             controller: emailController,
             hint: AppLocalizations.of(context)!.registerEmailHint,
             focusNode: nodes[2],
+            keyboardType: .emailAddress,
             validator: (value) => AppValidators.validateEmail(value),
             onSubmitted: (_) {
               if (emailController.text.isNotEmpty) {

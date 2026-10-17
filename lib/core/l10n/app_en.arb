@@ -28,16 +28,18 @@
   "registerFirstNameLabel": "First Name",
   "registerLastNameHint": "Enter your Last name here",
   "registerLastNameLabel": "Last Name",
-  "registerEmailHint": "Enter your university email here",
+  "registerEmailHint": "yourname@university.edu.eg",
   "registerEmailLabel": "University E-mail",
   "registerContinue": "Continue",
-  "registerPasswordHint": "Enter your Password here",
+  "registerPasswordHint": "Create Password with at least 8 characters here...",
   "registerPasswordLabel": "Password",
-  "registerConfirmPasswordHint": "Enter your Confirm Password here",
+  "registerConfirmPasswordHint": "Confirm your Password here",
   "registerConfirmPasswordLabel": "Confirm Password",
   "registerCreateAccount": "Create Account",
   "registerSubTitle": "Set up your profile and find the right care, nearby.",
   "registerDivider": "Register",
   "registerAlreadyHaveAccount": "Already have an account? ",
-  "registerSignIn": "Sign in"
+  "registerSignIn": "Log In",
+  "or": "Or",
+  "withh": "with"
 }

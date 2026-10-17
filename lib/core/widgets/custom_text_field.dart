@@ -1,7 +1,6 @@
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -10,7 +9,6 @@ class CustomTextField extends StatefulWidget {
     this.onChange,
     required this.controller,
     this.isPassword = false,
-    this.prefixIconPath,
     this.validator,
     this.canRequestFocus,
     required this.focusNode,
@@ -28,7 +26,6 @@ class CustomTextField extends StatefulWidget {
   final void Function(String)? onChange;
   final TextEditingController controller;
   final bool isPassword;
-  final String? prefixIconPath;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -72,13 +69,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
               suffixIcon: widget.isPassword
                   ? IconButton(
                       icon: AnimatedCrossFade(
-                        firstChild: const Icon(
+                        firstChild: Icon(
                           Icons.visibility_outlined,
                           size: 20,
+                          color: widget.focusNode.hasFocus
+                              ? Theme.of(context).colorScheme.primary
+                              : context.appColors.info,
                         ),
-                        secondChild: const Icon(
+                        secondChild: Icon(
                           Icons.visibility_off_outlined,
                           size: 20,
+                          color: widget.focusNode.hasFocus
+                              ? Theme.of(context).colorScheme.primary
+                              : context.appColors.info,
                         ),
                         crossFadeState: _obscureText
                             ? CrossFadeState.showSecond
@@ -90,23 +93,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                           _obscureText = !_obscureText;
                         });
                       },
-                    )
-                  : null,
-              prefixIconConstraints: const BoxConstraints(
-                minWidth: 38,
-                minHeight: 36,
-              ),
-              prefixIcon: widget.prefixIconPath != null
-                  ? Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        start: 16,
-                        end: 2, // ← reduce this to close the gap between icon and label
-                      ),
-                      child: SvgPicture.asset(
-                        widget.prefixIconPath!,
-                        width: 20,
-                        height: 20,
-                      ),
                     )
                   : null,
               fillColor: Colors.transparent,

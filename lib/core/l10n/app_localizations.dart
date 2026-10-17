@@ -233,7 +233,7 @@ abstract class AppLocalizations {
   /// No description provided for @registerEmailHint.
   ///
   /// In en, this message translates to:
-  /// **'Enter your university email here'**
+  /// **'yourname@university.edu.eg'**
   String get registerEmailHint;
 
   /// No description provided for @registerEmailLabel.
@@ -251,7 +251,7 @@ abstract class AppLocalizations {
   /// No description provided for @registerPasswordHint.
   ///
   /// In en, this message translates to:
-  /// **'Enter your Password here'**
+  /// **'Create Password with at least 8 characters here...'**
   String get registerPasswordHint;
 
   /// No description provided for @registerPasswordLabel.
@@ -263,7 +263,7 @@ abstract class AppLocalizations {
   /// No description provided for @registerConfirmPasswordHint.
   ///
   /// In en, this message translates to:
-  /// **'Enter your Confirm Password here'**
+  /// **'Confirm your Password here'**
   String get registerConfirmPasswordHint;
 
   /// No description provided for @registerConfirmPasswordLabel.
@@ -299,8 +299,20 @@ abstract class AppLocalizations {
   /// No description provided for @registerSignIn.
   ///
   /// In en, this message translates to:
-  /// **'Sign in'**
+  /// **'Log In'**
   String get registerSignIn;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @withh.
+  ///
+  /// In en, this message translates to:
+  /// **'with'**
+  String get withh;
 }
 
 class _AppLocalizationsDelegate

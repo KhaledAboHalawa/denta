@@ -89,7 +89,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerLastNameLabel => 'Last Name';
 
   @override
-  String get registerEmailHint => 'Enter your university email here';
+  String get registerEmailHint => 'yourname@university.edu.eg';
 
   @override
   String get registerEmailLabel => 'University E-mail';
@@ -98,13 +98,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerContinue => 'Continue';
 
   @override
-  String get registerPasswordHint => 'Enter your Password here';
+  String get registerPasswordHint =>
+      'Create Password with at least 8 characters here...';
 
   @override
   String get registerPasswordLabel => 'Password';
 
   @override
-  String get registerConfirmPasswordHint => 'Enter your Confirm Password here';
+  String get registerConfirmPasswordHint => 'Confirm your Password here';
 
   @override
   String get registerConfirmPasswordLabel => 'Confirm Password';
@@ -123,5 +124,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerAlreadyHaveAccount => 'Already have an account? ';
 
   @override
-  String get registerSignIn => 'Sign in';
+  String get registerSignIn => 'Log In';
+
+  @override
+  String get or => 'Or';
+
+  @override
+  String get withh => 'with';
 }

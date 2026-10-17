@@ -18,7 +18,6 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       width: shrink ? null : double.infinity,
       child: ElevatedButton(
-       
         onPressed: onPressed,
         child: isLoading
             ? CircularProgressIndicator()

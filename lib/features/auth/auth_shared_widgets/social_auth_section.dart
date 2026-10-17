@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/app_icons.dart';
+import '../../../core/utils/app_icons.dart';
 import 'social_auth_media_button.dart';
 
 class SocialAuthSection extends StatelessWidget {
