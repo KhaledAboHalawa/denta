@@ -17,7 +17,7 @@ class SocialAuthMediaButton extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: context.appColors.infoLight, width: 1),
+          border: Border.all(color: context.appColors.infoHover, width: 1),
         ),
         child: SvgPicture.asset(iconPath, fit: BoxFit.scaleDown),
       ),

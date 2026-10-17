@@ -242,11 +242,11 @@ abstract class AppLocalizations {
   /// **'University E-mail'**
   String get registerEmailLabel;
 
-  /// No description provided for @registerContinue.
+  /// No description provided for @continueButton.
   ///
   /// In en, this message translates to:
   /// **'Continue'**
-  String get registerContinue;
+  String get continueButton;
 
   /// No description provided for @registerPasswordHint.
   ///
@@ -313,6 +313,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'with'**
   String get withh;
+
+  /// No description provided for @patient.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m a patient'**
+  String get patient;
+
+  /// No description provided for @dentist.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m a dental student'**
+  String get dentist;
+
+  /// No description provided for @patientDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get affordable, supervised dental care from trusted dental students near you.'**
+  String get patientDesc;
+
+  /// No description provided for @dentistDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Find clinical cases, get matched with patients nearby, and buy, sell, or donate dental tools.'**
+  String get dentistDesc;
+
+  /// No description provided for @roleSelectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Which One Are You?'**
+  String get roleSelectionTitle;
+
+  /// No description provided for @roleSelectionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This helps us set up the right experience for you.'**
+  String get roleSelectionSubtitle;
 }
 
 class _AppLocalizationsDelegate

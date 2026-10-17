@@ -30,7 +30,7 @@
   "registerLastNameLabel": "Last Name",
   "registerEmailHint": "yourname@university.edu.eg",
   "registerEmailLabel": "University E-mail",
-  "registerContinue": "Continue",
+  "continueButton": "Continue",
   "registerPasswordHint": "Create Password with at least 8 characters here...",
   "registerPasswordLabel": "Password",
   "registerConfirmPasswordHint": "Confirm your Password here",
@@ -41,5 +41,11 @@
   "registerAlreadyHaveAccount": "Already have an account? ",
   "registerSignIn": "Log In",
   "or": "Or",
-  "withh": "with"
+  "withh": "with",
+  "patient": "I'm a patient",
+  "dentist": "I'm a dental student",
+  "patientDesc": "Get affordable, supervised dental care from trusted dental students near you.",
+  "dentistDesc": "Find clinical cases, get matched with patients nearby, and buy, sell, or donate dental tools.",
+  "roleSelectionTitle": "Which One Are You?",
+  "roleSelectionSubtitle": "This helps us set up the right experience for you."
 }

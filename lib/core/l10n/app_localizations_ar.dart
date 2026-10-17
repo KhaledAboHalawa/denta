@@ -98,7 +98,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get registerEmailLabel => 'البريد الجامعي';
 
   @override
-  String get registerContinue => 'متابعة';
+  String get continueButton => 'متابعة';
 
   @override
   String get registerPasswordHint =>
@@ -134,4 +134,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get withh => 'بواسطة';
+
+  @override
+  String get patient => 'أنا مريض';
+
+  @override
+  String get dentist => 'أنا طبيب أسنان';
+
+  @override
+  String get patientDesc =>
+      'احصل على رعاية أسنان بأسعار معقولة وتحت إشراف من طلاب طب أسنان موثوق بهم بالقرب منك.';
+
+  @override
+  String get dentistDesc =>
+      'اعثر على حالات سريرية، واحصل على تطابق مع المرضى القريبين، وقم بشراء أو بيع أو التبرع بالأدوات.';
+
+  @override
+  String get roleSelectionTitle => 'اي منهما تكون؟';
+
+  @override
+  String get roleSelectionSubtitle =>
+      'هذا يساعدنا في إعداد التجربة المناسبة لك';
 }

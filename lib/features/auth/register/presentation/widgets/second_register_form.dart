@@ -95,7 +95,7 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
           ),
           const SizedBox(height: 24),
           CustomButton(
-            title: AppLocalizations.of(context)!.registerContinue,
+            title: AppLocalizations.of(context)!.continueButton,
             isLoading: false,
             onPressed: () {
               if (_formKey.currentState!.validate()) {

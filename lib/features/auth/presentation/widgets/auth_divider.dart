@@ -15,7 +15,7 @@ class AuthDivider extends StatelessWidget {
         mainAxisAlignment: .center,
         children: [
           Expanded(
-            child: Divider(height: 1, color: context.appColors.infoLight),
+            child: Divider(height: 1, color: context.appColors.infoHover),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -27,7 +27,7 @@ class AuthDivider extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Divider(height: 1, color: context.appColors.infoLight),
+            child: Divider(height: 1, color: context.appColors.infoHover),
           ),
         ],
       ),

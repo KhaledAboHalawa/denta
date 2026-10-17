@@ -1,6 +1,7 @@
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/l10n/app_localizations.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
@@ -22,11 +23,14 @@ class RegisterBody extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Column(
         children: [
-          SizedBox(height: MediaQuery.of(context).padding.top + 35),
           AuthAppBar(
             onlyLogo: false,
             onBack: () {
-              context.read<RegisterBloc>().doIntent(RegisterBackEvent());
+              if (context.read<RegisterBloc>().state.registerPageIndex == 0) {
+                context.pop();
+              } else {
+                context.read<RegisterBloc>().doIntent(RegisterBackEvent());
+              }
             },
           ),
 
@@ -36,10 +40,10 @@ class RegisterBody extends StatelessWidget {
                 return SingleChildScrollView(
                   keyboardDismissBehavior:
                       ScrollViewKeyboardDismissBehavior.manual,
-                  padding: const EdgeInsets.only(top: 34, left: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 20, right: 20),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                      minHeight: constraints.maxHeight - 34,
+                      minHeight: constraints.maxHeight,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

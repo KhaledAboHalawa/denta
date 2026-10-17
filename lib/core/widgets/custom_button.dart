@@ -18,6 +18,13 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       width: shrink ? null : double.infinity,
       child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          side: BorderSide(
+            color: onPressed == null
+                ? Colors.transparent
+                : Theme.of(context).colorScheme.primary,
+          ),
+        ),
         onPressed: onPressed,
         child: isLoading
             ? CircularProgressIndicator()

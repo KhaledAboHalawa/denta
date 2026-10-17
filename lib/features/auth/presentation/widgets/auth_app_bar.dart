@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:denta/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
@@ -9,31 +7,38 @@ class AuthAppBar extends StatelessWidget {
   final VoidCallback? onBack;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 34,
-      child: Row(
-        mainAxisAlignment: onlyLogo ? .center : .spaceBetween,
-        children: [
-          if (!onlyLogo)
-            IconButton(
-              iconSize: 20,
-              onPressed: onBack,
-              icon: Icon(Icons.arrow_back_ios_new),
-              style: IconButton.styleFrom(
-                tapTargetSize: .shrinkWrap,
-                highlightColor: Colors.transparent,
+    return Padding(
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top + 35,
+        bottom: 34,
+      ),
+      child: SizedBox(
+        height: 34,
+        child: Row(
+          mainAxisAlignment: onlyLogo ? .center : .spaceBetween,
+          children: [
+            if (!onlyLogo)
+              IconButton(
+                iconSize: 20,
+                onPressed: onBack,
+                icon: Icon(Icons.arrow_back_ios_new),
+                style: IconButton.styleFrom(
+                  tapTargetSize: .shrinkWrap,
+                  highlightColor: Colors.transparent,
+                ),
               ),
+            Image.asset(
+              AppImages.logo,
+              height: 34,
+              cacheHeight: (34 * MediaQuery.of(context).devicePixelRatio)
+                  .round(),
             ),
-          Image.asset(
-            AppImages.logo,
-            height: 34,
-            cacheHeight: (34 * MediaQuery.of(context).devicePixelRatio).round(),
-          ),
-          if (!onlyLogo)
-            const SizedBox(
-              width: 40, // 20+2+20 width + left margin + icon size
-            ),
-        ],
+            if (!onlyLogo)
+              const SizedBox(
+                width: 40, // 20+2+20 width + left margin + icon size
+              ),
+          ],
+        ),
       ),
     );
   }

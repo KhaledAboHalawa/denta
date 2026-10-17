@@ -1,14 +1,11 @@
-import 'dart:developer';
 
 import 'package:denta/features/auth/register/domain/entities/register_request_params.dart';
 import 'package:denta/features/auth/register/domain/usecases/register_use_case.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../../core/config/base_state/base_state.dart';
-import '../../../../../core/di/dependency_injection.dart';
 
 part 'register_event.dart';
 part 'register_state.dart';
