@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:denta/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +24,11 @@ class AuthAppBar extends StatelessWidget {
                 highlightColor: Colors.transparent,
               ),
             ),
-          Image.asset(AppImages.logo, height: 34),
+          Image.asset(
+            AppImages.logo,
+            height: 34,
+            cacheHeight: (34 * MediaQuery.of(context).devicePixelRatio).round(),
+          ),
           if (!onlyLogo)
             const SizedBox(
               width: 40, // 20+2+20 width + left margin + icon size

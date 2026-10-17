@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:denta/features/auth/register/domain/entities/register_request_params.dart';
+import 'package:denta/features/auth/register/domain/usecases/register_use_case.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +15,8 @@ part 'register_state.dart';
 
 @lazySingleton
 class RegisterBloc extends Cubit<RegisterState> {
-  RegisterBloc() : super(RegisterState.initial());
+  final RegisterUseCase registerUseCase;
+  RegisterBloc(this.registerUseCase) : super(RegisterState.initial());
 
   void doIntent(RegisterEvent event) {
     event.when(
@@ -37,7 +39,7 @@ class RegisterBloc extends Cubit<RegisterState> {
     );
   }
 
-  void _submit(RegisterRequestParams params) {
+  void _submit(RegisterRequestParams params) async{
     emit(
       state.copyWith(
         params: state.params.copyWith(
@@ -47,10 +49,15 @@ class RegisterBloc extends Cubit<RegisterState> {
         response: const BaseState.loading(),
       ),
     );
-    log("submit${state.params.toString()}");
-    Future.delayed(const Duration(seconds: 2), () {
-      emit(state.copyWith(response: const BaseState.success(true)));
-    });
+    final result = await registerUseCase(params);
+    result.when(
+      success: (res) {
+        emit(state.copyWith(response: const BaseState.success(true)));
+      },
+      error: (fail) {
+        emit(state.copyWith(response: BaseState.error(fail.message)));
+      },
+    );
   }
 
   void _back() {
@@ -58,8 +65,4 @@ class RegisterBloc extends Cubit<RegisterState> {
       emit(state.copyWith(registerPageIndex: state.registerPageIndex - 1));
     }
   }
-}
-
-extension GetRegisterBloc on BuildContext {
-  RegisterBloc get registerBloc => getIt<RegisterBloc>();
 }

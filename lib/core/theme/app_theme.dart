@@ -120,5 +120,8 @@ abstract final class AppTheme {
         ),
       ),
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      selectionHandleColor: Colors.transparent,
+    ),
   );
 }

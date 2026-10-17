@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../data/models/register_request_model.dart';
+
 class RegisterRequestParams extends Equatable {
   final String firstName;
   final String lastName;
@@ -36,6 +38,16 @@ class RegisterRequestParams extends Equatable {
       email: email ?? this.email,
       password: password ?? this.password,
       confirmPassword: confirmPassword ?? this.confirmPassword,
+    );
+  }
+
+  RegisterRequestModel toModel() {
+    return RegisterRequestModel(
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
     );
   }
 

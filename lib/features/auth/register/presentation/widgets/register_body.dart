@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/l10n/app_localizations.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
-import '../../../auth_shared_widgets/auth_app_bar.dart';
-import '../../../auth_shared_widgets/auth_divider.dart';
-import '../../../auth_shared_widgets/auth_text_banner.dart';
-import '../../../auth_shared_widgets/slide_switcher.dart';
-import '../../../auth_shared_widgets/social_auth_section.dart';
+import '../../../presentation/widgets/auth_app_bar.dart';
+import '../../../presentation/widgets/auth_divider.dart';
+import '../../../presentation/widgets/auth_text_banner.dart';
+import '../../../presentation/widgets/slide_switcher.dart';
+import '../../../presentation/widgets/social_auth_section.dart';
 import '../bloc/register_bloc.dart';
 import 'first_register_form.dart';
 import 'second_register_form.dart';
