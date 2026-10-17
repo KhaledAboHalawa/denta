@@ -15,7 +15,16 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
-import '../../features/auth/register/presentation/bloc/register_bloc.dart' as _i771;
+import '../../features/auth/register/data/datasources/register_data_source.dart'
+    as _i613;
+import '../../features/auth/register/data/repositories/register_repo_impl.dart'
+    as _i248;
+import '../../features/auth/register/domain/repositories/register_repo.dart'
+    as _i668;
+import '../../features/auth/register/domain/usecases/register_use_case.dart'
+    as _i545;
+import '../../features/auth/register/presentation/bloc/register_bloc.dart'
+    as _i151;
 import '../localization/locale_cubit.dart' as _i960;
 import '../network/localizaton_interceptor.dart' as _i356;
 import '../shared/theming/cubit/theming_cubit.dart' as _i137;
@@ -34,13 +43,26 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
-    gh.lazySingleton<_i771.RegisterBloc>(() => _i771.RegisterBloc());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
+    gh.lazySingleton<_i613.RegisterDataSource>(
+      () => _i613.RegisterDataSource(gh<_i361.Dio>()),
+    );
     gh.lazySingleton<_i960.LocaleCubit>(
       () => _i960.LocaleCubit(gh<_i460.SharedPreferences>()),
     );
     gh.lazySingleton<_i137.ThemeCubit>(
       () => _i137.ThemeCubit(gh<_i460.SharedPreferences>()),
+    );
+    gh.lazySingleton<_i668.RegisterRepo>(
+      () => _i248.RegisterRepoImpl(
+        registerDataSource: gh<_i613.RegisterDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i545.RegisterUseCase>(
+      () => _i545.RegisterUseCase(registerRepo: gh<_i668.RegisterRepo>()),
+    );
+    gh.lazySingleton<_i151.RegisterBloc>(
+      () => _i151.RegisterBloc(gh<_i545.RegisterUseCase>()),
     );
     gh.lazySingleton<_i356.LocalizatonInterceptor>(
       () => _i356.LocalizatonInterceptor(gh<_i960.LocaleCubit>()),

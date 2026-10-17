@@ -12,9 +12,11 @@ class RegisterDataSource {
 
   RegisterDataSource(this._dio);
 
-  Future<Result<RegisterResponseModel>> register(RegisterRequestModel params) async {
+  Future<Result<RegisterResponseModel>> register(
+    RegisterRequestModel params,
+  ) async {
     return await executeApiCall(
-      apiCall: () => _dio.post('/Wating for Hamada', data: params.toJson()),
+      apiCall: () => _dio.post('/Wating', data: params.toJson()),
       parser: (json) => RegisterResponseModel.fromJson(json),
     );
   }
