@@ -15,15 +15,15 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
-import '../../features/auth/register/data/datasources/register_data_source.dart'
+import '../../features/register/data/datasources/register_data_source.dart'
     as _i613;
-import '../../features/auth/register/data/repositories/register_repo_impl.dart'
+import '../../features/register/data/repositories/register_repo_impl.dart'
     as _i248;
-import '../../features/auth/register/domain/repositories/register_repo.dart'
+import '../../features/register/domain/repositories/register_repo.dart'
     as _i668;
-import '../../features/auth/register/domain/usecases/register_use_case.dart'
+import '../../features/register/domain/usecases/register_use_case.dart'
     as _i545;
-import '../../features/auth/register/presentation/bloc/register_bloc.dart'
+import '../../features/register/presentation/bloc/register_bloc.dart'
     as _i151;
 import '../localization/locale_cubit.dart' as _i960;
 import '../network/localizaton_interceptor.dart' as _i356;

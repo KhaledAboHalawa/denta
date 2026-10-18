@@ -92,10 +92,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get registerLastNameLabel => 'اسم العائلة';
 
   @override
-  String get registerEmailHint => 'yourname@university.edu.eg';
+  String get registerDentistEmailHint => 'yourname@university.edu.eg';
 
   @override
-  String get registerEmailLabel => 'البريد الجامعي';
+  String get registerPatientEmailHint => 'أدخل بريدك الإلكتروني هنا';
+
+  @override
+  String get registerDentistEmailLabel => 'البريد الجامعي';
+
+  @override
+  String get registerPatientEmailLabel => 'البريد الإلكتروني';
 
   @override
   String get continueButton => 'متابعة';

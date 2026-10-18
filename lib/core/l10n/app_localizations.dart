@@ -230,17 +230,29 @@ abstract class AppLocalizations {
   /// **'Last Name'**
   String get registerLastNameLabel;
 
-  /// No description provided for @registerEmailHint.
+  /// No description provided for @registerDentistEmailHint.
   ///
   /// In en, this message translates to:
   /// **'yourname@university.edu.eg'**
-  String get registerEmailHint;
+  String get registerDentistEmailHint;
 
-  /// No description provided for @registerEmailLabel.
+  /// No description provided for @registerPatientEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Email here'**
+  String get registerPatientEmailHint;
+
+  /// No description provided for @registerDentistEmailLabel.
   ///
   /// In en, this message translates to:
   /// **'University E-mail'**
-  String get registerEmailLabel;
+  String get registerDentistEmailLabel;
+
+  /// No description provided for @registerPatientEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get registerPatientEmailLabel;
 
   /// No description provided for @continueButton.
   ///

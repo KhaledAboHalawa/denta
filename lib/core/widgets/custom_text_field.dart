@@ -23,7 +23,7 @@ class CustomTextField extends StatefulWidget {
   final void Function(String value)? onSubmitted;
   final bool? canRequestFocus;
   final String? Function(String? value)? validator;
-  final void Function(String)? onChange;
+  final void Function(String value)? onChange;
   final TextEditingController controller;
   final bool isPassword;
   @override
