@@ -1,0 +1,9 @@
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon_indigo_bg.png"   # iOS and legacy only
+  adaptive_icon_background: "assets/images/adaptive_background_indigo.png"
+  adaptive_icon_foreground: "assets/images/adaptive_foreground_white.png"
+  adaptive_icon_foreground_inset: 0
+  adaptive_icon_monochrome: "assets/images/adaptive_monochrome.png"
+  remove_alpha_ios: true
