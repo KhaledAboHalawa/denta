@@ -75,4 +75,87 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get defaultError => 'An unexpected error occurred.';
+
+  @override
+  String get registerFirstNameHint => 'Enter your First name here';
+
+  @override
+  String get registerFirstNameLabel => 'First Name';
+
+  @override
+  String get registerLastNameHint => 'Enter your Last name here';
+
+  @override
+  String get registerLastNameLabel => 'Last Name';
+
+  @override
+  String get registerDentistEmailHint => 'yourname@university.edu.eg';
+
+  @override
+  String get registerPatientEmailHint => 'Enter your Email here';
+
+  @override
+  String get registerDentistEmailLabel => 'University E-mail';
+
+  @override
+  String get registerPatientEmailLabel => 'Email';
+
+  @override
+  String get continueButton => 'Continue';
+
+  @override
+  String get registerPasswordHint =>
+      'Create Password with at least 8 characters here...';
+
+  @override
+  String get registerPasswordLabel => 'Password';
+
+  @override
+  String get registerConfirmPasswordHint => 'Confirm your Password here';
+
+  @override
+  String get registerConfirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get registerCreateAccount => 'Create Account';
+
+  @override
+  String get registerSubTitle =>
+      'Set up your profile and find the right care, nearby.';
+
+  @override
+  String get registerDivider => 'Register';
+
+  @override
+  String get registerAlreadyHaveAccount => 'Already have an account? ';
+
+  @override
+  String get registerSignIn => 'Log In';
+
+  @override
+  String get or => 'Or';
+
+  @override
+  String get withh => 'with';
+
+  @override
+  String get patient => 'I\'m a patient';
+
+  @override
+  String get dentist => 'I\'m a dental student';
+
+  @override
+  String get patientDesc =>
+      'Get affordable, supervised dental care from trusted dental students near you.';
+
+  @override
+  String get dentistDesc =>
+      'Find clinical cases, get matched with patients nearby, and buy, sell, or donate dental tools.';
+
+  @override
+  String get roleSelectionTitle => 'Which One Are You?';
+
+  @override
+  String get roleSelectionSubtitle =>
+      'This helps us set up the right experience for you.';
 }

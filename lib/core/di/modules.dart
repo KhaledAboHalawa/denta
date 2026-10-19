@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 @module
 abstract class RegisterModule {
   @Named("BaseUrl")
-  String get baseUrl => 'My base url';
+  String get baseUrl => 'https://denta';
 
   @lazySingleton
   Dio dio() => Dio(BaseOptions(baseUrl: baseUrl));

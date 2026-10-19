@@ -205,6 +205,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'An unexpected error occurred.'**
   String get defaultError;
+
+  /// No description provided for @registerFirstNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your First name here'**
+  String get registerFirstNameHint;
+
+  /// No description provided for @registerFirstNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get registerFirstNameLabel;
+
+  /// No description provided for @registerLastNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Last name here'**
+  String get registerLastNameHint;
+
+  /// No description provided for @registerLastNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get registerLastNameLabel;
+
+  /// No description provided for @registerDentistEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'yourname@university.edu.eg'**
+  String get registerDentistEmailHint;
+
+  /// No description provided for @registerPatientEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Email here'**
+  String get registerPatientEmailHint;
+
+  /// No description provided for @registerDentistEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'University E-mail'**
+  String get registerDentistEmailLabel;
+
+  /// No description provided for @registerPatientEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get registerPatientEmailLabel;
+
+  /// No description provided for @continueButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueButton;
+
+  /// No description provided for @registerPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Password with at least 8 characters here...'**
+  String get registerPasswordHint;
+
+  /// No description provided for @registerPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get registerPasswordLabel;
+
+  /// No description provided for @registerConfirmPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your Password here'**
+  String get registerConfirmPasswordHint;
+
+  /// No description provided for @registerConfirmPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get registerConfirmPasswordLabel;
+
+  /// No description provided for @registerCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get registerCreateAccount;
+
+  /// No description provided for @registerSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up your profile and find the right care, nearby.'**
+  String get registerSubTitle;
+
+  /// No description provided for @registerDivider.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get registerDivider;
+
+  /// No description provided for @registerAlreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account? '**
+  String get registerAlreadyHaveAccount;
+
+  /// No description provided for @registerSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get registerSignIn;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @withh.
+  ///
+  /// In en, this message translates to:
+  /// **'with'**
+  String get withh;
+
+  /// No description provided for @patient.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m a patient'**
+  String get patient;
+
+  /// No description provided for @dentist.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m a dental student'**
+  String get dentist;
+
+  /// No description provided for @patientDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get affordable, supervised dental care from trusted dental students near you.'**
+  String get patientDesc;
+
+  /// No description provided for @dentistDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Find clinical cases, get matched with patients nearby, and buy, sell, or donate dental tools.'**
+  String get dentistDesc;
+
+  /// No description provided for @roleSelectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Which One Are You?'**
+  String get roleSelectionTitle;
+
+  /// No description provided for @roleSelectionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This helps us set up the right experience for you.'**
+  String get roleSelectionSubtitle;
 }
 
 class _AppLocalizationsDelegate

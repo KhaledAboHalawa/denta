@@ -78,4 +78,87 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get defaultError => 'حدث خطأ غير متوقع.';
+
+  @override
+  String get registerFirstNameHint => 'أدخل اسمك الأول هنا';
+
+  @override
+  String get registerFirstNameLabel => 'الاسم الأول';
+
+  @override
+  String get registerLastNameHint => 'أدخل اسم العائلة هنا';
+
+  @override
+  String get registerLastNameLabel => 'اسم العائلة';
+
+  @override
+  String get registerDentistEmailHint => 'yourname@university.edu.eg';
+
+  @override
+  String get registerPatientEmailHint => 'أدخل بريدك الإلكتروني هنا';
+
+  @override
+  String get registerDentistEmailLabel => 'البريد الجامعي';
+
+  @override
+  String get registerPatientEmailLabel => 'البريد الإلكتروني';
+
+  @override
+  String get continueButton => 'متابعة';
+
+  @override
+  String get registerPasswordHint =>
+      '...أدخل كلمة مرور مكونة من 8 أحرف على الأقل هنا';
+
+  @override
+  String get registerPasswordLabel => 'كلمة المرور';
+
+  @override
+  String get registerConfirmPasswordHint => 'أدخل تأكيد كلمة المرور هنا';
+
+  @override
+  String get registerConfirmPasswordLabel => 'تأكيد كلمة المرور';
+
+  @override
+  String get registerCreateAccount => 'إنشاء حساب';
+
+  @override
+  String get registerSubTitle =>
+      'أنشئ ملفك الشخصي واعثر على الرعاية المناسبة بالقرب منك.';
+
+  @override
+  String get registerDivider => 'التسجيل';
+
+  @override
+  String get registerAlreadyHaveAccount => 'لديك حساب بالفعل؟ ';
+
+  @override
+  String get registerSignIn => 'تسجيل الدخول';
+
+  @override
+  String get or => 'أو';
+
+  @override
+  String get withh => 'بواسطة';
+
+  @override
+  String get patient => 'أنا مريض';
+
+  @override
+  String get dentist => 'أنا طبيب أسنان';
+
+  @override
+  String get patientDesc =>
+      'احصل على رعاية أسنان بأسعار معقولة وتحت إشراف من طلاب طب أسنان موثوق بهم بالقرب منك.';
+
+  @override
+  String get dentistDesc =>
+      'اعثر على حالات سريرية، واحصل على تطابق مع المرضى القريبين، وقم بشراء أو بيع أو التبرع بالأدوات.';
+
+  @override
+  String get roleSelectionTitle => 'اي منهما تكون؟';
+
+  @override
+  String get roleSelectionSubtitle =>
+      'هذا يساعدنا في إعداد التجربة المناسبة لك';
 }
