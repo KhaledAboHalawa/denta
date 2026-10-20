@@ -49,5 +49,20 @@
   "patientDesc": "Get affordable, supervised dental care from trusted dental students near you.",
   "dentistDesc": "Find clinical cases, get matched with patients nearby, and buy, sell, or donate dental tools.",
   "roleSelectionTitle": "Which One Are You?",
-  "roleSelectionSubtitle": "This helps us set up the right experience for you."
+  "roleSelectionSubtitle": "This helps us set up the right experience for you.",
+
+
+  "onboardingExploreDenta": "Explore Denta",
+  "onboardingTitle1": "Where Dental Care Meets Dental Learning",
+  "onboardingDescription1": "Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.",
+  "onboardingTitle2": "Not Sure What's Wrong? We'll Help You Find Out",
+  "onboardingDescription2": "Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.",
+  "onboardingTitle3": "Matched Nearby, Matched Right",
+  "onboardingDescription3": "Whether you're seeking care or seeking a case, Denta matches you with the right person, close to home.",
+  "onboardingTitle4": "More Than Just Cases",
+  "onboardingDescription4": "Buy, sell, or donate dental tools and equipment within a trusted student community.",
+  "onboardingSkip": "skip",
+  "onboardingCreateYourAccount": "Create Your Account",
+  "onboardingAlreadyHaveAccount": "Already have an account? ",
+  "onboardingLogIn": "Log In"
 }

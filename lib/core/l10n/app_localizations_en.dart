@@ -158,4 +158,48 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get roleSelectionSubtitle =>
       'This helps us set up the right experience for you.';
+
+  @override
+  String get onboardingExploreDenta => 'Explore Denta';
+
+  @override
+  String get onboardingTitle1 => 'Where Dental Care Meets Dental Learning';
+
+  @override
+  String get onboardingDescription1 =>
+      'Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.';
+
+  @override
+  String get onboardingTitle2 =>
+      'Not Sure What\'s Wrong? We\'ll Help You Find Out';
+
+  @override
+  String get onboardingDescription2 =>
+      'Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.';
+
+  @override
+  String get onboardingTitle3 => 'Matched Nearby, Matched Right';
+
+  @override
+  String get onboardingDescription3 =>
+      'Whether you\'re seeking care or seeking a case, Denta matches you with the right person, close to home.';
+
+  @override
+  String get onboardingTitle4 => 'More Than Just Cases';
+
+  @override
+  String get onboardingDescription4 =>
+      'Buy, sell, or donate dental tools and equipment within a trusted student community.';
+
+  @override
+  String get onboardingSkip => 'skip';
+
+  @override
+  String get onboardingCreateYourAccount => 'Create Your Account';
+
+  @override
+  String get onboardingAlreadyHaveAccount => 'Already have an account? ';
+
+  @override
+  String get onboardingLogIn => 'Log In';
 }

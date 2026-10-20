@@ -361,6 +361,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This helps us set up the right experience for you.'**
   String get roleSelectionSubtitle;
+
+  /// No description provided for @onboardingExploreDenta.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Denta'**
+  String get onboardingExploreDenta;
+
+  /// No description provided for @onboardingTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'Where Dental Care Meets Dental Learning'**
+  String get onboardingTitle1;
+
+  /// No description provided for @onboardingDescription1.
+  ///
+  /// In en, this message translates to:
+  /// **'Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.'**
+  String get onboardingDescription1;
+
+  /// No description provided for @onboardingTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Sure What\'s Wrong? We\'ll Help You Find Out'**
+  String get onboardingTitle2;
+
+  /// No description provided for @onboardingDescription2.
+  ///
+  /// In en, this message translates to:
+  /// **'Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.'**
+  String get onboardingDescription2;
+
+  /// No description provided for @onboardingTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Matched Nearby, Matched Right'**
+  String get onboardingTitle3;
+
+  /// No description provided for @onboardingDescription3.
+  ///
+  /// In en, this message translates to:
+  /// **'Whether you\'re seeking care or seeking a case, Denta matches you with the right person, close to home.'**
+  String get onboardingDescription3;
+
+  /// No description provided for @onboardingTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'More Than Just Cases'**
+  String get onboardingTitle4;
+
+  /// No description provided for @onboardingDescription4.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy, sell, or donate dental tools and equipment within a trusted student community.'**
+  String get onboardingDescription4;
+
+  /// No description provided for @onboardingSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'skip'**
+  String get onboardingSkip;
+
+  /// No description provided for @onboardingCreateYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Your Account'**
+  String get onboardingCreateYourAccount;
+
+  /// No description provided for @onboardingAlreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account? '**
+  String get onboardingAlreadyHaveAccount;
+
+  /// No description provided for @onboardingLogIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get onboardingLogIn;
 }
 
 class _AppLocalizationsDelegate
