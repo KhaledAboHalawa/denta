@@ -46,7 +46,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
       mainAxisSize: .min,
       crossAxisAlignment: .start,
       children: [
-        if (widget.labelText != null) Text(widget.labelText!),
+        if (widget.labelText != null)
+          Text(widget.labelText!, style: context.text.bodyMedium),
         SizedBox(height: 6),
         SizedBox(
           height: 60,

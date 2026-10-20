@@ -98,7 +98,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerDentistEmailLabel => 'University E-mail';
 
   @override
-  String get registerPatientEmailLabel => 'Email';
+  String get registerPatientEmailLabel => 'E-mail';
 
   @override
   String get continueButton => 'Continue';
@@ -115,6 +115,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get registerConfirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get signInEmailHint => 'Enter your email here';
+
+  @override
+  String get signInEmailLabel => 'E-mail';
+
+  @override
+  String get signInPasswordHint => 'Enter your password here';
+
+  @override
+  String get signInPasswordLabel => 'Password';
+
+  @override
+  String get signInTitle => 'Hey, Welcome Back!';
+
+  @override
+  String get signInSubTitle => 'Log in to pick up right where you left off.';
+
+  @override
+  String get forgotPassword => 'Forgot password?';
+
+  @override
+  String get rememberMe => 'Remember me';
+
+  @override
+  String get logIn => 'Log In';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an account yet? ';
 
   @override
   String get registerCreateAccount => 'Create Account';

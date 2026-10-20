@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/register/presentation/screens/register_screen.dart';
+import '../../features/sign_in/presentation/screens/sign_in_screen.dart';
 import '../../features/user_role_selection/presentation/screens/role_selection_screen.dart';
 import '../../features/user_role_selection/presentation/widgets/role_selection_section.dart';
 import 'route_paths.dart';
@@ -15,9 +16,8 @@ enum SlideDirection {
   fromTop,
 }
 
-
 final GoRouter router = GoRouter(
-  initialLocation: RoutePaths.roleSelectionPath,
+  initialLocation: RoutePaths.signInPath,
   routes: <RouteBase>[
     GoRoute(
       path: RoutePaths.registerPath,
@@ -34,6 +34,15 @@ final GoRouter router = GoRouter(
         return SlideTransitionPage(
           key: state.pageKey,
           child: const RoleSelectionScreen(),
+        );
+      },
+    ),
+    GoRoute(
+      path: RoutePaths.signInPath,
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return SlideTransitionPage(
+          key: state.pageKey,
+          child: const SignInScreen(),
         );
       },
     ),
@@ -57,64 +66,65 @@ class SlideTransitionPage<T> extends CustomTransitionPage<T> {
     bool enableParallax = true,
     bool enableFade = false,
   }) : super(
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) {
-            final primaryBegin = _getPrimaryBeginOffset(direction, context);
-            final secondaryEnd = _getSecondaryEndOffset(direction, context);
+         transitionsBuilder:
+             (
+               BuildContext context,
+               Animation<double> animation,
+               Animation<double> secondaryAnimation,
+               Widget child,
+             ) {
+               final primaryBegin = _getPrimaryBeginOffset(direction, context);
+               final secondaryEnd = _getSecondaryEndOffset(direction, context);
 
-            // Primary slide animation (entering screen)
-            final primaryCurve = CurvedAnimation(
-              parent: animation,
-              curve: curve,
-              reverseCurve: reverseCurve,
-            );
-            final primarySlideTween = Tween<Offset>(
-              begin: primaryBegin,
-              end: Offset.zero,
-            ).animate(primaryCurve);
+               // Primary slide animation (entering screen)
+               final primaryCurve = CurvedAnimation(
+                 parent: animation,
+                 curve: curve,
+                 reverseCurve: reverseCurve,
+               );
+               final primarySlideTween = Tween<Offset>(
+                 begin: primaryBegin,
+                 end: Offset.zero,
+               ).animate(primaryCurve);
 
-            Widget animatedChild = SlideTransition(
-              position: primarySlideTween,
-              child: child,
-            );
+               Widget animatedChild = SlideTransition(
+                 position: primarySlideTween,
+                 child: child,
+               );
 
-            // Optional subtle fade effect
-            if (enableFade) {
-              final fadeCurve = CurvedAnimation(
-                parent: animation,
-                curve: const Interval(0.0, 0.7, curve: Curves.easeIn),
-              );
-              animatedChild = FadeTransition(
-                opacity: fadeCurve,
-                child: animatedChild,
-              );
-            }
+               // Optional subtle fade effect
+               if (enableFade) {
+                 final fadeCurve = CurvedAnimation(
+                   parent: animation,
+                   curve: const Interval(0.0, 0.7, curve: Curves.easeIn),
+                 );
+                 animatedChild = FadeTransition(
+                   opacity: fadeCurve,
+                   child: animatedChild,
+                 );
+               }
 
-            // Secondary parallax motion (outgoing screen slides back slightly)
-            if (enableParallax) {
-              final secondaryCurve = CurvedAnimation(
-                parent: secondaryAnimation,
-                curve: curve,
-                reverseCurve: reverseCurve,
-              );
-              final secondarySlideTween = Tween<Offset>(
-                begin: Offset.zero,
-                end: secondaryEnd,
-              ).animate(secondaryCurve);
+               // Secondary parallax motion (outgoing screen slides back slightly)
+               if (enableParallax) {
+                 final secondaryCurve = CurvedAnimation(
+                   parent: secondaryAnimation,
+                   curve: curve,
+                   reverseCurve: reverseCurve,
+                 );
+                 final secondarySlideTween = Tween<Offset>(
+                   begin: Offset.zero,
+                   end: secondaryEnd,
+                 ).animate(secondaryCurve);
 
-              animatedChild = SlideTransition(
-                position: secondarySlideTween,
-                child: animatedChild,
-              );
-            }
+                 animatedChild = SlideTransition(
+                   position: secondarySlideTween,
+                   child: animatedChild,
+                 );
+               }
 
-            return animatedChild;
-          },
-        );
+               return animatedChild;
+             },
+       );
 
   static Offset _getPrimaryBeginOffset(
     SlideDirection direction,
@@ -185,4 +195,3 @@ Page<dynamic> buildSlideTransitionPage({
     child: child,
   );
 }
-
