@@ -1,10 +1,12 @@
-import 'package:denta/core/routing/route_paths.dart';
-import 'package:denta/features/onboarding/presentation/widgets/page_onboarding_1.dart';
-import 'package:denta/features/onboarding/presentation/widgets/page_onboarding_2.dart';
-import 'package:denta/features/onboarding/presentation/widgets/page_onboarding_3.dart';
-import 'package:denta/features/onboarding/presentation/widgets/page_onboarding_4.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/di/dependency_injection.dart';
+import '../cubit/onboarding_cubit.dart';
+import '../cubit/onboarding_state.dart';
+import '../widgets/onboarding_content.dart';
+import '../widgets/onbording_header.dart';
+import '../widgets/slideShowSection.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -14,54 +16,46 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final PageController _pageController = PageController();
-
-  void _nextPage() {
-    if (_pageController.page == null) return;
-
-    if (_pageController.page! < 3) {
-      _pageController.jumpToPage(_pageController.page!.round() + 1);
-    } else {
-      _createAccount();
-    }
-  }
-
-  void _skipOnboarding() {
-    _pageController.jumpToPage(3);
-  }
-
-  void _login() {}
-
-  void _createAccount() {
-    context.go(RoutePaths.roleSelectionPath);
-  }
-
+  late final OnboardingCubit cubit;
   @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
+    cubit = getIt<OnboardingCubit>();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          PageOnboarding1(onNext: _nextPage, onLogin: _login),
-          PageOnboarding2(
-            onNext: _nextPage,
-            onSkip: _skipOnboarding,
-            onLogin: _login,
-          ),
-          PageOnboarding3(
-            onNext: _nextPage,
-            onSkip: _skipOnboarding,
-            onLogin: _login,
-          ),
-          PageOnboarding4(onCreateAccount: _createAccount, onLogin: _login),
-        ],
+      body: BlocProvider.value(
+        value: cubit,
+        child: BlocBuilder<OnboardingCubit, OnboardingState>(
+          buildWhen: (previous, current) {
+            return previous.pageIndex != current.pageIndex;
+          },
+          builder: (context, state) {
+            return Stack(
+              children: [
+                SlidShowSection(currentPage: state.pageIndex),
+                OnboardingHeader(
+                  onSkip: () {
+                    cubit.gotoPreviousPage();
+                  },
+                  showSkip: state.pageIndex != 0 || state.pageIndex != 3,
+                ),
+                Align(
+                  alignment: .bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 24,
+                    ),
+                    child: OnboardingContent(currentIndex: state.pageIndex),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

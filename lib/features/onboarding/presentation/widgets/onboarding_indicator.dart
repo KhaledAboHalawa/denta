@@ -12,9 +12,9 @@ class OnboardingIndicator extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: List.generate(4, (index) {
         final isSelected = index == currentIndex;
-
         return AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOutCubic,
           margin: const EdgeInsets.symmetric(horizontal: 3),
           width: isSelected ? 28 : 7,
           height: 7,

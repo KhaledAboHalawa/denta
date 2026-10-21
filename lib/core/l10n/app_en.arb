@@ -31,12 +31,22 @@
   "registerDentistEmailHint": "yourname@university.edu.eg",
   "registerPatientEmailHint": "Enter your Email here",
   "registerDentistEmailLabel": "University E-mail",
-  "registerPatientEmailLabel": "Email",
+  "registerPatientEmailLabel": "E-mail",
   "continueButton": "Continue",
   "registerPasswordHint": "Create Password with at least 8 characters here...",
   "registerPasswordLabel": "Password",
   "registerConfirmPasswordHint": "Confirm your Password here",
   "registerConfirmPasswordLabel": "Confirm Password",
+  "signInEmailHint": "Enter your email here",
+  "signInEmailLabel": "E-mail",
+  "signInPasswordHint": "Enter your password here",
+  "signInPasswordLabel": "Password",
+  "signInTitle": "Hey, Welcome Back!",
+  "signInSubTitle": "Log in to pick up right where you left off.",
+  "forgotPassword": "Forgot password?",
+  "rememberMe": "Remember me",
+  "logIn": "Log In",
+  "dontHaveAccount": "Don't have an account yet? ",
   "registerCreateAccount": "Create Account",
   "registerSubTitle": "Set up your profile and find the right care, nearby.",
   "registerDivider": "Register",
@@ -51,16 +61,22 @@
   "roleSelectionTitle": "Which One Are You?",
   "roleSelectionSubtitle": "This helps us set up the right experience for you.",
 
-
   "onboardingExploreDenta": "Explore Denta",
-  "onboardingTitle1": "Where Dental Care Meets Dental Learning",
-  "onboardingDescription1": "Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.",
-  "onboardingTitle2": "Not Sure What's Wrong? We'll Help You Find Out",
-  "onboardingDescription2": "Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.",
-  "onboardingTitle3": "Matched Nearby, Matched Right",
-  "onboardingDescription3": "Whether you're seeking care or seeking a case, Denta matches you with the right person, close to home.",
-  "onboardingTitle4": "More Than Just Cases",
-  "onboardingDescription4": "Buy, sell, or donate dental tools and equipment within a trusted student community.",
+
+  "onboardingTitle": "{page, select, 0{Where Dental Care Meets Dental Learning} 1{Not Sure What's Wrong? We'll Help You Find Out} 2{Matched Nearby, Matched Right} 3{More Than Just Cases} other{}}",
+  "@onboardingTitle": {
+    "placeholders": {
+      "page": { "type": "String" }
+    }
+  },
+
+  "onboardingDescription": "{page, select, 0{Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.} 1{Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.} 2{Whether you're seeking care or seeking a case, Denta matches you with the right person, close to home.} 3{Buy, sell, or donate dental tools and equipment within a trusted student community.} other{}}",
+  "@onboardingDescription": {
+    "placeholders": {
+      "page": { "type": "String" }
+    }
+  },
+
   "onboardingSkip": "skip",
   "onboardingCreateYourAccount": "Create Your Account",
   "onboardingAlreadyHaveAccount": "Already have an account? ",

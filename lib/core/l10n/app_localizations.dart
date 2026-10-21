@@ -251,7 +251,7 @@ abstract class AppLocalizations {
   /// No description provided for @registerPatientEmailLabel.
   ///
   /// In en, this message translates to:
-  /// **'Email'**
+  /// **'E-mail'**
   String get registerPatientEmailLabel;
 
   /// No description provided for @continueButton.
@@ -283,6 +283,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm Password'**
   String get registerConfirmPasswordLabel;
+
+  /// No description provided for @signInEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email here'**
+  String get signInEmailHint;
+
+  /// No description provided for @signInEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'E-mail'**
+  String get signInEmailLabel;
+
+  /// No description provided for @signInPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password here'**
+  String get signInPasswordHint;
+
+  /// No description provided for @signInPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get signInPasswordLabel;
+
+  /// No description provided for @signInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hey, Welcome Back!'**
+  String get signInTitle;
+
+  /// No description provided for @signInSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in to pick up right where you left off.'**
+  String get signInSubTitle;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @rememberMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember me'**
+  String get rememberMe;
+
+  /// No description provided for @logIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get logIn;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account yet? '**
+  String get dontHaveAccount;
 
   /// No description provided for @registerCreateAccount.
   ///
@@ -368,53 +428,17 @@ abstract class AppLocalizations {
   /// **'Explore Denta'**
   String get onboardingExploreDenta;
 
-  /// No description provided for @onboardingTitle1.
+  /// No description provided for @onboardingTitle.
   ///
   /// In en, this message translates to:
-  /// **'Where Dental Care Meets Dental Learning'**
-  String get onboardingTitle1;
+  /// **'{page, select, 0{Where Dental Care Meets Dental Learning} 1{Not Sure What\'s Wrong? We\'ll Help You Find Out} 2{Matched Nearby, Matched Right} 3{More Than Just Cases} other{}}'**
+  String onboardingTitle(String page);
 
-  /// No description provided for @onboardingDescription1.
+  /// No description provided for @onboardingDescription.
   ///
   /// In en, this message translates to:
-  /// **'Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.'**
-  String get onboardingDescription1;
-
-  /// No description provided for @onboardingTitle2.
-  ///
-  /// In en, this message translates to:
-  /// **'Not Sure What\'s Wrong? We\'ll Help You Find Out'**
-  String get onboardingTitle2;
-
-  /// No description provided for @onboardingDescription2.
-  ///
-  /// In en, this message translates to:
-  /// **'Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.'**
-  String get onboardingDescription2;
-
-  /// No description provided for @onboardingTitle3.
-  ///
-  /// In en, this message translates to:
-  /// **'Matched Nearby, Matched Right'**
-  String get onboardingTitle3;
-
-  /// No description provided for @onboardingDescription3.
-  ///
-  /// In en, this message translates to:
-  /// **'Whether you\'re seeking care or seeking a case, Denta matches you with the right person, close to home.'**
-  String get onboardingDescription3;
-
-  /// No description provided for @onboardingTitle4.
-  ///
-  /// In en, this message translates to:
-  /// **'More Than Just Cases'**
-  String get onboardingTitle4;
-
-  /// No description provided for @onboardingDescription4.
-  ///
-  /// In en, this message translates to:
-  /// **'Buy, sell, or donate dental tools and equipment within a trusted student community.'**
-  String get onboardingDescription4;
+  /// **'{page, select, 0{Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.} 1{Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.} 2{Whether you\'re seeking care or seeking a case, Denta matches you with the right person, close to home.} 3{Buy, sell, or donate dental tools and equipment within a trusted student community.} other{}}'**
+  String onboardingDescription(String page);
 
   /// No description provided for @onboardingSkip.
   ///

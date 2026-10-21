@@ -120,6 +120,36 @@ class AppLocalizationsAr extends AppLocalizations {
   String get registerConfirmPasswordLabel => 'تأكيد كلمة المرور';
 
   @override
+  String get signInEmailHint => 'أدخل بريدك الإلكتروني هنا';
+
+  @override
+  String get signInEmailLabel => 'البريد الإلكتروني';
+
+  @override
+  String get signInPasswordHint => 'أدخل كلمة المرور هنا';
+
+  @override
+  String get signInPasswordLabel => 'كلمة المرور';
+
+  @override
+  String get signInTitle => 'أهلاً، سعيد برؤيتك مرة أخرى!';
+
+  @override
+  String get signInSubTitle => 'سجل الدخول لتكمل من حيث توقفت.';
+
+  @override
+  String get forgotPassword => 'نسيت كلمة المرور؟';
+
+  @override
+  String get rememberMe => 'تذكرني';
+
+  @override
+  String get logIn => 'تسجيل الدخول';
+
+  @override
+  String get dontHaveAccount => 'ليس لديك حساب بعد؟ ';
+
+  @override
   String get registerCreateAccount => 'إنشاء حساب';
 
   @override
@@ -163,35 +193,31 @@ class AppLocalizationsAr extends AppLocalizations {
       'هذا يساعدنا في إعداد التجربة المناسبة لك';
 
   @override
-  String get onboardingExploreDenta => 'اكتشف Denta';
+  String get onboardingExploreDenta => 'اكتشف دنتا';
 
   @override
-  String get onboardingTitle1 => 'حيث يلتقي علاج الأسنان بتعلّم طب الأسنان';
+  String onboardingTitle(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'حيث تلتقي رعاية الأسنان بتعلّم طب الأسنان',
+      '1': 'لست متأكدًا مما تعانيه؟ سنساعدك على معرفته',
+      '2': 'مطابقة قريبة منك، ومطابقة مناسبة لك',
+      '3': 'أكثر من مجرد حالات',
+      'other': '',
+    });
+    return '$_temp0';
+  }
 
   @override
-  String get onboardingDescription1 =>
-      'يربط Denta بين طلاب طب الأسنان والمرضى، مما يجعل العلاج أكثر سهولة ويجعل التدريب السريري أكثر كفاءة.';
-
-  @override
-  String get onboardingTitle2 => 'مش عارف إيه المشكلة؟ إحنا هنساعدك تعرف';
-
-  @override
-  String get onboardingDescription2 =>
-      'التقط صورة للمشكلة التي تعاني منها، وسيساعدك الذكاء الاصطناعي في تحديد الحالة، دون الحاجة إلى أي معرفة طبية.';
-
-  @override
-  String get onboardingTitle3 => 'الشخص المناسب، بالقرب منك';
-
-  @override
-  String get onboardingDescription3 =>
-      'سواء كنت تبحث عن علاج أو عن حالة للتدريب عليها، يوصلك Denta بالشخص المناسب بالقرب من منزلك.';
-
-  @override
-  String get onboardingTitle4 => 'أكثر من مجرد حالات';
-
-  @override
-  String get onboardingDescription4 =>
-      'اشترِ أو بِع أو تبرع بأدوات ومعدات طب الأسنان داخل مجتمع موثوق من الطلاب.';
+  String onboardingDescription(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'تربط دنتا بين طلاب طب الأسنان والمرضى، لتجعل العلاج أسهل في الوصول والتدريب الإكلينيكي أكثر كفاءة.',
+      '1': 'التقط صورة لمشكلتك، ويساعدك الذكاء الاصطناعي على تحديد الحالة، دون الحاجة لأي معرفة طبية.',
+      '2': 'سواء كنت تبحث عن علاج أو عن حالة، تربطك دنتا بالشخص المناسب القريب من منزلك.',
+      '3': 'اشترِ أو بع أو تبرّع بأدوات ومعدات طب الأسنان داخل مجتمع طلابي موثوق.',
+      'other': '',
+    });
+    return '$_temp0';
+  }
 
   @override
   String get onboardingSkip => 'تخطي';

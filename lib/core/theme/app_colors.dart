@@ -26,67 +26,114 @@ abstract final class AppPalette {
 @immutable
 class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   const AppColorsExtension({
+    required this.primary,
+    required this.secondary,
+    required this.accent,
     required this.success,
+    required this.error,
     required this.warning,
     required this.info,
-    required this.inputFill,
-    required this.error,
+    required this.white,
+    required this.background,
+    required this.textMain,
     required this.infoHover,
-    required this.primaryLight,
     required this.infoLight,
+    required this.textLight,
+    required this.inputFill,
+    required this.primaryLight,
   });
 
+  // Brand
+  final Color primary;
+  final Color secondary;
+  final Color accent;
+
+  // Semantic
   final Color success;
-  final Color warning;
   final Color error;
+  final Color warning;
   final Color info;
-  final Color inputFill;
+
+  // Neutral
+  final Color white;
+  final Color background;
+  final Color textMain;
   final Color infoHover;
   final Color infoLight;
+  final Color textLight;
+  final Color inputFill;
   final Color primaryLight;
 
   static const light = AppColorsExtension(
+    primary: AppPalette.primary,
+    secondary: AppPalette.secondary,
+    accent: AppPalette.accent,
     success: AppPalette.success,
-    warning: AppPalette.warning,
     error: AppPalette.error,
+    warning: AppPalette.warning,
     info: AppPalette.info,
+    white: AppPalette.white,
+    background: AppPalette.background,
+    textMain: AppPalette.textMain,
     infoHover: AppPalette.infoHover,
     infoLight: AppPalette.infoLight,
+    textLight: AppPalette.textLight,
     inputFill: AppPalette.inputFill,
     primaryLight: AppPalette.primaryLight,
   );
 
   static const dark = AppColorsExtension(
+    primary: AppPalette.primary,
+    secondary: AppPalette.secondary,
+    accent: AppPalette.accent,
     success: AppPalette.success,
-    warning: AppPalette.warning,
     error: AppPalette.error,
+    warning: AppPalette.warning,
     info: AppPalette.info,
+    white: AppPalette.white,
+    background: AppPalette.background,
+    textMain: AppPalette.textMain,
     infoHover: AppPalette.infoHover,
     infoLight: AppPalette.infoLight,
+    textLight: AppPalette.textLight,
     inputFill: Color(0xFF252B40),
     primaryLight: AppPalette.primaryLight,
   );
 
   @override
   AppColorsExtension copyWith({
+    Color? primary,
+    Color? secondary,
+    Color? accent,
     Color? success,
-    Color? warning,
     Color? error,
+    Color? warning,
     Color? info,
-    Color? infoLight,
-    Color? inputFill,
+    Color? white,
+    Color? background,
+    Color? textMain,
     Color? infoHover,
+    Color? infoLight,
+    Color? textLight,
+    Color? inputFill,
     Color? primaryLight,
   }) {
     return AppColorsExtension(
+      primary: primary ?? this.primary,
+      secondary: secondary ?? this.secondary,
+      accent: accent ?? this.accent,
       success: success ?? this.success,
-      warning: warning ?? this.warning,
       error: error ?? this.error,
+      warning: warning ?? this.warning,
       info: info ?? this.info,
+      white: white ?? this.white,
+      background: background ?? this.background,
+      textMain: textMain ?? this.textMain,
       infoHover: infoHover ?? this.infoHover,
+      infoLight: infoLight ?? this.infoLight,
+      textLight: textLight ?? this.textLight,
       inputFill: inputFill ?? this.inputFill,
       primaryLight: primaryLight ?? this.primaryLight,
-      infoLight: infoLight ?? this.infoLight,
     );
   }
 
@@ -98,14 +145,21 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     if (other is! AppColorsExtension) return this;
 
     return AppColorsExtension(
+      primary: Color.lerp(primary, other.primary, t)!,
+      secondary: Color.lerp(secondary, other.secondary, t)!,
+      accent: Color.lerp(accent, other.accent, t)!,
       success: Color.lerp(success, other.success, t)!,
-      warning: Color.lerp(warning, other.warning, t)!,
       error: Color.lerp(error, other.error, t)!,
+      warning: Color.lerp(warning, other.warning, t)!,
       info: Color.lerp(info, other.info, t)!,
+      white: Color.lerp(white, other.white, t)!,
+      background: Color.lerp(background, other.background, t)!,
+      textMain: Color.lerp(textMain, other.textMain, t)!,
       infoHover: Color.lerp(infoHover, other.infoHover, t)!,
+      infoLight: Color.lerp(infoLight, other.infoLight, t)!,
+      textLight: Color.lerp(textLight, other.textLight, t)!,
       inputFill: Color.lerp(inputFill, other.inputFill, t)!,
       primaryLight: Color.lerp(primaryLight, other.primaryLight, t)!,
-      infoLight: Color.lerp(infoLight, other.infoLight, t)!,
     );
   }
 }

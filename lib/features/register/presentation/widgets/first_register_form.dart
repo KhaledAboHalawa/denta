@@ -34,7 +34,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
     bloc = getIt<RegisterBloc>();
     _formKey = GlobalKey<FormState>();
     firstNameController = TextEditingController(
-      text: bloc.state.params.firstName 
+      text: bloc.state.params.firstName,
     );
     lastNameController = TextEditingController(
       text: bloc.state.params.lastName,
@@ -125,7 +125,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             keyboardType: .emailAddress,
             validator: (value) => AppValidators.validateEmail(value),
             onSubmitted: (_) {
-              if (emailController.text.isNotEmpty) {
+              if (_formKey.currentState!.validate()) {
                 bloc.doIntent(RegisterContinueEvent());
               }
             },

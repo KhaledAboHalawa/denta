@@ -98,7 +98,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerDentistEmailLabel => 'University E-mail';
 
   @override
-  String get registerPatientEmailLabel => 'Email';
+  String get registerPatientEmailLabel => 'E-mail';
 
   @override
   String get continueButton => 'Continue';
@@ -115,6 +115,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get registerConfirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get signInEmailHint => 'Enter your email here';
+
+  @override
+  String get signInEmailLabel => 'E-mail';
+
+  @override
+  String get signInPasswordHint => 'Enter your password here';
+
+  @override
+  String get signInPasswordLabel => 'Password';
+
+  @override
+  String get signInTitle => 'Hey, Welcome Back!';
+
+  @override
+  String get signInSubTitle => 'Log in to pick up right where you left off.';
+
+  @override
+  String get forgotPassword => 'Forgot password?';
+
+  @override
+  String get rememberMe => 'Remember me';
+
+  @override
+  String get logIn => 'Log In';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an account yet? ';
 
   @override
   String get registerCreateAccount => 'Create Account';
@@ -163,33 +193,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingExploreDenta => 'Explore Denta';
 
   @override
-  String get onboardingTitle1 => 'Where Dental Care Meets Dental Learning';
+  String onboardingTitle(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'Where Dental Care Meets Dental Learning',
+      '1': 'Not Sure What\'s Wrong? We\'ll Help You Find Out',
+      '2': 'Matched Nearby, Matched Right',
+      '3': 'More Than Just Cases',
+      'other': '',
+    });
+    return '$_temp0';
+  }
 
   @override
-  String get onboardingDescription1 =>
-      'Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.';
-
-  @override
-  String get onboardingTitle2 =>
-      'Not Sure What\'s Wrong? We\'ll Help You Find Out';
-
-  @override
-  String get onboardingDescription2 =>
-      'Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.';
-
-  @override
-  String get onboardingTitle3 => 'Matched Nearby, Matched Right';
-
-  @override
-  String get onboardingDescription3 =>
-      'Whether you\'re seeking care or seeking a case, Denta matches you with the right person, close to home.';
-
-  @override
-  String get onboardingTitle4 => 'More Than Just Cases';
-
-  @override
-  String get onboardingDescription4 =>
-      'Buy, sell, or donate dental tools and equipment within a trusted student community.';
+  String onboardingDescription(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.',
+      '1': 'Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.',
+      '2': 'Whether you\'re seeking care or seeking a case, Denta matches you with the right person, close to home.',
+      '3': 'Buy, sell, or donate dental tools and equipment within a trusted student community.',
+      'other': '',
+    });
+    return '$_temp0';
+  }
 
   @override
   String get onboardingSkip => 'skip';

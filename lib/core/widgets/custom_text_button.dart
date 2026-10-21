@@ -6,11 +6,11 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onPressed,
-    required this.color,
+    this.color,
     this.style,
   });
   final String title;
-  final Color color;
+  final Color? color;
   final TextStyle? style;
   final void Function() onPressed;
   @override
