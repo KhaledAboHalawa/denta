@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/app_localizations.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/widgets/custom_text_button.dart';
+import '../../../../core/routing/route_paths.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_app_bar.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_text_banner.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_typography.dart';
+import '../../../../core/widgets/custom_text_button.dart';
 import 'role_selection_section.dart';
 
 class RoleSelectionBody extends StatelessWidget {
@@ -26,7 +29,6 @@ class RoleSelectionBody extends StatelessWidget {
                   subTitle: AppLocalizations.of(context)!.roleSelectionSubtitle,
                 ),
                 const RoleSelectionSection(),
-               
               ],
             ),
             Row(
@@ -38,8 +40,10 @@ class RoleSelectionBody extends StatelessWidget {
                 ),
                 CustomTextButton(
                   title: AppLocalizations.of(context)!.registerSignIn,
-                  onPressed:  () {},
-                  color: Theme.of(context).colorScheme.primary,
+                  onPressed: () {
+                    context.push(RoutePaths.signInPath);
+                  },
+                  color: context.appColors.primary,
                 ),
               ],
             ),

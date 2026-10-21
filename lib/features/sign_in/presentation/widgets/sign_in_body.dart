@@ -1,6 +1,8 @@
+import 'package:denta/core/routing/route_paths.dart';
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_app_bar.dart';
@@ -19,7 +21,12 @@ class SignInBody extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Column(
         children: [
-          AuthAppBar(onlyLogo: false, onBack: () {}),
+          AuthAppBar(
+            onlyLogo: false,
+            onBack: () {
+              context.pop();
+            },
+          ),
           Expanded(
             child: LayoutBuilder(
               builder: (context, constraints) {
@@ -65,7 +72,11 @@ class SignInBody extends StatelessWidget {
                               CustomTextButton(
                                 title: AppLocalizations.of(context)!
                                     .registerCreateAccount,
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.pushReplacement(
+                                    RoutePaths.roleSelectionPath,
+                                  );
+                                },
                                 color: context.appColors.primary,
                               ),
                             ],

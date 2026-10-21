@@ -17,7 +17,7 @@ enum SlideDirection {
 }
 
 final GoRouter router = GoRouter(
-  initialLocation: RoutePaths.signInPath,
+  initialLocation: RoutePaths.roleSelectionPath,
   routes: <RouteBase>[
     GoRoute(
       path: RoutePaths.registerPath,
