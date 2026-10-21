@@ -22,17 +22,19 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: RoutePaths.registerPath,
       pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
-          key: state.pageKey,
-          child: RegisterScreen(role: state.extra as UserRole),
-        ),
+        key: state.pageKey,
+        child: RegisterScreen(role: state.extra as UserRole),
+      ),
     ),
     GoRoute(
       path: RoutePaths.roleSelectionPath,
-      builder: (BuildContext context, GoRouterState state) => const RoleSelectionScreen(),
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          CupertinoPage(child: const RoleSelectionScreen()),
     ),
     GoRoute(
       path: RoutePaths.signInPath,
-      builder: (BuildContext context, GoRouterState state) => const SignInScreen(),
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          CupertinoPage(child: const SignInScreen()),
     ),
   ],
 );
