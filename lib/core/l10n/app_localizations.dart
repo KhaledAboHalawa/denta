@@ -421,6 +421,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This helps us set up the right experience for you.'**
   String get roleSelectionSubtitle;
+
+  /// No description provided for @forgotPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Your Password?'**
+  String get forgotPasswordTitle;
+
+  /// No description provided for @forgotPasswordSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No worries, it happens. Enter your email and we\'ll send you a code to get back in.'**
+  String get forgotPasswordSubTitle;
 }
 
 class _AppLocalizationsDelegate

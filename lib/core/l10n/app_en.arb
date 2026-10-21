@@ -59,5 +59,8 @@
   "patientDesc": "Get affordable, supervised dental care from trusted dental students near you.",
   "dentistDesc": "Find clinical cases, get matched with patients nearby, and buy, sell, or donate dental tools.",
   "roleSelectionTitle": "Which One Are You?",
-  "roleSelectionSubtitle": "This helps us set up the right experience for you."
+  "roleSelectionSubtitle": "This helps us set up the right experience for you.",
+
+  "forgotPasswordTitle": "Forgot Your Password?",
+  "forgotPasswordSubTitle": "No worries, it happens. Enter your email and we'll send you a code to get back in."
 }

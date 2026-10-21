@@ -191,4 +191,11 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get roleSelectionSubtitle =>
       'هذا يساعدنا في إعداد التجربة المناسبة لك';
+
+  @override
+  String get forgotPasswordTitle => 'نسيت كلمة المرور؟';
+
+  @override
+  String get forgotPasswordSubTitle =>
+      'لا تقلق، هذا أمر وارد. أدخل بريدك الإلكتروني وسنرسل لك رمزًا لتتمكن من الدخول مرة أخرى.';
 }

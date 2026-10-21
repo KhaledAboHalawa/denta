@@ -1,3 +1,4 @@
+import 'package:denta/features/forgot_password/presentation/screens/forget_password_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
@@ -35,6 +36,10 @@ final GoRouter router = GoRouter(
       path: RoutePaths.signInPath,
       pageBuilder: (BuildContext context, GoRouterState state) =>
           CupertinoPage(child: const SignInScreen()),
+    ),
+    GoRoute(
+      path: RoutePaths.forgetPasswordPath,
+      builder: (context, state) => const ForgetPasswordScreen(),
     ),
   ],
 );

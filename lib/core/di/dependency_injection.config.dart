@@ -15,6 +15,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../features/forgot_password/presentation/bloc/forgot_password_bloc.dart'
+    as _i161;
 import '../../features/register/data/datasources/register_data_source.dart'
     as _i477;
 import '../../features/register/data/repositories/register_repo_impl.dart'
@@ -43,6 +45,9 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
+    gh.lazySingleton<_i161.ForgotPasswordCubit>(
+      () => _i161.ForgotPasswordCubit(),
+    );
     gh.lazySingleton<_i640.SignInCubit>(() => _i640.SignInCubit());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
     gh.lazySingleton<_i477.RegisterDataSource>(
