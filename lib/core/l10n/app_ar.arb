@@ -64,5 +64,27 @@
   "onboardingSkip": "تخطي",
   "onboardingCreateYourAccount": "أنشئ حسابك",
   "onboardingAlreadyHaveAccount": "لديك حساب بالفعل؟ ",
-  "onboardingLogIn": "تسجيل الدخول"
+  "onboardingLogIn": "تسجيل الدخول",
+
+  "thisField": "هذا الحقل",
+  "nameField": "الاسم",
+  "phoneNumberField": "رقم الهاتف",
+  "confirmPasswordField": "تأكيد كلمة المرور",
+  "fieldRequiredError": "{fieldName} مطلوب",
+  "fieldMinLengthError": "يجب ألا يقل {fieldName} عن {minLength} أحرف",
+  "fieldMaxLengthError": "يجب ألا يتجاوز {fieldName} {maxLength} حرفًا",
+  "nameLettersOnlyError": "يمكن أن يحتوي {fieldName} على حروف ومسافات وعلامات وصل وفواصل عليا فقط",
+  "emailRequiredError": "البريد الإلكتروني مطلوب",
+  "invalidEmailError": "يرجى إدخال بريد إلكتروني صالح",
+  "invalidPhoneError": "يرجى إدخال {fieldName} صالح",
+  "passwordRequiredError": "كلمة المرور مطلوبة",
+  "passwordMinLengthError": "يجب أن تتكون كلمة المرور من {minLength} أحرف على الأقل",
+  "passwordUppercaseError": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+  "passwordLowercaseError": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+  "passwordDigitError": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+  "passwordSpecialCharError": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+  "passwordsDoNotMatchError": "كلمتا المرور غير متطابقتين",
+  "invalidNumberError": "يجب أن يكون {fieldName} رقمًا صالحًا",
+  "numberMinError": "يجب ألا يقل {fieldName} عن {min}",
+  "numberMaxError": "يجب ألا يتجاوز {fieldName} {max}"
 }

@@ -72,7 +72,7 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
             focusNode: nodes[0],
             keyboardType: .visiblePassword,
             isPassword: true,
-            validator: (value) => AppValidators.validatePassword(value),
+            validator: (value) => AppValidators.validatePassword(value, context: context),
             onSubmitted: (_) {
               if (passwordController.text.isNotEmpty) {
                 nodes[1].requestFocus();
@@ -93,6 +93,8 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
             validator: (value) => AppValidators.validateConfirmPassword(
               value,
               passwordController.text,
+              context: context,
+              fieldName: locale.registerConfirmPasswordLabel,
             ),
             onSubmitted: (_) {
               if (_formKey.currentState!.validate()) {

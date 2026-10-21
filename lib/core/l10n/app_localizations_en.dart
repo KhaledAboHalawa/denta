@@ -227,4 +227,88 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboardingLogIn => 'Log In';
+
+  @override
+  String get thisField => 'This field';
+
+  @override
+  String get nameField => 'Name';
+
+  @override
+  String get phoneNumberField => 'Phone number';
+
+  @override
+  String get confirmPasswordField => 'Confirm Password';
+
+  @override
+  String fieldRequiredError(String fieldName) {
+    return '$fieldName is required';
+  }
+
+  @override
+  String fieldMinLengthError(String fieldName, int minLength) {
+    return '$fieldName must be at least $minLength characters';
+  }
+
+  @override
+  String fieldMaxLengthError(String fieldName, int maxLength) {
+    return '$fieldName must not exceed $maxLength characters';
+  }
+
+  @override
+  String nameLettersOnlyError(String fieldName) {
+    return '$fieldName can only contain letters, spaces, hyphens, or apostrophes';
+  }
+
+  @override
+  String get emailRequiredError => 'Email is required';
+
+  @override
+  String get invalidEmailError => 'Please enter a valid email address';
+
+  @override
+  String invalidPhoneError(String fieldName) {
+    return 'Please enter a valid $fieldName';
+  }
+
+  @override
+  String get passwordRequiredError => 'Password is required';
+
+  @override
+  String passwordMinLengthError(int minLength) {
+    return 'Password must be at least $minLength characters';
+  }
+
+  @override
+  String get passwordUppercaseError =>
+      'Password must contain at least one uppercase letter';
+
+  @override
+  String get passwordLowercaseError =>
+      'Password must contain at least one lowercase letter';
+
+  @override
+  String get passwordDigitError => 'Password must contain at least one number';
+
+  @override
+  String get passwordSpecialCharError =>
+      'Password must contain at least one special character';
+
+  @override
+  String get passwordsDoNotMatchError => 'Passwords do not match';
+
+  @override
+  String invalidNumberError(String fieldName) {
+    return '$fieldName must be a valid number';
+  }
+
+  @override
+  String numberMinError(String fieldName, num min) {
+    return '$fieldName must be at least $min';
+  }
+
+  @override
+  String numberMaxError(String fieldName, num max) {
+    return '$fieldName must not exceed $max';
+  }
 }

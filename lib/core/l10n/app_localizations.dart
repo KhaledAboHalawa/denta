@@ -463,6 +463,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log In'**
   String get onboardingLogIn;
+
+  /// No description provided for @thisField.
+  ///
+  /// In en, this message translates to:
+  /// **'This field'**
+  String get thisField;
+
+  /// No description provided for @nameField.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get nameField;
+
+  /// No description provided for @phoneNumberField.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number'**
+  String get phoneNumberField;
+
+  /// No description provided for @confirmPasswordField.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPasswordField;
+
+  /// No description provided for @fieldRequiredError.
+  ///
+  /// In en, this message translates to:
+  /// **'{fieldName} is required'**
+  String fieldRequiredError(String fieldName);
+
+  /// No description provided for @fieldMinLengthError.
+  ///
+  /// In en, this message translates to:
+  /// **'{fieldName} must be at least {minLength} characters'**
+  String fieldMinLengthError(String fieldName, int minLength);
+
+  /// No description provided for @fieldMaxLengthError.
+  ///
+  /// In en, this message translates to:
+  /// **'{fieldName} must not exceed {maxLength} characters'**
+  String fieldMaxLengthError(String fieldName, int maxLength);
+
+  /// No description provided for @nameLettersOnlyError.
+  ///
+  /// In en, this message translates to:
+  /// **'{fieldName} can only contain letters, spaces, hyphens, or apostrophes'**
+  String nameLettersOnlyError(String fieldName);
+
+  /// No description provided for @emailRequiredError.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required'**
+  String get emailRequiredError;
+
+  /// No description provided for @invalidEmailError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get invalidEmailError;
+
+  /// No description provided for @invalidPhoneError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid {fieldName}'**
+  String invalidPhoneError(String fieldName);
+
+  /// No description provided for @passwordRequiredError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required'**
+  String get passwordRequiredError;
+
+  /// No description provided for @passwordMinLengthError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least {minLength} characters'**
+  String passwordMinLengthError(int minLength);
+
+  /// No description provided for @passwordUppercaseError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one uppercase letter'**
+  String get passwordUppercaseError;
+
+  /// No description provided for @passwordLowercaseError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one lowercase letter'**
+  String get passwordLowercaseError;
+
+  /// No description provided for @passwordDigitError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one number'**
+  String get passwordDigitError;
+
+  /// No description provided for @passwordSpecialCharError.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must contain at least one special character'**
+  String get passwordSpecialCharError;
+
+  /// No description provided for @passwordsDoNotMatchError.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwordsDoNotMatchError;
+
+  /// No description provided for @invalidNumberError.
+  ///
+  /// In en, this message translates to:
+  /// **'{fieldName} must be a valid number'**
+  String invalidNumberError(String fieldName);
+
+  /// No description provided for @numberMinError.
+  ///
+  /// In en, this message translates to:
+  /// **'{fieldName} must be at least {min}'**
+  String numberMinError(String fieldName, num min);
+
+  /// No description provided for @numberMaxError.
+  ///
+  /// In en, this message translates to:
+  /// **'{fieldName} must not exceed {max}'**
+  String numberMaxError(String fieldName, num max);
 }
 
 class _AppLocalizationsDelegate

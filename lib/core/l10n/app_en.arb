@@ -80,5 +80,76 @@
   "onboardingSkip": "skip",
   "onboardingCreateYourAccount": "Create Your Account",
   "onboardingAlreadyHaveAccount": "Already have an account? ",
-  "onboardingLogIn": "Log In"
+  "onboardingLogIn": "Log In",
+
+  "thisField": "This field",
+  "nameField": "Name",
+  "phoneNumberField": "Phone number",
+  "confirmPasswordField": "Confirm Password",
+  "fieldRequiredError": "{fieldName} is required",
+  "@fieldRequiredError": {
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+  "fieldMinLengthError": "{fieldName} must be at least {minLength} characters",
+  "@fieldMinLengthError": {
+    "placeholders": {
+      "fieldName": { "type": "String" },
+      "minLength": { "type": "int" }
+    }
+  },
+  "fieldMaxLengthError": "{fieldName} must not exceed {maxLength} characters",
+  "@fieldMaxLengthError": {
+    "placeholders": {
+      "fieldName": { "type": "String" },
+      "maxLength": { "type": "int" }
+    }
+  },
+  "nameLettersOnlyError": "{fieldName} can only contain letters, spaces, hyphens, or apostrophes",
+  "@nameLettersOnlyError": {
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+  "emailRequiredError": "Email is required",
+  "invalidEmailError": "Please enter a valid email address",
+  "invalidPhoneError": "Please enter a valid {fieldName}",
+  "@invalidPhoneError": {
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+  "passwordRequiredError": "Password is required",
+  "passwordMinLengthError": "Password must be at least {minLength} characters",
+  "@passwordMinLengthError": {
+    "placeholders": {
+      "minLength": { "type": "int" }
+    }
+  },
+  "passwordUppercaseError": "Password must contain at least one uppercase letter",
+  "passwordLowercaseError": "Password must contain at least one lowercase letter",
+  "passwordDigitError": "Password must contain at least one number",
+  "passwordSpecialCharError": "Password must contain at least one special character",
+  "passwordsDoNotMatchError": "Passwords do not match",
+  "invalidNumberError": "{fieldName} must be a valid number",
+  "@invalidNumberError": {
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+  "numberMinError": "{fieldName} must be at least {min}",
+  "@numberMinError": {
+    "placeholders": {
+      "fieldName": { "type": "String" },
+      "min": { "type": "num" }
+    }
+  },
+  "numberMaxError": "{fieldName} must not exceed {max}",
+  "@numberMaxError": {
+    "placeholders": {
+      "fieldName": { "type": "String" },
+      "max": { "type": "num" }
+    }
+  }
 }

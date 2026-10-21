@@ -230,4 +230,89 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onboardingLogIn => 'تسجيل الدخول';
+
+  @override
+  String get thisField => 'هذا الحقل';
+
+  @override
+  String get nameField => 'الاسم';
+
+  @override
+  String get phoneNumberField => 'رقم الهاتف';
+
+  @override
+  String get confirmPasswordField => 'تأكيد كلمة المرور';
+
+  @override
+  String fieldRequiredError(String fieldName) {
+    return '$fieldName مطلوب';
+  }
+
+  @override
+  String fieldMinLengthError(String fieldName, int minLength) {
+    return 'يجب ألا يقل $fieldName عن $minLength أحرف';
+  }
+
+  @override
+  String fieldMaxLengthError(String fieldName, int maxLength) {
+    return 'يجب ألا يتجاوز $fieldName $maxLength حرفًا';
+  }
+
+  @override
+  String nameLettersOnlyError(String fieldName) {
+    return 'يمكن أن يحتوي $fieldName على حروف ومسافات وعلامات وصل وفواصل عليا فقط';
+  }
+
+  @override
+  String get emailRequiredError => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get invalidEmailError => 'يرجى إدخال بريد إلكتروني صالح';
+
+  @override
+  String invalidPhoneError(String fieldName) {
+    return 'يرجى إدخال $fieldName صالح';
+  }
+
+  @override
+  String get passwordRequiredError => 'كلمة المرور مطلوبة';
+
+  @override
+  String passwordMinLengthError(int minLength) {
+    return 'يجب أن تتكون كلمة المرور من $minLength أحرف على الأقل';
+  }
+
+  @override
+  String get passwordUppercaseError =>
+      'يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل';
+
+  @override
+  String get passwordLowercaseError =>
+      'يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل';
+
+  @override
+  String get passwordDigitError =>
+      'يجب أن تحتوي كلمة المرور على رقم واحد على الأقل';
+
+  @override
+  String get passwordSpecialCharError =>
+      'يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل';
+
+  @override
+  String get passwordsDoNotMatchError => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String invalidNumberError(String fieldName) {
+    return 'يجب أن يكون $fieldName رقمًا صالحًا';
+  }
+
+  @override
+  String numberMinError(String fieldName, num min) {
+    return 'يجب ألا يقل $fieldName عن $min';
+  }
+
+  @override
+  String numberMaxError(String fieldName, num max) {
+    return 'يجب ألا يتجاوز $fieldName $max';
+  }
 }
