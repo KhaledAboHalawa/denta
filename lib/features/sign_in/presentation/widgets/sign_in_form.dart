@@ -32,9 +32,11 @@ class _SignInFormState extends State<SignInForm> {
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
     _cubit = getIt<SignInCubit>();
+    emailController = TextEditingController(text: _cubit.state.params.email);
+    passwordController = TextEditingController(
+      text: _cubit.state.params.password,
+    );
     nodes = [FocusNode(), FocusNode()];
     _formKey = GlobalKey<FormState>();
   }
