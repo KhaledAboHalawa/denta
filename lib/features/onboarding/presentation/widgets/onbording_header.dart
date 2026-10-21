@@ -2,10 +2,8 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/utils/app_icons.dart';
 
 class OnboardingHeader extends StatelessWidget {
   const OnboardingHeader({
@@ -45,12 +43,11 @@ class OnboardingHeader extends StatelessWidget {
                       color: context.appColors.white,
                     ),
                   ),
-                  SvgPicture.asset(
-                    AppIcons.chevronRight,
-                    colorFilter: ColorFilter.mode(
-                      context.appColors.white,
-                      BlendMode.srcIn,
-                    ),
+                  Icon(
+                    Icons.chevron_right_rounded,
+                    key: ValueKey('icon'),
+                    size: 25,
+                    color: context.appColors.white,
                   ),
                 ],
               ),

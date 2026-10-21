@@ -50,7 +50,6 @@ class OnboardingContent extends StatelessWidget {
         const SizedBox(height: 28),
         (currentIndex == 0 || currentIndex == 3)
             ? Wrap(
-                spacing: 4,
                 alignment: WrapAlignment.center,
                 children: [
                   Text(
