@@ -1,9 +1,14 @@
+import 'package:denta/core/config/base_state/base_state.dart';
 import 'package:denta/core/l10n/app_localizations.dart';
+import 'package:denta/features/sign_in/domain/entities/sign_in_request_params.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/utils/app_validators.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
+import '../bloc/sign_in_bloc.dart';
 import 'forget_password_section.dart';
 
 class SignInForm extends StatefulWidget {
@@ -16,8 +21,9 @@ class SignInForm extends StatefulWidget {
 class _SignInFormState extends State<SignInForm> {
   bool _isInit = true;
 
-  late final AppLocalizations locale;
+  late final SignInCubit _cubit;
   late final GlobalKey<FormState> _formKey;
+  late final AppLocalizations locale;
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
 
@@ -26,11 +32,11 @@ class _SignInFormState extends State<SignInForm> {
   @override
   void initState() {
     super.initState();
-    _formKey = GlobalKey<FormState>();
     emailController = TextEditingController();
     passwordController = TextEditingController();
-
+    _cubit = getIt<SignInCubit>();
     nodes = [FocusNode(), FocusNode()];
+    _formKey = GlobalKey<FormState>();
   }
 
   @override
@@ -69,7 +75,16 @@ class _SignInFormState extends State<SignInForm> {
                 nodes[1].requestFocus();
               }
             },
-            onChange: (value) {},
+            onChange: (value) {
+              _cubit.doIntent(
+                SignInUpdateTextFieldsValuesEvent(
+                  params: SignInRequestParams(
+                    email: value,
+                    password: passwordController.text,
+                  ),
+                ),
+              );
+            },
             labelText: locale.signInEmailLabel,
           ),
 
@@ -80,23 +95,56 @@ class _SignInFormState extends State<SignInForm> {
             focusNode: nodes[1],
             isPassword: true,
             keyboardType: .visiblePassword,
-            validator: (value) => AppValidators.validatePassword(value),
+            validator: (value) => AppValidators.validateRequired(
+              value,
+              fieldName: locale.signInPasswordLabel,
+            ),
             onSubmitted: (_) {
-              if (emailController.text.isNotEmpty &
-                  _formKey.currentState!.validate()) {}
+              if (_formKey.currentState!.validate()) {
+                _cubit.doIntent(
+                  SignInSubmitEvent(
+                    params: SignInRequestParams(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    ),
+                  ),
+                );
+              }
             },
-            onChange: (value) {},
+            onChange: (value) {
+              _cubit.doIntent(
+                SignInUpdateTextFieldsValuesEvent(
+                  params: SignInRequestParams(
+                    email: emailController.text,
+                    password: value,
+                  ),
+                ),
+              );
+            },
             labelText: locale.signInPasswordLabel,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 12),
           const ForgetPasswordSection(),
           const SizedBox(height: 32),
-          CustomButton(
-            title: locale.logIn,
-            isLoading: false,
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {}
-            },
+          BlocSelector(
+            bloc: _cubit,
+            selector: (SignInState state) => state.response.isLoading,
+            builder: (context, isLoading) => CustomButton(
+              title: locale.logIn,
+              isLoading: isLoading,
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _cubit.doIntent(
+                    SignInSubmitEvent(
+                      params: SignInRequestParams(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      ),
+                    ),
+                  );
+                }
+              },
+            ),
           ),
         ],
       ),

@@ -24,7 +24,7 @@ import '../../features/register/domain/repositories/register_repo.dart'
 import '../../features/register/domain/usecases/register_use_case.dart'
     as _i441;
 import '../../features/register/presentation/bloc/register_bloc.dart' as _i771;
-import '../../features/sign_in/presentation/bloc/register_bloc.dart' as _i557;
+import '../../features/sign_in/presentation/bloc/sign_in_bloc.dart' as _i640;
 import '../localization/locale_cubit.dart' as _i960;
 import '../network/localizaton_interceptor.dart' as _i356;
 import '../shared/theming/cubit/theming_cubit.dart' as _i137;
@@ -43,7 +43,7 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
-    gh.lazySingleton<_i557.SignInCubit>(() => _i557.SignInCubit());
+    gh.lazySingleton<_i640.SignInCubit>(() => _i640.SignInCubit());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
     gh.lazySingleton<_i477.RegisterDataSource>(
       () => _i477.RegisterDataSource(gh<_i361.Dio>()),
