@@ -10,6 +10,8 @@ class AuthAppBar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top + 35,
+        left: Directionality.of(context) == .ltr ? 5 : 0,
+        right: Directionality.of(context) == .rtl ? 5 : 0,
         bottom: 34,
       ),
       child: SizedBox(
@@ -21,6 +23,7 @@ class AuthAppBar extends StatelessWidget {
               IconButton(
                 iconSize: 20,
                 onPressed: onBack,
+
                 icon: Icon(Icons.arrow_back_ios_new),
                 style: IconButton.styleFrom(
                   tapTargetSize: .shrinkWrap,
@@ -35,7 +38,8 @@ class AuthAppBar extends StatelessWidget {
             ),
             if (!onlyLogo)
               const SizedBox(
-                width: 40, // 20+2+20 width + left margin + icon size
+                width:
+                    45, // 20+2+20+5 width + left margin + icon size + padding
               ),
           ],
         ),

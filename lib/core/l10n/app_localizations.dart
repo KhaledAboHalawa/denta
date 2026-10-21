@@ -251,7 +251,7 @@ abstract class AppLocalizations {
   /// No description provided for @registerPatientEmailLabel.
   ///
   /// In en, this message translates to:
-  /// **'Email'**
+  /// **'E-mail'**
   String get registerPatientEmailLabel;
 
   /// No description provided for @continueButton.
@@ -283,6 +283,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm Password'**
   String get registerConfirmPasswordLabel;
+
+  /// No description provided for @signInEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email here'**
+  String get signInEmailHint;
+
+  /// No description provided for @signInEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'E-mail'**
+  String get signInEmailLabel;
+
+  /// No description provided for @signInPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password here'**
+  String get signInPasswordHint;
+
+  /// No description provided for @signInPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get signInPasswordLabel;
+
+  /// No description provided for @signInTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hey, Welcome Back!'**
+  String get signInTitle;
+
+  /// No description provided for @signInSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in to pick up right where you left off.'**
+  String get signInSubTitle;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @rememberMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember me'**
+  String get rememberMe;
+
+  /// No description provided for @logIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get logIn;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account yet? '**
+  String get dontHaveAccount;
 
   /// No description provided for @registerCreateAccount.
   ///

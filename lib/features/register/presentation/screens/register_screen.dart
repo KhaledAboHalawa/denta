@@ -14,7 +14,8 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       body: BlocProvider.value(
         value: getIt<RegisterBloc>()
-          ..doIntent(RegisterSetRoleEvent(role: role)),
+          ..doIntent(RegisterSetRoleEvent(role: role))
+          ..doIntent(RegisterBackEvent()),
         child: RegisterBody(),
       ),
     );

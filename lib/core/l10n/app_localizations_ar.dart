@@ -120,6 +120,36 @@ class AppLocalizationsAr extends AppLocalizations {
   String get registerConfirmPasswordLabel => 'تأكيد كلمة المرور';
 
   @override
+  String get signInEmailHint => 'أدخل بريدك الإلكتروني هنا';
+
+  @override
+  String get signInEmailLabel => 'البريد الإلكتروني';
+
+  @override
+  String get signInPasswordHint => 'أدخل كلمة المرور هنا';
+
+  @override
+  String get signInPasswordLabel => 'كلمة المرور';
+
+  @override
+  String get signInTitle => 'أهلاً، سعيد برؤيتك مرة أخرى!';
+
+  @override
+  String get signInSubTitle => 'سجل الدخول لتكمل من حيث توقفت.';
+
+  @override
+  String get forgotPassword => 'نسيت كلمة المرور؟';
+
+  @override
+  String get rememberMe => 'تذكرني';
+
+  @override
+  String get logIn => 'تسجيل الدخول';
+
+  @override
+  String get dontHaveAccount => 'ليس لديك حساب بعد؟ ';
+
+  @override
   String get registerCreateAccount => 'إنشاء حساب';
 
   @override

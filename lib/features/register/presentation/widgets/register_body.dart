@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/app_localizations.dart';
+import '../../../../core/routing/route_paths.dart';
+import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/custom_text_button.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_app_bar.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_divider.dart';
@@ -96,8 +98,12 @@ class RegisterBody extends StatelessWidget {
                               CustomTextButton(
                                 title: AppLocalizations.of(context)!
                                     .registerSignIn,
-                                onPressed: () {},
-                                color: Theme.of(context).colorScheme.primary,
+                                onPressed: () {
+                                  context.pushReplacement(
+                                    RoutePaths.signInPath,
+                                  );
+                                },
+                                color: context.appColors.primary,
                               ),
                             ],
                           ),

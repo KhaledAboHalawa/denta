@@ -27,7 +27,11 @@ class CustomButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         child: isLoading
-            ? CircularProgressIndicator()
+            ? CircularProgressIndicator(
+                color: Colors.white,
+                strokeWidth: 3,
+                constraints: BoxConstraints(minWidth: 23, minHeight: 23),
+              )
             : Text(title, style: context.text.buttonDefault),
       ),
     );
