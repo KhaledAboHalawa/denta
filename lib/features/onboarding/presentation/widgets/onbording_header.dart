@@ -22,8 +22,8 @@ class OnboardingHeader extends StatelessWidget {
     return Padding(
       padding: .only(
         top: MediaQuery.of(context).padding.top,
-        right: 20,
-        left: 20,
+        right: 10,
+        left: 10,
       ),
       child: Stack(
         alignment: Alignment.center,

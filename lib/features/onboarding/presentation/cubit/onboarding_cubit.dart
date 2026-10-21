@@ -21,4 +21,12 @@ class OnboardingCubit extends Cubit<OnboardingState> {
       );
     }
   }
+
+  void skipOnboarding() async {
+    final result = await saveOnboardingCompletionUseCase();
+    result.when(
+      success: (data) => emit(state.copyWith(onboardingComplented: true)),
+      error: (error) {},
+    );
+  }
 }

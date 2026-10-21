@@ -19,7 +19,9 @@ Future<void> main() async {
     ),
   ]);
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(statusBarColor: AppPalette.background),
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ),
   );
   runApp(
     MultiBlocProvider(

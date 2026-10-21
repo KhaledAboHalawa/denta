@@ -49,7 +49,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 SlidShowSection(currentPage: state.pageIndex),
                 OnboardingHeader(
                   onSkip: () {
-                    cubit.gotoNextPage();
+                    cubit.skipOnboarding();
                   },
                   showSkip: state.pageIndex != 0 || state.pageIndex != 3,
                 ),
