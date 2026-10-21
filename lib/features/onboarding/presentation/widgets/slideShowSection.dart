@@ -35,7 +35,6 @@ class _SlidShowSectionState extends State<SlidShowSection> {
   @override
   Widget build(BuildContext context) {
     final isRtl = Directionality.of(context) == TextDirection.rtl;
-    // +1 = الصورة الجديدة بتيجي من اليمين، -1 = من الشمال
     final direction = (_forward ? 1.0 : -1.0) * (isRtl ? -1.0 : 1.0);
     final currentKey = ValueKey<int>(widget.currentPage);
 

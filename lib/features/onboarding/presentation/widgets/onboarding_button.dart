@@ -6,12 +6,12 @@ import '../../../../core/theme/app_typography.dart';
 class OnboardingActionButton extends StatelessWidget {
   const OnboardingActionButton({
     super.key,
-    required this.isLast,
+    required this.isRect,
     required this.onPressed,
     required this.label, // l10n.onboardingExploreDenta
   });
 
-  final bool isLast;
+  final bool isRect;
   final VoidCallback onPressed;
   final String label;
 
@@ -25,19 +25,19 @@ class OnboardingActionButton extends StatelessWidget {
       builder: (context, constraints) {
         return Semantics(
           button: true,
-          label: isLast ? label : null,
+          label: isRect ? label : null,
           child: GestureDetector(
             onTap: onPressed,
             child: AnimatedContainer(
               duration: _duration,
               curve: Curves.easeInOutCubic,
-              width: isLast ? constraints.maxWidth : _circleSize,
-              height: isLast ? _expandedHeight : _circleSize,
+              width: isRect ? constraints.maxWidth : _circleSize,
+              height: isRect ? _expandedHeight : _circleSize,
               alignment: Alignment.center,
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(isLast ? 12 : 100),
+                borderRadius: BorderRadius.circular(isRect ? 12 : 100),
               ),
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 250),
@@ -50,7 +50,7 @@ class OnboardingActionButton extends StatelessWidget {
                     child: child,
                   ),
                 ),
-                child: isLast
+                child: isRect
                     ? Text(
                         label,
                         key: const ValueKey('label'),

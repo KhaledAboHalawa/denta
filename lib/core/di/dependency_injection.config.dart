@@ -15,6 +15,14 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
+import '../../features/onboarding/data/data_source/onboarding_data_source.dart'
+    as _i304;
+import '../../features/onboarding/data/repo/onboarding_repo_impl.dart' as _i527;
+import '../../features/onboarding/domain/repo/onboarding_repo.dart' as _i211;
+import '../../features/onboarding/domain/use_case/get_onboarding_status_use_case.dart'
+    as _i386;
+import '../../features/onboarding/domain/use_case/save_onboarding_completion_use_case.dart'
+    as _i551;
 import '../../features/onboarding/presentation/cubit/onboarding_cubit.dart'
     as _i807;
 import '../../features/register/data/datasources/register_data_source.dart'
@@ -45,7 +53,6 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
-    gh.lazySingleton<_i807.OnboardingCubit>(() => _i807.OnboardingCubit());
     gh.lazySingleton<_i640.SignInCubit>(() => _i640.SignInCubit());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
     gh.lazySingleton<_i477.RegisterDataSource>(
@@ -56,6 +63,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i137.ThemeCubit>(
       () => _i137.ThemeCubit(gh<_i460.SharedPreferences>()),
+    );
+    gh.lazySingleton<_i304.OnboardingDataSource>(
+      () => _i304.OnboardingDataSource(
+        sharedPreferences: gh<_i460.SharedPreferences>(),
+      ),
     );
     gh.lazySingleton<_i250.RegisterRepo>(
       () => _i200.RegisterRepoImpl(
@@ -70,6 +82,24 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i356.LocalizatonInterceptor>(
       () => _i356.LocalizatonInterceptor(gh<_i960.LocaleCubit>()),
+    );
+    gh.lazySingleton<_i386.GetOnboardingStatusUseCase>(
+      () => _i386.GetOnboardingStatusUseCase(
+        onboardingDataSource: gh<_i304.OnboardingDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i551.SaveOnboardingCompletionUseCase>(
+      () => _i551.SaveOnboardingCompletionUseCase(
+        onboardingDataSource: gh<_i304.OnboardingDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i807.OnboardingCubit>(
+      () => _i807.OnboardingCubit(gh<_i551.SaveOnboardingCompletionUseCase>()),
+    );
+    gh.lazySingleton<_i211.OnboardingRepo>(
+      () => _i527.OnboardingRepoImpl(
+        onboardingDataSource: gh<_i304.OnboardingDataSource>(),
+      ),
     );
     return this;
   }

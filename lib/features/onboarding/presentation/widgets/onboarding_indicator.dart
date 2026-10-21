@@ -19,7 +19,9 @@ class OnboardingIndicator extends StatelessWidget {
           width: isSelected ? 28 : 7,
           height: 7,
           decoration: BoxDecoration(
-            color: isSelected ? AppPalette.secondary : AppPalette.white,
+            color: isSelected
+                ? context.appColors.secondary
+                : context.appColors.white,
             borderRadius: BorderRadius.circular(10),
           ),
         );

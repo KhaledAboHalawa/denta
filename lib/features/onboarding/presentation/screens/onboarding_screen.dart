@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/routing/route_paths.dart';
 import '../cubit/onboarding_cubit.dart';
 import '../cubit/onboarding_state.dart';
 import '../widgets/onboarding_content.dart';
@@ -28,7 +30,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: BlocProvider.value(
         value: cubit,
-        child: BlocBuilder<OnboardingCubit, OnboardingState>(
+        child: BlocConsumer<OnboardingCubit, OnboardingState>(
+          listenWhen: (previous, current) {
+            return previous.onboardingComplented !=
+                current.onboardingComplented;
+          },
+          listener: (context, state) {
+            if (state.onboardingComplented) {
+              context.pushReplacement(RoutePaths.roleSelectionPath);
+            }
+          },
           buildWhen: (previous, current) {
             return previous.pageIndex != current.pageIndex;
           },
@@ -38,7 +49,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 SlidShowSection(currentPage: state.pageIndex),
                 OnboardingHeader(
                   onSkip: () {
-                    cubit.gotoPreviousPage();
+                    cubit.gotoNextPage();
                   },
                   showSkip: state.pageIndex != 0 || state.pageIndex != 3,
                 ),
