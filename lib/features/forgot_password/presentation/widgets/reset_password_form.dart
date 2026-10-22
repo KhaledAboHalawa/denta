@@ -1,12 +1,12 @@
 import 'package:denta/core/config/base_state/base_state.dart';
 import 'package:denta/core/l10n/app_localizations.dart';
-import 'package:denta/features/forgot_password/domain/entities/reset_password_request_params.dart';
-import 'package:denta/features/forgot_password/presentation/bloc/reset_password_bloc.dart';
+import 'package:denta/core/widgets/custom_button.dart';
+import 'package:denta/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/widgets/custom_button.dart';
-import '../../../../core/widgets/custom_text_field.dart';
+import '../../domain/entities/reset_password_request_params.dart';
+import '../bloc/forgot_password_bloc.dart';
 
 class ResetPasswordForm extends StatefulWidget {
   const ResetPasswordForm({super.key});
@@ -24,7 +24,8 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   @override
   void initState() {
     super.initState();
-    final params = context.read<ResetPasswordCubit>().state.params;
+    final params =
+        context.read<ForgotPasswordCubit>().state.resetPasswordParams;
     _formKey = GlobalKey<FormState>();
     _passwordController = TextEditingController(text: params.password);
     _confirmPasswordController =
@@ -42,24 +43,21 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
     super.dispose();
   }
 
-  void _submit(ResetPasswordCubit cubit) {
+  void _submit(ForgotPasswordCubit cubit) {
     FocusScope.of(context).unfocus();
     if (!_formKey.currentState!.validate()) return;
-
-    cubit.doIntent(
-      ResetPasswordSubmitEvent(
-        params: ResetPasswordRequestParams(
-          password: _passwordController.text,
-          confirmPassword: _confirmPasswordController.text,
-        ),
+    cubit.doIntent(ForgotPasswordSubmitResetPasswordEvent(
+      params: ResetPasswordRequestParams(
+        password: _passwordController.text,
+        confirmPassword: _confirmPasswordController.text,
       ),
-    );
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context)!;
-    final cubit = context.read<ResetPasswordCubit>();
+    final cubit = context.read<ForgotPasswordCubit>();
 
     return Form(
       key: _formKey,
@@ -76,21 +74,17 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               if (value == null || value.isEmpty) {
                 return locale.passwordRequired;
               }
-              if (value.length < 8) {
-                return locale.passwordMinLength;
-              }
+              if (value.length < 8) return locale.passwordMinLength;
               return null;
             },
-            onChange: (value) {
-              cubit.doIntent(
-                ResetPasswordUpdateTextFieldsValuesEvent(
-                  params: ResetPasswordRequestParams(
-                    password: value,
-                    confirmPassword: _confirmPasswordController.text,
-                  ),
+            onChange: (value) => cubit.doIntent(
+              ForgotPasswordUpdateResetPasswordEvent(
+                params: ResetPasswordRequestParams(
+                  password: value,
+                  confirmPassword: _confirmPasswordController.text,
                 ),
-              );
-            },
+              ),
+            ),
             onSubmitted: (_) => _nodes[1].requestFocus(),
             labelText: locale.newPassword,
           ),
@@ -110,29 +104,25 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               }
               return null;
             },
-            onChange: (value) {
-              cubit.doIntent(
-                ResetPasswordUpdateTextFieldsValuesEvent(
-                  params: ResetPasswordRequestParams(
-                    password: _passwordController.text,
-                    confirmPassword: value,
-                  ),
+            onChange: (value) => cubit.doIntent(
+              ForgotPasswordUpdateResetPasswordEvent(
+                params: ResetPasswordRequestParams(
+                  password: _passwordController.text,
+                  confirmPassword: value,
                 ),
-              );
-            },
+              ),
+            ),
             onSubmitted: (_) => _submit(cubit),
             labelText: locale.confirmPassword,
           ),
           const SizedBox(height: 32),
-          BlocSelector<ResetPasswordCubit, ResetPasswordState, bool>(
+          BlocSelector<ForgotPasswordCubit, ForgotPasswordState, bool>(
             selector: (state) => state.response.isLoading,
-            builder: (context, isLoading) {
-              return CustomButton(
-                title: locale.resetPasswordButton,
-                isLoading: isLoading,
-                onPressed: isLoading ? null : () => _submit(cubit),
-              );
-            },
+            builder: (context, isLoading) => CustomButton(
+              title: locale.resetPasswordButton,
+              isLoading: isLoading,
+              onPressed: isLoading ? null : () => _submit(cubit),
+            ),
           ),
         ],
       ),

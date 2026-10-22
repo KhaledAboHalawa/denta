@@ -1,28 +1,44 @@
 import 'package:denta/core/config/base_state/base_state.dart';
+import 'package:denta/core/di/dependency_injection.dart';
 import 'package:denta/core/routing/route_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/di/dependency_injection.dart';
 import '../bloc/forgot_password_bloc.dart';
 import '../widgets/forgot_password_body.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
+class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
 
   @override
+  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
+}
+
+class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+  late final ForgotPasswordCubit _cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _cubit = getIt<ForgotPasswordCubit>()
+      ..doIntent(const ForgotPasswordResetFlowEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider.value(
-        value: getIt<ForgotPasswordCubit>(),
-        child: BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
-          listener: (context, state) {
-            if (state.response.isSuccess) {
-              context.push(RoutePaths.otpPath, extra: state.params.email);
-            }
-          },
-          child: const ForgotPasswordBody(),
+    return BlocProvider.value(
+      value: _cubit,
+      child: BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
+        listenWhen: (previous, current) =>
+            previous.currentPage == 0 &&
+            current.currentPage == 1 &&
+            current.response.isSuccess,
+        listener: (context, state) {
+          context.push(RoutePaths.otpPath, extra: state.otpParams.email);
+        },
+        child: const Scaffold(
+          body: SafeArea(child: ForgotPasswordBody()),
         ),
       ),
     );

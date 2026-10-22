@@ -5,30 +5,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../bloc/reset_password_bloc.dart';
+import '../bloc/forgot_password_bloc.dart';
 import '../widgets/reset_password_body.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
+class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
 
   @override
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
+}
+
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
+  late final ForgotPasswordCubit _cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _cubit = getIt<ForgotPasswordCubit>()
+      ..doIntent(const ForgotPasswordGoToPageEvent(page: 2));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<ResetPasswordCubit>(),
-      child: BlocListener<ResetPasswordCubit, ResetPasswordState>(
+    return BlocProvider.value(
+      value: _cubit,
+      child: BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
         listenWhen: (previous, current) =>
-            previous.response.status != current.response.status,
+            current.currentPage == 2 &&
+            previous.response.status != current.response.status &&
+            current.response.isSuccess,
         listener: (context, state) {
-          if (state.response.isSuccess) {
-            context.go(RoutePaths.resetPasswordSuccessPath);
-          } else if (state.response.isError) {
-            final message = state.response.error;
-            if (message != null && message.isNotEmpty) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(message)),
-              );
-            }
-          }
+          context.go(RoutePaths.resetPasswordSuccessPath);
         },
         child: const Scaffold(
           body: SafeArea(child: ResetPasswordBody()),

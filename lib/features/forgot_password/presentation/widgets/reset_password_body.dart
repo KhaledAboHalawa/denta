@@ -2,7 +2,10 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/shared/auth/shared_presentation/widgets/auth_app_bar.dart';
 import 'package:denta/core/shared/auth/shared_presentation/widgets/auth_text_banner.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../bloc/forgot_password_bloc.dart';
 
 import 'reset_password_form.dart';
 
@@ -17,7 +20,12 @@ class ResetPasswordBody extends StatelessWidget {
       children: [
         AuthAppBar(
           onlyLogo: false,
-          onBack: () => context.pop(),
+          onBack: () {
+            context.read<ForgotPasswordCubit>().doIntent(
+              const ForgotPasswordGoToPageEvent(page: 1),
+            );
+            context.pop();
+          },
         ),
         Expanded(
           child: LayoutBuilder(
