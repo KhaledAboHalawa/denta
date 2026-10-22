@@ -65,7 +65,8 @@ class OnboardingContent extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                     onPressed: () {
-                      context.push(RoutePaths.signInPath);
+                      context.read<OnboardingCubit>().skipOnboarding();
+                      context.pushReplacement(RoutePaths.signInPath);
                     },
                   ),
                 ],
