@@ -1,3 +1,4 @@
+import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,11 @@ class CustomButton extends StatelessWidget {
     this.onPressed,
     required this.title,
     this.shrink = false,
+    this.backgroundColor,
+    this.foregroundColor,
   });
+  final Color? backgroundColor;
+  final Color? foregroundColor;
   final bool isLoading;
   final bool shrink;
   final String title;
@@ -19,10 +24,11 @@ class CustomButton extends StatelessWidget {
       width: shrink ? null : double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
           side: BorderSide(
             color: onPressed == null
                 ? Colors.transparent
-                : Theme.of(context).colorScheme.primary,
+                : backgroundColor ?? context.appColors.primary,
           ),
         ),
         onPressed: onPressed,
@@ -30,9 +36,14 @@ class CustomButton extends StatelessWidget {
             ? CircularProgressIndicator(
                 color: Colors.white,
                 strokeWidth: 3,
-                constraints: BoxConstraints(minWidth: 23, minHeight: 23),
+                constraints: const BoxConstraints(minWidth: 23, minHeight: 23),
               )
-            : Text(title, style: context.text.buttonDefault),
+            : Text(
+                title,
+                style: context.text.buttonDefault.copyWith(
+                  color: foregroundColor,
+                ),
+              ),
       ),
     );
   }

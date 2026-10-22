@@ -6,4 +6,5 @@ class AppIcons {
   static const String celebrationIcon = "assets/icons/celebrate_icon.svg";
   static const String patient = "assets/icons/patient_icon.svg";
   static const String dentist = "assets/icons/doctor_icon.svg";
+  static const String chevronRight = "assets/icons/chevron-right.svg";
 }

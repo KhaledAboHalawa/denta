@@ -188,4 +188,127 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get roleSelectionSubtitle =>
       'This helps us set up the right experience for you.';
+
+  @override
+  String get onboardingExploreDenta => 'Explore Denta';
+
+  @override
+  String onboardingTitle(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'Where Dental Care Meets Dental Learning',
+      '1': 'Not Sure What\'s Wrong? We\'ll Help You Find Out',
+      '2': 'Matched Nearby, Matched Right',
+      '3': 'More Than Just Cases',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String onboardingDescription(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.',
+      '1': 'Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.',
+      '2': 'Whether you\'re seeking care or seeking a case, Denta matches you with the right person, close to home.',
+      '3': 'Buy, sell, or donate dental tools and equipment within a trusted student community.',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get onboardingSkip => 'skip';
+
+  @override
+  String get onboardingCreateYourAccount => 'Create Your Account';
+
+  @override
+  String get onboardingAlreadyHaveAccount => 'Already have an account? ';
+
+  @override
+  String get onboardingLogIn => 'Log In';
+
+  @override
+  String get thisField => 'This field';
+
+  @override
+  String get nameField => 'Name';
+
+  @override
+  String get phoneNumberField => 'Phone number';
+
+  @override
+  String get confirmPasswordField => 'Confirm Password';
+
+  @override
+  String fieldRequiredError(String fieldName) {
+    return '$fieldName is required';
+  }
+
+  @override
+  String fieldMinLengthError(String fieldName, int minLength) {
+    return '$fieldName must be at least $minLength characters';
+  }
+
+  @override
+  String fieldMaxLengthError(String fieldName, int maxLength) {
+    return '$fieldName must not exceed $maxLength characters';
+  }
+
+  @override
+  String nameLettersOnlyError(String fieldName) {
+    return '$fieldName can only contain letters, spaces, hyphens, or apostrophes';
+  }
+
+  @override
+  String get emailRequiredError => 'Email is required';
+
+  @override
+  String get invalidEmailError => 'Please enter a valid email address';
+
+  @override
+  String invalidPhoneError(String fieldName) {
+    return 'Please enter a valid $fieldName';
+  }
+
+  @override
+  String get passwordRequiredError => 'Password is required';
+
+  @override
+  String passwordMinLengthError(int minLength) {
+    return 'Password must be at least $minLength characters';
+  }
+
+  @override
+  String get passwordUppercaseError =>
+      'Password must contain at least one uppercase letter';
+
+  @override
+  String get passwordLowercaseError =>
+      'Password must contain at least one lowercase letter';
+
+  @override
+  String get passwordDigitError => 'Password must contain at least one number';
+
+  @override
+  String get passwordSpecialCharError =>
+      'Password must contain at least one special character';
+
+  @override
+  String get passwordsDoNotMatchError => 'Passwords do not match';
+
+  @override
+  String invalidNumberError(String fieldName) {
+    return '$fieldName must be a valid number';
+  }
+
+  @override
+  String numberMinError(String fieldName, num min) {
+    return '$fieldName must be at least $min';
+  }
+
+  @override
+  String numberMaxError(String fieldName, num max) {
+    return '$fieldName must not exceed $max';
+  }
 }

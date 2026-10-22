@@ -71,7 +71,7 @@ class _SignInFormState extends State<SignInForm> {
             hint: locale.signInEmailHint,
             focusNode: nodes[0],
             keyboardType: .emailAddress,
-            validator: (value) => AppValidators.validateEmail(value),
+            validator: (value) => AppValidators.validateEmail(value, context: context),
             onSubmitted: (_) {
               if (emailController.text.isNotEmpty) {
                 nodes[1].requestFocus();
@@ -99,6 +99,7 @@ class _SignInFormState extends State<SignInForm> {
             keyboardType: .visiblePassword,
             validator: (value) => AppValidators.validateRequired(
               value,
+              context: context,
               fieldName: locale.signInPasswordLabel,
             ),
             onSubmitted: (_) {

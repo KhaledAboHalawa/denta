@@ -79,7 +79,11 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             hint: locale.registerFirstNameHint,
             focusNode: nodes[0],
             keyboardType: .name,
-            validator: (value) => AppValidators.validateName(value),
+            validator: (value) => AppValidators.validateName(
+              value,
+              context: context,
+              fieldName: locale.registerFirstNameLabel,
+            ),
             onSubmitted: (_) {
               if (firstNameController.text.isNotEmpty) {
                 nodes[1].requestFocus();
@@ -100,7 +104,11 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             hint: locale.registerLastNameHint,
             focusNode: nodes[1],
             keyboardType: .name,
-            validator: (value) => AppValidators.validateName(value),
+            validator: (value) => AppValidators.validateName(
+              value,
+              context: context,
+              fieldName: locale.registerLastNameLabel,
+            ),
             onSubmitted: (_) {
               if (lastNameController.text.isNotEmpty) {
                 nodes[2].requestFocus();
@@ -123,7 +131,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
                 : locale.registerPatientEmailHint,
             focusNode: nodes[2],
             keyboardType: .emailAddress,
-            validator: (value) => AppValidators.validateEmail(value),
+            validator: (value) => AppValidators.validateEmail(value, context: context),
             onSubmitted: (_) {
               if (_formKey.currentState!.validate()) {
                 bloc.doIntent(RegisterContinueEvent());

@@ -1,5 +1,26 @@
+import 'package:flutter/widgets.dart';
+
+import '../di/dependency_injection.dart';
+import '../l10n/app_localizations.dart';
+import '../localization/locale_cubit.dart';
+
 class AppValidators {
   AppValidators._();
+
+  static AppLocalizations _getL10n({
+    BuildContext? context,
+    AppLocalizations? l10n,
+  }) {
+    if (l10n != null) return l10n;
+    if (context != null) {
+      final loc = AppLocalizations.of(context);
+      if (loc != null) return loc;
+    }
+    if (getIt.isRegistered<LocaleCubit>()) {
+      return lookupAppLocalizations(getIt<LocaleCubit>().state);
+    }
+    return lookupAppLocalizations(const Locale('en'));
+  }
 
   static final RegExp _emailRegex = RegExp(
     r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
@@ -19,50 +40,67 @@ class AppValidators {
 
   static String? validateRequired(
     String? value, {
-    String fieldName = 'This field',
+    String? fieldName,
+    BuildContext? context,
+    AppLocalizations? l10n,
   }) {
     if (value == null || value.trim().isEmpty) {
-      return '$fieldName is required';
+      final localizations = _getL10n(context: context, l10n: l10n);
+      return localizations.fieldRequiredError(
+        fieldName ?? localizations.thisField,
+      );
     }
     return null;
   }
 
   static String? validateName(
     String? value, {
-    String fieldName = 'Name',
+    String? fieldName,
     int minLength = 2,
     int maxLength = 50,
+    BuildContext? context,
+    AppLocalizations? l10n,
   }) {
+    final localizations = _getL10n(context: context, l10n: l10n);
+    final name = fieldName ?? localizations.nameField;
+
     if (value == null || value.trim().isEmpty) {
-      return '$fieldName is required';
+      return localizations.fieldRequiredError(name);
     }
 
     final trimmed = value.trim();
 
     if (trimmed.length < minLength) {
-      return '$fieldName must be at least $minLength characters';
+      return localizations.fieldMinLengthError(name, minLength);
     }
 
     if (trimmed.length > maxLength) {
-      return '$fieldName must not exceed $maxLength characters';
+      return localizations.fieldMaxLengthError(name, maxLength);
     }
 
     if (!_nameRegex.hasMatch(trimmed)) {
-      return '$fieldName can only contain letters, spaces, hyphens, or apostrophes';
+      return localizations.nameLettersOnlyError(name);
     }
 
     return null;
   }
 
-  static String? validateEmail(String? value, {String? customErrorMessage}) {
+  static String? validateEmail(
+    String? value, {
+    String? customErrorMessage,
+    BuildContext? context,
+    AppLocalizations? l10n,
+  }) {
+    final localizations = _getL10n(context: context, l10n: l10n);
+
     if (value == null || value.trim().isEmpty) {
-      return 'Email is required';
+      return localizations.emailRequiredError;
     }
 
     final trimmed = value.trim();
 
     if (!_emailRegex.hasMatch(trimmed)) {
-      return customErrorMessage ?? 'Please enter a valid email address';
+      return customErrorMessage ?? localizations.invalidEmailError;
     }
 
     return null;
@@ -70,16 +108,21 @@ class AppValidators {
 
   static String? validatePhone(
     String? value, {
-    String fieldName = 'Phone number',
+    String? fieldName,
+    BuildContext? context,
+    AppLocalizations? l10n,
   }) {
+    final localizations = _getL10n(context: context, l10n: l10n);
+    final name = fieldName ?? localizations.phoneNumberField;
+
     if (value == null || value.trim().isEmpty) {
-      return '$fieldName is required';
+      return localizations.fieldRequiredError(name);
     }
 
     final trimmed = value.trim();
 
     if (!_phoneRegex.hasMatch(trimmed)) {
-      return 'Please enter a valid $fieldName';
+      return localizations.invalidPhoneError(name);
     }
 
     return null;
@@ -92,29 +135,33 @@ class AppValidators {
     bool requireLowercase = true,
     bool requireDigit = true,
     bool requireSpecialChar = false,
+    BuildContext? context,
+    AppLocalizations? l10n,
   }) {
+    final localizations = _getL10n(context: context, l10n: l10n);
+
     if (value == null || value.isEmpty) {
-      return 'Password is required';
+      return localizations.passwordRequiredError;
     }
 
     if (value.length < minLength) {
-      return 'Password must be at least $minLength characters';
+      return localizations.passwordMinLengthError(minLength);
     }
 
     if (requireUppercase && !_hasUppercaseRegex.hasMatch(value)) {
-      return 'Password must contain at least one uppercase letter';
+      return localizations.passwordUppercaseError;
     }
 
     if (requireLowercase && !_hasLowercaseRegex.hasMatch(value)) {
-      return 'Password must contain at least one lowercase letter';
+      return localizations.passwordLowercaseError;
     }
 
     if (requireDigit && !_hasDigitRegex.hasMatch(value)) {
-      return 'Password must contain at least one number';
+      return localizations.passwordDigitError;
     }
 
     if (requireSpecialChar && !_hasSpecialCharRegex.hasMatch(value)) {
-      return 'Password must contain at least one special character';
+      return localizations.passwordSpecialCharError;
     }
 
     return null;
@@ -123,14 +170,19 @@ class AppValidators {
   static String? validateConfirmPassword(
     String? value,
     String? originalPassword, {
-    String fieldName = 'Confirm Password',
+    String? fieldName,
+    BuildContext? context,
+    AppLocalizations? l10n,
   }) {
+    final localizations = _getL10n(context: context, l10n: l10n);
+    final name = fieldName ?? localizations.confirmPasswordField;
+
     if (value == null || value.isEmpty) {
-      return '$fieldName is required';
+      return localizations.fieldRequiredError(name);
     }
 
     if (value != originalPassword) {
-      return 'Passwords do not match';
+      return localizations.passwordsDoNotMatchError;
     }
 
     return null;
@@ -138,32 +190,36 @@ class AppValidators {
 
   static String? validateNumber(
     String? value, {
-    String fieldName = 'This field',
+    String? fieldName,
     num? min,
     num? max,
+    BuildContext? context,
+    AppLocalizations? l10n,
   }) {
+    final localizations = _getL10n(context: context, l10n: l10n);
+    final name = fieldName ?? localizations.thisField;
+
     if (value == null || value.trim().isEmpty) {
-      return '$fieldName is required';
+      return localizations.fieldRequiredError(name);
     }
 
     final trimmed = value.trim();
     final number = num.tryParse(trimmed);
 
     if (number == null || !_numericRegex.hasMatch(trimmed)) {
-      return '$fieldName must be a valid number';
+      return localizations.invalidNumberError(name);
     }
 
     if (min != null && number < min) {
-      return '$fieldName must be at least $min';
+      return localizations.numberMinError(name, min);
     }
 
     if (max != null && number > max) {
-      return '$fieldName must not exceed $max';
+      return localizations.numberMaxError(name, max);
     }
 
     return null;
   }
-
 
   // ---------------------------------------------------------------------------
   // Validator Combiner
@@ -174,8 +230,8 @@ class AppValidators {
   /// ```dart
   /// TextFormField(
   ///   validator: AppValidators.combine([
-  ///     (val) => AppValidators.validateRequired(val, fieldName: 'Email'),
-  ///     AppValidators.validateEmail,
+  ///     (val) => AppValidators.validateRequired(val, context: context, fieldName: 'Email'),
+  ///     (val) => AppValidators.validateEmail(val, context: context),
   ///   ]),
   /// )
   /// ```

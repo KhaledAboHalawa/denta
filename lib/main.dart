@@ -6,7 +6,6 @@ import 'app/app.dart';
 import 'core/di/dependency_injection.dart';
 import 'core/localization/locale_cubit.dart';
 import 'core/shared/theming/cubit/theming_cubit.dart';
-import 'core/theme/app_colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +18,9 @@ Future<void> main() async {
     ),
   ]);
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(statusBarColor: AppPalette.background),
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ),
   );
   runApp(
     MultiBlocProvider(

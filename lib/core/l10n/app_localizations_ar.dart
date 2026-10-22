@@ -191,4 +191,128 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get roleSelectionSubtitle =>
       'هذا يساعدنا في إعداد التجربة المناسبة لك';
+
+  @override
+  String get onboardingExploreDenta => 'اكتشف دنتا';
+
+  @override
+  String onboardingTitle(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'حيث تلتقي رعاية الأسنان بتعلّم طب الأسنان',
+      '1': 'لست متأكدًا مما تعانيه؟ سنساعدك على معرفته',
+      '2': 'مطابقة قريبة منك، ومطابقة مناسبة لك',
+      '3': 'أكثر من مجرد حالات',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String onboardingDescription(String page) {
+    String _temp0 = intl.Intl.selectLogic(page, {
+      '0': 'تربط دنتا بين طلاب طب الأسنان والمرضى، لتجعل العلاج أسهل في الوصول والتدريب الإكلينيكي أكثر كفاءة.',
+      '1': 'التقط صورة لمشكلتك، ويساعدك الذكاء الاصطناعي على تحديد الحالة، دون الحاجة لأي معرفة طبية.',
+      '2': 'سواء كنت تبحث عن علاج أو عن حالة، تربطك دنتا بالشخص المناسب القريب من منزلك.',
+      '3': 'اشترِ أو بع أو تبرّع بأدوات ومعدات طب الأسنان داخل مجتمع طلابي موثوق.',
+      'other': '',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get onboardingSkip => 'تخطي';
+
+  @override
+  String get onboardingCreateYourAccount => 'أنشئ حسابك';
+
+  @override
+  String get onboardingAlreadyHaveAccount => 'لديك حساب بالفعل؟ ';
+
+  @override
+  String get onboardingLogIn => 'تسجيل الدخول';
+
+  @override
+  String get thisField => 'هذا الحقل';
+
+  @override
+  String get nameField => 'الاسم';
+
+  @override
+  String get phoneNumberField => 'رقم الهاتف';
+
+  @override
+  String get confirmPasswordField => 'تأكيد كلمة المرور';
+
+  @override
+  String fieldRequiredError(String fieldName) {
+    return '$fieldName مطلوب';
+  }
+
+  @override
+  String fieldMinLengthError(String fieldName, int minLength) {
+    return 'يجب ألا يقل $fieldName عن $minLength أحرف';
+  }
+
+  @override
+  String fieldMaxLengthError(String fieldName, int maxLength) {
+    return 'يجب ألا يتجاوز $fieldName $maxLength حرفًا';
+  }
+
+  @override
+  String nameLettersOnlyError(String fieldName) {
+    return 'يمكن أن يحتوي $fieldName على حروف ومسافات وعلامات وصل وفواصل عليا فقط';
+  }
+
+  @override
+  String get emailRequiredError => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get invalidEmailError => 'يرجى إدخال بريد إلكتروني صالح';
+
+  @override
+  String invalidPhoneError(String fieldName) {
+    return 'يرجى إدخال $fieldName صالح';
+  }
+
+  @override
+  String get passwordRequiredError => 'كلمة المرور مطلوبة';
+
+  @override
+  String passwordMinLengthError(int minLength) {
+    return 'يجب أن تتكون كلمة المرور من $minLength أحرف على الأقل';
+  }
+
+  @override
+  String get passwordUppercaseError =>
+      'يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل';
+
+  @override
+  String get passwordLowercaseError =>
+      'يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل';
+
+  @override
+  String get passwordDigitError =>
+      'يجب أن تحتوي كلمة المرور على رقم واحد على الأقل';
+
+  @override
+  String get passwordSpecialCharError =>
+      'يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل';
+
+  @override
+  String get passwordsDoNotMatchError => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String invalidNumberError(String fieldName) {
+    return 'يجب أن يكون $fieldName رقمًا صالحًا';
+  }
+
+  @override
+  String numberMinError(String fieldName, num min) {
+    return 'يجب ألا يقل $fieldName عن $min';
+  }
+
+  @override
+  String numberMaxError(String fieldName, num max) {
+    return 'يجب ألا يتجاوز $fieldName $max';
+  }
 }
