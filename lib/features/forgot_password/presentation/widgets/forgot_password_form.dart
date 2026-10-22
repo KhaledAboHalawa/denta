@@ -18,80 +18,73 @@ class ForgotPasswordForm extends StatefulWidget {
 }
 
 class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
-  bool _isInit = true;
-
   late final ForgotPasswordCubit _cubit;
   late final GlobalKey<FormState> _formKey;
-  late final AppLocalizations locale;
   late final TextEditingController emailController;
-
-  late final List<FocusNode> nodes;
+  late final FocusNode _emailFocusNode;
 
   @override
   void initState() {
     super.initState();
     _cubit = getIt<ForgotPasswordCubit>();
-    emailController = TextEditingController(text: _cubit.state.params.email);
-    nodes = [FocusNode(), FocusNode()];
     _formKey = GlobalKey<FormState>();
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (_isInit) {
-      _isInit = false;
-      locale = AppLocalizations.of(context)!;
-    }
+    emailController = TextEditingController(text: _cubit.state.params.email);
+    _emailFocusNode = FocusNode();
   }
 
   @override
   void dispose() {
     emailController.dispose();
-    for (var node in nodes) {
-      node.dispose();
-    }
+    _emailFocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final locale = AppLocalizations.of(context)!;
     return Form(
       key: _formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           CustomTextField(
             controller: emailController,
             hint: locale.signInEmailHint,
-            focusNode: nodes[0],
-            keyboardType: .emailAddress,
-            validator: (value) => AppValidators.validateEmail(value),
+            focusNode: _emailFocusNode,
+            keyboardType: TextInputType.emailAddress,
+            validator: AppValidators.validateEmail,
+            labelText: locale.signInEmailLabel,
             onSubmitted: (_) {
-              if (emailController.text.isNotEmpty) {
-                nodes[1].requestFocus();
+              if (_formKey.currentState!.validate()) {
+                FocusScope.of(context).unfocus();
               }
             },
-            labelText: locale.signInEmailLabel,
           ),
           const SizedBox(height: 32),
-          BlocSelector(
+          BlocSelector<ForgotPasswordCubit, ForgotPasswordState, bool>(
             bloc: _cubit,
-            selector: (ForgotPasswordState state) => state.response.isLoading,
-            builder: (context, isLoading) => CustomButton(
-              title: locale.logIn,
-              isLoading: isLoading,
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _cubit.doIntent(
-                    ForgotPasswordSubmitEvent(
-                      params: ForgotPasswordRequestParams(
-                        email: emailController.text,
-                      ),
-                    ),
-                  );
-                }
-              },
-            ),
+            selector: (state) => state.response.isLoading,
+            builder: (context, isLoading) {
+              return CustomButton(
+                title: locale.sendCode,
+                isLoading: isLoading,
+                onPressed: isLoading
+                    ? null
+                    : () {
+                        FocusScope.of(context).unfocus();
+
+                        if (_formKey.currentState!.validate()) {
+                          _cubit.doIntent(
+                            ForgotPasswordSubmitEvent(
+                              params: ForgotPasswordRequestParams(
+                                email: emailController.text.trim(),
+                              ),
+                            ),
+                          );
+                        }
+                      },
+              );
+            },
           ),
         ],
       ),

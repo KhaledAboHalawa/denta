@@ -433,6 +433,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No worries, it happens. Enter your email and we\'ll send you a code to get back in.'**
   String get forgotPasswordSubTitle;
+
+  /// No description provided for @sendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Code'**
+  String get sendCode;
+
+  /// No description provided for @otpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check Your Email'**
+  String get otpTitle;
+
+  /// No description provided for @otpDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'We sent a 4-digit code to {email}. Enter it below to continue.'**
+  String otpDescription(String email);
+
+  /// No description provided for @verifyCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Code'**
+  String get verifyCode;
+
+  /// No description provided for @didntGetIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Didn\'t get it?'**
+  String get didntGetIt;
+
+  /// No description provided for @resendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend Code'**
+  String get resendCode;
+
+  /// No description provided for @otpInvalidCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter the 4-digit code.'**
+  String get otpInvalidCode;
+
+  /// No description provided for @otpVerificationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Code verification failed. Please try again.'**
+  String get otpVerificationFailed;
+
+  /// No description provided for @otpResendFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not resend the code. Please try again.'**
+  String get otpResendFailed;
+
+  /// No description provided for @otpResendMockSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend request simulated successfully.'**
+  String get otpResendMockSuccess;
+
+  /// No description provided for @otpVerificationMockSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Mock verification succeeded. Backend verification is not connected yet.'**
+  String get otpVerificationMockSuccess;
+
+  /// No description provided for @resetPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create A New Password'**
+  String get resetPasswordTitle;
+
+  /// No description provided for @resetPasswordDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Make it something you\'ll remember this time.'**
+  String get resetPasswordDescription;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get newPassword;
+
+  /// No description provided for @createPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Create password of 8 characters here...'**
+  String get createPasswordHint;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @confirmPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password again'**
+  String get confirmPasswordHint;
+
+  /// No description provided for @resetPasswordButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPasswordButton;
+
+  /// No description provided for @passwordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a password.'**
+  String get passwordRequired;
+
+  /// No description provided for @passwordMinLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters.'**
+  String get passwordMinLength;
+
+  /// No description provided for @confirmPasswordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm your password.'**
+  String get confirmPasswordRequired;
+
+  /// No description provided for @passwordsDoNotMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match.'**
+  String get passwordsDoNotMatch;
+
+  /// No description provided for @resetPasswordSuccessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re back in!'**
+  String get resetPasswordSuccessTitle;
+
+  /// No description provided for @resetPasswordSuccessDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your password has been reset. Time to pick up where you left off.'**
+  String get resetPasswordSuccessDescription;
+
+  /// No description provided for @backToLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Login'**
+  String get backToLogin;
 }
 
 class _AppLocalizationsDelegate

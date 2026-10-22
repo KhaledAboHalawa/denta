@@ -62,5 +62,37 @@
   "roleSelectionSubtitle": "This helps us set up the right experience for you.",
 
   "forgotPasswordTitle": "Forgot Your Password?",
-  "forgotPasswordSubTitle": "No worries, it happens. Enter your email and we'll send you a code to get back in."
-}
+  "forgotPasswordSubTitle": "No worries, it happens. Enter your email and we'll send you a code to get back in.",
+  "sendCode": "Send Code",
+  "otpTitle": "Check Your Email",
+  "otpDescription": "We sent a 4-digit code to {email}. Enter it below to continue.",
+  "@otpDescription": {
+  "placeholders": {
+    "email": {
+      "type": "String"
+      }
+    }
+  },
+  "verifyCode": "Verify Code",
+  "didntGetIt": "Didn't get it?",
+  "resendCode": "Resend Code",
+  "otpInvalidCode": "Please enter the 4-digit code.",
+  "otpVerificationFailed": "Code verification failed. Please try again.",
+  "otpResendFailed": "Could not resend the code. Please try again.",
+  "otpResendMockSuccess": "Resend request simulated successfully.",
+  "otpVerificationMockSuccess": "Mock verification succeeded. Backend verification is not connected yet.",
+  "resetPasswordTitle": "Create A New Password",
+  "resetPasswordDescription": "Make it something you'll remember this time.",
+  "newPassword": "New Password",
+  "createPasswordHint": "Create password of 8 characters here...",
+  "confirmPassword": "Confirm Password",
+  "confirmPasswordHint": "Enter password again",
+  "resetPasswordButton": "Reset Password",
+  "passwordRequired": "Please enter a password.",
+  "passwordMinLength": "Password must be at least 8 characters.",
+  "confirmPasswordRequired": "Please confirm your password.",
+  "passwordsDoNotMatch": "Passwords do not match.",
+  "resetPasswordSuccessTitle": "You're back in!",
+  "resetPasswordSuccessDescription": "Your password has been reset. Time to pick up where you left off.",
+  "backToLogin": "Back to Login"
+  }

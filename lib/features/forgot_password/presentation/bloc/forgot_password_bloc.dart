@@ -20,9 +20,12 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
   }
 
   Future<void> _submit(ForgotPasswordRequestParams params) async {
-    emit(state.copyWith(response: const BaseState.loading()));
+    emit(state.copyWith(params: params, response: const BaseState.loading()));
 
-    // TODO: Call the forgot password use case.
+    // Temporary mock until the backend is ready.
+    await Future.delayed(const Duration(seconds: 2));
+
+    emit(state.copyWith(response: const BaseState.success(true)));
   }
 
   void _updateTextFieldsValues(ForgotPasswordRequestParams params) {
