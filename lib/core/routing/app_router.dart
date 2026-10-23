@@ -42,7 +42,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutePaths.forgetPasswordPath,
-      builder: (context, state) => const ForgetPasswordScreen(),
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: const ForgetPasswordScreen(),
+      ),
     ),
     GoRoute(
       path: RoutePaths.otpPath,
@@ -52,12 +55,16 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
-  path: RoutePaths.resetPasswordPath,
-  builder: (context, state) => const ResetPasswordScreen(),
-),
-GoRoute(
-  path: RoutePaths.resetPasswordSuccessPath,
-  builder: (context, state) => const ResetPasswordSuccessScreen(),
-),
+      path: RoutePaths.resetPasswordPath,
+      pageBuilder: (context, state) =>
+          CupertinoPage(key: state.pageKey, child: const ResetPasswordScreen()),
+    ),
+    GoRoute(
+      path: RoutePaths.resetPasswordSuccessPath,
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: const ResetPasswordSuccessScreen(),
+      ),
+    ),
   ],
 );

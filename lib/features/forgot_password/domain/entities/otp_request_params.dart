@@ -14,16 +14,6 @@ class OtpRequestParams extends Equatable {
     this.code = '',
   });
 
-  OtpRequestParams copyWith({
-    String? email,
-    String? code,
-  }) {
-    return OtpRequestParams(
-      email: email ?? this.email,
-      code: code ?? this.code,
-    );
-  }
-
   @override
   List<Object?> get props => [email, code];
 }

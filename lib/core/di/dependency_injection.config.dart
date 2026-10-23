@@ -24,7 +24,7 @@ import '../../features/register/data/repositories/register_repo_impl.dart'
 import '../../features/register/domain/repositories/register_repo.dart'
     as _i250;
 import '../../features/register/domain/usecases/register_use_case.dart'
-    as _i442;
+    as _i441;
 import '../../features/register/presentation/bloc/register_bloc.dart' as _i771;
 import '../../features/sign_in/presentation/bloc/sign_in_bloc.dart' as _i640;
 import '../localization/locale_cubit.dart' as _i960;
@@ -64,11 +64,11 @@ extension GetItInjectableX on _i174.GetIt {
         registerDataSource: gh<_i477.RegisterDataSource>(),
       ),
     );
-    gh.lazySingleton<_i442.RegisterUseCase>(
-      () => _i442.RegisterUseCase(registerRepo: gh<_i250.RegisterRepo>()),
+    gh.lazySingleton<_i441.RegisterUseCase>(
+      () => _i441.RegisterUseCase(registerRepo: gh<_i250.RegisterRepo>()),
     );
     gh.lazySingleton<_i771.RegisterBloc>(
-      () => _i771.RegisterBloc(gh<_i442.RegisterUseCase>()),
+      () => _i771.RegisterBloc(gh<_i441.RegisterUseCase>()),
     );
     gh.lazySingleton<_i356.LocalizatonInterceptor>(
       () => _i356.LocalizatonInterceptor(gh<_i960.LocaleCubit>()),

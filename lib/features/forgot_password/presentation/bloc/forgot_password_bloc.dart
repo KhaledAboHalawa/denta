@@ -24,9 +24,7 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
       updateEmail: _updateEmail,
       verifyOtp: _verifyOtp,
       resendOtp: _resendOtp,
-      updateOtp: _updateOtp,
       submitResetPassword: _submitResetPassword,
-      updateResetPassword: _updateResetPassword,
       goToPage: _goToPage,
       resetFlow: _resetFlow,
     );
@@ -64,7 +62,6 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     }
 
     emit(state.copyWith(
-      otpParams: params,
       response: const BaseState.loading(),
     ));
 
@@ -79,10 +76,6 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     ));
   }
 
-  void _updateOtp(OtpRequestParams params) {
-    emit(state.copyWith(otpParams: params));
-  }
-
   Future<void> _resendOtp() async {
     if (state.remainingSeconds > 0 || state.resendResponse.isLoading) return;
 
@@ -93,7 +86,6 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     if (isClosed) return;
 
     emit(state.copyWith(
-      otpParams: state.otpParams.copyWith(code: ''),
       resendResponse: const BaseState.success(true),
       remainingSeconds: 60,
     ));
@@ -111,10 +103,6 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     if (isClosed) return;
 
     emit(state.copyWith(response: const BaseState.success(true)));
-  }
-
-  void _updateResetPassword(ResetPasswordRequestParams params) {
-    emit(state.copyWith(resetPasswordParams: params));
   }
 
   void _resetFlow() {

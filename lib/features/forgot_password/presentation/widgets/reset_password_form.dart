@@ -77,14 +77,6 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               if (value.length < 8) return locale.passwordMinLength;
               return null;
             },
-            onChange: (value) => cubit.doIntent(
-              ForgotPasswordUpdateResetPasswordEvent(
-                params: ResetPasswordRequestParams(
-                  password: value,
-                  confirmPassword: _confirmPasswordController.text,
-                ),
-              ),
-            ),
             onSubmitted: (_) => _nodes[1].requestFocus(),
             labelText: locale.newPassword,
           ),
@@ -104,14 +96,6 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               }
               return null;
             },
-            onChange: (value) => cubit.doIntent(
-              ForgotPasswordUpdateResetPasswordEvent(
-                params: ResetPasswordRequestParams(
-                  password: _passwordController.text,
-                  confirmPassword: value,
-                ),
-              ),
-            ),
             onSubmitted: (_) => _submit(cubit),
             labelText: locale.confirmPassword,
           ),

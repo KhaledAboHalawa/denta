@@ -27,18 +27,20 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: _cubit,
-      child: BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
-        listenWhen: (previous, current) =>
-            previous.currentPage == 0 &&
-            current.currentPage == 1 &&
-            current.response.isSuccess,
-        listener: (context, state) {
-          context.push(RoutePaths.otpPath, extra: state.otpParams.email);
-        },
-        child: const Scaffold(
-          body: SafeArea(child: ForgotPasswordBody()),
+    return Scaffold(
+      body: SafeArea(
+        child: BlocProvider.value(
+          value: _cubit,
+          child: BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
+            listenWhen: (previous, current) =>
+                previous.currentPage == 2 &&
+                previous.response.status != current.response.status &&
+                current.response.isSuccess,
+            listener: (context, state) {
+              context.go(RoutePaths.resetPasswordSuccessPath);
+            },
+            child: const ForgotPasswordBody(),
+          ),
         ),
       ),
     );

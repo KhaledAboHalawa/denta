@@ -11,9 +11,7 @@ sealed class ForgotPasswordEvent extends Equatable {
     required T Function(ForgotPasswordRequestParams params) updateEmail,
     required T Function(OtpRequestParams params) verifyOtp,
     required T Function() resendOtp,
-    required T Function(OtpRequestParams params) updateOtp,
     required T Function(ResetPasswordRequestParams params) submitResetPassword,
-    required T Function(ResetPasswordRequestParams params) updateResetPassword,
     required T Function(int page) goToPage,
     required T Function() resetFlow,
   }) {
@@ -22,9 +20,7 @@ sealed class ForgotPasswordEvent extends Equatable {
       ForgotPasswordUpdateEmailEvent e => updateEmail(e.params),
       ForgotPasswordVerifyOtpEvent e => verifyOtp(e.params),
       ForgotPasswordResendOtpEvent() => resendOtp(),
-      ForgotPasswordUpdateOtpEvent e => updateOtp(e.params),
       ForgotPasswordSubmitResetPasswordEvent e => submitResetPassword(e.params),
-      ForgotPasswordUpdateResetPasswordEvent e => updateResetPassword(e.params),
       ForgotPasswordGoToPageEvent e => goToPage(e.page),
       ForgotPasswordResetFlowEvent() => resetFlow(),
     };
@@ -56,23 +52,9 @@ class ForgotPasswordResendOtpEvent extends ForgotPasswordEvent {
   const ForgotPasswordResendOtpEvent();
 }
 
-class ForgotPasswordUpdateOtpEvent extends ForgotPasswordEvent {
-  final OtpRequestParams params;
-  const ForgotPasswordUpdateOtpEvent({required this.params});
-  @override
-  List<Object?> get props => [params];
-}
-
 class ForgotPasswordSubmitResetPasswordEvent extends ForgotPasswordEvent {
   final ResetPasswordRequestParams params;
   const ForgotPasswordSubmitResetPasswordEvent({required this.params});
-  @override
-  List<Object?> get props => [params];
-}
-
-class ForgotPasswordUpdateResetPasswordEvent extends ForgotPasswordEvent {
-  final ResetPasswordRequestParams params;
-  const ForgotPasswordUpdateResetPasswordEvent({required this.params});
   @override
   List<Object?> get props => [params];
 }

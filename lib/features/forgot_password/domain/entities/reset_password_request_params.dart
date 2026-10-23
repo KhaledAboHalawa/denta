@@ -13,16 +13,6 @@ class ResetPasswordRequestParams extends Equatable {
       : password = '',
         confirmPassword = '';
 
-  ResetPasswordRequestParams copyWith({
-    String? password,
-    String? confirmPassword,
-  }) {
-    return ResetPasswordRequestParams(
-      password: password ?? this.password,
-      confirmPassword: confirmPassword ?? this.confirmPassword,
-    );
-  }
-
   @override
   List<Object?> get props => [password, confirmPassword];
 }
