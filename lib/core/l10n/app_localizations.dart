@@ -583,6 +583,7 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to Login'**
   String get backToLogin;
+
   /// No description provided for @onboardingExploreDenta.
   ///
   /// In en, this message translates to:

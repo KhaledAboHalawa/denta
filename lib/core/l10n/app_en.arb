@@ -94,10 +94,9 @@
   "passwordsDoNotMatch": "Passwords do not match.",
   "resetPasswordSuccessTitle": "You're back in!",
   "resetPasswordSuccessDescription": "Your password has been reset. Time to pick up where you left off.",
-  "backToLogin": "Back to Login"
-  }
+  "backToLogin": "Back to Login",
+  
   "onboardingExploreDenta": "Explore Denta",
-
   "onboardingTitle": "{page, select, 0{Where Dental Care Meets Dental Learning} 1{Not Sure What's Wrong? We'll Help You Find Out} 2{Matched Nearby, Matched Right} 3{More Than Just Cases} other{}}",
   "@onboardingTitle": {
     "placeholders": {

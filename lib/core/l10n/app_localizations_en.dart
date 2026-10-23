@@ -276,6 +276,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backToLogin => 'Back to Login';
+
+  @override
   String get onboardingExploreDenta => 'Explore Denta';
 
   @override
