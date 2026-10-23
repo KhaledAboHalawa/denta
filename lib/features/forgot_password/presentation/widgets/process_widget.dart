@@ -1,3 +1,4 @@
+import 'package:denta/features/forgot_password/domain/entities/otp_request_params.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +18,20 @@ class ProcessWidget extends StatelessWidget {
       builder: (context, state) {
         switch (state.currentPage) {
           case 1:
-            return const OtpForm();
+            return OtpForm(
+              onCompleted: (code) {
+                final cubit = context.read<ForgotPasswordCubit>();
+
+                cubit.doIntent(
+                  ForgotPasswordVerifyOtpEvent(
+                    params: OtpRequestParams(
+                      email: cubit.state.emailParams.email,
+                      code: code,
+                    ),
+                  ),
+                );
+              },
+            );
           case 2:
             return const ResetPasswordForm();
           default:
