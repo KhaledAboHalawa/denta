@@ -4,6 +4,7 @@ class AppKeys {
   static const localeKey = 'app_locale';
   static const enLocaleCode = 'en';
   static const arLocaleCode = 'ar';
+  static const onboardingCompletedKey = 'onboarding_completed';
 }
 
 class ApiConstants {

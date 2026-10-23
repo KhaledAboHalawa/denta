@@ -89,4 +89,36 @@
   "resetPasswordSuccessTitle": "لقد عدت بنجاح!",
   "resetPasswordSuccessDescription": "تمت إعادة تعيين كلمة المرور. يمكنك الآن المتابعة من حيث توقفت.",
   "backToLogin": "العودة إلى تسجيل الدخول"
+  "onboardingExploreDenta": "اكتشف دنتا",
+
+  "onboardingTitle": "{page, select, 0{حيث تلتقي رعاية الأسنان بتعلّم طب الأسنان} 1{لست متأكدًا مما تعانيه؟ سنساعدك على معرفته} 2{مطابقة قريبة منك، ومطابقة مناسبة لك} 3{أكثر من مجرد حالات} other{}}",
+
+  "onboardingDescription": "{page, select, 0{تربط دنتا بين طلاب طب الأسنان والمرضى، لتجعل العلاج أسهل في الوصول والتدريب الإكلينيكي أكثر كفاءة.} 1{التقط صورة لمشكلتك، ويساعدك الذكاء الاصطناعي على تحديد الحالة، دون الحاجة لأي معرفة طبية.} 2{سواء كنت تبحث عن علاج أو عن حالة، تربطك دنتا بالشخص المناسب القريب من منزلك.} 3{اشترِ أو بع أو تبرّع بأدوات ومعدات طب الأسنان داخل مجتمع طلابي موثوق.} other{}}",
+
+  "onboardingSkip": "تخطي",
+  "onboardingCreateYourAccount": "أنشئ حسابك",
+  "onboardingAlreadyHaveAccount": "لديك حساب بالفعل؟ ",
+  "onboardingLogIn": "تسجيل الدخول",
+
+  "thisField": "هذا الحقل",
+  "nameField": "الاسم",
+  "phoneNumberField": "رقم الهاتف",
+  "confirmPasswordField": "تأكيد كلمة المرور",
+  "fieldRequiredError": "{fieldName} مطلوب",
+  "fieldMinLengthError": "يجب ألا يقل {fieldName} عن {minLength} أحرف",
+  "fieldMaxLengthError": "يجب ألا يتجاوز {fieldName} {maxLength} حرفًا",
+  "nameLettersOnlyError": "يمكن أن يحتوي {fieldName} على حروف ومسافات وعلامات وصل وفواصل عليا فقط",
+  "emailRequiredError": "البريد الإلكتروني مطلوب",
+  "invalidEmailError": "يرجى إدخال بريد إلكتروني صالح",
+  "invalidPhoneError": "يرجى إدخال {fieldName} صالح",
+  "passwordRequiredError": "كلمة المرور مطلوبة",
+  "passwordMinLengthError": "يجب أن تتكون كلمة المرور من {minLength} أحرف على الأقل",
+  "passwordUppercaseError": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+  "passwordLowercaseError": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+  "passwordDigitError": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+  "passwordSpecialCharError": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+  "passwordsDoNotMatchError": "كلمتا المرور غير متطابقتين",
+  "invalidNumberError": "يجب أن يكون {fieldName} رقمًا صالحًا",
+  "numberMinError": "يجب ألا يقل {fieldName} عن {min}",
+  "numberMaxError": "يجب ألا يتجاوز {fieldName} {max}"
 }
