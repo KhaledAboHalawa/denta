@@ -6,6 +6,8 @@ import 'package:denta/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/di/dependency_injection.dart';
+
 import '../../domain/entities/forgot_password_request_params.dart';
 import '../bloc/forgot_password_bloc.dart';
 
@@ -20,13 +22,15 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   late final GlobalKey<FormState> _formKey;
   late final TextEditingController _emailController;
   late final FocusNode _emailFocusNode;
+  late final ForgotPasswordCubit _cubit;
 
   @override
   void initState() {
     super.initState();
+    _cubit = getIt<ForgotPasswordCubit>();
     _formKey = GlobalKey<FormState>();
     _emailController = TextEditingController(
-      text: context.read<ForgotPasswordCubit>().state.emailParams.email,
+      text: _cubit.state.emailParams.email,
     );
     _emailFocusNode = FocusNode();
   }
@@ -38,11 +42,11 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
     super.dispose();
   }
 
-  void _submit(ForgotPasswordCubit cubit) {
+  void _submit() {
     FocusScope.of(context).unfocus();
     if (!_formKey.currentState!.validate()) return;
 
-    cubit.doIntent(
+    _cubit.doIntent(
       ForgotPasswordSubmitEmailEvent(
         params: ForgotPasswordRequestParams(
           email: _emailController.text.trim(),
@@ -54,7 +58,6 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context)!;
-    final cubit = context.read<ForgotPasswordCubit>();
 
     return Form(
       key: _formKey,
@@ -68,12 +71,12 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             keyboardType: TextInputType.emailAddress,
             validator: AppValidators.validateEmail,
             labelText: locale.signInEmailLabel,
-            onChange: (value) => cubit.doIntent(
+            onChange: (value) => _cubit.doIntent(
               ForgotPasswordUpdateEmailEvent(
                 params: ForgotPasswordRequestParams(email: value),
               ),
             ),
-            onSubmitted: (_) => _submit(cubit),
+            onSubmitted: (_) => _submit(),
           ),
           const SizedBox(height: 32),
           BlocSelector<ForgotPasswordCubit, ForgotPasswordState, bool>(
@@ -81,7 +84,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             builder: (context, isLoading) => CustomButton(
               title: locale.sendCode,
               isLoading: isLoading,
-              onPressed: () => _submit(cubit),
+              onPressed: () => _submit(),
             ),
           ),
         ],

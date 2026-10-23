@@ -5,6 +5,8 @@ import 'package:denta/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/di/dependency_injection.dart';
+
 import '../../domain/entities/reset_password_request_params.dart';
 import '../bloc/forgot_password_bloc.dart';
 
@@ -20,12 +22,13 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   late final TextEditingController _passwordController;
   late final TextEditingController _confirmPasswordController;
   late final List<FocusNode> _nodes;
+  late final ForgotPasswordCubit _cubit;
 
   @override
   void initState() {
     super.initState();
-    final params =
-        context.read<ForgotPasswordCubit>().state.resetPasswordParams;
+    _cubit = getIt<ForgotPasswordCubit>();
+    final params = _cubit.state.resetPasswordParams;
     _formKey = GlobalKey<FormState>();
     _passwordController = TextEditingController(text: params.password);
     _confirmPasswordController =
@@ -43,10 +46,10 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
     super.dispose();
   }
 
-  void _submit(ForgotPasswordCubit cubit) {
+  void _submit() {
     FocusScope.of(context).unfocus();
     if (!_formKey.currentState!.validate()) return;
-    cubit.doIntent(ForgotPasswordSubmitResetPasswordEvent(
+    _cubit.doIntent(ForgotPasswordSubmitResetPasswordEvent(
       params: ResetPasswordRequestParams(
         password: _passwordController.text,
         confirmPassword: _confirmPasswordController.text,
@@ -57,7 +60,6 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context)!;
-    final cubit = context.read<ForgotPasswordCubit>();
 
     return Form(
       key: _formKey,
@@ -96,7 +98,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               }
               return null;
             },
-            onSubmitted: (_) => _submit(cubit),
+            onSubmitted: (_) => _submit(),
             labelText: locale.confirmPassword,
           ),
           const SizedBox(height: 32),
@@ -105,7 +107,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             builder: (context, isLoading) => CustomButton(
               title: locale.resetPasswordButton,
               isLoading: isLoading,
-              onPressed: isLoading ? null : () => _submit(cubit),
+              onPressed: isLoading ? null : () => _submit(),
             ),
           ),
         ],

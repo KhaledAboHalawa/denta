@@ -3,14 +3,29 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/shared/auth/shared_presentation/widgets/auth_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/di/dependency_injection.dart';
 import 'package:go_router/go_router.dart';
 
 import '../bloc/forgot_password_bloc.dart';
 import 'process_widget.dart';
 import 'text_hints_widget.dart';
 
-class ForgotPasswordBody extends StatelessWidget {
+class ForgotPasswordBody extends StatefulWidget {
   const ForgotPasswordBody({super.key});
+
+  @override
+  State<ForgotPasswordBody> createState() => _ForgotPasswordBodyState();
+}
+
+class _ForgotPasswordBodyState extends State<ForgotPasswordBody> {
+  late final ForgotPasswordCubit _cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _cubit = getIt<ForgotPasswordCubit>();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,12 +76,10 @@ class ForgotPasswordBody extends StatelessWidget {
               AuthAppBar(
                 onlyLogo: false,
                 onBack: () {
-                  final cubit = context.read<ForgotPasswordCubit>();
-
-                  if (cubit.state.currentPage > 0) {
-                    cubit.doIntent(
+                  if (_cubit.state.currentPage > 0) {
+                    _cubit.doIntent(
                       ForgotPasswordGoToPageEvent(
-                        page: cubit.state.currentPage - 1,
+                        page: _cubit.state.currentPage - 1,
                       ),
                     );
                   } else {

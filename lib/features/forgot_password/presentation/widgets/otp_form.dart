@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/di/dependency_injection.dart';
+
 import '../bloc/forgot_password_bloc.dart';
 
 class OtpForm extends StatefulWidget {
@@ -21,13 +23,14 @@ class OtpForm extends StatefulWidget {
 class _OtpCodeWidgetState extends State<OtpForm> {
   late final List<TextEditingController> _controllers;
   late final List<FocusNode> _focusNodes;
+  late final ForgotPasswordCubit _cubit;
 
   @override
   void initState() {
     super.initState();
 
+    _cubit = getIt<ForgotPasswordCubit>();
     _controllers = List.generate(widget.length, (_) => TextEditingController());
-
     _focusNodes = List.generate(widget.length, (_) => FocusNode());
   }
 
@@ -100,7 +103,6 @@ class _OtpCodeWidgetState extends State<OtpForm> {
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context)!;
-    final cubit = context.read<ForgotPasswordCubit>();
 
     return BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
       listenWhen: (previous, current) =>
@@ -155,7 +157,7 @@ class _OtpCodeWidgetState extends State<OtpForm> {
                   TextButton(
                     onPressed: canResend
                         ? () {
-                            cubit.doIntent(
+                            _cubit.doIntent(
                               const ForgotPasswordResendOtpEvent(),
                             );
                           }

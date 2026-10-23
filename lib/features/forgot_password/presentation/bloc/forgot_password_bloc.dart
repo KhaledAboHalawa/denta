@@ -73,6 +73,9 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     emit(state.copyWith(
       response: const BaseState.success(true),
       currentPage: 2,
+      // The OTP has been verified, so its resend countdown is no longer
+      // relevant. If the user navigates back, don't show a frozen timer.
+      remainingSeconds: 0,
     ));
   }
 
@@ -112,15 +115,16 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
 
   void _goToPage(int page) {
     if (page < 0 || page > 2) return;
+
+    // Navigation alone must never start or reset the OTP countdown.
+    // The timer starts only after an OTP is sent/resend succeeds, and is
+    // cancelled once the OTP is verified or the flow is reset.
     if (page != 1) _timer?.cancel();
+
     emit(state.copyWith(
       currentPage: page,
       response: const BaseState.initial(),
     ));
-    if (page == 1) {
-      emit(state.copyWith(remainingSeconds: 60));
-      _startTimer();
-    }
   }
 
   void _startTimer() {
