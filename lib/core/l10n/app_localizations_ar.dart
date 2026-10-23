@@ -193,6 +193,90 @@ class AppLocalizationsAr extends AppLocalizations {
       'هذا يساعدنا في إعداد التجربة المناسبة لك';
 
   @override
+  String get forgotPasswordTitle => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get forgotPasswordSubTitle =>
+      'لا تقلق، هذا يحدث. أدخل بريدك الإلكتروني وسنرسل لك رمزًا لاستعادة الوصول إلى حسابك.';
+
+  @override
+  String get sendCode => 'إرسال الرمز';
+
+  @override
+  String get otpTitle => 'تحقق من بريدك الإلكتروني';
+
+  @override
+  String otpDescription(String email) {
+    return 'أرسلنا رمزًا مكوّنًا من 4 أرقام إلى $email. أدخله بالأسفل للمتابعة.';
+  }
+
+  @override
+  String get verifyCode => 'تحقق من الرمز';
+
+  @override
+  String get didntGetIt => 'لم يصلك الرمز؟';
+
+  @override
+  String get resendCode => 'إعادة إرسال الرمز';
+
+  @override
+  String get otpInvalidCode => 'من فضلك أدخل الرمز المكوّن من 4 أرقام.';
+
+  @override
+  String get otpVerificationFailed => 'فشل التحقق من الرمز. حاول مرة أخرى.';
+
+  @override
+  String get otpResendFailed => 'تعذرت إعادة إرسال الرمز. حاول مرة أخرى.';
+
+  @override
+  String get otpResendMockSuccess => 'تمت محاكاة طلب إعادة إرسال الرمز بنجاح.';
+
+  @override
+  String get otpVerificationMockSuccess =>
+      'نجح التحقق التجريبي. لم يتم ربط التحقق بالخادم بعد.';
+
+  @override
+  String get resetPasswordTitle => 'أنشئ كلمة مرور جديدة';
+
+  @override
+  String get resetPasswordDescription => 'اختر كلمة مرور يسهل عليك تذكّرها.';
+
+  @override
+  String get newPassword => 'كلمة المرور الجديدة';
+
+  @override
+  String get createPasswordHint => 'أنشئ كلمة مرور من 8 أحرف على الأقل...';
+
+  @override
+  String get confirmPassword => 'تأكيد كلمة المرور';
+
+  @override
+  String get confirmPasswordHint => 'أعد إدخال كلمة المرور';
+
+  @override
+  String get resetPasswordButton => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get passwordRequired => 'من فضلك أدخل كلمة المرور.';
+
+  @override
+  String get passwordMinLength => 'يجب ألا تقل كلمة المرور عن 8 أحرف.';
+
+  @override
+  String get confirmPasswordRequired => 'من فضلك أكّد كلمة المرور.';
+
+  @override
+  String get passwordsDoNotMatch => 'كلمتا المرور غير متطابقتين.';
+
+  @override
+  String get resetPasswordSuccessTitle => 'لقد عدت بنجاح!';
+
+  @override
+  String get resetPasswordSuccessDescription =>
+      'تمت إعادة تعيين كلمة المرور. يمكنك الآن المتابعة من حيث توقفت.';
+
+  @override
+  String get backToLogin => 'العودة إلى تسجيل الدخول';
   String get onboardingExploreDenta => 'اكتشف دنتا';
 
   @override

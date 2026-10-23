@@ -53,6 +53,9 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
+    gh.lazySingleton<_i161.ForgotPasswordCubit>(
+      () => _i161.ForgotPasswordCubit(),
+    );
     gh.lazySingleton<_i640.SignInCubit>(() => _i640.SignInCubit());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
     gh.lazySingleton<_i477.RegisterDataSource>(

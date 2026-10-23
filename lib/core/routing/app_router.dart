@@ -1,3 +1,7 @@
+import 'package:denta/features/forgot_password/presentation/screens/forget_password_screen.dart';
+import 'package:denta/features/forgot_password/presentation/screens/otp_screen.dart';
+import 'package:denta/features/forgot_password/presentation/screens/reset_password_screen.dart';
+import 'package:denta/features/forgot_password/presentation/screens/reset_password_success_screen.dart';
 import 'package:denta/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
@@ -57,6 +61,32 @@ final GoRouter router = GoRouter(
       path: RoutePaths.signInPath,
       pageBuilder: (BuildContext context, GoRouterState state) =>
           CupertinoPage(child: const SignInScreen()),
+    ),
+    GoRoute(
+      path: RoutePaths.forgetPasswordPath,
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: const ForgetPasswordScreen(),
+      ),
+    ),
+    GoRoute(
+      path: RoutePaths.otpPath,
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: OtpScreen(email: state.extra as String? ?? ''),
+      ),
+    ),
+    GoRoute(
+      path: RoutePaths.resetPasswordPath,
+      pageBuilder: (context, state) =>
+          CupertinoPage(key: state.pageKey, child: const ResetPasswordScreen()),
+    ),
+    GoRoute(
+      path: RoutePaths.resetPasswordSuccessPath,
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: const ResetPasswordSuccessScreen(),
+      ),
     ),
   ],
 );
