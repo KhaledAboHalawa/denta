@@ -277,6 +277,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backToLogin => 'العودة إلى تسجيل الدخول';
+
+  @override
   String get onboardingExploreDenta => 'اكتشف دنتا';
 
   @override

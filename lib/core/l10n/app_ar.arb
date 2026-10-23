@@ -88,12 +88,22 @@
   "passwordsDoNotMatch": "كلمتا المرور غير متطابقتين.",
   "resetPasswordSuccessTitle": "لقد عدت بنجاح!",
   "resetPasswordSuccessDescription": "تمت إعادة تعيين كلمة المرور. يمكنك الآن المتابعة من حيث توقفت.",
-  "backToLogin": "العودة إلى تسجيل الدخول"
+  "backToLogin": "العودة إلى تسجيل الدخول",
+  
   "onboardingExploreDenta": "اكتشف دنتا",
-
   "onboardingTitle": "{page, select, 0{حيث تلتقي رعاية الأسنان بتعلّم طب الأسنان} 1{لست متأكدًا مما تعانيه؟ سنساعدك على معرفته} 2{مطابقة قريبة منك، ومطابقة مناسبة لك} 3{أكثر من مجرد حالات} other{}}",
+  "@onboardingTitle": {
+    "placeholders": {
+      "page": { "type": "String" }
+    }
+  },
 
   "onboardingDescription": "{page, select, 0{تربط دنتا بين طلاب طب الأسنان والمرضى، لتجعل العلاج أسهل في الوصول والتدريب الإكلينيكي أكثر كفاءة.} 1{التقط صورة لمشكلتك، ويساعدك الذكاء الاصطناعي على تحديد الحالة، دون الحاجة لأي معرفة طبية.} 2{سواء كنت تبحث عن علاج أو عن حالة، تربطك دنتا بالشخص المناسب القريب من منزلك.} 3{اشترِ أو بع أو تبرّع بأدوات ومعدات طب الأسنان داخل مجتمع طلابي موثوق.} other{}}",
+  "@onboardingDescription": {
+    "placeholders": {
+      "page": { "type": "String" }
+    }
+  },
 
   "onboardingSkip": "تخطي",
   "onboardingCreateYourAccount": "أنشئ حسابك",
