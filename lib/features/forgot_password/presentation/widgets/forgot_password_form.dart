@@ -42,9 +42,13 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
     FocusScope.of(context).unfocus();
     if (!_formKey.currentState!.validate()) return;
 
-    cubit.doIntent(ForgotPasswordSubmitEmailEvent(
-      params: ForgotPasswordRequestParams(email: _emailController.text.trim()),
-    ));
+    cubit.doIntent(
+      ForgotPasswordSubmitEmailEvent(
+        params: ForgotPasswordRequestParams(
+          email: _emailController.text.trim(),
+        ),
+      ),
+    );
   }
 
   @override
@@ -77,7 +81,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             builder: (context, isLoading) => CustomButton(
               title: locale.sendCode,
               isLoading: isLoading,
-              onPressed: isLoading ? null : () => _submit(cubit),
+              onPressed: () => _submit(cubit),
             ),
           ),
         ],
