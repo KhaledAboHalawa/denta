@@ -22,7 +22,7 @@ class AuthTextBanner extends StatelessWidget {
           ),
         ),
         SizedBox(height: 4),
-        Text(subTitle, style: context.text.captionDefault),
+        Text(subTitle, style: context.text.captionDefault, textAlign: .center),
       ],
     );
   }

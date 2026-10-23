@@ -190,6 +190,92 @@ class AppLocalizationsEn extends AppLocalizations {
       'This helps us set up the right experience for you.';
 
   @override
+  String get forgotPasswordTitle => 'Forgot Your Password?';
+
+  @override
+  String get forgotPasswordSubTitle =>
+      'No worries, it happens. Enter your email and we\'ll send you a code to get back in.';
+
+  @override
+  String get sendCode => 'Send Code';
+
+  @override
+  String get otpTitle => 'Check Your Email';
+
+  @override
+  String otpDescription(String email) {
+    return 'We sent a 4-digit code to $email. Enter it below to continue.';
+  }
+
+  @override
+  String get verifyCode => 'Verify Code';
+
+  @override
+  String get didntGetIt => 'Didn\'t get it?';
+
+  @override
+  String get resendCode => 'Resend Code';
+
+  @override
+  String get otpInvalidCode => 'Please enter the 4-digit code.';
+
+  @override
+  String get otpVerificationFailed =>
+      'Code verification failed. Please try again.';
+
+  @override
+  String get otpResendFailed => 'Could not resend the code. Please try again.';
+
+  @override
+  String get otpResendMockSuccess => 'Resend request simulated successfully.';
+
+  @override
+  String get otpVerificationMockSuccess =>
+      'Mock verification succeeded. Backend verification is not connected yet.';
+
+  @override
+  String get resetPasswordTitle => 'Create A New Password';
+
+  @override
+  String get resetPasswordDescription =>
+      'Make it something you\'ll remember this time.';
+
+  @override
+  String get newPassword => 'New Password';
+
+  @override
+  String get createPasswordHint => 'Create password of 8 characters here...';
+
+  @override
+  String get confirmPassword => 'Confirm Password';
+
+  @override
+  String get confirmPasswordHint => 'Enter password again';
+
+  @override
+  String get resetPasswordButton => 'Reset Password';
+
+  @override
+  String get passwordRequired => 'Please enter a password.';
+
+  @override
+  String get passwordMinLength => 'Password must be at least 8 characters.';
+
+  @override
+  String get confirmPasswordRequired => 'Please confirm your password.';
+
+  @override
+  String get passwordsDoNotMatch => 'Passwords do not match.';
+
+  @override
+  String get resetPasswordSuccessTitle => 'You\'re back in!';
+
+  @override
+  String get resetPasswordSuccessDescription =>
+      'Your password has been reset. Time to pick up where you left off.';
+
+  @override
+  String get backToLogin => 'Back to Login';
   String get onboardingExploreDenta => 'Explore Denta';
 
   @override
