@@ -8,13 +8,14 @@ import 'package:denta/core/widgets/custom_text_button.dart';
 import 'package:denta/core/widgets/custom_text_field.dart';
 import 'package:denta/features/questionnaire/presentation/cubit/questionnaire_cubit.dart';
 import 'package:denta/core/utils/media_picker.dart';
-import 'package:denta/features/questionnaire/presentation/utils/questionnaire_helpers.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/case_photos_grid.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/file_chip.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/upload_drop_zone.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../../core/utils/app_helper.dart';
 
 /// Step 2: optional profile extras (bio, certifications, case photos).
 class ProfileExtrasForm extends StatefulWidget {

@@ -4,10 +4,11 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/core/utils/app_icons.dart';
-import 'package:denta/features/questionnaire/presentation/utils/questionnaire_helpers.dart';
-import 'package:denta/features/questionnaire/presentation/widgets/file_chip.dart';
+import 'package:denta/core/utils/app_helper.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/upload_drop_zone.dart';
 import 'package:flutter/material.dart';
+
+import 'file_chip.dart';
 
 /// Empty: dashed upload zone. Filled: small preview tile (tap to replace).
 class IdCardUpload extends StatelessWidget {

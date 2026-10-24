@@ -1,23 +1,24 @@
+import 'package:denta/core/config/base_state/base_state.dart';
 import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/core/utils/app_validators.dart';
+import 'package:denta/core/utils/media_picker.dart';
 import 'package:denta/core/widgets/custom_button.dart';
 import 'package:denta/core/widgets/custom_text_field.dart';
 import 'package:denta/features/questionnaire/domain/entities/governorate.dart';
 import 'package:denta/features/questionnaire/domain/entities/university_entity.dart';
 import 'package:denta/features/questionnaire/presentation/cubit/questionnaire_cubit.dart';
-import 'package:denta/core/utils/media_picker.dart';
-import 'package:denta/features/questionnaire/presentation/utils/questionnaire_helpers.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/academic_year_chips.dart';
-import 'package:denta/features/questionnaire/presentation/widgets/avatar_picker.dart';
+import 'package:denta/core/widgets/avatar_picker.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/id_card_upload.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/image_source_sheet.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/selection_bottom_sheet.dart';
-import 'package:denta/features/questionnaire/presentation/widgets/selector_field.dart';
-import 'package:denta/core/config/base_state/base_state.dart';
+import 'package:denta/core/widgets/selector_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'confirm_cancel_questionnaire.dart';
 
 /// Step 1: identity and verification.
 class VerificationInfoForm extends StatefulWidget {
@@ -85,9 +86,7 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
       title: l10n.questionnaireGovernorateLabel,
       selected: state.governorate,
       items: Governorate.all
-          .map(
-            (g) => SelectionItem(value: g.key, label: g.localizedName(lang)),
-          )
+          .map((g) => SelectionItem(value: g.key, label: g.localizedName(lang)))
           .toList(),
     );
     if (picked != null) {
@@ -148,19 +147,9 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
                   horizontal: 16,
                   vertical: 14,
                 ),
-                validator: AppValidators.combine([
-                  (v) => AppValidators.validateName(
-                    v,
-                    context: context,
-                    fieldName: l10n.questionnaireFullNameLabel,
-                  ),
-                  (v) => (v ?? '').trim().split(RegExp(r'\s+')).length < 2
-                      ? l10n.questionnaireFullNameTwoWordsError
-                      : null,
-                ]),
-                onChange: (value) => _cubit.doIntent(
-                  QuestionnaireUpdateFullNameEvent(value),
-                ),
+                validator: AppValidators.validateFullName,
+                onChange: (value) =>
+                    _cubit.doIntent(QuestionnaireUpdateFullNameEvent(value)),
               ),
             ),
             const SizedBox(height: 20),
@@ -204,10 +193,7 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
               onTap: () => _pickGovernorate(state),
             ),
             const SizedBox(height: 20),
-            Text(
-              l10n.questionnaireIdCardLabel,
-              style: context.text.bodyMedium,
-            ),
+            Text(l10n.questionnaireIdCardLabel, style: context.text.bodyMedium),
             const SizedBox(height: 8),
             IdCardUpload(
               path: state.idCardPath,

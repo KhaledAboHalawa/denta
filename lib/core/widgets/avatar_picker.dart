@@ -7,6 +7,8 @@ import 'package:denta/core/utils/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../utils/app_helper.dart';
+
 class AvatarPicker extends StatelessWidget {
   const AvatarPicker({
     super.key,
@@ -117,16 +119,5 @@ class AvatarPicker extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String initialsOf(String fullName) {
-    final words = fullName
-        .trim()
-        .split(RegExp(r'\s+'))
-        .where((w) => w.isNotEmpty)
-        .take(2);
-    return words
-        .map((w) => String.fromCharCode(w.runes.first).toUpperCase())
-        .join();
   }
 }

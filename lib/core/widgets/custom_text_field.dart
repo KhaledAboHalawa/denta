@@ -100,12 +100,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
               controller: widget.controller,
               obscureText: widget.isPassword && _obscureText,
               decoration: InputDecoration(
-                prefixIcon: Icon(
-                  widget.prefixIcon,
-                  color: _isFocused
-                      ? context.appColors.primary
-                      : context.appColors.info,
-                ),
+                prefixIcon: widget.prefixIcon != null
+                    ? Icon(
+                        widget.prefixIcon,
+                        color: _isFocused
+                            ? context.appColors.primary
+                            : context.appColors.info,
+                      )
+                    : null,
                 floatingLabelBehavior: .never,
                 helperText:
                     widget.helperText ??

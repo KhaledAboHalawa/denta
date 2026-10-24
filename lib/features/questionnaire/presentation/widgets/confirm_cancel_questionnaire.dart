@@ -1,22 +1,9 @@
-import 'package:denta/core/l10n/app_localizations.dart';
-import 'package:denta/core/routing/route_paths.dart';
-import 'package:denta/features/questionnaire/domain/entities/academic_year.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-String fileNameOf(String path) => path.split(RegExp(r'[\\/]')).last;
-
-/// First letter of the first two words, e.g. "Mona Daoud" -> "MD".
-String initialsOf(String fullName) {
-  final words = fullName
-      .trim()
-      .split(RegExp(r'\s+'))
-      .where((w) => w.isNotEmpty)
-      .take(2);
-  return words
-      .map((w) => String.fromCharCode(w.runes.first).toUpperCase())
-      .join();
-}
+import '../../../../core/l10n/app_localizations.dart';
+import '../../../../core/routing/route_paths.dart';
 
 Future<void> confirmCancelQuestionnaire(BuildContext context) async {
   final l10n = AppLocalizations.of(context)!;

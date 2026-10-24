@@ -32,7 +32,7 @@ abstract final class MediaPicker {
         maxHeight: _maxSide,
         imageQuality: _quality,
       );
-      return files.map((f) => f.path).toList();
+      return files.map((img) => img.path).toList();
     } catch (_) {
       return [];
     }

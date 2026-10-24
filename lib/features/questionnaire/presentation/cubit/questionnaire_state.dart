@@ -20,7 +20,7 @@ class QuestionnaireState extends Equatable {
 
   const QuestionnaireState.initial()
     : this(
-        stepIndex: 0,
+        stepIndex: 1,
         universities: const BaseState.initial(),
         step1Response: const BaseState.initial(),
         step2Response: const BaseState.initial(),
@@ -50,18 +50,9 @@ class QuestionnaireState extends Equatable {
   /// Success here means the whole questionnaire is finished (saved or skipped).
   final BaseState<bool> step2Response;
 
-  static final RegExp _nameRegex = RegExp(r"^[\p{L}\s'-]+$", unicode: true);
-
-  /// Letters only, 2-50 characters, and at least two words (first + last).
-  bool get hasValidFullName {
-    final name = fullName.trim();
-    if (name.length < 2 || name.length > 50) return false;
-    if (!_nameRegex.hasMatch(name)) return false;
-    return name.split(RegExp(r'\s+')).length >= 2;
-  }
 
   bool get isStep1Valid =>
-      hasValidFullName &&
+      AppValidators.validateFullName(fullName) == null &&
       selectedUniversity != null &&
       academicYear != null &&
       governorate != null &&
