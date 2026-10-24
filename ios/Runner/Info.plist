@@ -70,5 +70,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Denta uses the camera to take your university ID and profile photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Denta lets you choose your university ID, profile photo and case photos from your library.</string>
 </dict>
 </plist>

@@ -401,4 +401,167 @@ class AppLocalizationsAr extends AppLocalizations {
   String numberMaxError(String fieldName, num max) {
     return 'يجب ألا يتجاوز $fieldName $max';
   }
+
+  @override
+  String questionnaireStepOf(int current, int total) {
+    return 'الخطوة $current من $total';
+  }
+
+  @override
+  String get questionnaireStep1Title => 'عرّفنا بنفسك';
+
+  @override
+  String get questionnaireStep1Subtitle =>
+      'سنستخدم هذه البيانات لإعداد ملفك الشخصي والتحقق من أنك طالب طب أسنان.';
+
+  @override
+  String get questionnaireAllRequired => '* جميع الحقول مطلوبة';
+
+  @override
+  String get questionnaireFullNameLabel => 'الاسم الكامل';
+
+  @override
+  String get questionnaireFullNameHint => 'أدخل اسمك الكامل';
+
+  @override
+  String get questionnaireFullNameHelper =>
+      'يرجى استخدام الاسم المكتوب في بطاقتك الجامعية.';
+
+  @override
+  String get questionnaireFullNameTwoWordsError =>
+      'يرجى إدخال الاسم الأول والأخير';
+
+  @override
+  String get questionnaireUniversityLabel => 'الجامعة';
+
+  @override
+  String get questionnaireUniversityHint => 'ابحث عن جامعتك';
+
+  @override
+  String get questionnaireAcademicYearLabel => 'السنة الدراسية';
+
+  @override
+  String get questionnaireYear1 => 'الأولى';
+
+  @override
+  String get questionnaireYear2 => 'الثانية';
+
+  @override
+  String get questionnaireYear3 => 'الثالثة';
+
+  @override
+  String get questionnaireYear4 => 'الرابعة';
+
+  @override
+  String get questionnaireYear5 => 'الخامسة';
+
+  @override
+  String get questionnaireYearIntern => 'امتياز';
+
+  @override
+  String get questionnaireGovernorateLabel => 'المحافظة';
+
+  @override
+  String get questionnaireGovernorateHint => 'اختر محافظتك';
+
+  @override
+  String get questionnaireIdCardLabel => 'بطاقة الجامعة';
+
+  @override
+  String get questionnaireIdCardUpload => 'ارفع بطاقتك الجامعية';
+
+  @override
+  String get questionnaireIdCardNote =>
+      'تُستخدم فقط للتحقق من أنك طالب طب أسنان، ولا تُعرض علنًا أبدًا.';
+
+  @override
+  String get questionnaireIdCardRequiredError => 'يرجى رفع بطاقتك الجامعية';
+
+  @override
+  String get questionnaireSelectError => 'يرجى اختيار أحد الخيارات';
+
+  @override
+  String get questionnaireProfilePhotoLabel => 'الصورة الشخصية';
+
+  @override
+  String get questionnaireProfilePhotoAdd => 'أضف صورة شخصية';
+
+  @override
+  String get questionnaireProfilePhotoChange => 'غيّر الصورة الشخصية';
+
+  @override
+  String get questionnaireCancel => 'إلغاء';
+
+  @override
+  String get questionnaireNextStep => 'الخطوة التالية';
+
+  @override
+  String get questionnaireSearchHint => 'بحث';
+
+  @override
+  String get questionnaireNoResults => 'لا توجد نتائج';
+
+  @override
+  String get questionnaireLoadUniversitiesFailed =>
+      'تعذّر تحميل الجامعات. اضغط لإعادة المحاولة.';
+
+  @override
+  String get questionnaireStep2Title => 'اجعل ملفك الشخصي مميزًا';
+
+  @override
+  String get questionnaireStep2Subtitle =>
+      'يثق المرضى بالأطباء الذين يستطيعون التعرف عليهم. أضف هذه البيانات الآن أو عُد إليها في أي وقت!';
+
+  @override
+  String get questionnaireBioLabel => 'نبذة عنك';
+
+  @override
+  String get questionnaireBioHint =>
+      'مثال: طالب في السنة الرابعة بطب الأسنان، مهتم بطب الأسنان الترميمي، ومجتهد جدًا في...';
+
+  @override
+  String get questionnaireCertificationsLabel => 'الشهادات';
+
+  @override
+  String get questionnaireAddCertification => 'أضف شهادة';
+
+  @override
+  String get questionnaireCasePhotosLabel => 'صور الحالات السابقة';
+
+  @override
+  String get questionnaireUploadCasePhotos =>
+      'ارفع صور الحالات التي عملت عليها';
+
+  @override
+  String get questionnairePrivacyNote =>
+      'ارفع فقط الصور التي لا يمكن فيها التعرف على المريض، أو التي وافق فيها على ذلك.';
+
+  @override
+  String get questionnaireSaveAndContinue => 'حفظ ومتابعة';
+
+  @override
+  String get questionnaireSkipForNow => 'تخطَّ الآن';
+
+  @override
+  String get questionnaireTakePhoto => 'التقاط صورة';
+
+  @override
+  String get questionnaireChooseFromGallery => 'اختيار من المعرض';
+
+  @override
+  String get questionnaireDiscardTitle => 'هل تريد تجاهل إجاباتك؟';
+
+  @override
+  String get questionnaireDiscardMessage => 'سيتم فقدان ما أدخلته.';
+
+  @override
+  String get questionnaireDiscardConfirm => 'تجاهل';
+
+  @override
+  String get questionnaireKeepEditing => 'متابعة التعديل';
+
+  @override
+  String questionnaireMaxFilesReached(int max) {
+    return 'يمكنك إضافة حتى $max ملفات.';
+  }
 }
