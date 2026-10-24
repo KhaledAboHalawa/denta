@@ -751,6 +751,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{fieldName} must not exceed {max}'**
   String numberMaxError(String fieldName, num max);
+
+  /// No description provided for @notificationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notificationsTitle;
+
+  /// No description provided for @notificationsCasesTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Cases'**
+  String get notificationsCasesTab;
+
+  /// No description provided for @notificationsMarketplaceTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Marketplace'**
+  String get notificationsMarketplaceTab;
+
+  /// No description provided for @notificationsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get notificationsToday;
+
+  /// No description provided for @notificationsEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get notificationsEarlier;
+
+  /// No description provided for @notificationsMarkAllRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark All As Read'**
+  String get notificationsMarkAllRead;
+
+  /// No description provided for @notificationsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'You’re all caught up.'**
+  String get notificationsEmpty;
+
+  /// No description provided for @notificationsNewMatchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New match found'**
+  String get notificationsNewMatchTitle;
+
+  /// No description provided for @notificationsNewMatchDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A patient near you matches your request.'**
+  String get notificationsNewMatchDescription;
+
+  /// No description provided for @notificationsAdjustmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Case needs adjustment'**
+  String get notificationsAdjustmentTitle;
+
+  /// No description provided for @notificationsAdjustmentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your request has been waiting for a while, try updating the keywords.'**
+  String get notificationsAdjustmentDescription;
+
+  /// No description provided for @notificationsLogSessionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log your session'**
+  String get notificationsLogSessionTitle;
+
+  /// No description provided for @notificationsLogSessionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'How did today’s session go? Add your session notes.'**
+  String get notificationsLogSessionDescription;
+
+  /// No description provided for @notificationsAppointmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment confirmed'**
+  String get notificationsAppointmentTitle;
+
+  /// No description provided for @notificationsAppointmentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your appointment details are ready to review.'**
+  String get notificationsAppointmentDescription;
+
+  /// No description provided for @notificationsReviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave a review'**
+  String get notificationsReviewTitle;
+
+  /// No description provided for @notificationsReviewDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your experience with the Denta community.'**
+  String get notificationsReviewDescription;
+
+  /// No description provided for @notificationsTenMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'10 min ago'**
+  String get notificationsTenMinutesAgo;
+
+  /// No description provided for @notificationsYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get notificationsYesterday;
+
+  /// No description provided for @notificationsItemReservedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Item reserved'**
+  String get notificationsItemReservedTitle;
+
+  /// No description provided for @notificationsItemReservedDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Someone has reserved an item from your listing.'**
+  String get notificationsItemReservedDescription;
+
+  /// No description provided for @notificationsPickupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pickup reminder'**
+  String get notificationsPickupTitle;
+
+  /// No description provided for @notificationsPickupDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember to arrange a pickup for your reserved item.'**
+  String get notificationsPickupDescription;
+
+  /// No description provided for @notificationsItemHandledTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Item handed over'**
+  String get notificationsItemHandledTitle;
+
+  /// No description provided for @notificationsItemHandledDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your marketplace handover has been marked complete.'**
+  String get notificationsItemHandledDescription;
+
+  /// No description provided for @notificationsMarketplaceUpdateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Marketplace update'**
+  String get notificationsMarketplaceUpdateTitle;
+
+  /// No description provided for @notificationsMarketplaceUpdateDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'There is an update related to your marketplace activity.'**
+  String get notificationsMarketplaceUpdateDescription;
+
+  /// No description provided for @notificationsEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'New matches and case updates will appear here.'**
+  String get notificationsEmptyDescription;
 }
 
 class _AppLocalizationsDelegate

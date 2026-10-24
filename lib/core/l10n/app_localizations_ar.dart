@@ -401,4 +401,97 @@ class AppLocalizationsAr extends AppLocalizations {
   String numberMaxError(String fieldName, num max) {
     return 'يجب ألا يتجاوز $fieldName $max';
   }
+
+  @override
+  String get notificationsTitle => 'الإشعارات';
+
+  @override
+  String get notificationsCasesTab => 'الحالات';
+
+  @override
+  String get notificationsMarketplaceTab => 'السوق';
+
+  @override
+  String get notificationsToday => 'اليوم';
+
+  @override
+  String get notificationsEarlier => 'سابقًا';
+
+  @override
+  String get notificationsMarkAllRead => 'تحديد الكل كمقروء';
+
+  @override
+  String get notificationsEmpty => 'لا توجد إشعارات جديدة.';
+
+  @override
+  String get notificationsNewMatchTitle => 'تم العثور على تطابق جديد';
+
+  @override
+  String get notificationsNewMatchDescription =>
+      'يوجد مريض بالقرب منك يتوافق مع طلبك.';
+
+  @override
+  String get notificationsAdjustmentTitle => 'الحالة تحتاج إلى تعديل';
+
+  @override
+  String get notificationsAdjustmentDescription =>
+      'طلبك قيد الانتظار منذ فترة، جرّب تحديث الكلمات المفتاحية.';
+
+  @override
+  String get notificationsLogSessionTitle => 'سجّل جلستك';
+
+  @override
+  String get notificationsLogSessionDescription =>
+      'كيف سارت جلسة اليوم؟ أضف ملاحظات الجلسة.';
+
+  @override
+  String get notificationsAppointmentTitle => 'تم تأكيد الموعد';
+
+  @override
+  String get notificationsAppointmentDescription =>
+      'تفاصيل موعدك جاهزة للمراجعة.';
+
+  @override
+  String get notificationsReviewTitle => 'اترك تقييمًا';
+
+  @override
+  String get notificationsReviewDescription => 'شارك تجربتك مع مجتمع دنتا.';
+
+  @override
+  String get notificationsTenMinutesAgo => 'منذ 10 دقائق';
+
+  @override
+  String get notificationsYesterday => 'أمس';
+
+  @override
+  String get notificationsItemReservedTitle => 'تم حجز المنتج';
+
+  @override
+  String get notificationsItemReservedDescription =>
+      'قام شخص بحجز منتج من إعلانك.';
+
+  @override
+  String get notificationsPickupTitle => 'تذكير بالاستلام';
+
+  @override
+  String get notificationsPickupDescription =>
+      'تذكّر تنسيق استلام المنتج المحجوز.';
+
+  @override
+  String get notificationsItemHandledTitle => 'تم تسليم المنتج';
+
+  @override
+  String get notificationsItemHandledDescription =>
+      'تم تسجيل عملية تسليم المنتج كمكتملة.';
+
+  @override
+  String get notificationsMarketplaceUpdateTitle => 'تحديث من السوق';
+
+  @override
+  String get notificationsMarketplaceUpdateDescription =>
+      'يوجد تحديث متعلق بنشاطك في السوق.';
+
+  @override
+  String get notificationsEmptyDescription =>
+      'ستظهر هنا التحديثات المتعلقة بالحالات والمطابقات الجديدة.';
 }
