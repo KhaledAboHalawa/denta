@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/onboarding/domain/use_case/get_onboarding_status_use_case.dart';
+import '../../features/questionnaire/presentation/screens/questionnaire_screen.dart';
 import '../../features/register/presentation/screens/register_screen.dart';
 import '../../features/sign_in/presentation/screens/sign_in_screen.dart';
 import '../../features/user_role_selection/presentation/screens/role_selection_screen.dart';
@@ -14,17 +15,8 @@ import '../../features/user_role_selection/presentation/widgets/role_selection_s
 import '../di/dependency_injection.dart';
 import 'route_paths.dart';
 
-enum SlideDirection {
-  fromTrailing,
-  fromLeading,
-  fromRight,
-  fromLeft,
-  fromBottom,
-  fromTop,
-}
-
 final GoRouter router = GoRouter(
-  initialLocation: RoutePaths.onboardingPath,
+  initialLocation: RoutePaths.questionnairePath,
   routes: <RouteBase>[
     GoRoute(
       path: RoutePaths.onboardingPath,
@@ -87,6 +79,11 @@ final GoRouter router = GoRouter(
         key: state.pageKey,
         child: const ResetPasswordSuccessScreen(),
       ),
+    ),
+    GoRoute(
+      path: RoutePaths.questionnairePath,
+      pageBuilder: (context, state) =>
+          CupertinoPage(key: state.pageKey, child: const QuestionnaireScreen()),
     ),
   ],
 );

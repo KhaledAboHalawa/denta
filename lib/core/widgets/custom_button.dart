@@ -11,17 +11,22 @@ class CustomButton extends StatelessWidget {
     this.shrink = false,
     this.backgroundColor,
     this.foregroundColor,
+    this.height,
   });
   final Color? backgroundColor;
   final Color? foregroundColor;
   final bool isLoading;
   final bool shrink;
+
+  /// Optional fixed height (design uses 56). Null keeps the theme-driven size.
+  final double? height;
   final String title;
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: shrink ? null : double.infinity,
+      height: height,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,

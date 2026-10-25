@@ -276,6 +276,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backToLogin => 'Back to Login';
+
+  @override
   String get onboardingExploreDenta => 'Explore Denta';
 
   @override
@@ -396,5 +398,169 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String numberMaxError(String fieldName, num max) {
     return '$fieldName must not exceed $max';
+  }
+
+  @override
+  String questionnaireStepOf(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get questionnaireStep1Title => 'Tell Us About Yourself';
+
+  @override
+  String get questionnaireStep1Subtitle =>
+      'We\'ll use this to set up your profile and verify you\'re a dental student.';
+
+  @override
+  String get questionnaireAllRequired => '* All fields are required';
+
+  @override
+  String get questionnaireFullNameLabel => 'Full name';
+
+  @override
+  String get questionnaireFullNameHint => 'Enter your full name';
+
+  @override
+  String get questionnaireFullNameHelper =>
+      'Please use the name on your university ID.';
+
+  @override
+  String get questionnaireFullNameTwoWordsError =>
+      'Please enter your first and last name';
+
+  @override
+  String get questionnaireUniversityLabel => 'University';
+
+  @override
+  String get questionnaireUniversityHint => 'Search your university';
+
+  @override
+  String get questionnaireAcademicYearLabel => 'Academic year';
+
+  @override
+  String get questionnaireYear1 => '1st';
+
+  @override
+  String get questionnaireYear2 => '2nd';
+
+  @override
+  String get questionnaireYear3 => '3rd';
+
+  @override
+  String get questionnaireYear4 => '4th';
+
+  @override
+  String get questionnaireYear5 => '5th';
+
+  @override
+  String get questionnaireYearIntern => 'Intern';
+
+  @override
+  String get questionnaireGovernorateLabel => 'Governorate';
+
+  @override
+  String get questionnaireGovernorateHint => 'Select your governorate';
+
+  @override
+  String get questionnaireIdCardLabel => 'University ID card';
+
+  @override
+  String get questionnaireIdCardUpload => 'Upload your university ID';
+
+  @override
+  String get questionnaireIdCardNote =>
+      'Used only to verify you\'re a dental student. Never shown publicly.';
+
+  @override
+  String get questionnaireIdCardRequiredError =>
+      'Please upload your university ID';
+
+  @override
+  String get questionnaireSelectError => 'Please select an option';
+
+  @override
+  String get questionnaireProfilePhotoLabel => 'Profile photo';
+
+  @override
+  String get questionnaireProfilePhotoAdd => 'Add a profile photo';
+
+  @override
+  String get questionnaireProfilePhotoChange => 'Change profile photo';
+
+  @override
+  String get questionnaireCancel => 'Cancel';
+
+  @override
+  String get questionnaireNextStep => 'Next Step';
+
+  @override
+  String get questionnaireSearchHint => 'Search';
+
+  @override
+  String get questionnaireNoResults => 'No results found';
+
+  @override
+  String get questionnaireLoadUniversitiesFailed =>
+      'Couldn\'t load universities. Tap to retry.';
+
+  @override
+  String get questionnaireStep2Title => 'Make Your Profile Stand Out';
+
+  @override
+  String get questionnaireStep2Subtitle =>
+      'Patients trust doctors they can learn about. Add these now, or come back anytime!';
+
+  @override
+  String get questionnaireBioLabel => 'Bio';
+
+  @override
+  String get questionnaireBioHint =>
+      'e.g. 4th-year dental student interested in restorative dentistry, very dedicated to...';
+
+  @override
+  String get questionnaireCertificationsLabel => 'Certifications';
+
+  @override
+  String get questionnaireAddCertification => 'Add certification';
+
+  @override
+  String get questionnaireCasePhotosLabel => 'Previous cases photos';
+
+  @override
+  String get questionnaireUploadCasePhotos =>
+      'Upload photos of cases you\'ve worked on';
+
+  @override
+  String get questionnairePrivacyNote =>
+      'Only upload photos where the patient can\'t be identified, or who gave consent.';
+
+  @override
+  String get questionnaireSaveAndContinue => 'Save And Continue';
+
+  @override
+  String get questionnaireSkipForNow => 'Skip for now';
+
+  @override
+  String get questionnaireTakePhoto => 'Take a photo';
+
+  @override
+  String get questionnaireChooseFromGallery => 'Choose from gallery';
+
+  @override
+  String get questionnaireDiscardTitle => 'Discard your answers?';
+
+  @override
+  String get questionnaireDiscardMessage => 'Your progress will be lost.';
+
+  @override
+  String get questionnaireDiscardConfirm => 'Discard';
+
+  @override
+  String get questionnaireKeepEditing => 'Keep editing';
+
+  @override
+  String questionnaireMaxFilesReached(int max) {
+    return 'You can add up to $max files.';
   }
 }
