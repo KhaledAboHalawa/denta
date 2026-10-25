@@ -38,7 +38,7 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
   void initState() {
     super.initState();
     _cubit = context.read<QuestionnaireCubit>();
-    _bioController = TextEditingController(text: _cubit.state.bio);
+    _bioController = TextEditingController(text: _cubit.state.profileExtras.bio);
     _bioNode = FocusNode();
   }
 
@@ -67,7 +67,7 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
     _cubit.doIntent(
       QuestionnaireSetCertificationsEvent(
         _merge(
-          _cubit.state.certificationPaths,
+          _cubit.state.profileExtras.certificationPaths,
           picked,
           ProfileExtrasForm.maxCertifications,
         ),
@@ -81,7 +81,7 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
     _cubit.doIntent(
       QuestionnaireSetCasePhotosEvent(
         _merge(
-          _cubit.state.casePhotoPaths,
+          _cubit.state.profileExtras.casePhotoPaths,
           picked,
           ProfileExtrasForm.maxCasePhotos,
         ),
@@ -128,9 +128,9 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
               top: 4,
               end: 0,
               child: BlocBuilder<QuestionnaireCubit, QuestionnaireState>(
-                buildWhen: (prev, curr) => prev.bio != curr.bio,
+                buildWhen: (prev, curr) => prev.profileExtras.bio != curr.profileExtras.bio,
                 builder: (context, state) => Text(
-                  '${state.bio.length}/${ProfileExtrasForm.maxBioLength}',
+                  '${state.profileExtras.bio.length}/${ProfileExtrasForm.maxBioLength}',
                   style: context.text.captionDefault,
                 ),
               ),
@@ -151,21 +151,22 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
         ),
         BlocBuilder<QuestionnaireCubit, QuestionnaireState>(
           buildWhen: (prev, curr) =>
-              prev.certificationPaths != curr.certificationPaths,
+              prev.profileExtras.certificationPaths !=
+              curr.profileExtras.certificationPaths,
           builder: (context, state) {
-            if (state.certificationPaths.isEmpty) return const SizedBox();
+            if (state.profileExtras.certificationPaths.isEmpty) return const SizedBox();
             return Padding(
               padding: const EdgeInsets.only(top: 12),
               child: Wrap(
                 spacing: 10,
                 runSpacing: 10,
                 children: [
-                  for (final path in state.certificationPaths)
+                  for (final path in state.profileExtras.certificationPaths)
                     FileChip(
                       label: fileNameOf(path),
                       onRemove: () => _cubit.doIntent(
                         QuestionnaireSetCertificationsEvent(
-                          state.certificationPaths
+                          state.profileExtras.certificationPaths
                               .where((p) => p != path)
                               .toList(),
                         ),
@@ -188,16 +189,17 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
           onTap: _addCasePhotos,
         ),
         BlocBuilder<QuestionnaireCubit, QuestionnaireState>(
-          buildWhen: (prev, curr) => prev.casePhotoPaths != curr.casePhotoPaths,
+          buildWhen: (prev, curr) => prev.profileExtras.casePhotoPaths !=
+              curr.profileExtras.casePhotoPaths,
           builder: (context, state) {
-            if (state.casePhotoPaths.isEmpty) return const SizedBox();
+            if (state.profileExtras.casePhotoPaths.isEmpty) return const SizedBox();
             return Padding(
               padding: const EdgeInsets.only(top: 12),
               child: CasePhotosGrid(
-                paths: state.casePhotoPaths,
+                paths: state.profileExtras.casePhotoPaths,
                 onRemove: (path) => _cubit.doIntent(
                   QuestionnaireSetCasePhotosEvent(
-                    state.casePhotoPaths.where((p) => p != path).toList(),
+                    state.profileExtras.casePhotoPaths.where((p) => p != path).toList(),
                   ),
                 ),
               ),

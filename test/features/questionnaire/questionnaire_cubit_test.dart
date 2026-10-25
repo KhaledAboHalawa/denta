@@ -66,9 +66,9 @@ void main() {
 
   test('full name needs at least two words', () {
     cubit.doIntent(const QuestionnaireUpdateFullNameEvent('Ahmed'));
-    expect(cubit.state.hasValidFullName, isFalse);
+    expect(cubit.state.verificationInfo.isValidFullName, isFalse);
     cubit.doIntent(const QuestionnaireUpdateFullNameEvent('Ahmed Ali'));
-    expect(cubit.state.hasValidFullName, isTrue);
+    expect(cubit.state.verificationInfo.isValidFullName, isTrue);
   });
 
   test('invalid step 1 shows errors and does not call the repo', () async {

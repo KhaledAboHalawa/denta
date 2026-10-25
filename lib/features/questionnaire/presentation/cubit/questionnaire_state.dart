@@ -6,16 +6,9 @@ class QuestionnaireState extends Equatable {
     required this.universities,
     required this.step1Response,
     required this.step2Response,
+    this.verificationInfo = const VerificationInfoParams(),
+    this.profileExtras = const ProfileExtrasParams(),
     this.showStep1Errors = false,
-    this.fullName = '',
-    this.selectedUniversity,
-    this.academicYear,
-    this.governorate,
-    this.idCardPath,
-    this.avatarPath,
-    this.bio = '',
-    this.certificationPaths = const [],
-    this.casePhotoPaths = const [],
   });
 
   const QuestionnaireState.initial()
@@ -30,65 +23,36 @@ class QuestionnaireState extends Equatable {
   final BaseState<List<UniversityEntity>> universities;
 
   /// Step 1 form values.
-  final String fullName;
-  final UniversityEntity? selectedUniversity;
-  final AcademicYear? academicYear;
-  final String? governorate;
-  final String? idCardPath;
-  final String? avatarPath;
+  final VerificationInfoParams verificationInfo;
+
+  /// Step 2 form values.
+  final ProfileExtrasParams profileExtras;
 
   /// Turns on inline errors for untouched step 1 fields after a failed Next.
   final bool showStep1Errors;
-
-  /// Step 2 form values.
-  final String bio;
-  final List<String> certificationPaths;
-  final List<String> casePhotoPaths;
 
   final BaseState<bool> step1Response;
 
   /// Success here means the whole questionnaire is finished (saved or skipped).
   final BaseState<bool> step2Response;
 
-
-  bool get isStep1Valid =>
-      AppValidators.validateFullName(fullName) == null &&
-      selectedUniversity != null &&
-      academicYear != null &&
-      governorate != null &&
-      idCardPath != null;
+  bool get isStep1Valid => verificationInfo.isValid;
 
   QuestionnaireState copyWith({
     int? stepIndex,
     BaseState<List<UniversityEntity>>? universities,
-    String? fullName,
-    UniversityEntity? selectedUniversity,
-    AcademicYear? academicYear,
-    String? governorate,
-    String? idCardPath,
-    String? avatarPath,
-    bool clearIdCard = false,
-    bool clearAvatar = false,
+    VerificationInfoParams? verificationInfo,
+    ProfileExtrasParams? profileExtras,
     bool? showStep1Errors,
-    String? bio,
-    List<String>? certificationPaths,
-    List<String>? casePhotoPaths,
     BaseState<bool>? step1Response,
     BaseState<bool>? step2Response,
   }) {
     return QuestionnaireState(
       stepIndex: stepIndex ?? this.stepIndex,
       universities: universities ?? this.universities,
-      fullName: fullName ?? this.fullName,
-      selectedUniversity: selectedUniversity ?? this.selectedUniversity,
-      academicYear: academicYear ?? this.academicYear,
-      governorate: governorate ?? this.governorate,
-      idCardPath: clearIdCard ? null : (idCardPath ?? this.idCardPath),
-      avatarPath: clearAvatar ? null : (avatarPath ?? this.avatarPath),
+      verificationInfo: verificationInfo ?? this.verificationInfo,
+      profileExtras: profileExtras ?? this.profileExtras,
       showStep1Errors: showStep1Errors ?? this.showStep1Errors,
-      bio: bio ?? this.bio,
-      certificationPaths: certificationPaths ?? this.certificationPaths,
-      casePhotoPaths: casePhotoPaths ?? this.casePhotoPaths,
       step1Response: step1Response ?? this.step1Response,
       step2Response: step2Response ?? this.step2Response,
     );
@@ -98,16 +62,9 @@ class QuestionnaireState extends Equatable {
   List<Object?> get props => [
     stepIndex,
     universities,
-    fullName,
-    selectedUniversity,
-    academicYear,
-    governorate,
-    idCardPath,
-    avatarPath,
+    verificationInfo,
+    profileExtras,
     showStep1Errors,
-    bio,
-    certificationPaths,
-    casePhotoPaths,
     step1Response,
     step2Response,
   ];

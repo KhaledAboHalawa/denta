@@ -1,5 +1,4 @@
 import 'package:denta/core/config/base_state/base_state.dart';
-import 'package:denta/core/utils/app_validators.dart';
 import 'package:denta/features/questionnaire/domain/entities/academic_year.dart';
 import 'package:denta/features/questionnaire/domain/entities/profile_extras_params.dart';
 import 'package:denta/features/questionnaire/domain/entities/university_entity.dart';
@@ -60,24 +59,30 @@ class QuestionnaireCubit extends Cubit<QuestionnaireState> {
   }
 
   void _updateFullName(String value) =>
-      emit(state.copyWith(fullName: value));
+      _setInfo(state.verificationInfo.copyWith(fullName: value));
 
   void _selectUniversity(UniversityEntity value) =>
-      emit(state.copyWith(selectedUniversity: value));
+      _setInfo(state.verificationInfo.copyWith(university: value));
 
   void _selectAcademicYear(AcademicYear value) =>
-      emit(state.copyWith(academicYear: value));
+      _setInfo(state.verificationInfo.copyWith(academicYear: value));
 
   void _selectGovernorate(String value) =>
-      emit(state.copyWith(governorate: value));
+      _setInfo(state.verificationInfo.copyWith(governorate: value));
 
-  void _setIdCard(String? path) => emit(
-    state.copyWith(idCardPath: path, clearIdCard: path == null),
+  void _setIdCard(String? path) => _setInfo(
+    state.verificationInfo.copyWith(idCardPath: path, clearIdCard: path == null),
   );
 
-  void _setAvatar(String? path) => emit(
-    state.copyWith(avatarPath: path, clearAvatar: path == null),
+  void _setAvatar(String? path) => _setInfo(
+    state.verificationInfo.copyWith(avatarPath: path, clearAvatar: path == null),
   );
+
+  void _setInfo(VerificationInfoParams info) =>
+      emit(state.copyWith(verificationInfo: info));
+
+  void _setExtras(ProfileExtrasParams extras) =>
+      emit(state.copyWith(profileExtras: extras));
 
   void _submitStep1() async {
     if (state.step1Response.isLoading) return;
@@ -86,16 +91,7 @@ class QuestionnaireCubit extends Cubit<QuestionnaireState> {
       return;
     }
     emit(state.copyWith(step1Response: const BaseState.loading()));
-    final result = await submitVerificationInfoUseCase(
-      VerificationInfoParams(
-        fullName: state.fullName.trim(),
-        universityId: state.selectedUniversity!.id,
-        academicYear: state.academicYear!,
-        governorate: state.governorate!,
-        idCardPath: state.idCardPath!,
-        avatarPath: state.avatarPath,
-      ),
-    );
+    final result = await submitVerificationInfoUseCase(state.verificationInfo);
     result.when(
       success: (_) => emit(
         state.copyWith(
@@ -108,24 +104,19 @@ class QuestionnaireCubit extends Cubit<QuestionnaireState> {
     );
   }
 
-  void _updateBio(String value) => emit(state.copyWith(bio: value));
+  void _updateBio(String value) =>
+      _setExtras(state.profileExtras.copyWith(bio: value));
 
   void _setCertifications(List<String> paths) =>
-      emit(state.copyWith(certificationPaths: paths));
+      _setExtras(state.profileExtras.copyWith(certificationPaths: paths));
 
   void _setCasePhotos(List<String> paths) =>
-      emit(state.copyWith(casePhotoPaths: paths));
+      _setExtras(state.profileExtras.copyWith(casePhotoPaths: paths));
 
   void _submitStep2() async {
     if (state.step2Response.isLoading) return;
     emit(state.copyWith(step2Response: const BaseState.loading()));
-    final result = await saveProfileExtrasUseCase(
-      ProfileExtrasParams(
-        bio: state.bio.trim(),
-        certificationPaths: state.certificationPaths,
-        casePhotoPaths: state.casePhotoPaths,
-      ),
-    );
+    final result = await saveProfileExtrasUseCase(state.profileExtras);
     result.when(
       success: (_) =>
           emit(state.copyWith(step2Response: const BaseState.success(true))),

@@ -39,7 +39,7 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
     super.initState();
     _cubit = context.read<QuestionnaireCubit>();
     _formKey = GlobalKey<FormState>();
-    _nameController = TextEditingController(text: _cubit.state.fullName);
+    _nameController = TextEditingController(text: _cubit.state.verificationInfo.fullName);
     _nameNode = FocusNode();
   }
 
@@ -68,7 +68,7 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
     final picked = await showSelectionSheet<UniversityEntity>(
       context,
       title: l10n.questionnaireUniversityLabel,
-      selected: state.selectedUniversity,
+      selected: state.verificationInfo.university,
       items: (universities.data ?? [])
           .map((u) => SelectionItem(value: u, label: u.name))
           .toList(),
@@ -84,7 +84,7 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
     final picked = await showSelectionSheet<String>(
       context,
       title: l10n.questionnaireGovernorateLabel,
-      selected: state.governorate,
+      selected: state.verificationInfo.governorate,
       items: Governorate.all
           .map((g) => SelectionItem(value: g.key, label: g.localizedName(lang)))
           .toList(),
@@ -109,10 +109,11 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
 
     return BlocBuilder<QuestionnaireCubit, QuestionnaireState>(
       builder: (context, state) {
+        final info = state.verificationInfo;
         final showErrors = state.showStep1Errors;
         final universityError = state.universities.isError
             ? l10n.questionnaireLoadUniversitiesFailed
-            : (showErrors && state.selectedUniversity == null
+            : (showErrors && info.university == null
                   ? l10n.questionnaireSelectError
                   : null);
 
@@ -156,7 +157,7 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
             SelectorField(
               label: l10n.questionnaireUniversityLabel,
               hint: l10n.questionnaireUniversityHint,
-              value: state.selectedUniversity?.name,
+              value: info.university?.name,
               isLoading: state.universities.isLoading,
               errorText: universityError,
               onTap: () => _pickUniversity(state),
@@ -168,12 +169,12 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
             ),
             const SizedBox(height: 8),
             AcademicYearChips(
-              selected: state.academicYear,
+              selected: info.academicYear,
               hasError: showErrors,
               onSelected: (year) =>
                   _cubit.doIntent(QuestionnaireSelectAcademicYearEvent(year)),
             ),
-            if (showErrors && state.academicYear == null) ...[
+            if (showErrors && info.academicYear == null) ...[
               const SizedBox(height: 4),
               Text(
                 l10n.questionnaireSelectError,
@@ -186,8 +187,8 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
             SelectorField(
               label: l10n.questionnaireGovernorateLabel,
               hint: l10n.questionnaireGovernorateHint,
-              value: Governorate.byKey(state.governorate)?.localizedName(lang),
-              errorText: showErrors && state.governorate == null
+              value: Governorate.byKey(info.governorate)?.localizedName(lang),
+              errorText: showErrors && info.governorate == null
                   ? l10n.questionnaireSelectError
                   : null,
               onTap: () => _pickGovernorate(state),
@@ -196,15 +197,15 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
             Text(l10n.questionnaireIdCardLabel, style: context.text.bodyMedium),
             const SizedBox(height: 8),
             IdCardUpload(
-              path: state.idCardPath,
-              hasError: showErrors && state.idCardPath == null,
+              path: info.idCardPath,
+              hasError: showErrors && info.idCardPath == null,
               onPick: () => _pickImage(
                 (path) => _cubit.doIntent(QuestionnaireSetIdCardEvent(path)),
               ),
               onRemove: () =>
                   _cubit.doIntent(const QuestionnaireSetIdCardEvent(null)),
             ),
-            if (showErrors && state.idCardPath == null) ...[
+            if (showErrors && info.idCardPath == null) ...[
               const SizedBox(height: 4),
               Text(
                 l10n.questionnaireIdCardRequiredError,
@@ -222,8 +223,8 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
             ),
             const SizedBox(height: 20),
             AvatarPicker(
-              fullName: state.fullName,
-              imagePath: state.avatarPath,
+              fullName: info.fullName,
+              imagePath: info.avatarPath,
               onTap: () => _pickImage(
                 (path) => _cubit.doIntent(QuestionnaireSetAvatarEvent(path)),
               ),
