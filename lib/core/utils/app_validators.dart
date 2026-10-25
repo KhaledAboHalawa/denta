@@ -27,7 +27,7 @@ class AppValidators {
   );
 
   static final RegExp _nameRegex = RegExp(r"^[\p{L}\s'-]+$", unicode: true);
-
+  static final RegExp _twoWordsRegex = RegExp(r'\s+');
   static final RegExp _phoneRegex = RegExp(r'^\+?[0-9\s\-()]{8,15}$');
 
   static final RegExp _hasUppercaseRegex = RegExp(r'[A-Z]');
@@ -53,7 +53,7 @@ class AppValidators {
     return null;
   }
 
-  static String? validateName(
+  static String? validateFullName(
     String? value, {
     String? fieldName,
     int minLength = 2,
@@ -63,6 +63,42 @@ class AppValidators {
   }) {
     final localizations = _getL10n(context: context, l10n: l10n);
     final name = fieldName ?? localizations.nameField;
+
+    if (value == null || value.trim().isEmpty) {
+      return localizations.fieldRequiredError(name);
+    }
+
+    final trimmed = value.trim();
+
+    if (trimmed.split(_twoWordsRegex).length < 2) {
+      return localizations.questionnaireFullNameTwoWordsError;
+    }
+
+    if (trimmed.length < minLength) {
+      return localizations.fieldMinLengthError(name, minLength);
+    }
+
+    if (trimmed.length > maxLength) {
+      return localizations.fieldMaxLengthError(name, maxLength);
+    }
+
+    if (!_nameRegex.hasMatch(trimmed)) {
+      return localizations.nameLettersOnlyError(name);
+    }
+
+    return null;
+  }
+
+  static String? validateName(
+    String? value, {
+    String? fieldName,
+    int minLength = 2,
+    int maxLength = 50,
+    BuildContext? context,
+    AppLocalizations? l10n,
+  }) {
+    final localizations = _getL10n(context: context, l10n: l10n);
+    final name = fieldName ?? localizations.questionnaireFullNameLabel;
 
     if (value == null || value.trim().isEmpty) {
       return localizations.fieldRequiredError(name);

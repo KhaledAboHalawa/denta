@@ -21,6 +21,9 @@ abstract final class AppPalette {
   static const Color textLight = Color(0xFFEDEDFB);
   static const Color inputFill = Color(0xFFF7F7F9);
   static const Color primaryLight = Color(0xFFE4E5FA);
+  static const Color secondaryLight = Color(0xFFF1F2FF);
+  static const Color primaryBorder = Color(0xFFC8C8F4);
+  static const Color infoDark = Color(0xFF7890A0);
 }
 
 @immutable
@@ -41,6 +44,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.textLight,
     required this.inputFill,
     required this.primaryLight,
+    required this.secondaryLight,
+    required this.primaryBorder,
+    required this.infoDark,
   });
 
   // Brand
@@ -63,6 +69,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color textLight;
   final Color inputFill;
   final Color primaryLight;
+  final Color secondaryLight;
+  final Color primaryBorder;
+  final Color infoDark;
 
   static const light = AppColorsExtension(
     primary: AppPalette.primary,
@@ -80,6 +89,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     textLight: AppPalette.textLight,
     inputFill: AppPalette.inputFill,
     primaryLight: AppPalette.primaryLight,
+    secondaryLight: AppPalette.secondaryLight,
+    primaryBorder: AppPalette.primaryBorder,
+    infoDark: AppPalette.infoDark,
   );
 
   static const dark = AppColorsExtension(
@@ -98,6 +110,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     textLight: AppPalette.textLight,
     inputFill: Color(0xFF252B40),
     primaryLight: AppPalette.primaryLight,
+    secondaryLight: AppPalette.secondaryLight,
+    primaryBorder: AppPalette.primaryBorder,
+    infoDark: AppPalette.infoDark,
   );
 
   @override
@@ -117,6 +132,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? textLight,
     Color? inputFill,
     Color? primaryLight,
+    Color? secondaryLight,
+    Color? primaryBorder,
+    Color? infoDark,
   }) {
     return AppColorsExtension(
       primary: primary ?? this.primary,
@@ -134,6 +152,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       textLight: textLight ?? this.textLight,
       inputFill: inputFill ?? this.inputFill,
       primaryLight: primaryLight ?? this.primaryLight,
+      secondaryLight: secondaryLight ?? this.secondaryLight,
+      primaryBorder: primaryBorder ?? this.primaryBorder,
+      infoDark: infoDark ?? this.infoDark,
     );
   }
 
@@ -160,6 +181,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       textLight: Color.lerp(textLight, other.textLight, t)!,
       inputFill: Color.lerp(inputFill, other.inputFill, t)!,
       primaryLight: Color.lerp(primaryLight, other.primaryLight, t)!,
+      secondaryLight: Color.lerp(secondaryLight, other.secondaryLight, t)!,
+      primaryBorder: Color.lerp(primaryBorder, other.primaryBorder, t)!,
+      infoDark: Color.lerp(infoDark, other.infoDark, t)!,
     );
   }
 }

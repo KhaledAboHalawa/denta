@@ -18,6 +18,7 @@ dependencies:
 
   # Storage
   shared_preferences: ^2.5.6
+  file_picker: ^13.2.0
 
   # Dependency Injection & Service Locator
   get_it: ^9.3.0
@@ -32,6 +33,7 @@ dependencies:
   # UI & Styling
   cupertino_icons: ^2.0.0
   cached_network_image: ^4.0.4
+  image_picker: ^1.2.4
   flutter_svg: ^2.3.0
   skeletonizer: ^3.0.0
 
