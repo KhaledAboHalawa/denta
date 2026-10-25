@@ -13,7 +13,7 @@ class QuestionnaireState extends Equatable {
 
   const QuestionnaireState.initial()
     : this(
-        stepIndex: 1,
+        stepIndex: 0,
         universities: const BaseState.initial(),
         step1Response: const BaseState.initial(),
         step2Response: const BaseState.initial(),
