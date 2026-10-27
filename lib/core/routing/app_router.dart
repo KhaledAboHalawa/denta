@@ -16,7 +16,7 @@ import '../di/dependency_injection.dart';
 import 'route_paths.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: RoutePaths.questionnairePath,
+  initialLocation: RoutePaths.roleSelectionPath,
   routes: <RouteBase>[
     GoRoute(
       path: RoutePaths.onboardingPath,
@@ -24,6 +24,8 @@ final GoRouter router = GoRouter(
         final onboardingCompleted = getIt<GetOnboardingStatusUseCase>().call();
         return onboardingCompleted.when(
           success: (data) {
+            // TODO uncomment this when ready
+            // return null;
             if (data) {
               return RoutePaths.roleSelectionPath;
             }
