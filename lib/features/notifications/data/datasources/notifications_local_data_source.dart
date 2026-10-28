@@ -50,6 +50,15 @@ class NotificationsLocalDataSource {
     return _notifications[index];
   }
 
+  /// Returns `false` when no notification with [id] exists.
+  Future<bool> deleteNotification(int id) async {
+    final lengthBefore = _notifications.length;
+    _notifications.removeWhere((item) => item.id == id);
+    if (_notifications.length == lengthBefore) return false;
+    _publishUpdate();
+    return true;
+  }
+
   Future<List<NotificationModel>> markAllAsRead({
     NotificationCategory? category,
     bool? isToday,

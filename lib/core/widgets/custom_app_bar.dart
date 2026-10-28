@@ -1,3 +1,4 @@
+import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/core/utils/app_icons.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 context.pop();
               }
             },
-            icon: SvgPicture.asset(AppIcons.chevronLeft),
+            icon: SvgPicture.asset(
+              Directionality.of(context) == TextDirection.rtl
+                  ? AppIcons.chevronRight
+                  : AppIcons.chevronLeft,
+              colorFilter: ColorFilter.mode(
+                context.appColors.primary,
+                BlendMode.srcIn,
+              ),
+            ),
           ),
           const SizedBox(width: 12),
           Expanded(

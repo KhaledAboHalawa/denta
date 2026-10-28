@@ -25,3 +25,16 @@ simulates an in-app update while the app is running; it does not deliver remote
 push notifications. When the backend is available, implement the same repository
 stream using the agreed API/realtime transport. Background or terminated-app
 push delivery will still require push setup (for example FCM) and backend support.
+
+
+## Deleting notifications (backend-ready)
+
+Swiping a notification reveals a delete action. Tapping it runs
+`DeleteNotificationEvent(id)` -> `DeleteNotificationUseCase` ->
+`NotificationsRepository.deleteNotification(id)`. The repository returns the
+deleted id (`Result<int>`), and the cubit removes that item from its list.
+When the backend is available, implement `deleteNotification` in the remote
+data source (for example `DELETE /notifications/{id}`) and keep the same
+repository contract. The local source also publishes the updated list on its
+`watchNotifications()` stream, so a remote/realtime source should do the same.
+

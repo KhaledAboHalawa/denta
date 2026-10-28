@@ -14,59 +14,61 @@ class NotificationEmptyState extends StatelessWidget {
     final colors = context.appColors;
     final l10n = AppLocalizations.of(context)!;
 
-    return Center(
+    return Align(
+      alignment: Alignment.topCenter,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.only(top: 101, left: 20, right: 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              width: 112,
-              height: 112,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: colors.primary.withValues(alpha: 0.08),
-                  ),
-                ),
-                child: Center(
-                  child: Container(
-                    width: 96,
-                    height: 96,
-                    padding: const EdgeInsets.all(9),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: colors.primaryLight.withValues(alpha: 0.65),
+              width: 158,
+              height: 160.69,
+              child: Center(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: colors.primary.withValues(alpha: 0.08),
                     ),
-                    child: SvgPicture.asset(
-                      AppIcons.notifications,
-                      fit: BoxFit.contain,
+                  ),
+                  child: SizedBox(
+                    width: 148,
+                    height: 148,
+                    child: Center(
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: colors.primaryLight.withValues(alpha: 0.65),
+                        ),
+                        child: SizedBox(
+                          width: 133.76,
+                          height: 133.76,
+                          child: Center(
+                            child: SvgPicture.asset(
+                              AppIcons.notifications,
+                              width: 84.39,
+                              height: 84.39,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 8),
             Text(
               l10n.notificationsEmpty,
               textAlign: TextAlign.center,
-              style: context.text.labelDefault.copyWith(
-                fontSize: 16,
-                height: 1.4,
-                fontWeight: FontWeight.w600,
-                color: colors.primary,
-              ),
+              style: context.text.heading2.copyWith(color: colors.primary),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 8),
             Text(
               l10n.notificationsEmptyDescription,
               textAlign: TextAlign.center,
-              style: context.text.captionDefault.copyWith(
-                fontSize: 10,
-                height: 1.5,
-                color: colors.info,
-              ),
+              style: context.text.labelDefault.copyWith(color: colors.info),
             ),
           ],
         ),

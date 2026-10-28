@@ -23,6 +23,8 @@ import '../../features/notifications/data/repositories/notifications_repository_
     as _i201;
 import '../../features/notifications/domain/repositories/notifications_repository.dart'
     as _i563;
+import '../../features/notifications/domain/usecases/delete_notification_use_case.dart'
+    as _i1005;
 import '../../features/notifications/domain/usecases/get_notifications_use_case.dart'
     as _i373;
 import '../../features/notifications/domain/usecases/mark_all_notifications_read_use_case.dart'
@@ -85,6 +87,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i477.RegisterDataSource>(
       () => _i477.RegisterDataSource(gh<_i361.Dio>()),
     );
+    gh.lazySingleton<_i1005.DeleteNotificationUseCase>(
+      () => _i1005.DeleteNotificationUseCase(
+        repository: gh<_i563.NotificationsRepository>(),
+      ),
+    );
     gh.lazySingleton<_i373.GetNotificationsUseCase>(
       () => _i373.GetNotificationsUseCase(
         repository: gh<_i563.NotificationsRepository>(),
@@ -116,18 +123,19 @@ extension GetItInjectableX on _i174.GetIt {
         registerDataSource: gh<_i477.RegisterDataSource>(),
       ),
     );
-    gh.lazySingleton<_i441.RegisterUseCase>(
-      () => _i441.RegisterUseCase(registerRepo: gh<_i250.RegisterRepo>()),
-    );
-    gh.lazySingleton<_i771.RegisterBloc>(
-      () => _i771.RegisterBloc(gh<_i441.RegisterUseCase>()),
-    );
     gh.lazySingleton<_i1041.NotificationsCubit>(
       () => _i1041.NotificationsCubit(
         gh<_i373.GetNotificationsUseCase>(),
         gh<_i734.MarkNotificationReadUseCase>(),
         gh<_i736.MarkAllNotificationsReadUseCase>(),
+        gh<_i1005.DeleteNotificationUseCase>(),
       ),
+    );
+    gh.lazySingleton<_i441.RegisterUseCase>(
+      () => _i441.RegisterUseCase(registerRepo: gh<_i250.RegisterRepo>()),
+    );
+    gh.lazySingleton<_i771.RegisterBloc>(
+      () => _i771.RegisterBloc(gh<_i441.RegisterUseCase>()),
     );
     gh.lazySingleton<_i356.LocalizatonInterceptor>(
       () => _i356.LocalizatonInterceptor(gh<_i960.LocaleCubit>()),

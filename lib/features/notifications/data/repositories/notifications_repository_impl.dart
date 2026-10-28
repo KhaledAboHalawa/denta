@@ -47,6 +47,24 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
   }
 
   @override
+  Future<Result<int>> deleteNotification(int id) async {
+    try {
+      final deleted = await localDataSource.deleteNotification(id);
+      if (!deleted) {
+        return Result.error(Failure(
+          statusCode: ApiResponseCode.notFound,
+          message: 'Notification not found',
+          success: false,
+          status: ApiInternalStatus.failure,
+        ));
+      }
+      return Result.success(id);
+    } catch (error) {
+      return Result.error(ErrorHandler.handle(error).failure);
+    }
+  }
+
+  @override
   Future<Result<List<NotificationEntity>>> markAllAsRead({
     NotificationCategory? category,
     bool? isToday,

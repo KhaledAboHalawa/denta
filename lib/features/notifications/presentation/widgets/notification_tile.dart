@@ -25,7 +25,7 @@ class NotificationTile extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          constraints: const BoxConstraints(minHeight: 98),
+          constraints: const BoxConstraints(minHeight: 102),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           decoration: BoxDecoration(
             border: Border.all(color: colors.primaryLight.withValues(alpha: 0.8)),

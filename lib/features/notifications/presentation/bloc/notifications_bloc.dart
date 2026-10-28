@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/notification_entity.dart';
+import '../../domain/usecases/delete_notification_use_case.dart';
 import '../../domain/usecases/get_notifications_use_case.dart';
 import '../../domain/usecases/mark_all_notifications_read_use_case.dart';
 import '../../domain/usecases/mark_notification_read_use_case.dart';
@@ -20,6 +21,7 @@ class NotificationsCubit extends Cubit<NotificationsState> {
     this._getNotificationsUseCase,
     this._markNotificationReadUseCase,
     this._markAllNotificationsReadUseCase,
+    this._deleteNotificationUseCase,
   ) : super(NotificationsState.initial()) {
     _notificationsSubscription = _getNotificationsUseCase.watch().listen(
       _onNotificationsUpdated,
@@ -29,6 +31,7 @@ class NotificationsCubit extends Cubit<NotificationsState> {
   final GetNotificationsUseCase _getNotificationsUseCase;
   final MarkNotificationReadUseCase _markNotificationReadUseCase;
   final MarkAllNotificationsReadUseCase _markAllNotificationsReadUseCase;
+  final DeleteNotificationUseCase _deleteNotificationUseCase;
   late final StreamSubscription<List<NotificationEntity>> _notificationsSubscription;
 
   void _onNotificationsUpdated(List<NotificationEntity> items) {
@@ -50,6 +53,7 @@ class NotificationsCubit extends Cubit<NotificationsState> {
       selectCategory: _selectCategory,
       markAsRead: _markAsRead,
       markAllAsRead: _markAllAsRead,
+      deleteNotification: _deleteNotification,
     );
   }
 
@@ -78,6 +82,24 @@ class NotificationsCubit extends Cubit<NotificationsState> {
         ));
       },
       error: (_) {},
+    );
+  }
+
+  void _deleteNotification(int id) async {
+    final result = await _deleteNotificationUseCase(id);
+    result.when(
+      success: (deletedId) {
+        final items = state.response.data;
+        if (items == null) return;
+        emit(state.copyWith(
+          response: BaseState.success(
+            items.where((item) => item.id != deletedId).toList(),
+          ),
+        ));
+      },
+      error: (failure) => emit(state.copyWith(
+        response: BaseState.error(failure.message, data: state.response.data),
+      )),
     );
   }
 

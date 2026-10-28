@@ -1,4 +1,4 @@
-import 'package:denta/core/shared/auth/shared_presentation/widgets/custom_app_bar.dart';
+import 'package:denta/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,14 +10,13 @@ import '../../domain/entities/notification_entity.dart';
 import '../bloc/notifications_bloc.dart';
 import 'notification_empty_state.dart';
 import 'notification_section_header.dart';
+import 'notification_swipe_tile.dart';
 import 'notification_tab.dart';
 import 'notification_tile.dart';
 
 class NotificationsBody extends StatelessWidget {
   const NotificationsBody({super.key, this.onNotificationTap});
 
-  /// Called after a notification is marked as read. Connect this callback to
-  /// the app's destination routes when case/marketplace detail routes are ready.
   final ValueChanged<NotificationEntity>? onNotificationTap;
 
   @override
@@ -80,8 +79,8 @@ class NotificationsBody extends StatelessWidget {
                       ),
                       Align(
                         alignment: category == NotificationCategory.cases
-                            ? Alignment.centerLeft
-                            : Alignment.centerRight,
+                            ? AlignmentDirectional.centerStart
+                            : AlignmentDirectional.centerEnd,
                         child: FractionallySizedBox(
                           widthFactor: 0.5,
                           child: Container(
@@ -117,41 +116,58 @@ class NotificationsBody extends StatelessWidget {
                   : ListView(
                       padding: EdgeInsets.zero,
                       children: [
-                        NotificationSectionHeader(
-                          title: l10n.notificationsToday,
-                          action: l10n.notificationsMarkAllRead,
-                          onTap: () => cubit.doIntent(
-                            MarkAllNotificationsAsReadEvent(
-                              category: category,
-                              isToday: true,
+                        if (today.isNotEmpty) ...[
+                          NotificationSectionHeader(
+                            title: l10n.notificationsToday,
+                            action: l10n.notificationsMarkAllRead,
+                            onTap: () => cubit.doIntent(
+                              MarkAllNotificationsAsReadEvent(
+                                category: category,
+                                isToday: true,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 12),
-                        ...today.map(
-                          (item) => NotificationTile(
-                            notification: item,
-                            onTap: () => _handleNotificationTap(cubit, item),
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        NotificationSectionHeader(
-                          title: l10n.notificationsEarlier,
-                          action: l10n.notificationsMarkAllRead,
-                          onTap: () => cubit.doIntent(
-                            MarkAllNotificationsAsReadEvent(
-                              category: category,
-                              isToday: false,
+                          const SizedBox(height: 12),
+                          ...today.map(
+                            (item) => NotificationSwipeTile(
+                              key: ValueKey(item.id),
+                              onDelete: () => cubit.doIntent(
+                                DeleteNotificationEvent(item.id),
+                              ),
+                              child: NotificationTile(
+                                notification: item,
+                                onTap: () => _handleNotificationTap(cubit, item),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 12),
-                        ...earlier.map(
-                          (item) => NotificationTile(
-                            notification: item,
-                            onTap: () => _handleNotificationTap(cubit, item),
+                        ],
+                        if (today.isNotEmpty && earlier.isNotEmpty)
+                          const SizedBox(height: 12),
+                        if (earlier.isNotEmpty) ...[
+                          NotificationSectionHeader(
+                            title: l10n.notificationsEarlier,
+                            action: l10n.notificationsMarkAllRead,
+                            onTap: () => cubit.doIntent(
+                              MarkAllNotificationsAsReadEvent(
+                                category: category,
+                                isToday: false,
+                              ),
+                            ),
                           ),
-                        ),
+                          const SizedBox(height: 12),
+                          ...earlier.map(
+                            (item) => NotificationSwipeTile(
+                              key: ValueKey(item.id),
+                              onDelete: () => cubit.doIntent(
+                                DeleteNotificationEvent(item.id),
+                              ),
+                              child: NotificationTile(
+                                notification: item,
+                                onTap: () => _handleNotificationTap(cubit, item),
+                              ),
+                            ),
+                          ),
+                        ],
                         const SizedBox(height: 24),
                       ],
                     ),

@@ -18,4 +18,5 @@ class AppIcons {
   static const String triangleAlert = "assets/icons/triangle-alert.svg";
   static const String chevronLeft = "assets/icons/chevron-left.svg";
   static const String notifications = "assets/icons/notifications.svg";
+  static const String trash = "assets/icons/trash.svg";
 }

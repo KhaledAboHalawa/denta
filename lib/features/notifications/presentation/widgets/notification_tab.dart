@@ -23,7 +23,7 @@ class NotificationTab extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: SizedBox(
-        height: 38,
+        height: 36,
         width: double.infinity,
         child: Align(
           alignment: Alignment.topCenter,
