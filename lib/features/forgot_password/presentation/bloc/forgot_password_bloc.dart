@@ -31,23 +31,27 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
   }
 
   Future<void> _submitEmail(ForgotPasswordRequestParams params) async {
-    emit(state.copyWith(
-      emailParams: params,
-      response: const BaseState.loading(),
-      resendResponse: const BaseState.initial(),
-    ));
+    emit(
+      state.copyWith(
+        emailParams: params,
+        response: const BaseState.loading(),
+        resendResponse: const BaseState.initial(),
+      ),
+    );
 
     // Temporary mock until the backend is ready.
     await Future.delayed(const Duration(seconds: 2));
     if (isClosed) return;
 
-    emit(state.copyWith(
-      response: const BaseState.success(true),
-      currentPage: 1,
-      otpParams: OtpRequestParams(email: params.email),
-      resendResponse: const BaseState.initial(),
-      remainingSeconds: 60,
-    ));
+    emit(
+      state.copyWith(
+        response: const BaseState.success(true),
+        currentPage: 1,
+        otpParams: OtpRequestParams(email: params.email),
+        resendResponse: const BaseState.initial(),
+        remainingSeconds: 60,
+      ),
+    );
     _startTimer();
   }
 
@@ -61,22 +65,22 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
       return;
     }
 
-    emit(state.copyWith(
-      response: const BaseState.loading(),
-    ));
+    emit(state.copyWith(response: const BaseState.loading()));
 
     // Temporary mock until the backend is ready.
     await Future.delayed(const Duration(seconds: 2));
     if (isClosed) return;
 
     _timer?.cancel();
-    emit(state.copyWith(
-      response: const BaseState.success(true),
-      currentPage: 2,
-      // The OTP has been verified, so its resend countdown is no longer
-      // relevant. If the user navigates back, don't show a frozen timer.
-      remainingSeconds: 0,
-    ));
+    emit(
+      state.copyWith(
+        response: const BaseState.success(true),
+        currentPage: 2,
+        // The OTP has been verified, so its resend countdown is no longer
+        // relevant. If the user navigates back, don't show a frozen timer.
+        remainingSeconds: 0,
+      ),
+    );
   }
 
   Future<void> _resendOtp() async {
@@ -88,18 +92,19 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     await Future.delayed(const Duration(seconds: 1));
     if (isClosed) return;
 
-    emit(state.copyWith(
-      resendResponse: const BaseState.success(true),
-      remainingSeconds: 60,
-    ));
+    emit(
+      state.copyWith(
+        resendResponse: const BaseState.success(true),
+        remainingSeconds: 60,
+      ),
+    );
     _startTimer();
   }
 
   Future<void> _submitResetPassword(ResetPasswordRequestParams params) async {
-    emit(state.copyWith(
-      resetPasswordParams: params,
-      response: const BaseState.loading(),
-    ));
+    emit(
+      state.copyWith(response: const BaseState.success(true), currentPage: 3),
+    );
 
     // Temporary mock until the backend is ready.
     await Future.delayed(const Duration(seconds: 1));
@@ -121,10 +126,9 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
     // cancelled once the OTP is verified or the flow is reset.
     if (page != 1) _timer?.cancel();
 
-    emit(state.copyWith(
-      currentPage: page,
-      response: const BaseState.initial(),
-    ));
+    emit(
+      state.copyWith(currentPage: page, response: const BaseState.initial()),
+    );
   }
 
   void _startTimer() {

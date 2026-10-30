@@ -63,6 +63,8 @@ class TextHintsWidget extends StatelessWidget {
               title: locale.resetPasswordTitle,
               subTitle: locale.resetPasswordDescription,
             );
+          case 3:
+            return const SizedBox();
           default:
             return AuthTextBanner(
               title: locale.forgotPasswordTitle,
