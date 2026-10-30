@@ -5,13 +5,13 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/routing/route_paths.dart';
-import '../../../../core/theme/app_colors.dart';
-import '../../../../core/widgets/custom_text_button.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_app_bar.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_divider.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/auth_text_banner.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/slide_switcher.dart';
 import '../../../../core/shared/auth/shared_presentation/widgets/social_auth_section.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/custom_text_button.dart';
 import '../bloc/register_bloc.dart';
 import 'first_register_form.dart';
 import 'second_register_form.dart';
@@ -99,9 +99,7 @@ class RegisterBody extends StatelessWidget {
                                 title: AppLocalizations.of(context)!
                                     .registerSignIn,
                                 onPressed: () {
-                                  context.pushReplacement(
-                                    RoutePaths.signInPath,
-                                  );
+                                  context.goNamed(RoutePaths.signInPath);
                                 },
                                 color: context.appColors.primary,
                               ),

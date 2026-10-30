@@ -46,7 +46,7 @@ class _ForgetPasswordSectionState extends State<ForgetPasswordSection> {
         CustomTextButton(
           title: AppLocalizations.of(context)!.forgotPassword,
           onPressed: () {
-            context.push(RoutePaths.forgetPasswordPath);
+            context.goNamed(RoutePaths.forgetPasswordPath);
           },
           style: context.text.labelDefault,
         ),

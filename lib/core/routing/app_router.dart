@@ -20,6 +20,7 @@ final GoRouter router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: RoutePaths.onboardingPath,
+      name: RoutePaths.onboardingPath,
       redirect: (context, state) {
         final onboardingCompleted = getIt<GetOnboardingStatusUseCase>().call();
         return onboardingCompleted.when(
@@ -38,25 +39,33 @@ final GoRouter router = GoRouter(
       pageBuilder: (BuildContext context, GoRouterState state) =>
           CupertinoPage(key: state.pageKey, child: const OnboardingScreen()),
     ),
-    GoRoute(
-      path: RoutePaths.registerPath,
-      pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
-        key: state.pageKey,
-        child: RegisterScreen(role: state.extra as UserRole),
-      ),
-    ),
+
     GoRoute(
       path: RoutePaths.roleSelectionPath,
+      name: RoutePaths.roleSelectionPath,
       pageBuilder: (BuildContext context, GoRouterState state) =>
           CupertinoPage(child: const RoleSelectionScreen()),
-    ),
-    GoRoute(
-      path: RoutePaths.signInPath,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          CupertinoPage(child: const SignInScreen()),
+      routes: [
+        GoRoute(
+          path: RoutePaths.registerPath,
+          name: RoutePaths.registerPath,
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              CupertinoPage(
+                key: state.pageKey,
+                child: RegisterScreen(role: state.extra as UserRole),
+              ),
+        ),
+        GoRoute(
+          path: RoutePaths.signInPath,
+          name: RoutePaths.signInPath,
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              CupertinoPage(child: const SignInScreen()),
+        ),
+      ],
     ),
     GoRoute(
       path: RoutePaths.forgetPasswordPath,
+      name: RoutePaths.forgetPasswordPath,
       pageBuilder: (context, state) => CupertinoPage(
         key: state.pageKey,
         child: const ForgetPasswordScreen(),
@@ -64,6 +73,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutePaths.otpPath,
+      name: RoutePaths.otpPath,
       pageBuilder: (context, state) => CupertinoPage(
         key: state.pageKey,
         child: OtpScreen(email: state.extra as String? ?? ''),
@@ -71,11 +81,13 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutePaths.resetPasswordPath,
+      name: RoutePaths.resetPasswordPath,
       pageBuilder: (context, state) =>
           CupertinoPage(key: state.pageKey, child: const ResetPasswordScreen()),
     ),
     GoRoute(
       path: RoutePaths.resetPasswordSuccessPath,
+      name: RoutePaths.resetPasswordSuccessPath,
       pageBuilder: (context, state) => CupertinoPage(
         key: state.pageKey,
         child: const ResetPasswordSuccessScreen(),
@@ -83,6 +95,7 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: RoutePaths.questionnairePath,
+      name: RoutePaths.questionnairePath,
       pageBuilder: (context, state) =>
           CupertinoPage(key: state.pageKey, child: const QuestionnaireScreen()),
     ),

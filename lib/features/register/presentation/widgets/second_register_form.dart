@@ -149,7 +149,7 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
             ),
             listener: (BuildContext context, RegisterState state) {
               if (state.response.isSuccess) {
-                context.pushReplacement(RoutePaths.questionnairePath);
+                context.goNamed(RoutePaths.questionnairePath);
               } else if (state.response.isError) {
                 ScaffoldMessenger.of(
                   context,
