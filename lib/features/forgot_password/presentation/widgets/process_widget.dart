@@ -1,5 +1,6 @@
 import 'package:denta/core/di/dependency_injection.dart';
 import 'package:denta/features/forgot_password/domain/entities/otp_request_params.dart';
+import 'package:denta/features/forgot_password/presentation/widgets/reset_password_success.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -46,6 +47,8 @@ class _ProcessWidgetState extends State<ProcessWidget> {
             );
           case 2:
             return const ResetPasswordForm();
+          case 3:
+            return const ResetPasswordSuccess();
           default:
             return const ForgotPasswordForm();
         }
