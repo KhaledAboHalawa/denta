@@ -401,6 +401,98 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get notificationsTitle => 'Notifications';
+
+  @override
+  String get notificationsCasesTab => 'Cases';
+
+  @override
+  String get notificationsMarketplaceTab => 'Marketplace';
+
+  @override
+  String get notificationsToday => 'Today';
+
+  @override
+  String get notificationsEarlier => 'Earlier';
+
+  @override
+  String get notificationsMarkAllRead => 'Mark All As Read';
+
+  @override
+  String get notificationsEmpty => 'You’re all caught up.';
+
+  @override
+  String get notificationsNewMatchTitle => 'New match found';
+
+  @override
+  String get notificationsNewMatchDescription =>
+      'A patient near you matches your request.';
+
+  @override
+  String get notificationsAdjustmentTitle => 'Case needs adjustment';
+
+  @override
+  String get notificationsAdjustmentDescription =>
+      'Your request has been waiting for a while, try updating the keywords.';
+
+  @override
+  String get notificationsLogSessionTitle => 'Log your session';
+
+  @override
+  String get notificationsLogSessionDescription =>
+      'How did today’s session go? Add your session notes.';
+
+  @override
+  String get notificationsAppointmentTitle => 'Appointment confirmed';
+
+  @override
+  String get notificationsAppointmentDescription =>
+      'Your appointment details are ready to review.';
+
+  @override
+  String get notificationsReviewTitle => 'Leave a review';
+
+  @override
+  String get notificationsReviewDescription =>
+      'Share your experience with the Denta community.';
+
+  @override
+  String get notificationsTenMinutesAgo => '10 min ago';
+
+  @override
+  String get notificationsYesterday => 'Yesterday';
+
+  @override
+  String get notificationsItemReservedTitle => 'Item reserved';
+
+  @override
+  String get notificationsItemReservedDescription =>
+      'Someone has reserved an item from your listing.';
+
+  @override
+  String get notificationsPickupTitle => 'Pickup reminder';
+
+  @override
+  String get notificationsPickupDescription =>
+      'Remember to arrange a pickup for your reserved item.';
+
+  @override
+  String get notificationsItemHandledTitle => 'Item handed over';
+
+  @override
+  String get notificationsItemHandledDescription =>
+      'Your marketplace handover has been marked complete.';
+
+  @override
+  String get notificationsMarketplaceUpdateTitle => 'Marketplace update';
+
+  @override
+  String get notificationsMarketplaceUpdateDescription =>
+      'There is an update related to your marketplace activity.';
+
+  @override
+  String get notificationsEmptyDescription =>
+      'New matches and case updates will appear here.';
   String questionnaireStepOf(int current, int total) {
     return 'Step $current of $total';
   }

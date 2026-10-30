@@ -95,7 +95,7 @@
   "resetPasswordSuccessTitle": "You're back in!",
   "resetPasswordSuccessDescription": "Your password has been reset. Time to pick up where you left off.",
   "backToLogin": "Back to Login",
-  
+
   "onboardingExploreDenta": "Explore Denta",
   "onboardingTitle": "{page, select, 0{Where Dental Care Meets Dental Learning} 1{Not Sure What's Wrong? We'll Help You Find Out} 2{Matched Nearby, Matched Right} 3{More Than Just Cases} other{}}",
   "@onboardingTitle": {
@@ -186,6 +186,34 @@
       "max": { "type": "num" }
     }
   },
+  "notificationsTitle": "Notifications",
+  "notificationsCasesTab": "Cases",
+  "notificationsMarketplaceTab": "Marketplace",
+  "notificationsToday": "Today",
+  "notificationsEarlier": "Earlier",
+  "notificationsMarkAllRead": "Mark All As Read",
+  "notificationsEmpty": "You’re all caught up.",
+  "notificationsNewMatchTitle": "New match found",
+  "notificationsNewMatchDescription": "A patient near you matches your request.",
+  "notificationsAdjustmentTitle": "Case needs adjustment",
+  "notificationsAdjustmentDescription": "Your request has been waiting for a while, try updating the keywords.",
+  "notificationsLogSessionTitle": "Log your session",
+  "notificationsLogSessionDescription": "How did today’s session go? Add your session notes.",
+  "notificationsAppointmentTitle": "Appointment confirmed",
+  "notificationsAppointmentDescription": "Your appointment details are ready to review.",
+  "notificationsReviewTitle": "Leave a review",
+  "notificationsReviewDescription": "Share your experience with the Denta community.",
+  "notificationsTenMinutesAgo": "10 min ago",
+  "notificationsYesterday": "Yesterday",
+  "notificationsItemReservedTitle": "Item reserved",
+  "notificationsItemReservedDescription": "Someone has reserved an item from your listing.",
+  "notificationsPickupTitle": "Pickup reminder",
+  "notificationsPickupDescription": "Remember to arrange a pickup for your reserved item.",
+  "notificationsItemHandledTitle": "Item handed over",
+  "notificationsItemHandledDescription": "Your marketplace handover has been marked complete.",
+  "notificationsMarketplaceUpdateTitle": "Marketplace update",
+  "notificationsMarketplaceUpdateDescription": "There is an update related to your marketplace activity.",
+  "notificationsEmptyDescription": "New matches and case updates will appear here."
   "questionnaireStepOf": "Step {current} of {total}",
   "@questionnaireStepOf": {
     "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } }
