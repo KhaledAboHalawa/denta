@@ -2,6 +2,7 @@ import 'package:denta/features/forgot_password/presentation/screens/forget_passw
 import 'package:denta/features/forgot_password/presentation/screens/otp_screen.dart';
 import 'package:denta/features/forgot_password/presentation/screens/reset_password_screen.dart';
 import 'package:denta/features/forgot_password/presentation/screens/reset_password_success_screen.dart';
+import 'package:denta/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:denta/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
@@ -98,6 +99,12 @@ final GoRouter router = GoRouter(
       name: RoutePaths.questionnairePath,
       pageBuilder: (context, state) =>
           CupertinoPage(key: state.pageKey, child: const QuestionnaireScreen()),
+    ),
+    GoRoute(
+      path: RoutePaths.notificationsPath,
+      name: RoutePaths.notificationsPath,
+      pageBuilder: (context, state) =>
+          CupertinoPage(child: const NotificationsScreen()),
     ),
   ],
 );

@@ -17,6 +17,22 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../features/forgot_password/presentation/bloc/forgot_password_bloc.dart'
     as _i161;
+import '../../features/notifications/data/datasources/notifications_local_data_source.dart'
+    as _i1034;
+import '../../features/notifications/data/repositories/notifications_repository_impl.dart'
+    as _i201;
+import '../../features/notifications/domain/repositories/notifications_repository.dart'
+    as _i563;
+import '../../features/notifications/domain/usecases/delete_notification_use_case.dart'
+    as _i1005;
+import '../../features/notifications/domain/usecases/get_notifications_use_case.dart'
+    as _i373;
+import '../../features/notifications/domain/usecases/mark_all_notifications_read_use_case.dart'
+    as _i736;
+import '../../features/notifications/domain/usecases/mark_notification_read_use_case.dart'
+    as _i734;
+import '../../features/notifications/presentation/bloc/notifications_bloc.dart'
+    as _i1041;
 import '../../features/onboarding/data/data_source/onboarding_data_source.dart'
     as _i304;
 import '../../features/onboarding/data/repo/onboarding_repo_impl.dart' as _i527;
@@ -72,8 +88,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i161.ForgotPasswordCubit>(
       () => _i161.ForgotPasswordCubit(),
     );
+    gh.lazySingleton<_i1034.NotificationsLocalDataSource>(
+      () => _i1034.NotificationsLocalDataSource(),
+    );
     gh.lazySingleton<_i640.SignInCubit>(() => _i640.SignInCubit());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
+    gh.lazySingleton<_i563.NotificationsRepository>(
+      () => _i201.NotificationsRepositoryImpl(
+        localDataSource: gh<_i1034.NotificationsLocalDataSource>(),
+      ),
+    );
     gh.lazySingleton<_i945.QuestionnaireDataSource>(
       () => _i945.QuestionnaireDataSource(gh<_i361.Dio>()),
     );
@@ -83,6 +107,26 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1006.QuestionnaireRepo>(
       () => _i521.QuestionnaireRepoImpl(
         questionnaireDataSource: gh<_i945.QuestionnaireDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i1005.DeleteNotificationUseCase>(
+      () => _i1005.DeleteNotificationUseCase(
+        repository: gh<_i563.NotificationsRepository>(),
+      ),
+    );
+    gh.lazySingleton<_i373.GetNotificationsUseCase>(
+      () => _i373.GetNotificationsUseCase(
+        repository: gh<_i563.NotificationsRepository>(),
+      ),
+    );
+    gh.lazySingleton<_i736.MarkAllNotificationsReadUseCase>(
+      () => _i736.MarkAllNotificationsReadUseCase(
+        repository: gh<_i563.NotificationsRepository>(),
+      ),
+    );
+    gh.lazySingleton<_i734.MarkNotificationReadUseCase>(
+      () => _i734.MarkNotificationReadUseCase(
+        repository: gh<_i563.NotificationsRepository>(),
       ),
     );
     gh.lazySingleton<_i960.LocaleCubit>(
@@ -99,6 +143,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i250.RegisterRepo>(
       () => _i200.RegisterRepoImpl(
         registerDataSource: gh<_i477.RegisterDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i1041.NotificationsCubit>(
+      () => _i1041.NotificationsCubit(
+        gh<_i373.GetNotificationsUseCase>(),
+        gh<_i734.MarkNotificationReadUseCase>(),
+        gh<_i736.MarkAllNotificationsReadUseCase>(),
+        gh<_i1005.DeleteNotificationUseCase>(),
       ),
     );
     gh.lazySingleton<_i441.RegisterUseCase>(
