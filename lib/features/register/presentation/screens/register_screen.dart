@@ -15,7 +15,7 @@ class RegisterScreen extends StatelessWidget {
       body: BlocProvider.value(
         value: getIt<RegisterBloc>()
           ..doIntent(RegisterSetRoleEvent(role: role))
-          ..doIntent(RegisterBackEvent()),
+          ..doIntent(RegisterBackEvent()), //to back to first form if the user left the screen from the second form
         child: RegisterBody(),
       ),
     );

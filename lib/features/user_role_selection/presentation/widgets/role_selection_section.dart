@@ -77,7 +77,7 @@ class _RoleSelectionSectionState extends State<RoleSelectionSection> {
             onPressed: selectedRole == null
                 ? null
                 : () {
-                    context.push(RoutePaths.registerPath, extra: selectedRole);
+                    context.goNamed(RoutePaths.registerPath, extra: selectedRole);
                   },
             title: AppLocalizations.of(context)!.continueButton,
             isLoading: false,

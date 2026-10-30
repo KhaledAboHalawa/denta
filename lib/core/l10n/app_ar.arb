@@ -158,7 +158,7 @@
   "notificationsItemHandledDescription": "تم تسجيل عملية تسليم المنتج كمكتملة.",
   "notificationsMarketplaceUpdateTitle": "تحديث من السوق",
   "notificationsMarketplaceUpdateDescription": "يوجد تحديث متعلق بنشاطك في السوق.",
-  "notificationsEmptyDescription": "ستظهر هنا التحديثات المتعلقة بالحالات والمطابقات الجديدة."
+  "notificationsEmptyDescription": "ستظهر هنا التحديثات المتعلقة بالحالات والمطابقات الجديدة.",
   "questionnaireStepOf": "الخطوة {current} من {total}",
   "questionnaireStep1Title": "عرّفنا بنفسك",
   "questionnaireStep1Subtitle": "سنستخدم هذه البيانات لإعداد ملفك الشخصي والتحقق من أنك طالب طب أسنان.",

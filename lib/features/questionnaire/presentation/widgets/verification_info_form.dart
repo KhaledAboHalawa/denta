@@ -39,7 +39,9 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
     super.initState();
     _cubit = context.read<QuestionnaireCubit>();
     _formKey = GlobalKey<FormState>();
-    _nameController = TextEditingController(text: _cubit.state.verificationInfo.fullName);
+    _nameController = TextEditingController(
+      text: _cubit.state.verificationInfo.fullName,
+    );
     _nameNode = FocusNode();
   }
 
@@ -64,9 +66,11 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
       _cubit.doIntent(const QuestionnaireLoadUniversitiesEvent());
       return;
     }
+    _nameNode.unfocus();
     final l10n = AppLocalizations.of(context)!;
-    final picked = await showSelectionSheet<UniversityEntity>(
-      context,
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final picked = await showSelectionSheet<UniversityEntity>(  
+      context,  
       title: l10n.questionnaireUniversityLabel,
       selected: state.verificationInfo.university,
       items: (universities.data ?? [])
@@ -76,6 +80,8 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
     if (picked != null) {
       _cubit.doIntent(QuestionnaireSelectUniversityEvent(picked));
     }
+
+    });
   }
 
   Future<void> _pickGovernorate(QuestionnaireState state) async {

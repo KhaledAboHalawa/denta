@@ -1,7 +1,4 @@
 import 'package:denta/features/forgot_password/presentation/screens/forget_password_screen.dart';
-import 'package:denta/features/forgot_password/presentation/screens/otp_screen.dart';
-import 'package:denta/features/forgot_password/presentation/screens/reset_password_screen.dart';
-import 'package:denta/features/forgot_password/presentation/screens/reset_password_success_screen.dart';
 import 'package:denta/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:denta/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,14 +14,16 @@ import '../di/dependency_injection.dart';
 import 'route_paths.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: RoutePaths.notificationsPath,
+  initialLocation: RoutePaths.onboardingPath,
   routes: <RouteBase>[
     GoRoute(
       path: RoutePaths.onboardingPath,
+      name: RoutePaths.onboardingPath,
       redirect: (context, state) {
         final onboardingCompleted = getIt<GetOnboardingStatusUseCase>().call();
         return onboardingCompleted.when(
           success: (data) {
+            return null;
             if (data) {
               return RoutePaths.roleSelectionPath;
             }
@@ -38,55 +37,49 @@ final GoRouter router = GoRouter(
       pageBuilder: (BuildContext context, GoRouterState state) =>
           CupertinoPage(key: state.pageKey, child: const OnboardingScreen()),
     ),
-    GoRoute(
-      path: RoutePaths.registerPath,
-      pageBuilder: (BuildContext context, GoRouterState state) => CupertinoPage(
-        key: state.pageKey,
-        child: RegisterScreen(role: state.extra as UserRole),
-      ),
-    ),
+
     GoRoute(
       path: RoutePaths.roleSelectionPath,
+      name: RoutePaths.roleSelectionPath,
       pageBuilder: (BuildContext context, GoRouterState state) =>
           CupertinoPage(child: const RoleSelectionScreen()),
-    ),
-    GoRoute(
-      path: RoutePaths.signInPath,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          CupertinoPage(child: const SignInScreen()),
+      routes: [
+        GoRoute(
+          path: RoutePaths.registerPath,
+          name: RoutePaths.registerPath,
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              CupertinoPage(
+                key: state.pageKey,
+                child: RegisterScreen(role: state.extra as UserRole),
+              ),
+        ),
+        GoRoute(
+          path: RoutePaths.signInPath,
+          name: RoutePaths.signInPath,
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              CupertinoPage(child: const SignInScreen()),
+        ),
+      ],
     ),
     GoRoute(
       path: RoutePaths.forgetPasswordPath,
+      name: RoutePaths.forgetPasswordPath,
       pageBuilder: (context, state) => CupertinoPage(
         key: state.pageKey,
         child: const ForgetPasswordScreen(),
       ),
     ),
     GoRoute(
-      path: RoutePaths.otpPath,
-      pageBuilder: (context, state) => CupertinoPage(
-        key: state.pageKey,
-        child: OtpScreen(email: state.extra as String? ?? ''),
-      ),
-    ),
-    GoRoute(
-      path: RoutePaths.resetPasswordPath,
+      path: RoutePaths.questionnairePath,
+      name: RoutePaths.questionnairePath,
       pageBuilder: (context, state) =>
-          CupertinoPage(key: state.pageKey, child: const ResetPasswordScreen()),
-    ),
-    GoRoute(
-      path: RoutePaths.resetPasswordSuccessPath,
-      pageBuilder: (context, state) => CupertinoPage(
-        key: state.pageKey,
-        child: const ResetPasswordSuccessScreen(),
-      ),
+          CupertinoPage(key: state.pageKey, child: const QuestionnaireScreen()),
     ),
     GoRoute(
       path: RoutePaths.notificationsPath,
-      pageBuilder: (context, state) => CupertinoPage(
-        key: state.pageKey,
-        child: const NotificationsScreen(),
-      ),
+      name: RoutePaths.notificationsPath,
+      pageBuilder: (context, state) =>
+          CupertinoPage(child: const NotificationsScreen()),
     ),
   ],
 );

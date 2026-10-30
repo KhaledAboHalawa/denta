@@ -919,6 +919,7 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'New matches and case updates will appear here.'**
   String get notificationsEmptyDescription;
+
   /// No description provided for @questionnaireStepOf.
   ///
   /// In en, this message translates to:

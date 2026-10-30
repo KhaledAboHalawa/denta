@@ -97,11 +97,17 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i201.NotificationsRepositoryImpl(
         localDataSource: gh<_i1034.NotificationsLocalDataSource>(),
       ),
+    );
     gh.lazySingleton<_i945.QuestionnaireDataSource>(
       () => _i945.QuestionnaireDataSource(gh<_i361.Dio>()),
     );
     gh.lazySingleton<_i477.RegisterDataSource>(
       () => _i477.RegisterDataSource(gh<_i361.Dio>()),
+    );
+    gh.lazySingleton<_i1006.QuestionnaireRepo>(
+      () => _i521.QuestionnaireRepoImpl(
+        questionnaireDataSource: gh<_i945.QuestionnaireDataSource>(),
+      ),
     );
     gh.lazySingleton<_i1005.DeleteNotificationUseCase>(
       () => _i1005.DeleteNotificationUseCase(
@@ -121,9 +127,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i734.MarkNotificationReadUseCase>(
       () => _i734.MarkNotificationReadUseCase(
         repository: gh<_i563.NotificationsRepository>(),
-    gh.lazySingleton<_i1006.QuestionnaireRepo>(
-      () => _i521.QuestionnaireRepoImpl(
-        questionnaireDataSource: gh<_i945.QuestionnaireDataSource>(),
       ),
     );
     gh.lazySingleton<_i960.LocaleCubit>(

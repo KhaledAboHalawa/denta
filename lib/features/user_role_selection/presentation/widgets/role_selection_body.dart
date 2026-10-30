@@ -41,7 +41,7 @@ class RoleSelectionBody extends StatelessWidget {
                 CustomTextButton(
                   title: AppLocalizations.of(context)!.registerSignIn,
                   onPressed: () {
-                    context.push(RoutePaths.signInPath);
+                    context.goNamed(RoutePaths.signInPath);
                   },
                   color: context.appColors.primary,
                 ),

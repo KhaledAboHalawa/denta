@@ -1,4 +1,5 @@
 import 'package:denta/core/di/dependency_injection.dart';
+import 'package:denta/core/shared/auth/shared_presentation/widgets/slide_switcher.dart';
 import 'package:denta/features/forgot_password/domain/entities/otp_request_params.dart';
 import 'package:denta/features/forgot_password/presentation/widgets/reset_password_success.dart';
 import 'package:flutter/widgets.dart';
@@ -31,9 +32,11 @@ class _ProcessWidgetState extends State<ProcessWidget> {
       buildWhen: (previous, current) =>
           previous.currentPage != current.currentPage,
       builder: (context, state) {
-        switch (state.currentPage) {
-          case 1:
-            return OtpForm(
+        return SlideSwitcher(
+          index: state.currentPage,
+          children: [
+            const ForgotPasswordForm(),
+            OtpForm(
               onCompleted: (code) {
                 _cubit.doIntent(
                   ForgotPasswordVerifyOtpEvent(
@@ -44,14 +47,11 @@ class _ProcessWidgetState extends State<ProcessWidget> {
                   ),
                 );
               },
-            );
-          case 2:
-            return const ResetPasswordForm();
-          case 3:
-            return const ResetPasswordSuccess();
-          default:
-            return const ForgotPasswordForm();
-        }
+            ),
+            const ResetPasswordForm(),
+            const ResetPasswordSuccess()
+          ],
+        );
       },
     );
   }

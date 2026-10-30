@@ -213,7 +213,7 @@
   "notificationsItemHandledDescription": "Your marketplace handover has been marked complete.",
   "notificationsMarketplaceUpdateTitle": "Marketplace update",
   "notificationsMarketplaceUpdateDescription": "There is an update related to your marketplace activity.",
-  "notificationsEmptyDescription": "New matches and case updates will appear here."
+  "notificationsEmptyDescription": "New matches and case updates will appear here.",
   "questionnaireStepOf": "Step {current} of {total}",
   "@questionnaireStepOf": {
     "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } }

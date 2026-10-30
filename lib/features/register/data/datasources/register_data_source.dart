@@ -16,7 +16,19 @@ class RegisterDataSource {
     RegisterRequestModel params,
   ) async {
     return await executeApiCall(
-      apiCall: () => _dio.post('/Wating', data: params.toJson()),
+      apiCall: () async {
+        // return _dio.post('/Wating', data: params.toJson());
+        await Future.delayed(const Duration(seconds: 2));
+        return Response(
+          statusCode: 200,
+          data: {
+            'token': 'token',
+            'refresh_token': 'refreshToken',
+            'user': null,
+          },
+          requestOptions: RequestOptions(),
+        );
+      },
       parser: (json) => RegisterResponseModel.fromJson(json),
     );
   }

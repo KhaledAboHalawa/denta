@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-enum StateStatus { initial, loading, success, error }
+enum StateStatus { initial, loading, success, error , moreLoading}
 
 class BaseState<T> extends Equatable {
   final StateStatus status;
@@ -27,6 +27,7 @@ class BaseState<T> extends Equatable {
     return switch (status) {
       StateStatus.initial => initial(),
       StateStatus.loading => loading(),
+      StateStatus.moreLoading => moreLoading?.call() ?? loading(),
       StateStatus.success => success(data as T),
       StateStatus.error => error(error as String),
     };

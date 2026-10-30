@@ -1,8 +1,10 @@
 import 'package:denta/core/config/base_state/base_state.dart';
 import 'package:denta/core/l10n/app_localizations.dart';
+import 'package:denta/core/routing/route_paths.dart';
 import 'package:denta/features/sign_in/domain/entities/sign_in_request_params.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/utils/app_validators.dart';
@@ -71,7 +73,8 @@ class _SignInFormState extends State<SignInForm> {
             hint: locale.signInEmailHint,
             focusNode: nodes[0],
             keyboardType: .emailAddress,
-            validator: (value) => AppValidators.validateEmail(value, context: context),
+            validator: (value) =>
+                AppValidators.validateEmail(value, context: context),
             onSubmitted: (_) {
               if (emailController.text.isNotEmpty) {
                 nodes[1].requestFocus();
@@ -129,12 +132,13 @@ class _SignInFormState extends State<SignInForm> {
           const SizedBox(height: 12),
           const ForgetPasswordSection(),
           const SizedBox(height: 32),
-          BlocSelector(
+          BlocConsumer<SignInCubit, SignInState>(
             bloc: _cubit,
-            selector: (SignInState state) => state.response.isLoading,
-            builder: (context, isLoading) => CustomButton(
+            buildWhen: (previous, current) =>
+                current.response.isLoading != previous.response.isLoading,
+            builder: (context, state) => CustomButton(
               title: locale.logIn,
-              isLoading: isLoading,
+              isLoading: state.response.isLoading,
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   _cubit.doIntent(
@@ -148,6 +152,15 @@ class _SignInFormState extends State<SignInForm> {
                 }
               },
             ),
+            listener: (context, state) {
+              if (state.response.isSuccess) {
+                context.pushReplacement(RoutePaths.questionnairePath);
+              } else if (state.response.isError) {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(state.response.error!)));
+              }
+            },
           ),
         ],
       ),

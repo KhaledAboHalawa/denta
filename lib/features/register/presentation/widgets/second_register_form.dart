@@ -1,11 +1,15 @@
+import 'package:denta/core/config/base_state/base_state.dart';
 import 'package:denta/core/utils/app_validators.dart';
 import 'package:denta/core/widgets/custom_button.dart';
 import 'package:denta/core/widgets/custom_text_field.dart';
 import 'package:denta/features/register/domain/entities/register_request_params.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/l10n/app_localizations.dart';
+import '../../../../core/routing/route_paths.dart';
 import '../bloc/register_bloc.dart';
 
 class SecondRegisterForm extends StatefulWidget {
@@ -72,14 +76,19 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
             focusNode: nodes[0],
             keyboardType: .visiblePassword,
             isPassword: true,
-            validator: (value) => AppValidators.validatePassword(value, context: context),
+            validator: (value) =>
+                AppValidators.validatePassword(value, context: context),
             onSubmitted: (_) {
               if (passwordController.text.isNotEmpty) {
                 nodes[1].requestFocus();
               }
             },
-            onChange: (value){
-              bloc.doIntent(RegisterUpdateTextFieldsValuesEvent(params: RegisterRequestParams(password: value)));
+            onChange: (value) {
+              bloc.doIntent(
+                RegisterUpdateTextFieldsValuesEvent(
+                  params: RegisterRequestParams(password: value),
+                ),
+              );
             },
             labelText: locale.registerPasswordLabel,
           ),
@@ -108,25 +117,43 @@ class _SecondRegisterFormState extends State<SecondRegisterForm> {
                 );
               }
             },
-            onChange: (value){
-              bloc.doIntent(RegisterUpdateTextFieldsValuesEvent(params: RegisterRequestParams(confirmPassword: value)));
+            onChange: (value) {
+              bloc.doIntent(
+                RegisterUpdateTextFieldsValuesEvent(
+                  params: RegisterRequestParams(confirmPassword: value),
+                ),
+              );
             },
             labelText: locale.registerConfirmPasswordLabel,
           ),
           const SizedBox(height: 24),
-          CustomButton(
-            title: locale.continueButton,
-            isLoading: false,
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                bloc.doIntent(
-                  RegisterSubmitEvent(
-                    params: RegisterRequestParams(
-                      password: passwordController.text,
-                      confirmPassword: confirmPasswordController.text,
+          BlocConsumer<RegisterBloc, RegisterState>(
+            bloc: bloc,
+            buildWhen: (previous, current) =>
+                current.response.isLoading != previous.response.isLoading,
+            builder: (context, state) => CustomButton(
+              title: locale.continueButton,
+              isLoading: state.response.isLoading,
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  bloc.doIntent(
+                    RegisterSubmitEvent(
+                      params: RegisterRequestParams(
+                        password: passwordController.text,
+                        confirmPassword: confirmPasswordController.text,
+                      ),
                     ),
-                  ),
-                );
+                  );
+                }
+              },
+            ),
+            listener: (BuildContext context, RegisterState state) {
+              if (state.response.isSuccess) {
+                context.goNamed(RoutePaths.questionnairePath);
+              } else if (state.response.isError) {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(state.response.error!)));
               }
             },
           ),
