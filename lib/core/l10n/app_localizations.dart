@@ -583,6 +583,7 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to Login'**
   String get backToLogin;
+
   /// No description provided for @onboardingExploreDenta.
   ///
   /// In en, this message translates to:
@@ -750,6 +751,473 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{fieldName} must not exceed {max}'**
   String numberMaxError(String fieldName, num max);
+
+  /// No description provided for @notificationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notificationsTitle;
+
+  /// No description provided for @notificationsCasesTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Cases'**
+  String get notificationsCasesTab;
+
+  /// No description provided for @notificationsMarketplaceTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Marketplace'**
+  String get notificationsMarketplaceTab;
+
+  /// No description provided for @notificationsToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get notificationsToday;
+
+  /// No description provided for @notificationsEarlier.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier'**
+  String get notificationsEarlier;
+
+  /// No description provided for @notificationsMarkAllRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark All As Read'**
+  String get notificationsMarkAllRead;
+
+  /// No description provided for @notificationsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'You’re all caught up.'**
+  String get notificationsEmpty;
+
+  /// No description provided for @notificationsNewMatchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New match found'**
+  String get notificationsNewMatchTitle;
+
+  /// No description provided for @notificationsNewMatchDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A patient near you matches your request.'**
+  String get notificationsNewMatchDescription;
+
+  /// No description provided for @notificationsAdjustmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Case needs adjustment'**
+  String get notificationsAdjustmentTitle;
+
+  /// No description provided for @notificationsAdjustmentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your request has been waiting for a while, try updating the keywords.'**
+  String get notificationsAdjustmentDescription;
+
+  /// No description provided for @notificationsLogSessionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log your session'**
+  String get notificationsLogSessionTitle;
+
+  /// No description provided for @notificationsLogSessionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'How did today’s session go? Add your session notes.'**
+  String get notificationsLogSessionDescription;
+
+  /// No description provided for @notificationsAppointmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment confirmed'**
+  String get notificationsAppointmentTitle;
+
+  /// No description provided for @notificationsAppointmentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your appointment details are ready to review.'**
+  String get notificationsAppointmentDescription;
+
+  /// No description provided for @notificationsReviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave a review'**
+  String get notificationsReviewTitle;
+
+  /// No description provided for @notificationsReviewDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your experience with the Denta community.'**
+  String get notificationsReviewDescription;
+
+  /// No description provided for @notificationsTenMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'10 min ago'**
+  String get notificationsTenMinutesAgo;
+
+  /// No description provided for @notificationsYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Yesterday'**
+  String get notificationsYesterday;
+
+  /// No description provided for @notificationsItemReservedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Item reserved'**
+  String get notificationsItemReservedTitle;
+
+  /// No description provided for @notificationsItemReservedDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Someone has reserved an item from your listing.'**
+  String get notificationsItemReservedDescription;
+
+  /// No description provided for @notificationsPickupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pickup reminder'**
+  String get notificationsPickupTitle;
+
+  /// No description provided for @notificationsPickupDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember to arrange a pickup for your reserved item.'**
+  String get notificationsPickupDescription;
+
+  /// No description provided for @notificationsItemHandledTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Item handed over'**
+  String get notificationsItemHandledTitle;
+
+  /// No description provided for @notificationsItemHandledDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your marketplace handover has been marked complete.'**
+  String get notificationsItemHandledDescription;
+
+  /// No description provided for @notificationsMarketplaceUpdateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Marketplace update'**
+  String get notificationsMarketplaceUpdateTitle;
+
+  /// No description provided for @notificationsMarketplaceUpdateDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'There is an update related to your marketplace activity.'**
+  String get notificationsMarketplaceUpdateDescription;
+
+  /// No description provided for @notificationsEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'New matches and case updates will appear here.'**
+  String get notificationsEmptyDescription;
+  /// No description provided for @questionnaireStepOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {current} of {total}'**
+  String questionnaireStepOf(int current, int total);
+
+  /// No description provided for @questionnaireStep1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell Us About Yourself'**
+  String get questionnaireStep1Title;
+
+  /// No description provided for @questionnaireStep1Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll use this to set up your profile and verify you\'re a dental student.'**
+  String get questionnaireStep1Subtitle;
+
+  /// No description provided for @questionnaireAllRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'* All fields are required'**
+  String get questionnaireAllRequired;
+
+  /// No description provided for @questionnaireFullNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get questionnaireFullNameLabel;
+
+  /// No description provided for @questionnaireFullNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your full name'**
+  String get questionnaireFullNameHint;
+
+  /// No description provided for @questionnaireFullNameHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Please use the name on your university ID.'**
+  String get questionnaireFullNameHelper;
+
+  /// No description provided for @questionnaireFullNameTwoWordsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your first and last name'**
+  String get questionnaireFullNameTwoWordsError;
+
+  /// No description provided for @questionnaireUniversityLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'University'**
+  String get questionnaireUniversityLabel;
+
+  /// No description provided for @questionnaireUniversityHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search your university'**
+  String get questionnaireUniversityHint;
+
+  /// No description provided for @questionnaireAcademicYearLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Academic year'**
+  String get questionnaireAcademicYearLabel;
+
+  /// No description provided for @questionnaireYear1.
+  ///
+  /// In en, this message translates to:
+  /// **'1st'**
+  String get questionnaireYear1;
+
+  /// No description provided for @questionnaireYear2.
+  ///
+  /// In en, this message translates to:
+  /// **'2nd'**
+  String get questionnaireYear2;
+
+  /// No description provided for @questionnaireYear3.
+  ///
+  /// In en, this message translates to:
+  /// **'3rd'**
+  String get questionnaireYear3;
+
+  /// No description provided for @questionnaireYear4.
+  ///
+  /// In en, this message translates to:
+  /// **'4th'**
+  String get questionnaireYear4;
+
+  /// No description provided for @questionnaireYear5.
+  ///
+  /// In en, this message translates to:
+  /// **'5th'**
+  String get questionnaireYear5;
+
+  /// No description provided for @questionnaireYearIntern.
+  ///
+  /// In en, this message translates to:
+  /// **'Intern'**
+  String get questionnaireYearIntern;
+
+  /// No description provided for @questionnaireGovernorateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Governorate'**
+  String get questionnaireGovernorateLabel;
+
+  /// No description provided for @questionnaireGovernorateHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Select your governorate'**
+  String get questionnaireGovernorateHint;
+
+  /// No description provided for @questionnaireIdCardLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'University ID card'**
+  String get questionnaireIdCardLabel;
+
+  /// No description provided for @questionnaireIdCardUpload.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload your university ID'**
+  String get questionnaireIdCardUpload;
+
+  /// No description provided for @questionnaireIdCardNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Used only to verify you\'re a dental student. Never shown publicly.'**
+  String get questionnaireIdCardNote;
+
+  /// No description provided for @questionnaireIdCardRequiredError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please upload your university ID'**
+  String get questionnaireIdCardRequiredError;
+
+  /// No description provided for @questionnaireSelectError.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select an option'**
+  String get questionnaireSelectError;
+
+  /// No description provided for @questionnaireProfilePhotoLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile photo'**
+  String get questionnaireProfilePhotoLabel;
+
+  /// No description provided for @questionnaireProfilePhotoAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a profile photo'**
+  String get questionnaireProfilePhotoAdd;
+
+  /// No description provided for @questionnaireProfilePhotoChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change profile photo'**
+  String get questionnaireProfilePhotoChange;
+
+  /// No description provided for @questionnaireCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get questionnaireCancel;
+
+  /// No description provided for @questionnaireNextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Step'**
+  String get questionnaireNextStep;
+
+  /// No description provided for @questionnaireSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get questionnaireSearchHint;
+
+  /// No description provided for @questionnaireNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found'**
+  String get questionnaireNoResults;
+
+  /// No description provided for @questionnaireLoadUniversitiesFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load universities. Tap to retry.'**
+  String get questionnaireLoadUniversitiesFailed;
+
+  /// No description provided for @questionnaireStep2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Make Your Profile Stand Out'**
+  String get questionnaireStep2Title;
+
+  /// No description provided for @questionnaireStep2Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Patients trust doctors they can learn about. Add these now, or come back anytime!'**
+  String get questionnaireStep2Subtitle;
+
+  /// No description provided for @questionnaireBioLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Bio'**
+  String get questionnaireBioLabel;
+
+  /// No description provided for @questionnaireBioHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. 4th-year dental student interested in restorative dentistry, very dedicated to...'**
+  String get questionnaireBioHint;
+
+  /// No description provided for @questionnaireCertificationsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Certifications'**
+  String get questionnaireCertificationsLabel;
+
+  /// No description provided for @questionnaireAddCertification.
+  ///
+  /// In en, this message translates to:
+  /// **'Add certification'**
+  String get questionnaireAddCertification;
+
+  /// No description provided for @questionnaireCasePhotosLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous cases photos'**
+  String get questionnaireCasePhotosLabel;
+
+  /// No description provided for @questionnaireUploadCasePhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload photos of cases you\'ve worked on'**
+  String get questionnaireUploadCasePhotos;
+
+  /// No description provided for @questionnairePrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Only upload photos where the patient can\'t be identified, or who gave consent.'**
+  String get questionnairePrivacyNote;
+
+  /// No description provided for @questionnaireSaveAndContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Save And Continue'**
+  String get questionnaireSaveAndContinue;
+
+  /// No description provided for @questionnaireSkipForNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip for now'**
+  String get questionnaireSkipForNow;
+
+  /// No description provided for @questionnaireTakePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a photo'**
+  String get questionnaireTakePhoto;
+
+  /// No description provided for @questionnaireChooseFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from gallery'**
+  String get questionnaireChooseFromGallery;
+
+  /// No description provided for @questionnaireDiscardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard your answers?'**
+  String get questionnaireDiscardTitle;
+
+  /// No description provided for @questionnaireDiscardMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your progress will be lost.'**
+  String get questionnaireDiscardMessage;
+
+  /// No description provided for @questionnaireDiscardConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get questionnaireDiscardConfirm;
+
+  /// No description provided for @questionnaireKeepEditing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep editing'**
+  String get questionnaireKeepEditing;
+
+  /// No description provided for @questionnaireMaxFilesReached.
+  ///
+  /// In en, this message translates to:
+  /// **'You can add up to {max} files.'**
+  String questionnaireMaxFilesReached(int max);
 }
 
 class _AppLocalizationsDelegate

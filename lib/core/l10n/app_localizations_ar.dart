@@ -277,6 +277,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backToLogin => 'العودة إلى تسجيل الدخول';
+
+  @override
   String get onboardingExploreDenta => 'اكتشف دنتا';
 
   @override
@@ -398,5 +400,259 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String numberMaxError(String fieldName, num max) {
     return 'يجب ألا يتجاوز $fieldName $max';
+  }
+
+  @override
+  String get notificationsTitle => 'الإشعارات';
+
+  @override
+  String get notificationsCasesTab => 'الحالات';
+
+  @override
+  String get notificationsMarketplaceTab => 'السوق';
+
+  @override
+  String get notificationsToday => 'اليوم';
+
+  @override
+  String get notificationsEarlier => 'سابقًا';
+
+  @override
+  String get notificationsMarkAllRead => 'تحديد الكل كمقروء';
+
+  @override
+  String get notificationsEmpty => 'لا توجد إشعارات جديدة.';
+
+  @override
+  String get notificationsNewMatchTitle => 'تم العثور على تطابق جديد';
+
+  @override
+  String get notificationsNewMatchDescription =>
+      'يوجد مريض بالقرب منك يتوافق مع طلبك.';
+
+  @override
+  String get notificationsAdjustmentTitle => 'الحالة تحتاج إلى تعديل';
+
+  @override
+  String get notificationsAdjustmentDescription =>
+      'طلبك قيد الانتظار منذ فترة، جرّب تحديث الكلمات المفتاحية.';
+
+  @override
+  String get notificationsLogSessionTitle => 'سجّل جلستك';
+
+  @override
+  String get notificationsLogSessionDescription =>
+      'كيف سارت جلسة اليوم؟ أضف ملاحظات الجلسة.';
+
+  @override
+  String get notificationsAppointmentTitle => 'تم تأكيد الموعد';
+
+  @override
+  String get notificationsAppointmentDescription =>
+      'تفاصيل موعدك جاهزة للمراجعة.';
+
+  @override
+  String get notificationsReviewTitle => 'اترك تقييمًا';
+
+  @override
+  String get notificationsReviewDescription => 'شارك تجربتك مع مجتمع دنتا.';
+
+  @override
+  String get notificationsTenMinutesAgo => 'منذ 10 دقائق';
+
+  @override
+  String get notificationsYesterday => 'أمس';
+
+  @override
+  String get notificationsItemReservedTitle => 'تم حجز المنتج';
+
+  @override
+  String get notificationsItemReservedDescription =>
+      'قام شخص بحجز منتج من إعلانك.';
+
+  @override
+  String get notificationsPickupTitle => 'تذكير بالاستلام';
+
+  @override
+  String get notificationsPickupDescription =>
+      'تذكّر تنسيق استلام المنتج المحجوز.';
+
+  @override
+  String get notificationsItemHandledTitle => 'تم تسليم المنتج';
+
+  @override
+  String get notificationsItemHandledDescription =>
+      'تم تسجيل عملية تسليم المنتج كمكتملة.';
+
+  @override
+  String get notificationsMarketplaceUpdateTitle => 'تحديث من السوق';
+
+  @override
+  String get notificationsMarketplaceUpdateDescription =>
+      'يوجد تحديث متعلق بنشاطك في السوق.';
+
+  @override
+  String get notificationsEmptyDescription =>
+      'ستظهر هنا التحديثات المتعلقة بالحالات والمطابقات الجديدة.';
+  String questionnaireStepOf(int current, int total) {
+    return 'الخطوة $current من $total';
+  }
+
+  @override
+  String get questionnaireStep1Title => 'عرّفنا بنفسك';
+
+  @override
+  String get questionnaireStep1Subtitle =>
+      'سنستخدم هذه البيانات لإعداد ملفك الشخصي والتحقق من أنك طالب طب أسنان.';
+
+  @override
+  String get questionnaireAllRequired => '* جميع الحقول مطلوبة';
+
+  @override
+  String get questionnaireFullNameLabel => 'الاسم الكامل';
+
+  @override
+  String get questionnaireFullNameHint => 'أدخل اسمك الكامل';
+
+  @override
+  String get questionnaireFullNameHelper =>
+      'يرجى استخدام الاسم المكتوب في بطاقتك الجامعية.';
+
+  @override
+  String get questionnaireFullNameTwoWordsError =>
+      'يرجى إدخال الاسم الأول والأخير';
+
+  @override
+  String get questionnaireUniversityLabel => 'الجامعة';
+
+  @override
+  String get questionnaireUniversityHint => 'ابحث عن جامعتك';
+
+  @override
+  String get questionnaireAcademicYearLabel => 'السنة الدراسية';
+
+  @override
+  String get questionnaireYear1 => 'الأولى';
+
+  @override
+  String get questionnaireYear2 => 'الثانية';
+
+  @override
+  String get questionnaireYear3 => 'الثالثة';
+
+  @override
+  String get questionnaireYear4 => 'الرابعة';
+
+  @override
+  String get questionnaireYear5 => 'الخامسة';
+
+  @override
+  String get questionnaireYearIntern => 'امتياز';
+
+  @override
+  String get questionnaireGovernorateLabel => 'المحافظة';
+
+  @override
+  String get questionnaireGovernorateHint => 'اختر محافظتك';
+
+  @override
+  String get questionnaireIdCardLabel => 'بطاقة الجامعة';
+
+  @override
+  String get questionnaireIdCardUpload => 'ارفع بطاقتك الجامعية';
+
+  @override
+  String get questionnaireIdCardNote =>
+      'تُستخدم فقط للتحقق من أنك طالب طب أسنان، ولا تُعرض علنًا أبدًا.';
+
+  @override
+  String get questionnaireIdCardRequiredError => 'يرجى رفع بطاقتك الجامعية';
+
+  @override
+  String get questionnaireSelectError => 'يرجى اختيار أحد الخيارات';
+
+  @override
+  String get questionnaireProfilePhotoLabel => 'الصورة الشخصية';
+
+  @override
+  String get questionnaireProfilePhotoAdd => 'أضف صورة شخصية';
+
+  @override
+  String get questionnaireProfilePhotoChange => 'غيّر الصورة الشخصية';
+
+  @override
+  String get questionnaireCancel => 'إلغاء';
+
+  @override
+  String get questionnaireNextStep => 'الخطوة التالية';
+
+  @override
+  String get questionnaireSearchHint => 'بحث';
+
+  @override
+  String get questionnaireNoResults => 'لا توجد نتائج';
+
+  @override
+  String get questionnaireLoadUniversitiesFailed =>
+      'تعذّر تحميل الجامعات. اضغط لإعادة المحاولة.';
+
+  @override
+  String get questionnaireStep2Title => 'اجعل ملفك الشخصي مميزًا';
+
+  @override
+  String get questionnaireStep2Subtitle =>
+      'يثق المرضى بالأطباء الذين يستطيعون التعرف عليهم. أضف هذه البيانات الآن أو عُد إليها في أي وقت!';
+
+  @override
+  String get questionnaireBioLabel => 'نبذة عنك';
+
+  @override
+  String get questionnaireBioHint =>
+      'مثال: طالب في السنة الرابعة بطب الأسنان، مهتم بطب الأسنان الترميمي، ومجتهد جدًا في...';
+
+  @override
+  String get questionnaireCertificationsLabel => 'الشهادات';
+
+  @override
+  String get questionnaireAddCertification => 'أضف شهادة';
+
+  @override
+  String get questionnaireCasePhotosLabel => 'صور الحالات السابقة';
+
+  @override
+  String get questionnaireUploadCasePhotos =>
+      'ارفع صور الحالات التي عملت عليها';
+
+  @override
+  String get questionnairePrivacyNote =>
+      'ارفع فقط الصور التي لا يمكن فيها التعرف على المريض، أو التي وافق فيها على ذلك.';
+
+  @override
+  String get questionnaireSaveAndContinue => 'حفظ ومتابعة';
+
+  @override
+  String get questionnaireSkipForNow => 'تخطَّ الآن';
+
+  @override
+  String get questionnaireTakePhoto => 'التقاط صورة';
+
+  @override
+  String get questionnaireChooseFromGallery => 'اختيار من المعرض';
+
+  @override
+  String get questionnaireDiscardTitle => 'هل تريد تجاهل إجاباتك؟';
+
+  @override
+  String get questionnaireDiscardMessage => 'سيتم فقدان ما أدخلته.';
+
+  @override
+  String get questionnaireDiscardConfirm => 'تجاهل';
+
+  @override
+  String get questionnaireKeepEditing => 'متابعة التعديل';
+
+  @override
+  String questionnaireMaxFilesReached(int max) {
+    return 'يمكنك إضافة حتى $max ملفات.';
   }
 }
