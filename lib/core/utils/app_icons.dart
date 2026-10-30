@@ -19,4 +19,11 @@ class AppIcons {
   static const String chevronLeft = "assets/icons/chevron-left.svg";
   static const String notifications = "assets/icons/notifications.svg";
   static const String trash = "assets/icons/trash.svg";
+  static const String chevronDown = "assets/icons/chevron-down.svg";
+  static const String plus = "assets/icons/plus.svg";
+  static const String close = "assets/icons/x.svg";
+  static const String camera = "assets/icons/camera.svg";
+  static const String upload = "assets/icons/upload.svg";
+  static const String image = "assets/icons/image.svg";
+  static const String shieldAlert = "assets/icons/shield-alert.svg";
 }
