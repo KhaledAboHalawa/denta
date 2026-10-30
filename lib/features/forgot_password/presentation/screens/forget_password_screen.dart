@@ -37,7 +37,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 previous.response.status != current.response.status &&
                 current.response.isSuccess,
             listener: (context, state) {
-              context.go(RoutePaths.resetPasswordSuccessPath);
+              context.goNamed(RoutePaths.resetPasswordSuccessPath);
             },
             child: const ForgotPasswordBody(),
           ),

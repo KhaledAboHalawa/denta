@@ -51,7 +51,7 @@ class ResetPasswordSuccessScreen extends StatelessWidget {
                 child: CustomButton(
                   title: locale.backToLogin,
                   isLoading: false,
-                  onPressed: () => context.go(RoutePaths.signInPath),
+                  onPressed: () => context.goNamed(RoutePaths.signInPath),
                 ),
               ),
               const Spacer(flex: 7),

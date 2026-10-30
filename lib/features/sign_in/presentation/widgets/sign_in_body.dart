@@ -73,9 +73,7 @@ class SignInBody extends StatelessWidget {
                                 title: AppLocalizations.of(context)!
                                     .registerCreateAccount,
                                 onPressed: () {
-                                  context.pushReplacement(
-                                    RoutePaths.roleSelectionPath,
-                                  );
+                                  context.goNamed(RoutePaths.roleSelectionPath);
                                 },
                                 color: context.appColors.primary,
                               ),
