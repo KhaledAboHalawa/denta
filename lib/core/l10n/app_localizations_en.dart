@@ -493,6 +493,8 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get notificationsEmptyDescription =>
       'New matches and case updates will appear here.';
+
+  @override
   String questionnaireStepOf(int current, int total) {
     return 'Step $current of $total';
   }

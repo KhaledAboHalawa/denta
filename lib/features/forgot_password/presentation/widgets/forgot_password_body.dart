@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/dependency_injection.dart';
+
 import 'package:go_router/go_router.dart';
 
 import '../bloc/forgot_password_bloc.dart';
@@ -73,19 +74,22 @@ class _ForgotPasswordBodyState extends State<ForgotPasswordBody> {
           },
           child: Column(
             children: [
-              AuthAppBar(
-                onlyLogo: false,
-                onBack: () {
-                  if (_cubit.state.currentPage > 0) {
-                    _cubit.doIntent(
-                      ForgotPasswordGoToPageEvent(
-                        page: _cubit.state.currentPage - 1,
-                      ),
-                    );
-                  } else {
-                    context.pop();
-                  }
-                },
+              BlocSelector<ForgotPasswordCubit, ForgotPasswordState, bool>(
+                selector: (state) => state.currentPage == 3,
+                builder: (context, isSuccess) => AuthAppBar(
+                  onlyLogo: isSuccess,
+                  onBack: () {
+                    if (_cubit.state.currentPage > 0) {
+                      _cubit.doIntent(
+                        ForgotPasswordGoToPageEvent(
+                          page: _cubit.state.currentPage - 1,
+                        ),
+                      );
+                    } else {
+                      context.pop();
+                    }
+                  },
+                ),
               ),
               Expanded(
                 child: LayoutBuilder(
@@ -104,11 +108,18 @@ class _ForgotPasswordBodyState extends State<ForgotPasswordBody> {
                             Column(
                               children: [
                                 const TextHintsWidget(),
-                                const SizedBox(height: 37),
+                                BlocSelector<
+                                  ForgotPasswordCubit,
+                                  ForgotPasswordState,
+                                  bool
+                                >(
+                                  selector: (state) => state.currentPage != 3,
+                                  builder: (context, showGap) =>
+                                      SizedBox(height: showGap ? 37 : 0),
+                                ),
                                 const ProcessWidget(),
                               ],
                             ),
-                            const SizedBox(height: 30),
                           ],
                         ),
                       ),

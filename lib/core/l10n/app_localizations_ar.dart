@@ -494,6 +494,8 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get notificationsEmptyDescription =>
       'ستظهر هنا التحديثات المتعلقة بالحالات والمطابقات الجديدة.';
+
+  @override
   String questionnaireStepOf(int current, int total) {
     return 'الخطوة $current من $total';
   }
