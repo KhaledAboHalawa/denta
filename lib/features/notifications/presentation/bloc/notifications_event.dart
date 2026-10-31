@@ -10,13 +10,17 @@ sealed class NotificationsEvent extends Equatable {
     required T Function() load,
     required T Function(NotificationCategory category) selectCategory,
     required T Function(int id) markAsRead,
-    required T Function(NotificationCategory category, bool isToday) markAllAsRead,
+    required T Function(NotificationCategory category, bool isToday)
+    markAllAsRead,
     required T Function(int id) deleteNotification,
   }) => switch (this) {
     LoadNotificationsEvent() => load(),
     SelectNotificationCategoryEvent event => selectCategory(event.category),
     MarkNotificationAsReadEvent event => markAsRead(event.id),
-    MarkAllNotificationsAsReadEvent event => markAllAsRead(event.category, event.isToday),
+    MarkAllNotificationsAsReadEvent event => markAllAsRead(
+      event.category,
+      event.isToday,
+    ),
     DeleteNotificationEvent event => deleteNotification(event.id),
   };
 }
@@ -40,7 +44,10 @@ class MarkNotificationAsReadEvent extends NotificationsEvent {
 }
 
 class MarkAllNotificationsAsReadEvent extends NotificationsEvent {
-  const MarkAllNotificationsAsReadEvent({required this.category, required this.isToday});
+  const MarkAllNotificationsAsReadEvent({
+    required this.category,
+    required this.isToday,
+  });
   final NotificationCategory category;
   final bool isToday;
   @override

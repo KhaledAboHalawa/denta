@@ -7,10 +7,7 @@ import '../bloc/notifications_bloc.dart';
 import '../widgets/notifications_body.dart';
 
 class NotificationsScreen extends StatefulWidget {
-  const NotificationsScreen({
-    super.key,
-    this.onNotificationTap,
-  });
+  const NotificationsScreen({super.key, this.onNotificationTap});
 
   /// Integration point for GoRouter once the destination feature routes exist.
   /// The tapped notification already contains [NotificationEntity.targetType]

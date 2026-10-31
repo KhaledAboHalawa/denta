@@ -38,7 +38,9 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
   void initState() {
     super.initState();
     _cubit = context.read<QuestionnaireCubit>();
-    _bioController = TextEditingController(text: _cubit.state.profileExtras.bio);
+    _bioController = TextEditingController(
+      text: _cubit.state.profileExtras.bio,
+    );
     _bioNode = FocusNode();
   }
 
@@ -128,7 +130,8 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
               top: 4,
               end: 0,
               child: BlocBuilder<QuestionnaireCubit, QuestionnaireState>(
-                buildWhen: (prev, curr) => prev.profileExtras.bio != curr.profileExtras.bio,
+                buildWhen: (prev, curr) =>
+                    prev.profileExtras.bio != curr.profileExtras.bio,
                 builder: (context, state) => Text(
                   '${state.profileExtras.bio.length}/${ProfileExtrasForm.maxBioLength}',
                   style: context.text.captionDefault,
@@ -154,7 +157,8 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
               prev.profileExtras.certificationPaths !=
               curr.profileExtras.certificationPaths,
           builder: (context, state) {
-            if (state.profileExtras.certificationPaths.isEmpty) return const SizedBox();
+            if (state.profileExtras.certificationPaths.isEmpty)
+              return const SizedBox();
             return Padding(
               padding: const EdgeInsets.only(top: 12),
               child: Wrap(
@@ -178,10 +182,7 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
           },
         ),
         const SizedBox(height: 20),
-        Text(
-          l10n.questionnaireCasePhotosLabel,
-          style: context.text.bodyMedium,
-        ),
+        Text(l10n.questionnaireCasePhotosLabel, style: context.text.bodyMedium),
         const SizedBox(height: 8),
         UploadDropZone(
           iconAsset: AppIcons.image,
@@ -189,17 +190,21 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
           onTap: _addCasePhotos,
         ),
         BlocBuilder<QuestionnaireCubit, QuestionnaireState>(
-          buildWhen: (prev, curr) => prev.profileExtras.casePhotoPaths !=
+          buildWhen: (prev, curr) =>
+              prev.profileExtras.casePhotoPaths !=
               curr.profileExtras.casePhotoPaths,
           builder: (context, state) {
-            if (state.profileExtras.casePhotoPaths.isEmpty) return const SizedBox();
+            if (state.profileExtras.casePhotoPaths.isEmpty)
+              return const SizedBox();
             return Padding(
               padding: const EdgeInsets.only(top: 12),
               child: CasePhotosGrid(
                 paths: state.profileExtras.casePhotoPaths,
                 onRemove: (path) => _cubit.doIntent(
                   QuestionnaireSetCasePhotosEvent(
-                    state.profileExtras.casePhotoPaths.where((p) => p != path).toList(),
+                    state.profileExtras.casePhotoPaths
+                        .where((p) => p != path)
+                        .toList(),
                   ),
                 ),
               ),

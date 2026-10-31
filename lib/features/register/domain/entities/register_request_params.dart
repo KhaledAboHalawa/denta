@@ -12,11 +12,12 @@ class RegisterRequestParams extends Equatable {
   final String confirmPassword;
 
   const RegisterRequestParams({
-     this.firstName = '',
-     this.lastName = '',
-     this.email = '',
-     this.password = '',
-     this.confirmPassword = '', this.role = .none,
+    this.firstName = '',
+    this.lastName = '',
+    this.email = '',
+    this.password = '',
+    this.confirmPassword = '',
+    this.role = .none,
   });
 
   const RegisterRequestParams.initial({
@@ -28,7 +29,7 @@ class RegisterRequestParams extends Equatable {
     this.confirmPassword = '',
   });
 
- RegisterRequestParams copyWith({
+  RegisterRequestParams copyWith({
     String? firstName,
     String? lastName,
     UserRole? role,

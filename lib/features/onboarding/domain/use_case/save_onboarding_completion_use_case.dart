@@ -7,5 +7,6 @@ class SaveOnboardingCompletionUseCase {
   SaveOnboardingCompletionUseCase({required this.onboardingDataSource});
   final OnboardingDataSource onboardingDataSource;
 
-  Future<Result<bool>> call() async => await onboardingDataSource.completeOnboarding();
+  Future<Result<bool>> call() async =>
+      await onboardingDataSource.completeOnboarding();
 }

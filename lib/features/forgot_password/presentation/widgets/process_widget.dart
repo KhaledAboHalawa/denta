@@ -49,7 +49,7 @@ class _ProcessWidgetState extends State<ProcessWidget> {
               },
             ),
             const ResetPasswordForm(),
-            const ResetPasswordSuccess()
+            const ResetPasswordSuccess(),
           ],
         );
       },

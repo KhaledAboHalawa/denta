@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import '../data_source/onboarding_data_source.dart';
 
 @LazySingleton(as: OnboardingRepo)
-class OnboardingRepoImpl implements OnboardingRepo{
+class OnboardingRepoImpl implements OnboardingRepo {
   final OnboardingDataSource onboardingDataSource;
   OnboardingRepoImpl({required this.onboardingDataSource});
   @override

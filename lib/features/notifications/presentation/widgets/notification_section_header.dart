@@ -17,22 +17,27 @@ class NotificationSectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(title, style: context.text.labelDefault.copyWith(color: context.appColors.primary)),
-            InkWell(
-              onTap: onTap,
-              child: Text(
-                action,
-                style: context.text.labelDefault.copyWith(
-                  color: context.appColors.primary,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ),
-          ],
+    padding: const EdgeInsets.symmetric(horizontal: 20),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: context.text.labelDefault.copyWith(
+            color: context.appColors.primary,
+          ),
         ),
-      );
+        InkWell(
+          onTap: onTap,
+          child: Text(
+            action,
+            style: context.text.labelDefault.copyWith(
+              color: context.appColors.primary,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }

@@ -7,10 +7,10 @@ class NotificationsState extends Equatable {
   });
 
   const NotificationsState.initial()
-      : this(
-          response: const BaseState.initial(),
-          selectedCategory: NotificationCategory.cases,
-        );
+    : this(
+        response: const BaseState.initial(),
+        selectedCategory: NotificationCategory.cases,
+      );
 
   final BaseState<List<NotificationEntity>> response;
   final NotificationCategory selectedCategory;
@@ -19,9 +19,9 @@ class NotificationsState extends Equatable {
     BaseState<List<NotificationEntity>>? response,
     NotificationCategory? selectedCategory,
   }) => NotificationsState(
-        response: response ?? this.response,
-        selectedCategory: selectedCategory ?? this.selectedCategory,
-      );
+    response: response ?? this.response,
+    selectedCategory: selectedCategory ?? this.selectedCategory,
+  );
 
   @override
   List<Object?> get props => [response, selectedCategory];

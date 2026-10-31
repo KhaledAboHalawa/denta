@@ -69,18 +69,17 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
     _nameNode.unfocus();
     final l10n = AppLocalizations.of(context)!;
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final picked = await showSelectionSheet<UniversityEntity>(  
-      context,  
-      title: l10n.questionnaireUniversityLabel,
-      selected: state.verificationInfo.university,
-      items: (universities.data ?? [])
-          .map((u) => SelectionItem(value: u, label: u.name))
-          .toList(),
-    );
-    if (picked != null) {
-      _cubit.doIntent(QuestionnaireSelectUniversityEvent(picked));
-    }
-
+      final picked = await showSelectionSheet<UniversityEntity>(
+        context,
+        title: l10n.questionnaireUniversityLabel,
+        selected: state.verificationInfo.university,
+        items: (universities.data ?? [])
+            .map((u) => SelectionItem(value: u, label: u.name))
+            .toList(),
+      );
+      if (picked != null) {
+        _cubit.doIntent(QuestionnaireSelectUniversityEvent(picked));
+      }
     });
   }
 

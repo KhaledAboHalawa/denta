@@ -54,7 +54,10 @@ class CircleCloseButton extends StatelessWidget {
       child: Container(
         width: 20,
         height: 20,
-        decoration: BoxDecoration(color: colors.secondary, shape: BoxShape.circle),
+        decoration: BoxDecoration(
+          color: colors.secondary,
+          shape: BoxShape.circle,
+        ),
         alignment: Alignment.center,
         child: SvgPicture.asset(
           AppIcons.close,

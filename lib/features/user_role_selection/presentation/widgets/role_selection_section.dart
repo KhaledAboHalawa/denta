@@ -62,22 +62,27 @@ class _RoleSelectionSectionState extends State<RoleSelectionSection> {
       child: Column(
         spacing: 24,
         children: [
-          ...UserRole.values.where((e) => e != UserRole.none).map(
-            (e) => RoleSelectionCard(
-              role: e,
-              isSelected: selectedRole == e,
-              onTap: () {
-                setState(() {
-                  selectedRole = e;
-                });
-              },
-            ),
-          ),
+          ...UserRole.values
+              .where((e) => e != UserRole.none)
+              .map(
+                (e) => RoleSelectionCard(
+                  role: e,
+                  isSelected: selectedRole == e,
+                  onTap: () {
+                    setState(() {
+                      selectedRole = e;
+                    });
+                  },
+                ),
+              ),
           CustomButton(
             onPressed: selectedRole == null
                 ? null
                 : () {
-                    context.goNamed(RoutePaths.registerPath, extra: selectedRole);
+                    context.goNamed(
+                      RoutePaths.registerPath,
+                      extra: selectedRole,
+                    );
                   },
             title: AppLocalizations.of(context)!.continueButton,
             isLoading: false,

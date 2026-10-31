@@ -136,7 +136,8 @@ class NotificationsBody extends StatelessWidget {
                               ),
                               child: NotificationTile(
                                 notification: item,
-                                onTap: () => _handleNotificationTap(cubit, item),
+                                onTap: () =>
+                                    _handleNotificationTap(cubit, item),
                               ),
                             ),
                           ),
@@ -163,7 +164,8 @@ class NotificationsBody extends StatelessWidget {
                               ),
                               child: NotificationTile(
                                 notification: item,
-                                onTap: () => _handleNotificationTap(cubit, item),
+                                onTap: () =>
+                                    _handleNotificationTap(cubit, item),
                               ),
                             ),
                           ),

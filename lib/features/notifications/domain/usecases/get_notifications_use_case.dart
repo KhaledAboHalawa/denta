@@ -9,7 +9,8 @@ class GetNotificationsUseCase {
   GetNotificationsUseCase({required this.repository});
   final NotificationsRepository repository;
 
-  Future<Result<List<NotificationEntity>>> call() => repository.getNotifications();
+  Future<Result<List<NotificationEntity>>> call() =>
+      repository.getNotifications();
 
   Stream<List<NotificationEntity>> watch() => repository.watchNotifications();
 }

@@ -1,6 +1,6 @@
 import '../../../user_role_selection/presentation/widgets/role_selection_section.dart';
 
-class  RegisterRequestModel {
+class RegisterRequestModel {
   final String firstName;
   final String lastName;
   final UserRole role;
@@ -23,5 +23,5 @@ class  RegisterRequestModel {
     "email": email,
     "password": password,
     "confirmPassword": confirmPassword,
-  };  
+  };
 }

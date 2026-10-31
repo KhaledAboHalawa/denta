@@ -81,11 +81,9 @@ class ApiResponseMessage {
 
   static String get noContentError => _currentL10n.noContentError;
   static String get badRequestError => _currentL10n.badRequestError;
-  static String get unAuthenticationError =>
-      _currentL10n.unAuthenticationError;
+  static String get unAuthenticationError => _currentL10n.unAuthenticationError;
   static String get forbiddenError => _currentL10n.forbiddenError;
-  static String get internalServerError =>
-      _currentL10n.internalServerError;
+  static String get internalServerError => _currentL10n.internalServerError;
   static String get notFoundError => _currentL10n.notFoundError;
   static String get conflictError => _currentL10n.conflictError;
   static String get apiLogicalError => _currentL10n.apiLogicalError;
@@ -243,8 +241,7 @@ Failure _handleError(DioException error, [BuildContext? context]) {
         dynamic jsonObject = error.response?.data;
         int? statusCode = error.response?.statusCode;
         if (jsonObject != null) {
-          errorsMessage =
-              jsonObject['error'] ?? l10n.badRequestError;
+          errorsMessage = jsonObject['error'] ?? l10n.badRequestError;
         }
         return Failure(
           statusCode:

@@ -20,26 +20,26 @@ class ForgotPasswordState extends Equatable {
   });
 
   const ForgotPasswordState.initial()
-      : this(
-          emailParams: const ForgotPasswordRequestParams.initial(),
-          otpParams: const OtpRequestParams.initial(),
-          resetPasswordParams: const ResetPasswordRequestParams.initial(),
-          response: const BaseState.initial(),
-          resendResponse: const BaseState.initial(),
-          remainingSeconds: 60,
-          currentPage: 0,
-        );
+    : this(
+        emailParams: const ForgotPasswordRequestParams.initial(),
+        otpParams: const OtpRequestParams.initial(),
+        resetPasswordParams: const ResetPasswordRequestParams.initial(),
+        response: const BaseState.initial(),
+        resendResponse: const BaseState.initial(),
+        remainingSeconds: 60,
+        currentPage: 0,
+      );
 
   @override
   List<Object?> get props => [
-        emailParams,
-        otpParams,
-        resetPasswordParams,
-        response,
-        resendResponse,
-        remainingSeconds,
-        currentPage,
-      ];
+    emailParams,
+    otpParams,
+    resetPasswordParams,
+    response,
+    resendResponse,
+    remainingSeconds,
+    currentPage,
+  ];
 
   ForgotPasswordState copyWith({
     ForgotPasswordRequestParams? emailParams,

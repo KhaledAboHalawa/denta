@@ -26,6 +26,6 @@ class ThemeCubit extends Cubit<ThemeMode> {
   }
 
   Future<void> toggle(Brightness currentBrightness) => setThemeMode(
-        currentBrightness == Brightness.dark ? ThemeMode.light : ThemeMode.dark,
-      );
+    currentBrightness == Brightness.dark ? ThemeMode.light : ThemeMode.dark,
+  );
 }
