@@ -19,7 +19,9 @@ class _FakeRepo implements QuestionnaireRepo {
 
   @override
   Future<Result<List<UniversityEntity>>> getUniversities() async =>
-      const Result.success([UniversityEntity(id: '1', name: 'Cairo University')]);
+      const Result.success([
+        UniversityEntity(id: '1', name: 'Cairo University'),
+      ]);
 
   @override
   Future<Result<bool>> submitVerificationInfo(
