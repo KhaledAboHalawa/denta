@@ -23,7 +23,7 @@ class RoleSelectionBody extends StatelessWidget {
           children: [
             Column(
               children: [
-                AuthAppBar(onlyLogo: true),
+                const AuthAppBar(onlyLogo: true),
                 AuthTextBanner(
                   title: AppLocalizations.of(context)!.roleSelectionTitle,
                   subTitle: AppLocalizations.of(context)!.roleSelectionSubtitle,

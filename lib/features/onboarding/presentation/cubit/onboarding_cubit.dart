@@ -8,7 +8,7 @@ import 'onboarding_state.dart';
 class OnboardingCubit extends Cubit<OnboardingState> {
   final SaveOnboardingCompletionUseCase saveOnboardingCompletionUseCase;
   OnboardingCubit(this.saveOnboardingCompletionUseCase)
-    : super(OnboardingState.initial());
+    : super(const OnboardingState.initial());
 
   void gotoNextPage() async {
     if (state.pageIndex < 3) {

@@ -134,7 +134,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             validator: (value) => AppValidators.validateEmail(value, context: context),
             onSubmitted: (_) {
               if (_formKey.currentState!.validate()) {
-                bloc.doIntent(RegisterContinueEvent());
+                bloc.doIntent(const RegisterContinueEvent());
               }
             },
             onChange: (value) {
@@ -154,7 +154,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             isLoading: false,
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                bloc.doIntent(RegisterContinueEvent());
+                bloc.doIntent(const RegisterContinueEvent());
               }
             },
           ),

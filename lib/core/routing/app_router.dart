@@ -42,7 +42,7 @@ final GoRouter router = GoRouter(
       path: RoutePaths.roleSelectionPath,
       name: RoutePaths.roleSelectionPath,
       pageBuilder: (BuildContext context, GoRouterState state) =>
-          CupertinoPage(child: const RoleSelectionScreen()),
+          const CupertinoPage(child: RoleSelectionScreen()),
       routes: [
         GoRoute(
           path: RoutePaths.registerPath,
@@ -57,7 +57,7 @@ final GoRouter router = GoRouter(
           path: RoutePaths.signInPath,
           name: RoutePaths.signInPath,
           pageBuilder: (BuildContext context, GoRouterState state) =>
-              CupertinoPage(child: const SignInScreen()),
+              const CupertinoPage(child: SignInScreen()),
         ),
       ],
     ),
@@ -79,7 +79,7 @@ final GoRouter router = GoRouter(
       path: RoutePaths.notificationsPath,
       name: RoutePaths.notificationsPath,
       pageBuilder: (context, state) =>
-          CupertinoPage(child: const NotificationsScreen()),
+          const CupertinoPage(child: NotificationsScreen()),
     ),
   ],
 );

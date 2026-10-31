@@ -72,7 +72,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       children: [
         if (widget.labelText != null)
           Text(widget.labelText!, style: context.text.bodyMedium),
-        SizedBox(height: 6),
+        const SizedBox(height: 6),
         SizedBox(
           height: widget.height,
           child: Focus(

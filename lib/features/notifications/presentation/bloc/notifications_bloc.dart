@@ -22,7 +22,7 @@ class NotificationsCubit extends Cubit<NotificationsState> {
     this._markNotificationReadUseCase,
     this._markAllNotificationsReadUseCase,
     this._deleteNotificationUseCase,
-  ) : super(NotificationsState.initial()) {
+  ) : super(const NotificationsState.initial()) {
     _notificationsSubscription = _getNotificationsUseCase.watch().listen(
       _onNotificationsUpdated,
     );

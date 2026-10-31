@@ -36,7 +36,7 @@ class OnboardingHeader extends StatelessWidget {
                 crossAxisAlignment: .end,
                 mainAxisAlignment: .end,
                 children: [
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   Text(
                     l10n.onboardingSkip,
                     style: context.text.bodyLarge.copyWith(
@@ -45,7 +45,7 @@ class OnboardingHeader extends StatelessWidget {
                   ),
                   Icon(
                     Icons.chevron_right_rounded,
-                    key: ValueKey('icon'),
+                    key: const ValueKey('icon'),
                     size: 25,
                     color: context.appColors.white,
                   ),

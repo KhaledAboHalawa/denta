@@ -63,7 +63,7 @@ class OnboardingActionButton extends StatelessWidget {
                       )
                     : Icon(
                         Icons.chevron_right_rounded,
-                        key: ValueKey('icon'),
+                        key: const ValueKey('icon'),
                         size: 47,
                         color: context.appColors.primary,
                       ),

@@ -13,7 +13,7 @@ part 'register_state.dart';
 @lazySingleton
 class RegisterBloc extends Cubit<RegisterState> {
   final RegisterUseCase registerUseCase;
-  RegisterBloc(this.registerUseCase) : super(RegisterState.initial());
+  RegisterBloc(this.registerUseCase) : super(const RegisterState.initial());
 
   void doIntent(RegisterEvent event) {
     event.when(

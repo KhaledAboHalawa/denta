@@ -6,6 +6,6 @@ class RoleSelectionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RoleSelectionBody();
+    return const RoleSelectionBody();
   }
 }

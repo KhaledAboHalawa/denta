@@ -12,7 +12,7 @@ class OnboardingDataSource {
   Future<Result<bool>> completeOnboarding() async {
     try {
       await sharedPreferences.setBool(AppKeys.onboardingCompletedKey, true);
-      return Result.success(true);
+      return const Result.success(true);
     } catch (e) {
       return Result.error(ErrorHandler.handle(e).failure);
     }

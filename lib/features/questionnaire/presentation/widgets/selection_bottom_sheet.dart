@@ -21,7 +21,7 @@ Future<T?> showSelectionSheet<T>(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,
-    sheetAnimationStyle: AnimationStyle(
+    sheetAnimationStyle: const AnimationStyle(
       curve: Curves.easeInOutCubicEmphasized,
       duration: Duration(milliseconds: 1200),
       reverseDuration: Duration(milliseconds: 800),

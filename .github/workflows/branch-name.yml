@@ -1,0 +1,34 @@
+name: Branch name
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [dev, main]
+
+permissions:
+  contents: read
+
+jobs:
+  check-branch-name:
+    name: Check branch name
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch name
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          # feature/DP-5-questionnaire, bugfix/DP-12-fix-login
+          # hotfix/generate-files
+          # dev, main (for release PRs)
+          regex='^((feature|bugfix)/DP-[0-9]+-[a-z0-9]+(-[a-z0-9]+)*|hotfix/[a-z0-9]+(-[a-z0-9]+)*|dev|main)$'
+          if [[ "$BRANCH" =~ $regex ]]; then
+            echo "Branch name OK: $BRANCH"
+          else
+            echo "::error::Invalid branch name: '$BRANCH'"
+            echo "Allowed formats:"
+            echo "  feature/DP-<n>-<kebab-name>   e.g. feature/DP-5-questionnaire"
+            echo "  bugfix/DP-<n>-<kebab-name>    e.g. bugfix/DP-12-fix-login"
+            echo "  hotfix/<kebab-name>           e.g. hotfix/generate-files"
+            echo "Use lowercase letters, digits and '-' only."
+            exit 1
+          fi

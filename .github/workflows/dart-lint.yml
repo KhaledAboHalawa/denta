@@ -1,0 +1,46 @@
+name: Dart lint
+
+on:
+  pull_request:
+    branches: [dev, main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dart-lint-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Format and analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@.v4
+        with:
+          fetch-depth: 0
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check formatting (changed files only)
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          # Only files changed in this PR, so old code does not block us.
+          # Generated files are skipped.
+          files=$(git diff --name-only --diff-filter=ACMR "$BASE_SHA" HEAD -- '*.dart' \
+            | grep -vE '(\.g\.dart|\.config\.dart|lib/core/l10n/app_localizations.*\.dart)$' || true)
+          if [ -z "$files" ]; then
+            echo "No Dart files to check."
+            exit 0
+          fi
+          echo "$files" | xargs dart format --output=none --set-exit-if-changed
+
+      - name: Analyze
+        run: flutter analyze

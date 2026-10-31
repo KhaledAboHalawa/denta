@@ -5,3 +5,17 @@ analyzer:
     - build/**
     - android/**
     - ios/**
+    - "**/*.g.dart"
+    - "**/*.config.dart"
+    - lib/core/l10n/app_localizations*.dart
+  errors:
+    # Make the const rules fail `flutter analyze` (and the CI),
+    # not just show as a hint.
+    prefer_const_constructors_in_immutables: warning
+    prefer_const_constructors: warning
+linter: 
+  rules:
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+
+

@@ -68,12 +68,12 @@ class _ToggleBase extends StatelessWidget {
           color: context.appColors.infoLight,
           shape: BoxShape.circle,
           boxShadow: [
-            BoxShadow(
+            const BoxShadow(
               color: Color(0x0F000000),
               offset: Offset(0, 1),
               blurRadius: 2,
             ),
-            BoxShadow(
+            const BoxShadow(
               color: Color(0x00000000),
               offset: Offset(0, 1),
               blurRadius: 3,

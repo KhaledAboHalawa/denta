@@ -1,0 +1,36 @@
+name: PR title
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+    branches: [dev, main]
+
+permissions:
+  contents: read
+
+jobs:
+  check-pr-title:
+    name: Check PR title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          # Release PRs (dev -> main) are exempt.
+          if [[ "$HEAD_REF" == "dev" ]]; then
+            echo "Release PR, title check skipped."
+            exit 0
+          fi
+          # Format: DP-<n>: <description>
+          # e.g.    DP-5: add student questionnaire
+          regex='^DP-[0-9]+: .{3,}$'
+          if [[ "$TITLE" =~ $regex ]]; then
+            echo "PR title OK: $TITLE"
+          else
+            echo "::error::Invalid PR title: '$TITLE'"
+            echo "Expected: DP-<n>: <short description>"
+            echo "Example:  DP-5: add student questionnaire"
+            exit 1
+          fi

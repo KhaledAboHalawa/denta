@@ -10,7 +10,7 @@ part 'sign_in_state.dart';
 
 @lazySingleton
 class SignInCubit extends Cubit<SignInState> {
-  SignInCubit() : super(SignInState.initial());
+  SignInCubit() : super(const SignInState.initial());
 
   void doIntent(SignInEvent event) {
     event.when(
