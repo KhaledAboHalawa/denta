@@ -46,3 +46,10 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Generated files
+**/*.g.dart
+**/*.config.dart
+
+# Flutter generated localization files
+lib/core/l10n/app_localizations*.dart

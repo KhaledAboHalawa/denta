@@ -131,10 +131,11 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
                 : locale.registerPatientEmailHint,
             focusNode: nodes[2],
             keyboardType: .emailAddress,
-            validator: (value) => AppValidators.validateEmail(value, context: context),
+            validator: (value) =>
+                AppValidators.validateEmail(value, context: context),
             onSubmitted: (_) {
               if (_formKey.currentState!.validate()) {
-                bloc.doIntent(RegisterContinueEvent());
+                bloc.doIntent(const RegisterContinueEvent());
               }
             },
             onChange: (value) {
@@ -154,7 +155,7 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
             isLoading: false,
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                bloc.doIntent(RegisterContinueEvent());
+                bloc.doIntent(const RegisterContinueEvent());
               }
             },
           ),

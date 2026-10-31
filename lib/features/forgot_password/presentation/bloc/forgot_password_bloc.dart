@@ -14,7 +14,7 @@ part 'forgot_password_state.dart';
 
 @lazySingleton
 class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
-  ForgotPasswordCubit() : super(ForgotPasswordState.initial());
+  ForgotPasswordCubit() : super(const ForgotPasswordState.initial());
 
   Timer? _timer;
 
@@ -115,7 +115,7 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
 
   void _resetFlow() {
     _timer?.cancel();
-    emit(ForgotPasswordState.initial());
+    emit(const ForgotPasswordState.initial());
   }
 
   void _goToPage(int page) {

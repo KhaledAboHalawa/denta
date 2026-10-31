@@ -36,7 +36,10 @@ class CasePhotosGrid extends StatelessWidget {
                       cacheWidth: 216,
                       errorBuilder: (_, _, _) => Container(
                         color: colors.secondary,
-                        child: Icon(Icons.image_outlined, color: colors.primary),
+                        child: Icon(
+                          Icons.image_outlined,
+                          color: colors.primary,
+                        ),
                       ),
                     ),
                   ),

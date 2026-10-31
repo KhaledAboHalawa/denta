@@ -38,7 +38,7 @@ class _ForgetPasswordSectionState extends State<ForgetPasswordSection> {
               value: state.rememberMe,
               label: AppLocalizations.of(context)!.rememberMe,
               onChanged: (value) {
-                _cubit.doIntent(SignInRememberMeChangedEvent());
+                _cubit.doIntent(const SignInRememberMeChangedEvent());
               },
             );
           },

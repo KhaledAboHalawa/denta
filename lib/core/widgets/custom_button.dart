@@ -38,10 +38,10 @@ class CustomButton extends StatelessWidget {
         ),
         onPressed: isLoading ? () {} : onPressed,
         child: isLoading
-            ? CircularProgressIndicator(
+            ? const CircularProgressIndicator(
                 color: Colors.white,
                 strokeWidth: 3,
-                constraints: const BoxConstraints(minWidth: 23, minHeight: 23),
+                constraints: BoxConstraints(minWidth: 23, minHeight: 23),
               )
             : Text(
                 title,

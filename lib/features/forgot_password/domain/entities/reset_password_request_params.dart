@@ -10,8 +10,8 @@ class ResetPasswordRequestParams extends Equatable {
   });
 
   const ResetPasswordRequestParams.initial()
-      : password = '',
-        confirmPassword = '';
+    : password = '',
+      confirmPassword = '';
 
   @override
   List<Object?> get props => [password, confirmPassword];

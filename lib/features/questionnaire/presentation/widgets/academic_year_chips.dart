@@ -51,16 +51,15 @@ class AcademicYearChips extends StatelessWidget {
       ],
     );
   }
-  
-String academicYearLabel(AppLocalizations l10n, AcademicYear year) {
-  return switch (year) {
-    AcademicYear.first => l10n.questionnaireYear1,
-    AcademicYear.second => l10n.questionnaireYear2,
-    AcademicYear.third => l10n.questionnaireYear3,
-    AcademicYear.fourth => l10n.questionnaireYear4,
-    AcademicYear.fifth => l10n.questionnaireYear5,
-    AcademicYear.intern => l10n.questionnaireYearIntern,
-  };
-}
 
+  String academicYearLabel(AppLocalizations l10n, AcademicYear year) {
+    return switch (year) {
+      AcademicYear.first => l10n.questionnaireYear1,
+      AcademicYear.second => l10n.questionnaireYear2,
+      AcademicYear.third => l10n.questionnaireYear3,
+      AcademicYear.fourth => l10n.questionnaireYear4,
+      AcademicYear.fifth => l10n.questionnaireYear5,
+      AcademicYear.intern => l10n.questionnaireYearIntern,
+    };
+  }
 }

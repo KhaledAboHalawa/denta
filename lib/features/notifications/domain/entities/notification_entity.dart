@@ -49,20 +49,30 @@ class NotificationEntity extends Equatable {
   final bool isToday;
   final bool isRead;
   final NotificationTargetType targetType;
+
   /// Identifier of the case, appointment, item, etc. supplied by the backend.
   final String targetId;
 
   NotificationEntity copyWith({bool? isRead}) => NotificationEntity(
-        id: id,
-        category: category,
-        kind: kind,
-        time: time,
-        isToday: isToday,
-        isRead: isRead ?? this.isRead,
-        targetType: targetType,
-        targetId: targetId,
-      );
+    id: id,
+    category: category,
+    kind: kind,
+    time: time,
+    isToday: isToday,
+    isRead: isRead ?? this.isRead,
+    targetType: targetType,
+    targetId: targetId,
+  );
 
   @override
-  List<Object?> get props => [id, category, kind, time, isToday, isRead, targetType, targetId];
+  List<Object?> get props => [
+    id,
+    category,
+    kind,
+    time,
+    isToday,
+    isRead,
+    targetType,
+    targetId,
+  ];
 }

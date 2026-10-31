@@ -12,11 +12,10 @@ sealed class Result<T> extends Equatable {
   R when<R>({
     required R Function(T data) success,
     required R Function(Failure failure) error,
-  }) =>
-    switch (this) {
-      Success<T> successResult => success(successResult.data),
-      Error<T> errorResult => error(errorResult.failure),
-    };
+  }) => switch (this) {
+    Success<T> successResult => success(successResult.data),
+    Error<T> errorResult => error(errorResult.failure),
+  };
 
   @override
   List<Object?> get props => [];

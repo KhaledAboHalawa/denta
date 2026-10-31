@@ -71,11 +71,17 @@ class QuestionnaireCubit extends Cubit<QuestionnaireState> {
       _setInfo(state.verificationInfo.copyWith(governorate: value));
 
   void _setIdCard(String? path) => _setInfo(
-    state.verificationInfo.copyWith(idCardPath: path, clearIdCard: path == null),
+    state.verificationInfo.copyWith(
+      idCardPath: path,
+      clearIdCard: path == null,
+    ),
   );
 
   void _setAvatar(String? path) => _setInfo(
-    state.verificationInfo.copyWith(avatarPath: path, clearAvatar: path == null),
+    state.verificationInfo.copyWith(
+      avatarPath: path,
+      clearAvatar: path == null,
+    ),
   );
 
   void _setInfo(VerificationInfoParams info) =>

@@ -21,7 +21,7 @@ class AuthTextBanner extends StatelessWidget {
             color: Theme.of(context).primaryColor,
           ),
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(subTitle, style: context.text.captionDefault, textAlign: .center),
       ],
     );

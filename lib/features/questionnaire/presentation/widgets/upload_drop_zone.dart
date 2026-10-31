@@ -74,9 +74,7 @@ class UploadDropZone extends StatelessWidget {
           decoration: BoxDecoration(
             color: colors.secondaryLight,
             borderRadius: BorderRadius.circular(8),
-            border: dashed
-                ? null
-                : Border.all(color: borderColor, width: 0.8),
+            border: dashed ? null : Border.all(color: borderColor, width: 0.8),
           ),
           child: dashed ? Center(child: content) : content,
         ),

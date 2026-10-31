@@ -31,8 +31,9 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
     final params = _cubit.state.resetPasswordParams;
     _formKey = GlobalKey<FormState>();
     _passwordController = TextEditingController(text: params.password);
-    _confirmPasswordController =
-        TextEditingController(text: params.confirmPassword);
+    _confirmPasswordController = TextEditingController(
+      text: params.confirmPassword,
+    );
     _nodes = [FocusNode(), FocusNode()];
   }
 
@@ -49,12 +50,14 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   void _submit() {
     FocusScope.of(context).unfocus();
     if (!_formKey.currentState!.validate()) return;
-    _cubit.doIntent(ForgotPasswordSubmitResetPasswordEvent(
-      params: ResetPasswordRequestParams(
-        password: _passwordController.text,
-        confirmPassword: _confirmPasswordController.text,
+    _cubit.doIntent(
+      ForgotPasswordSubmitResetPasswordEvent(
+        params: ResetPasswordRequestParams(
+          password: _passwordController.text,
+          confirmPassword: _confirmPasswordController.text,
+        ),
       ),
-    ));
+    );
   }
 
   @override

@@ -74,7 +74,7 @@ class OnboardingContent extends StatelessWidget {
                   ),
                 ],
               )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }

@@ -14,8 +14,9 @@ sealed class SignInEvent extends Equatable {
     return switch (this) {
       SignInSubmitEvent event => submit(event.params),
       SignInRememberMeChangedEvent() => rememberMeChanged(),
-      SignInUpdateTextFieldsValuesEvent event =>
-        updateTextFieldsValues(event.params),
+      SignInUpdateTextFieldsValuesEvent event => updateTextFieldsValues(
+        event.params,
+      ),
     };
   }
 }

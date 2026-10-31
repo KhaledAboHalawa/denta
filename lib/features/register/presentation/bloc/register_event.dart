@@ -18,8 +18,9 @@ sealed class RegisterEvent extends Equatable {
       RegisterContinueEvent() => continueRegister(),
       RegisterBackEvent() => back(),
       RegisterSetRoleEvent event => setRole(event.role),
-      RegisterUpdateTextFieldsValuesEvent event =>
-        updateTextFieldsValues(event.params),
+      RegisterUpdateTextFieldsValuesEvent event => updateTextFieldsValues(
+        event.params,
+      ),
     };
   }
 }

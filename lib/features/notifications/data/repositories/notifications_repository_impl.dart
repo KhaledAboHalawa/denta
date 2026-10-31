@@ -23,22 +23,23 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
   }
 
   @override
-  Stream<List<NotificationEntity>> watchNotifications() =>
-      localDataSource.watchNotifications().map(
-            (models) => models.map((model) => model.toEntity()).toList(),
-          );
+  Stream<List<NotificationEntity>> watchNotifications() => localDataSource
+      .watchNotifications()
+      .map((models) => models.map((model) => model.toEntity()).toList());
 
   @override
   Future<Result<NotificationEntity>> markAsRead(int id) async {
     try {
       final model = await localDataSource.markAsRead(id);
       if (model == null) {
-        return Result.error(Failure(
-          statusCode: ApiResponseCode.notFound,
-          message: 'Notification not found',
-          success: false,
-          status: ApiInternalStatus.failure,
-        ));
+        return Result.error(
+          Failure(
+            statusCode: ApiResponseCode.notFound,
+            message: 'Notification not found',
+            success: false,
+            status: ApiInternalStatus.failure,
+          ),
+        );
       }
       return Result.success(model.toEntity());
     } catch (error) {
@@ -51,12 +52,14 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
     try {
       final deleted = await localDataSource.deleteNotification(id);
       if (!deleted) {
-        return Result.error(Failure(
-          statusCode: ApiResponseCode.notFound,
-          message: 'Notification not found',
-          success: false,
-          status: ApiInternalStatus.failure,
-        ));
+        return Result.error(
+          Failure(
+            statusCode: ApiResponseCode.notFound,
+            message: 'Notification not found',
+            success: false,
+            status: ApiInternalStatus.failure,
+          ),
+        );
       }
       return Result.success(id);
     } catch (error) {

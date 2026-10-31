@@ -24,7 +24,7 @@ class AuthAppBar extends StatelessWidget {
                 iconSize: 20,
                 onPressed: onBack,
 
-                icon: Icon(Icons.arrow_back_ios_new),
+                icon: const Icon(Icons.arrow_back_ios_new),
                 style: IconButton.styleFrom(
                   tapTargetSize: .shrinkWrap,
                   highlightColor: Colors.transparent,

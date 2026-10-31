@@ -45,7 +45,7 @@ class _SlideSwitcherState extends State<SlideSwitcher> {
                 : (_forward ? -1.0 : 1.0);
 
             return SlideTransition(
-              textDirection:Directionality.of(context),
+              textDirection: Directionality.of(context),
               position: Tween<Offset>(
                 begin: Offset(dx, 0),
                 end: Offset.zero,

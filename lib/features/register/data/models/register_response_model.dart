@@ -1,6 +1,5 @@
 import 'package:denta/features/register/domain/entities/register_entity.dart';
 
-
 class RegisterResponseModel {
   final String token;
   final String refreshToken;
@@ -17,11 +16,7 @@ class RegisterResponseModel {
         user: json['user'] ?? '',
       );
 
-    RegisterEntity toEntity() {
-    return RegisterEntity(
-      token: token,
-      refreshToken: refreshToken,
-      user: user,
-    );
+  RegisterEntity toEntity() {
+    return RegisterEntity(token: token, refreshToken: refreshToken, user: user);
   }
 }

@@ -17,7 +17,7 @@ class RegisterDataSource {
   ) async {
     return await executeApiCall(
       apiCall: () async {
-        // return _dio.post('/Wating', data: params.toJson());
+        _dio.post('/Wating', data: params.toJson());
         await Future.delayed(const Duration(seconds: 2));
         return Response(
           statusCode: 200,

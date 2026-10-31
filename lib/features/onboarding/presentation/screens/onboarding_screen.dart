@@ -8,7 +8,7 @@ import '../cubit/onboarding_cubit.dart';
 import '../cubit/onboarding_state.dart';
 import '../widgets/onboarding_content.dart';
 import '../widgets/onbording_header.dart';
-import '../widgets/slideShowSection.dart';
+import '../widgets/slide_show_section.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

@@ -18,11 +18,7 @@ class SignInState extends Equatable {
   final BaseState<bool> response;
 
   @override
-  List<Object?> get props => [
-    response,
-    params,
-    rememberMe,
-  ];
+  List<Object?> get props => [response, params, rememberMe];
 
   SignInState copyWith({
     BaseState<bool>? response,
