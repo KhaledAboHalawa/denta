@@ -24,10 +24,10 @@ final GoRouter router = GoRouter(
         return onboardingCompleted.when(
           success: (data) {
             return null;
-            if (data) {
-              return RoutePaths.roleSelectionPath;
-            }
-            return null;
+            // if (data) {
+            //   return RoutePaths.roleSelectionPath;
+            // }
+            // return null;
           },
           error: (error) {
             return null;

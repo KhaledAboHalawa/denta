@@ -1,4 +1,5 @@
 import 'package:denta/core/config/base_response/result.dart';
+import 'package:denta/core/config/base_state/base_state.dart';
 import 'package:denta/core/errors/errors_handler.dart';
 import 'package:denta/features/questionnaire/domain/entities/academic_year.dart';
 import 'package:denta/features/questionnaire/domain/entities/profile_extras_params.dart';
