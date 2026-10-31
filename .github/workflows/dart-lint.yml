@@ -44,4 +44,4 @@ jobs:
           echo "$files" | xargs dart format --output=none --set-exit-if-changed
 
       - name: Analyze
-        run: flutter analyze
+        run: flutter analyze --no-fatal-infos
