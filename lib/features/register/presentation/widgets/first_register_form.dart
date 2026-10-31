@@ -131,7 +131,8 @@ class _FirstRegisterFormState extends State<FirstRegisterForm> {
                 : locale.registerPatientEmailHint,
             focusNode: nodes[2],
             keyboardType: .emailAddress,
-            validator: (value) => AppValidators.validateEmail(value, context: context),
+            validator: (value) =>
+                AppValidators.validateEmail(value, context: context),
             onSubmitted: (_) {
               if (_formKey.currentState!.validate()) {
                 bloc.doIntent(const RegisterContinueEvent());

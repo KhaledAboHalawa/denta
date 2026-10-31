@@ -32,7 +32,8 @@ class NotificationsCubit extends Cubit<NotificationsState> {
   final MarkNotificationReadUseCase _markNotificationReadUseCase;
   final MarkAllNotificationsReadUseCase _markAllNotificationsReadUseCase;
   final DeleteNotificationUseCase _deleteNotificationUseCase;
-  late final StreamSubscription<List<NotificationEntity>> _notificationsSubscription;
+  late final StreamSubscription<List<NotificationEntity>>
+  _notificationsSubscription;
 
   void _onNotificationsUpdated(List<NotificationEntity> items) {
     // Don't replace an active loading/error state with a stream event unless
@@ -61,8 +62,10 @@ class NotificationsCubit extends Cubit<NotificationsState> {
     emit(state.copyWith(response: const BaseState.loading()));
     final result = await _getNotificationsUseCase();
     result.when(
-      success: (items) => emit(state.copyWith(response: BaseState.success(items))),
-      error: (failure) => emit(state.copyWith(response: BaseState.error(failure.message))),
+      success: (items) =>
+          emit(state.copyWith(response: BaseState.success(items))),
+      error: (failure) =>
+          emit(state.copyWith(response: BaseState.error(failure.message))),
     );
   }
 
@@ -75,11 +78,15 @@ class NotificationsCubit extends Cubit<NotificationsState> {
       success: (updated) {
         final items = state.response.data;
         if (items == null) return;
-        emit(state.copyWith(
-          response: BaseState.success(items
-              .map((item) => item.id == updated.id ? updated : item)
-              .toList()),
-        ));
+        emit(
+          state.copyWith(
+            response: BaseState.success(
+              items
+                  .map((item) => item.id == updated.id ? updated : item)
+                  .toList(),
+            ),
+          ),
+        );
       },
       error: (_) {},
     );
@@ -91,15 +98,19 @@ class NotificationsCubit extends Cubit<NotificationsState> {
       success: (deletedId) {
         final items = state.response.data;
         if (items == null) return;
-        emit(state.copyWith(
-          response: BaseState.success(
-            items.where((item) => item.id != deletedId).toList(),
+        emit(
+          state.copyWith(
+            response: BaseState.success(
+              items.where((item) => item.id != deletedId).toList(),
+            ),
           ),
-        ));
+        );
       },
-      error: (failure) => emit(state.copyWith(
-        response: BaseState.error(failure.message, data: state.response.data),
-      )),
+      error: (failure) => emit(
+        state.copyWith(
+          response: BaseState.error(failure.message, data: state.response.data),
+        ),
+      ),
     );
   }
 
@@ -109,8 +120,10 @@ class NotificationsCubit extends Cubit<NotificationsState> {
       isToday: isToday,
     );
     result.when(
-      success: (items) => emit(state.copyWith(response: BaseState.success(items))),
-      error: (failure) => emit(state.copyWith(response: BaseState.error(failure.message))),
+      success: (items) =>
+          emit(state.copyWith(response: BaseState.success(items))),
+      error: (failure) =>
+          emit(state.copyWith(response: BaseState.error(failure.message))),
     );
   }
 }
