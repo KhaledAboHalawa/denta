@@ -1219,6 +1219,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You can add up to {max} files.'**
   String questionnaireMaxFilesReached(int max);
+
+  /// No description provided for @navHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get navHome;
+
+  /// No description provided for @navMarket.
+  ///
+  /// In en, this message translates to:
+  /// **'Market'**
+  String get navMarket;
+
+  /// No description provided for @navNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get navNotifications;
+
+  /// No description provided for @navProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get navProfile;
 }
 
 class _AppLocalizationsDelegate

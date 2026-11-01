@@ -26,4 +26,8 @@ class AppIcons {
   static const String upload = "assets/icons/upload.svg";
   static const String image = "assets/icons/image.svg";
   static const String shieldAlert = "assets/icons/shield-alert.svg";
+  static const String home = "assets/icons/home_icon.svg";
+  static const String profile = "assets/icons/profile_icon.svg";
+  static const String notification = "assets/icons/notification_icon.svg";
+  static const String marketPlace = "assets/icons/store_icon.svg";
 }

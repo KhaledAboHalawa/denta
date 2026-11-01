@@ -657,4 +657,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String questionnaireMaxFilesReached(int max) {
     return 'يمكنك إضافة حتى $max ملفات.';
   }
+
+  @override
+  String get navHome => 'الرئيسية';
+
+  @override
+  String get navMarket => 'السوق';
+
+  @override
+  String get navNotifications => 'الإشعارات';
+
+  @override
+  String get navProfile => 'الملف الشخصي';
 }

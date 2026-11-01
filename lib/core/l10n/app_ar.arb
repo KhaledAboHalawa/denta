@@ -54,16 +54,15 @@
   "dentistDesc": "اعثر على حالات سريرية، واحصل على تطابق مع المرضى القريبين، وقم بشراء أو بيع أو التبرع بالأدوات.",
   "roleSelectionTitle": "اي منهما تكون؟",
   "roleSelectionSubtitle": "هذا يساعدنا في إعداد التجربة المناسبة لك",
-
   "forgotPasswordTitle": "هل نسيت كلمة المرور؟",
   "forgotPasswordSubTitle": "لا تقلق، هذا يحدث. أدخل بريدك الإلكتروني وسنرسل لك رمزًا لاستعادة الوصول إلى حسابك.",
   "sendCode": "إرسال الرمز",
   "otpTitle": "تحقق من بريدك الإلكتروني",
   "otpDescription": "أرسلنا رمزًا مكوّنًا من 4 أرقام إلى {email}. أدخله بالأسفل للمتابعة.",
   "@otpDescription": {
-  "placeholders": {
-    "email": {
-      "type": "String"
+    "placeholders": {
+      "email": {
+        "type": "String"
       }
     }
   },
@@ -89,27 +88,27 @@
   "resetPasswordSuccessTitle": "لقد عدت بنجاح!",
   "resetPasswordSuccessDescription": "تمت إعادة تعيين كلمة المرور. يمكنك الآن المتابعة من حيث توقفت.",
   "backToLogin": "العودة إلى تسجيل الدخول",
-
   "onboardingExploreDenta": "اكتشف دنتا",
   "onboardingTitle": "{page, select, 0{حيث تلتقي رعاية الأسنان بتعلّم طب الأسنان} 1{لست متأكدًا مما تعانيه؟ سنساعدك على معرفته} 2{مطابقة قريبة منك، ومطابقة مناسبة لك} 3{أكثر من مجرد حالات} other{}}",
   "@onboardingTitle": {
     "placeholders": {
-      "page": { "type": "String" }
+      "page": {
+        "type": "String"
+      }
     }
   },
-
   "onboardingDescription": "{page, select, 0{تربط دنتا بين طلاب طب الأسنان والمرضى، لتجعل العلاج أسهل في الوصول والتدريب الإكلينيكي أكثر كفاءة.} 1{التقط صورة لمشكلتك، ويساعدك الذكاء الاصطناعي على تحديد الحالة، دون الحاجة لأي معرفة طبية.} 2{سواء كنت تبحث عن علاج أو عن حالة، تربطك دنتا بالشخص المناسب القريب من منزلك.} 3{اشترِ أو بع أو تبرّع بأدوات ومعدات طب الأسنان داخل مجتمع طلابي موثوق.} other{}}",
   "@onboardingDescription": {
     "placeholders": {
-      "page": { "type": "String" }
+      "page": {
+        "type": "String"
+      }
     }
   },
-
   "onboardingSkip": "تخطي",
   "onboardingCreateYourAccount": "أنشئ حسابك",
   "onboardingAlreadyHaveAccount": "لديك حساب بالفعل؟ ",
   "onboardingLogIn": "تسجيل الدخول",
-
   "thisField": "هذا الحقل",
   "nameField": "الاسم",
   "phoneNumberField": "رقم الهاتف",
@@ -208,5 +207,9 @@
   "questionnaireDiscardMessage": "سيتم فقدان ما أدخلته.",
   "questionnaireDiscardConfirm": "تجاهل",
   "questionnaireKeepEditing": "متابعة التعديل",
-  "questionnaireMaxFilesReached": "يمكنك إضافة حتى {max} ملفات."
+  "questionnaireMaxFilesReached": "يمكنك إضافة حتى {max} ملفات.",
+  "navHome": "الرئيسية",
+  "navMarket": "السوق",
+  "navNotifications": "الإشعارات",
+  "navProfile": "الملف الشخصي"
 }

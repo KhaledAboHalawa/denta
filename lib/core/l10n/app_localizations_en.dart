@@ -657,4 +657,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String questionnaireMaxFilesReached(int max) {
     return 'You can add up to $max files.';
   }
+
+  @override
+  String get navHome => 'Home';
+
+  @override
+  String get navMarket => 'Market';
+
+  @override
+  String get navNotifications => 'Notifications';
+
+  @override
+  String get navProfile => 'Profile';
 }
