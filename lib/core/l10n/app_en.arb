@@ -3,11 +3,19 @@
   "appTitle": "Denta",
   "welcomeUser": "Welcome, {name}",
   "@welcomeUser": {
-    "placeholders": { "name": { "type": "String" } }
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "patientsCount": "{count, plural, =0{No patients} =1{1 patient} other{{count} patients}}",
   "@patientsCount": {
-    "placeholders": { "count": { "type": "int" } }
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   },
   "noContentError": "No content available.",
   "badRequestError": "Bad request. Please check your input.",
@@ -60,16 +68,15 @@
   "dentistDesc": "Find clinical cases, get matched with patients nearby, and buy, sell, or donate dental tools.",
   "roleSelectionTitle": "Which One Are You?",
   "roleSelectionSubtitle": "This helps us set up the right experience for you.",
-
   "forgotPasswordTitle": "Forgot Your Password?",
   "forgotPasswordSubTitle": "No worries, it happens. Enter your email and we'll send you a code to get back in.",
   "sendCode": "Send Code",
   "otpTitle": "Check Your Email",
   "otpDescription": "We sent a 4-digit code to {email}. Enter it below to continue.",
   "@otpDescription": {
-  "placeholders": {
-    "email": {
-      "type": "String"
+    "placeholders": {
+      "email": {
+        "type": "String"
       }
     }
   },
@@ -95,27 +102,27 @@
   "resetPasswordSuccessTitle": "You're back in!",
   "resetPasswordSuccessDescription": "Your password has been reset. Time to pick up where you left off.",
   "backToLogin": "Back to Login",
-
   "onboardingExploreDenta": "Explore Denta",
   "onboardingTitle": "{page, select, 0{Where Dental Care Meets Dental Learning} 1{Not Sure What's Wrong? We'll Help You Find Out} 2{Matched Nearby, Matched Right} 3{More Than Just Cases} other{}}",
   "@onboardingTitle": {
     "placeholders": {
-      "page": { "type": "String" }
+      "page": {
+        "type": "String"
+      }
     }
   },
-
   "onboardingDescription": "{page, select, 0{Denta connects dental students and patients, making treatment more accessible and clinical training more efficient.} 1{Snap a photo of your concern, and our AI helps identify the case, no medical knowledge needed.} 2{Whether you're seeking care or seeking a case, Denta matches you with the right person, close to home.} 3{Buy, sell, or donate dental tools and equipment within a trusted student community.} other{}}",
   "@onboardingDescription": {
     "placeholders": {
-      "page": { "type": "String" }
+      "page": {
+        "type": "String"
+      }
     }
   },
-
   "onboardingSkip": "skip",
   "onboardingCreateYourAccount": "Create Your Account",
   "onboardingAlreadyHaveAccount": "Already have an account? ",
   "onboardingLogIn": "Log In",
-
   "thisField": "This field",
   "nameField": "Name",
   "phoneNumberField": "Phone number",
@@ -123,27 +130,39 @@
   "fieldRequiredError": "{fieldName} is required",
   "@fieldRequiredError": {
     "placeholders": {
-      "fieldName": { "type": "String" }
+      "fieldName": {
+        "type": "String"
+      }
     }
   },
   "fieldMinLengthError": "{fieldName} must be at least {minLength} characters",
   "@fieldMinLengthError": {
     "placeholders": {
-      "fieldName": { "type": "String" },
-      "minLength": { "type": "int" }
+      "fieldName": {
+        "type": "String"
+      },
+      "minLength": {
+        "type": "int"
+      }
     }
   },
   "fieldMaxLengthError": "{fieldName} must not exceed {maxLength} characters",
   "@fieldMaxLengthError": {
     "placeholders": {
-      "fieldName": { "type": "String" },
-      "maxLength": { "type": "int" }
+      "fieldName": {
+        "type": "String"
+      },
+      "maxLength": {
+        "type": "int"
+      }
     }
   },
   "nameLettersOnlyError": "{fieldName} can only contain letters, spaces, hyphens, or apostrophes",
   "@nameLettersOnlyError": {
     "placeholders": {
-      "fieldName": { "type": "String" }
+      "fieldName": {
+        "type": "String"
+      }
     }
   },
   "emailRequiredError": "Email is required",
@@ -151,14 +170,18 @@
   "invalidPhoneError": "Please enter a valid {fieldName}",
   "@invalidPhoneError": {
     "placeholders": {
-      "fieldName": { "type": "String" }
+      "fieldName": {
+        "type": "String"
+      }
     }
   },
   "passwordRequiredError": "Password is required",
   "passwordMinLengthError": "Password must be at least {minLength} characters",
   "@passwordMinLengthError": {
     "placeholders": {
-      "minLength": { "type": "int" }
+      "minLength": {
+        "type": "int"
+      }
     }
   },
   "passwordUppercaseError": "Password must contain at least one uppercase letter",
@@ -169,21 +192,31 @@
   "invalidNumberError": "{fieldName} must be a valid number",
   "@invalidNumberError": {
     "placeholders": {
-      "fieldName": { "type": "String" }
+      "fieldName": {
+        "type": "String"
+      }
     }
   },
   "numberMinError": "{fieldName} must be at least {min}",
   "@numberMinError": {
     "placeholders": {
-      "fieldName": { "type": "String" },
-      "min": { "type": "num" }
+      "fieldName": {
+        "type": "String"
+      },
+      "min": {
+        "type": "num"
+      }
     }
   },
   "numberMaxError": "{fieldName} must not exceed {max}",
   "@numberMaxError": {
     "placeholders": {
-      "fieldName": { "type": "String" },
-      "max": { "type": "num" }
+      "fieldName": {
+        "type": "String"
+      },
+      "max": {
+        "type": "num"
+      }
     }
   },
   "notificationsTitle": "Notifications",
@@ -216,7 +249,14 @@
   "notificationsEmptyDescription": "New matches and case updates will appear here.",
   "questionnaireStepOf": "Step {current} of {total}",
   "@questionnaireStepOf": {
-    "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } }
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
   },
   "questionnaireStep1Title": "Tell Us About Yourself",
   "questionnaireStep1Subtitle": "We'll use this to set up your profile and verify you're a dental student.",
@@ -268,6 +308,14 @@
   "questionnaireKeepEditing": "Keep editing",
   "questionnaireMaxFilesReached": "You can add up to {max} files.",
   "@questionnaireMaxFilesReached": {
-    "placeholders": { "max": { "type": "int" } }
-  }
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "navHome": "Home",
+  "navMarket": "Market",
+  "navNotifications": "Notifications",
+  "navProfile": "Profile"
 }

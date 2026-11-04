@@ -31,11 +31,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: BlocProvider.value(
-          value: _cubit,
-          child: NotificationsBody(onNotificationTap: widget.onNotificationTap),
-        ),
+      body: BlocProvider.value(
+        value: _cubit,
+        child: NotificationsBody(onNotificationTap: widget.onNotificationTap),
       ),
     );
   }

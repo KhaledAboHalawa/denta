@@ -114,7 +114,9 @@ class NotificationsBody extends StatelessWidget {
                   : items.isEmpty
                   ? const NotificationEmptyState()
                   : ListView(
-                      padding: EdgeInsets.zero,
+                      padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).padding.bottom,
+                      ),
                       children: [
                         if (today.isNotEmpty) ...[
                           NotificationSectionHeader(
