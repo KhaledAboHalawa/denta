@@ -195,7 +195,7 @@ class NotificationsLocalDataSource {
   ];
 
   Future<List<NotificationModel>> getNotifications() async =>
-      List.unmodifiable(_notifications); 
+      List.unmodifiable(_notifications);
 
   /// Live updates from the local mock source. A remote source can implement
   /// the same contract with WebSocket/SSE events once the backend is ready.
