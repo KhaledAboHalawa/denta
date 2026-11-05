@@ -211,5 +211,8 @@
   "navHome": "الرئيسية",
   "navMarket": "السوق",
   "navNotifications": "الإشعارات",
-  "navProfile": "الملف الشخصي"
+  "navProfile": "الملف الشخصي",
+  "male": "ذكر",
+  "female": "انثى",
+  "gender": "النوع"
 }

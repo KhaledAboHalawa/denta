@@ -9,4 +9,6 @@ abstract class RoutePaths {
   static const String resetPasswordSuccessPath = '/resetPasswordSuccess';
   static const String notificationsPath = '/notifications';
   static const String questionnairePath = '/questionnaire';
+  static const String mainPath = '/main';
+  
 }

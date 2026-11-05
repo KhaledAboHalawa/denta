@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 
+import '../../domain/entities/verification_info_params.dart';
+
 class VerificationInfoRequestModel {
   final String fullName;
   final String universityId;
@@ -7,6 +9,7 @@ class VerificationInfoRequestModel {
   final String governorate;
   final String idCardPath;
   final String? avatarPath;
+  final Gender? gender;
 
   const VerificationInfoRequestModel({
     required this.fullName,
@@ -14,7 +17,7 @@ class VerificationInfoRequestModel {
     required this.academicYear,
     required this.governorate,
     required this.idCardPath,
-    this.avatarPath,
+    this.avatarPath, this.gender,
   });
 
   Future<FormData> toFormData() async {
@@ -23,6 +26,7 @@ class VerificationInfoRequestModel {
       'universityId': universityId,
       'academicYear': academicYear,
       'governorate': governorate,
+      'gender' : gender?.name
     });
     form.files.add(
       MapEntry('idCard', await MultipartFile.fromFile(idCardPath)),

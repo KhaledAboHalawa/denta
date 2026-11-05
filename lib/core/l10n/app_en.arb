@@ -317,5 +317,8 @@
   "navHome": "Home",
   "navMarket": "Market",
   "navNotifications": "Notifications",
-  "navProfile": "Profile"
+  "navProfile": "Profile",
+  "male": "Male",
+  "female": "Female",
+  "gender": "Gender"
 }

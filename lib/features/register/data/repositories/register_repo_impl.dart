@@ -2,7 +2,7 @@ import 'package:denta/features/register/domain/entities/register_request_params.
 
 import '../../../../core/config/base_response/result.dart';
 import '../../domain/entities/register_entity.dart';
-import '../../domain/repositories/register_repo.dart';
+import '../../domain/repository/register_repo.dart';
 import '../datasources/register_data_source.dart';
 
 import 'package:injectable/injectable.dart';

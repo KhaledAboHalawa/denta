@@ -33,9 +33,7 @@ class QuestionnaireBody extends StatelessWidget {
           _showError(context, state.step2Response.error);
         }
         if (state.step2Response.isSuccess) {
-          // TODO: send the user to the real next destination once it exists
-          // (home / "verification pending" screen).
-          context.goNamed(RoutePaths.signInPath);
+          context.goNamed(RoutePaths.mainPath);
         }
       },
       child: GestureDetector(

@@ -43,6 +43,7 @@ class QuestionnaireCubit extends Cubit<QuestionnaireState> {
       submitStep2: _submitStep2,
       skipStep2: _skipStep2,
       goToStep: _goToStep,
+      selectGender: _selectGender,
     );
   }
 
@@ -69,6 +70,8 @@ class QuestionnaireCubit extends Cubit<QuestionnaireState> {
 
   void _selectGovernorate(String value) =>
       _setInfo(state.verificationInfo.copyWith(governorate: value));
+
+  void _selectGender(Gender gender) => _setInfo(state.verificationInfo.copyWith(gender: gender));
 
   void _setIdCard(String? path) => _setInfo(
     state.verificationInfo.copyWith(

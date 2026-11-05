@@ -21,6 +21,7 @@ sealed class QuestionnaireEvent extends Equatable {
     required T Function() submitStep2,
     required T Function() skipStep2,
     required T Function(int index) goToStep,
+    required T Function(Gender gender) selectGender,
   }) {
     return switch (this) {
       QuestionnaireLoadUniversitiesEvent() => loadUniversities(),
@@ -43,6 +44,7 @@ sealed class QuestionnaireEvent extends Equatable {
       QuestionnaireSubmitStep2Event() => submitStep2(),
       QuestionnaireSkipStep2Event() => skipStep2(),
       QuestionnaireGoToStepEvent event => goToStep(event.index),
+      QuestionnaireSelectGenderEvent event => selectGender(event.gender),
     };
   }
 }
@@ -141,4 +143,12 @@ class QuestionnaireGoToStepEvent extends QuestionnaireEvent {
 
   @override
   List<Object?> get props => [index];
+}
+
+class QuestionnaireSelectGenderEvent extends QuestionnaireEvent {
+  final Gender gender;
+  const QuestionnaireSelectGenderEvent({required this.gender});
+
+  @override
+  List<Object?> get props => [gender];
 }

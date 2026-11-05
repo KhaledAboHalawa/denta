@@ -61,8 +61,7 @@ import '../../features/register/data/datasources/register_data_source.dart'
     as _i477;
 import '../../features/register/data/repositories/register_repo_impl.dart'
     as _i200;
-import '../../features/register/domain/repositories/register_repo.dart'
-    as _i250;
+import '../../features/register/domain/repository/register_repo.dart' as _i837;
 import '../../features/register/domain/usecases/register_use_case.dart'
     as _i441;
 import '../../features/register/presentation/bloc/register_bloc.dart' as _i771;
@@ -129,6 +128,11 @@ extension GetItInjectableX on _i174.GetIt {
         repository: gh<_i563.NotificationsRepository>(),
       ),
     );
+    gh.lazySingleton<_i837.RegisterRepo>(
+      () => _i200.RegisterRepoImpl(
+        registerDataSource: gh<_i477.RegisterDataSource>(),
+      ),
+    );
     gh.lazySingleton<_i960.LocaleCubit>(
       () => _i960.LocaleCubit(gh<_i460.SharedPreferences>()),
     );
@@ -140,11 +144,6 @@ extension GetItInjectableX on _i174.GetIt {
         sharedPreferences: gh<_i460.SharedPreferences>(),
       ),
     );
-    gh.lazySingleton<_i250.RegisterRepo>(
-      () => _i200.RegisterRepoImpl(
-        registerDataSource: gh<_i477.RegisterDataSource>(),
-      ),
-    );
     gh.lazySingleton<_i1041.NotificationsCubit>(
       () => _i1041.NotificationsCubit(
         gh<_i373.GetNotificationsUseCase>(),
@@ -152,9 +151,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i736.MarkAllNotificationsReadUseCase>(),
         gh<_i1005.DeleteNotificationUseCase>(),
       ),
-    );
-    gh.lazySingleton<_i441.RegisterUseCase>(
-      () => _i441.RegisterUseCase(registerRepo: gh<_i250.RegisterRepo>()),
     );
     gh.lazySingleton<_i920.GetUniversitiesUseCase>(
       () => _i920.GetUniversitiesUseCase(
@@ -170,6 +166,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i672.SubmitVerificationInfoUseCase(
         questionnaireRepo: gh<_i1006.QuestionnaireRepo>(),
       ),
+    );
+    gh.lazySingleton<_i441.RegisterUseCase>(
+      () => _i441.RegisterUseCase(registerRepo: gh<_i837.RegisterRepo>()),
     );
     gh.factory<_i876.QuestionnaireCubit>(
       () => _i876.QuestionnaireCubit(

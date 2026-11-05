@@ -4,21 +4,22 @@ import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/core/utils/app_validators.dart';
 import 'package:denta/core/utils/media_picker.dart';
+import 'package:denta/core/widgets/avatar_picker.dart';
 import 'package:denta/core/widgets/custom_button.dart';
 import 'package:denta/core/widgets/custom_text_field.dart';
+import 'package:denta/core/widgets/selector_field.dart';
 import 'package:denta/features/questionnaire/domain/entities/governorate.dart';
 import 'package:denta/features/questionnaire/domain/entities/university_entity.dart';
 import 'package:denta/features/questionnaire/presentation/cubit/questionnaire_cubit.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/academic_year_chips.dart';
-import 'package:denta/core/widgets/avatar_picker.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/id_card_upload.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/image_source_sheet.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/selection_bottom_sheet.dart';
-import 'package:denta/core/widgets/selector_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'confirm_cancel_questionnaire.dart';
+import 'gender_selection.dart';
 
 /// Step 1: identity and verification.
 class VerificationInfoForm extends StatefulWidget {
@@ -168,10 +169,21 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
               onTap: () => _pickUniversity(state),
             ),
             const SizedBox(height: 20),
+            GenderSelection(
+              error:
+                  state.showStep1Errors &&
+                  state.verificationInfo.gender == null,
+              onChanged: (value) => _cubit.doIntent(
+                QuestionnaireSelectGenderEvent(gender: value),
+              ),
+              selected: state.verificationInfo.gender,
+            ),
+            const SizedBox(height: 20),
             Text(
               l10n.questionnaireAcademicYearLabel,
               style: context.text.bodyMedium,
             ),
+
             const SizedBox(height: 8),
             AcademicYearChips(
               selected: info.academicYear,

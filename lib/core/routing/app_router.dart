@@ -1,6 +1,7 @@
 import 'package:denta/features/forgot_password/presentation/screens/forget_password_screen.dart';
 import 'package:denta/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:denta/features/onboarding/presentation/screens/onboarding_screen.dart';
+import 'package:denta/features/user_role_selection/presentation/screens/role_selection_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
@@ -42,7 +43,7 @@ final GoRouter router = GoRouter(
       path: RoutePaths.roleSelectionPath,
       name: RoutePaths.roleSelectionPath,
       pageBuilder: (BuildContext context, GoRouterState state) =>
-          const CupertinoPage(child: MainScreen()),
+          const CupertinoPage(child: RoleSelectionScreen()),
       routes: [
         GoRoute(
           path: RoutePaths.registerPath,
@@ -80,6 +81,11 @@ final GoRouter router = GoRouter(
       name: RoutePaths.notificationsPath,
       pageBuilder: (context, state) =>
           const CupertinoPage(child: NotificationsScreen()),
+    ),
+    GoRoute(
+      path: RoutePaths.mainPath,
+      name: RoutePaths.mainPath,
+      pageBuilder: (context, state) => const CupertinoPage(child: MainScreen()),
     ),
   ],
 );

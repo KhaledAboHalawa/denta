@@ -2,6 +2,8 @@ import 'package:denta/features/main_layout/presentation/widgets/custom_nav_bar.d
 import 'package:denta/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../home_screen/presentation/screens/home_tab.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -12,7 +14,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   late final PageController pageController;
   final List<Widget> tabs = [
-    const Center(child: Text("home")),
+    const HomeTab(),
     const Center(child: Text("market palce")),
     const NotificationsScreen(),
     const Center(child: Text("profile")),

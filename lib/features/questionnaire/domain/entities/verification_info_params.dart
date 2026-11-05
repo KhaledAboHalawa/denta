@@ -4,6 +4,17 @@ import 'package:denta/features/questionnaire/domain/entities/academic_year.dart'
 import 'package:denta/features/questionnaire/domain/entities/university_entity.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../../core/l10n/app_localizations.dart';
+
+enum Gender { male, female }
+
+extension GenderL10n on Gender {
+  String label(AppLocalizations l10n) => switch (this) {
+    Gender.male => l10n.male,
+    Gender.female => l10n.female,
+  };
+}
+
 /// Step 1 data (identity + verification).
 ///
 /// Doubles as the form's working copy inside the cubit state, so every value
@@ -16,6 +27,7 @@ class VerificationInfoParams extends Equatable {
     this.governorate,
     this.idCardPath,
     this.avatarPath,
+    this.gender,
   });
 
   final String fullName;
@@ -24,6 +36,7 @@ class VerificationInfoParams extends Equatable {
   final String? governorate;
   final String? idCardPath;
   final String? avatarPath;
+  final Gender? gender;
 
   bool get isValidFullName => AppValidators.validateFullName(fullName) == null;
 
@@ -33,7 +46,8 @@ class VerificationInfoParams extends Equatable {
       university != null &&
       academicYear != null &&
       governorate != null &&
-      idCardPath != null;
+      idCardPath != null &&
+      gender != null;
 
   VerificationInfoParams copyWith({
     String? fullName,
@@ -44,6 +58,7 @@ class VerificationInfoParams extends Equatable {
     String? avatarPath,
     bool clearIdCard = false,
     bool clearAvatar = false,
+    Gender? gender,
   }) {
     return VerificationInfoParams(
       fullName: fullName ?? this.fullName,
@@ -52,6 +67,7 @@ class VerificationInfoParams extends Equatable {
       governorate: governorate ?? this.governorate,
       idCardPath: clearIdCard ? null : (idCardPath ?? this.idCardPath),
       avatarPath: clearAvatar ? null : (avatarPath ?? this.avatarPath),
+      gender: gender ?? this.gender,
     );
   }
 
@@ -64,6 +80,7 @@ class VerificationInfoParams extends Equatable {
       governorate: governorate!,
       idCardPath: idCardPath!,
       avatarPath: avatarPath,
+      gender: gender,
     );
   }
 
@@ -75,5 +92,6 @@ class VerificationInfoParams extends Equatable {
     governorate,
     idCardPath,
     avatarPath,
+    gender,
   ];
 }

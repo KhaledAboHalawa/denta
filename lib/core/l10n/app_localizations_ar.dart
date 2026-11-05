@@ -669,4 +669,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get navProfile => 'الملف الشخصي';
+
+  @override
+  String get male => 'ذكر';
+
+  @override
+  String get female => 'انثى';
+
+  @override
+  String get gender => 'النوع';
 }
