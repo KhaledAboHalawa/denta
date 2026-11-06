@@ -697,4 +697,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get logSession => 'تسجيل الجلسة';
+
+  @override
+  String get homeGreeting => 'مرحبًا،';
+
+  @override
+  String get titleDoctor => 'د.';
+
+  @override
+  String get titleMr => 'السيد';
+
+  @override
+  String get titleMrs => 'السيدة';
 }

@@ -42,7 +42,7 @@ class _ActiveCasesWidgetState extends State<ActiveCasesWidget> {
         AppIndicator(
           currentIndex: _currentIndex,
           selected: context.appColors.primary,
-          unSelected: context.appColors.primaryLight,
+          unSelected: context.appColors.primaryActive,
         ),
       ],
     );

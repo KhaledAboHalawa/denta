@@ -342,5 +342,9 @@
     }
   },
   "caseProgress": "Case progress",
-  "logSession": "Log Session"
+  "logSession": "Log Session",
+  "homeGreeting": "Hello,",
+  "titleDoctor": "Dr.",
+  "titleMr": "Mr.",
+  "titleMrs": "Mrs."
 }

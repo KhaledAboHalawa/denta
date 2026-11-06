@@ -32,4 +32,5 @@ class AppIcons {
   static const String marketPlace = "assets/icons/store_icon.svg";
   static const String mapPin = "assets/icons/map-pin.svg";
   static const String calendarRange = "assets/icons/calendar-range.svg";
+  static const String settings = "assets/icons/settings.svg";
 }

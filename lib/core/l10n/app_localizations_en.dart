@@ -697,4 +697,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logSession => 'Log Session';
+
+  @override
+  String get homeGreeting => 'Hello,';
+
+  @override
+  String get titleDoctor => 'Dr.';
+
+  @override
+  String get titleMr => 'Mr.';
+
+  @override
+  String get titleMrs => 'Mrs.';
 }

@@ -48,7 +48,7 @@ class IdCardUpload extends StatelessWidget {
         decoration: BoxDecoration(
           color: colors.secondaryLight,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: colors.primaryBorder, width: 0.8),
+          border: Border.all(color: colors.primaryActive, width: 0.8),
         ),
         child: Row(
           children: [

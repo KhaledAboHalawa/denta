@@ -219,5 +219,9 @@
   "visitProgress": "الزيارة {current} من {total}",
   "patientLabel": "المريض: {name}",
   "caseProgress": "تقدم الحالة",
-  "logSession": "تسجيل الجلسة"
+  "logSession": "تسجيل الجلسة",
+  "homeGreeting": "مرحبًا،",
+  "titleDoctor": "د.",
+  "titleMr": "السيد",
+  "titleMrs": "السيدة"
 }

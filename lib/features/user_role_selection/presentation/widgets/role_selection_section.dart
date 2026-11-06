@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/routing/route_paths.dart';
 import '../../../../core/widgets/custom_button.dart';
+import '../../../questionnaire/domain/entities/verification_info_params.dart';
 import 'role_selection_card.dart';
 
 enum UserRole {
@@ -44,6 +45,12 @@ enum UserRole {
         return '';
     }
   }
+
+  String title(AppLocalizations l10n, Gender gender) => switch (this) {
+    UserRole.dentist => l10n.titleDoctor,
+    UserRole.patient => gender == Gender.male ? l10n.titleMr : l10n.titleMrs,
+    UserRole.none => '',
+  };
 }
 
 class RoleSelectionSection extends StatefulWidget {

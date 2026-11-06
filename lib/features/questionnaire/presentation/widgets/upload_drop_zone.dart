@@ -26,7 +26,7 @@ class UploadDropZone extends StatelessWidget {
     final colors = context.appColors;
     final borderColor = hasError
         ? colors.error
-        : (dashed ? colors.primary : colors.primaryBorder);
+        : (dashed ? colors.primary : colors.primaryActive);
 
     final content = Row(
       mainAxisSize: dashed ? MainAxisSize.min : MainAxisSize.max,

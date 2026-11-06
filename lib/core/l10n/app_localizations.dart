@@ -1291,6 +1291,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log Session'**
   String get logSession;
+
+  /// No description provided for @homeGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello,'**
+  String get homeGreeting;
+
+  /// No description provided for @titleDoctor.
+  ///
+  /// In en, this message translates to:
+  /// **'Dr.'**
+  String get titleDoctor;
+
+  /// No description provided for @titleMr.
+  ///
+  /// In en, this message translates to:
+  /// **'Mr.'**
+  String get titleMr;
+
+  /// No description provided for @titleMrs.
+  ///
+  /// In en, this message translates to:
+  /// **'Mrs.'**
+  String get titleMrs;
 }
 
 class _AppLocalizationsDelegate
