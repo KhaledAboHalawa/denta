@@ -24,6 +24,22 @@ abstract final class AppPalette {
   static const Color secondaryLight = Color(0xFFF1F2FF);
   static const Color primaryBorder = Color(0xFFC8C8F4);
   static const Color infoDark = Color(0xFF7890A0);
+  static const Color glassLight = Color(0xFFEDF1F3);
+
+  // Gradients
+  static const LinearGradient dentaGradient = LinearGradient(
+    begin: Alignment(-0.85, -0.55),
+    end: Alignment(0.85, 0.55),
+    colors: [
+      Color(0xFF5E5FE8),
+      Color(0xFF4A4BC6),
+      Color(0xFF4647BD),
+      Color(0xFF4344B3),
+      Color(0xFF3C3DA2),
+      Color(0xFF222375),
+    ],
+    stops: [0.0304, 0.1045, 0.1719, 0.2394, 0.4987, 0.8515],
+  );
 }
 
 @immutable
@@ -47,6 +63,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.secondaryLight,
     required this.primaryBorder,
     required this.infoDark,
+    required this.glassLight,
+    required this.dentaGradient,
   });
 
   // Brand
@@ -72,6 +90,10 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color secondaryLight;
   final Color primaryBorder;
   final Color infoDark;
+  final Color glassLight;
+
+  // Gradients
+  final LinearGradient dentaGradient;
 
   static const light = AppColorsExtension(
     primary: AppPalette.primary,
@@ -92,6 +114,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     secondaryLight: AppPalette.secondaryLight,
     primaryBorder: AppPalette.primaryBorder,
     infoDark: AppPalette.infoDark,
+    glassLight: AppPalette.glassLight,
+    dentaGradient: AppPalette.dentaGradient,
   );
 
   static const dark = AppColorsExtension(
@@ -113,6 +137,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     secondaryLight: AppPalette.secondaryLight,
     primaryBorder: AppPalette.primaryBorder,
     infoDark: AppPalette.infoDark,
+    glassLight: AppPalette.glassLight,
+    dentaGradient: AppPalette.dentaGradient,
   );
 
   @override
@@ -135,6 +161,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? secondaryLight,
     Color? primaryBorder,
     Color? infoDark,
+    Color? glassLight,
+    LinearGradient? dentaGradient,
   }) {
     return AppColorsExtension(
       primary: primary ?? this.primary,
@@ -155,6 +183,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       secondaryLight: secondaryLight ?? this.secondaryLight,
       primaryBorder: primaryBorder ?? this.primaryBorder,
       infoDark: infoDark ?? this.infoDark,
+      glassLight: glassLight ?? this.glassLight,
+      dentaGradient: dentaGradient ?? this.dentaGradient,
     );
   }
 
@@ -184,6 +214,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       secondaryLight: Color.lerp(secondaryLight, other.secondaryLight, t)!,
       primaryBorder: Color.lerp(primaryBorder, other.primaryBorder, t)!,
       infoDark: Color.lerp(infoDark, other.infoDark, t)!,
+      glassLight: Color.lerp(glassLight, other.glassLight, t)!,
+      dentaGradient: LinearGradient.lerp(dentaGradient, other.dentaGradient, t)!,
     );
   }
 }

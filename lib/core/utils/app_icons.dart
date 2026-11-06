@@ -30,4 +30,6 @@ class AppIcons {
   static const String profile = "assets/icons/profile_icon.svg";
   static const String notification = "assets/icons/notification_icon.svg";
   static const String marketPlace = "assets/icons/store_icon.svg";
+  static const String mapPin = "assets/icons/map-pin.svg";
+  static const String calendarRange = "assets/icons/calendar-range.svg";
 }

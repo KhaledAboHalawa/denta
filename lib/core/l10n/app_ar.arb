@@ -214,5 +214,10 @@
   "navProfile": "الملف الشخصي",
   "male": "ذكر",
   "female": "انثى",
-  "gender": "النوع"
+  "gender": "النوع",
+  "currentActiveCase": "الحالة النشطة حاليًا",
+  "visitProgress": "الزيارة {current} من {total}",
+  "patientLabel": "المريض: {name}",
+  "caseProgress": "تقدم الحالة",
+  "logSession": "تسجيل الجلسة"
 }

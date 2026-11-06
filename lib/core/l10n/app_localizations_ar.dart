@@ -678,4 +678,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get gender => 'النوع';
+
+  @override
+  String get currentActiveCase => 'الحالة النشطة حاليًا';
+
+  @override
+  String visitProgress(int current, int total) {
+    return 'الزيارة $current من $total';
+  }
+
+  @override
+  String patientLabel(String name) {
+    return 'المريض: $name';
+  }
+
+  @override
+  String get caseProgress => 'تقدم الحالة';
+
+  @override
+  String get logSession => 'تسجيل الجلسة';
 }

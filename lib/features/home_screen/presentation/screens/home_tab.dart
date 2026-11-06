@@ -1,3 +1,4 @@
+import 'package:denta/features/home_screen/presentation/widgets/home_tab_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeTab extends StatelessWidget {
@@ -5,13 +6,6 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top,
-        left: 20,
-        right: 20,
-      ),
-      child: const Column(children: []),
-    );
+    return const HomeTabBody();
   }
 }

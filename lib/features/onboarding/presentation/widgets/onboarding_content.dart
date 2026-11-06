@@ -2,9 +2,9 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/routing/route_paths.dart';
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
+import 'package:denta/core/widgets/app_indicator.dart';
 import 'package:denta/core/widgets/custom_text_button.dart';
 import 'package:denta/features/onboarding/presentation/widgets/onboarding_button.dart';
-import 'package:denta/features/onboarding/presentation/widgets/onboarding_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -36,7 +36,7 @@ class OnboardingContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 90),
-        OnboardingIndicator(currentIndex: currentIndex!),
+        AppIndicator(currentIndex: currentIndex!),
 
         const SizedBox(height: 60),
 

@@ -12,4 +12,18 @@ class AppImages {
     onboarding3,
     onboarding4,
   ];
+  static const List<String> maleAvatars = [
+    "assets/images/male0.png",
+    "assets/images/male1.png",
+    "assets/images/male2.png",
+  ];
+  static const List<String> femaleAvatars = [
+    "assets/images/female0.png",
+    "assets/images/female1.png",
+    "assets/images/female2.png",
+  ];
+  static const Map<String, List<String>> avatars = {
+    'male': maleAvatars,
+    'female': femaleAvatars,
+  };
 }

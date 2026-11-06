@@ -1261,6 +1261,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Gender'**
   String get gender;
+
+  /// No description provided for @currentActiveCase.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Active Case'**
+  String get currentActiveCase;
+
+  /// No description provided for @visitProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Visit {current} of {total}'**
+  String visitProgress(int current, int total);
+
+  /// No description provided for @patientLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Patient: {name}'**
+  String patientLabel(String name);
+
+  /// No description provided for @caseProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Case progress'**
+  String get caseProgress;
+
+  /// No description provided for @logSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Session'**
+  String get logSession;
 }
 
 class _AppLocalizationsDelegate

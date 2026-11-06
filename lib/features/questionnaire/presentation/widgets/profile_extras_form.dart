@@ -157,8 +157,9 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
               prev.profileExtras.certificationPaths !=
               curr.profileExtras.certificationPaths,
           builder: (context, state) {
-            if (state.profileExtras.certificationPaths.isEmpty)
+            if (state.profileExtras.certificationPaths.isEmpty) {
               return const SizedBox();
+            }
             return Padding(
               padding: const EdgeInsets.only(top: 12),
               child: Wrap(
@@ -194,8 +195,9 @@ class _ProfileExtrasFormState extends State<ProfileExtrasForm> {
               prev.profileExtras.casePhotoPaths !=
               curr.profileExtras.casePhotoPaths,
           builder: (context, state) {
-            if (state.profileExtras.casePhotoPaths.isEmpty)
+            if (state.profileExtras.casePhotoPaths.isEmpty) {
               return const SizedBox();
+            }
             return Padding(
               padding: const EdgeInsets.only(top: 12),
               child: CasePhotosGrid(

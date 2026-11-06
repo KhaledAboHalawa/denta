@@ -678,4 +678,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get gender => 'Gender';
+
+  @override
+  String get currentActiveCase => 'Current Active Case';
+
+  @override
+  String visitProgress(int current, int total) {
+    return 'Visit $current of $total';
+  }
+
+  @override
+  String patientLabel(String name) {
+    return 'Patient: $name';
+  }
+
+  @override
+  String get caseProgress => 'Case progress';
+
+  @override
+  String get logSession => 'Log Session';
 }

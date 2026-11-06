@@ -1,16 +1,12 @@
 import 'package:denta/features/forgot_password/presentation/screens/forget_password_screen.dart';
 import 'package:denta/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:denta/features/onboarding/presentation/screens/onboarding_screen.dart';
-import 'package:denta/features/user_role_selection/presentation/screens/role_selection_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/main_layout/presentation/screens/main_screen.dart';
 import '../../features/onboarding/domain/use_case/get_onboarding_status_use_case.dart';
 import '../../features/questionnaire/presentation/screens/questionnaire_screen.dart';
-import '../../features/register/presentation/screens/register_screen.dart';
-import '../../features/sign_in/presentation/screens/sign_in_screen.dart';
-import '../../features/user_role_selection/presentation/widgets/role_selection_section.dart';
 import '../di/dependency_injection.dart';
 import 'route_paths.dart';
 
@@ -39,29 +35,29 @@ final GoRouter router = GoRouter(
           CupertinoPage(key: state.pageKey, child: const OnboardingScreen()),
     ),
 
-    GoRoute(
-      path: RoutePaths.roleSelectionPath,
-      name: RoutePaths.roleSelectionPath,
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          const CupertinoPage(child: RoleSelectionScreen()),
-      routes: [
-        GoRoute(
-          path: RoutePaths.registerPath,
-          name: RoutePaths.registerPath,
-          pageBuilder: (BuildContext context, GoRouterState state) =>
-              CupertinoPage(
-                key: state.pageKey,
-                child: RegisterScreen(role: state.extra as UserRole),
-              ),
-        ),
-        GoRoute(
-          path: RoutePaths.signInPath,
-          name: RoutePaths.signInPath,
-          pageBuilder: (BuildContext context, GoRouterState state) =>
-              const CupertinoPage(child: SignInScreen()),
-        ),
-      ],
-    ),
+    // GoRoute(
+    //   path: RoutePaths.roleSelectionPath,
+    //   name: RoutePaths.roleSelectionPath,
+    //   pageBuilder: (BuildContext context, GoRouterState state) =>
+    //       const CupertinoPage(child: RoleSelectionScreen()),
+    //   routes: [
+    //     GoRoute(
+    //       path: RoutePaths.registerPath,
+    //       name: RoutePaths.registerPath,
+    //       pageBuilder: (BuildContext context, GoRouterState state) =>
+    //           CupertinoPage(
+    //             key: state.pageKey,
+    //             child: RegisterScreen(role: state.extra as UserRole),
+    //           ),
+    //     ),
+    //     GoRoute(
+    //       path: RoutePaths.signInPath,
+    //       name: RoutePaths.signInPath,
+    //       pageBuilder: (BuildContext context, GoRouterState state) =>
+    //           const CupertinoPage(child: SignInScreen()),
+    //     ),
+    //   ],
+    // ),
     GoRoute(
       path: RoutePaths.forgetPasswordPath,
       name: RoutePaths.forgetPasswordPath,
@@ -83,8 +79,8 @@ final GoRouter router = GoRouter(
           const CupertinoPage(child: NotificationsScreen()),
     ),
     GoRoute(
-      path: RoutePaths.mainPath,
-      name: RoutePaths.mainPath,
+      path: RoutePaths.roleSelectionPath,
+      name: RoutePaths.roleSelectionPath,
       pageBuilder: (context, state) => const CupertinoPage(child: MainScreen()),
     ),
   ],

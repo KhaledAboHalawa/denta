@@ -320,5 +320,27 @@
   "navProfile": "Profile",
   "male": "Male",
   "female": "Female",
-  "gender": "Gender"
+  "gender": "Gender",
+  "currentActiveCase": "Current Active Case",
+  "visitProgress": "Visit {current} of {total}",
+  "@visitProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "patientLabel": "Patient: {name}",
+  "@patientLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "caseProgress": "Case progress",
+  "logSession": "Log Session"
 }

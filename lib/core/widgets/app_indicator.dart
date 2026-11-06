@@ -1,9 +1,15 @@
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingIndicator extends StatelessWidget {
-  const OnboardingIndicator({super.key, required this.currentIndex});
-
+class AppIndicator extends StatelessWidget {
+  const AppIndicator({
+    super.key,
+    required this.currentIndex,
+    this.selected,
+    this.unSelected,
+  });
+  final Color? selected;
+  final Color? unSelected;
   final int currentIndex;
 
   @override
@@ -20,8 +26,8 @@ class OnboardingIndicator extends StatelessWidget {
           height: 7,
           decoration: BoxDecoration(
             color: isSelected
-                ? context.appColors.secondary
-                : context.appColors.white,
+                ? selected ?? context.appColors.secondary
+                : unSelected ?? context.appColors.white,
             borderRadius: BorderRadius.circular(10),
           ),
         );
