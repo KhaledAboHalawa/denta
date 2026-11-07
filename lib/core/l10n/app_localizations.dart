@@ -1333,6 +1333,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Request Your First Case'**
   String get requestFirstCase;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get viewAll;
+
+  /// No description provided for @requestNewCase.
+  ///
+  /// In en, this message translates to:
+  /// **'Request New Case'**
+  String get requestNewCase;
+
+  /// No description provided for @pendingMatchesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending Matches'**
+  String get pendingMatchesTitle;
+
+  /// No description provided for @pendingMatchSearching.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching For Patients'**
+  String get pendingMatchSearching;
+
+  /// No description provided for @pendingMatchNeedsAdjustments.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs Adjustments'**
+  String get pendingMatchNeedsAdjustments;
+
+  /// No description provided for @requestedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Requested on {date}'**
+  String requestedOn(String date);
+
+  /// No description provided for @pendingMatchesLoadFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load pending matches. Tap to retry.'**
+  String get pendingMatchesLoadFailed;
+
+  /// No description provided for @pendingMatchesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No pending matches yet.'**
+  String get pendingMatchesEmpty;
+
+  /// No description provided for @matchDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Case Details'**
+  String get matchDetailsTitle;
+
+  /// No description provided for @editMatchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Case Request'**
+  String get editMatchTitle;
 }
 
 class _AppLocalizationsDelegate

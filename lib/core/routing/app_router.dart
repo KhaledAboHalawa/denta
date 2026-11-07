@@ -5,6 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/main_layout/presentation/screens/main_screen.dart';
+import '../../features/pending_matches/presentation/screens/edit_match_screen.dart';
+import '../../features/pending_matches/presentation/screens/match_details_screen.dart';
+import '../../features/pending_matches/presentation/screens/pending_matches_screen.dart';
 import '../../features/onboarding/domain/use_case/get_onboarding_status_use_case.dart';
 import '../../features/questionnaire/presentation/screens/questionnaire_screen.dart';
 import '../di/dependency_injection.dart';
@@ -82,6 +85,30 @@ final GoRouter router = GoRouter(
       path: RoutePaths.roleSelectionPath,
       name: RoutePaths.roleSelectionPath,
       pageBuilder: (context, state) => const CupertinoPage(child: MainScreen()),
+    ),
+    GoRoute(
+      path: RoutePaths.pendingMatchesPath,
+      name: RoutePaths.pendingMatchesPath,
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: const PendingMatchesScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '${RoutePaths.matchDetailsPath}/:id',
+      name: RoutePaths.matchDetailsPath,
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: MatchDetailsScreen(matchId: state.pathParameters['id']!),
+      ),
+    ),
+    GoRoute(
+      path: '${RoutePaths.editMatchPath}/:id',
+      name: RoutePaths.editMatchPath,
+      pageBuilder: (context, state) => CupertinoPage(
+        key: state.pageKey,
+        child: EditMatchScreen(matchId: state.pathParameters['id']!),
+      ),
     ),
   ],
 );

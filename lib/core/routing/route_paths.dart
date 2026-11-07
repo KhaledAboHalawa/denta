@@ -10,5 +10,8 @@ abstract class RoutePaths {
   static const String notificationsPath = '/notifications';
   static const String questionnairePath = '/questionnaire';
   static const String mainPath = '/main';
+  static const String pendingMatchesPath = '/pending_matches';
+  static const String matchDetailsPath = '/match_details';
+  static const String editMatchPath = '/edit_match';
   
 }

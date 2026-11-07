@@ -226,5 +226,16 @@
   "titleMrs": "السيدة",
   "firstCaseTitle": "لنبحث عن حالتك الأولى!",
   "firstCaseSubtitle": "حدد متطلباتك السريرية وسنطابقك مع مريض مناسب لحالتك",
-  "requestFirstCase": "اطلب حالتك الأولى"
+  "requestFirstCase": "اطلب حالتك الأولى",
+  "edit": "تعديل",
+  "viewAll": "عرض الكل",
+  "requestNewCase": "طلب حالة جديدة",
+  "pendingMatchesTitle": "المطابقات المعلقة",
+  "pendingMatchSearching": "جارٍ البحث عن مرضى",
+  "pendingMatchNeedsAdjustments": "تحتاج تعديلات",
+  "requestedOn": "تم الطلب في {date}",
+  "pendingMatchesLoadFailed": "تعذّر تحميل المطابقات المعلقة. اضغط لإعادة المحاولة.",
+  "pendingMatchesEmpty": "لا توجد مطابقات معلقة حتى الآن.",
+  "matchDetailsTitle": "تفاصيل الحالة",
+  "editMatchTitle": "تعديل طلب الحالة"
 }

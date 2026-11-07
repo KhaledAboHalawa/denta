@@ -37,4 +37,7 @@ class AppIcons {
   static const String emptyCaseWaveArrow =
       "assets/icons/empty_case_wave_arrow.svg";
   static const String emptyCasePin = "assets/icons/empty_case_pin.svg";
+  static const String search = "assets/icons/search.svg";
+  static const String alertCircle = "assets/icons/alert-circle.svg";
+  static const String arrowRight = "assets/icons/arrow-right.svg";
 }

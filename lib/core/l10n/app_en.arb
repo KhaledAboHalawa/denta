@@ -349,5 +349,23 @@
   "titleMrs": "Mrs.",
   "firstCaseTitle": "Let’s Find Your First Case!",
   "firstCaseSubtitle": "Set your clinical requirements, and we’ll match you with a patient who fits your case",
-  "requestFirstCase": "Request Your First Case"
+  "requestFirstCase": "Request Your First Case",
+  "edit": "Edit",
+  "viewAll": "View All",
+  "requestNewCase": "Request New Case",
+  "pendingMatchesTitle": "Pending Matches",
+  "pendingMatchSearching": "Searching For Patients",
+  "pendingMatchNeedsAdjustments": "Needs Adjustments",
+  "requestedOn": "Requested on {date}",
+  "@requestedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingMatchesLoadFailed": "Couldn't load pending matches. Tap to retry.",
+  "pendingMatchesEmpty": "No pending matches yet.",
+  "matchDetailsTitle": "Case Details",
+  "editMatchTitle": "Edit Case Request"
 }

@@ -43,6 +43,16 @@ import '../../features/onboarding/domain/use_case/save_onboarding_completion_use
     as _i551;
 import '../../features/onboarding/presentation/cubit/onboarding_cubit.dart'
     as _i807;
+import '../../features/pending_matches/data/datasources/pending_matches_data_source.dart'
+    as _i294;
+import '../../features/pending_matches/data/repositories/pending_matches_repo_impl.dart'
+    as _i33;
+import '../../features/pending_matches/domain/repositories/pending_matches_repo.dart'
+    as _i489;
+import '../../features/pending_matches/domain/usecases/get_pending_matches_use_case.dart'
+    as _i894;
+import '../../features/pending_matches/presentation/cubit/pending_matches_cubit.dart'
+    as _i193;
 import '../../features/questionnaire/data/datasources/questionnaire_data_source.dart'
     as _i945;
 import '../../features/questionnaire/data/repositories/questionnaire_repo_impl.dart'
@@ -90,11 +100,19 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1034.NotificationsLocalDataSource>(
       () => _i1034.NotificationsLocalDataSource(),
     );
+    gh.lazySingleton<_i294.PendingMatchesDataSource>(
+      () => _i294.PendingMatchesDataSource(),
+    );
     gh.lazySingleton<_i640.SignInCubit>(() => _i640.SignInCubit());
     gh.factory<String>(() => registerModule.baseUrl, instanceName: 'BaseUrl');
     gh.lazySingleton<_i563.NotificationsRepository>(
       () => _i201.NotificationsRepositoryImpl(
         localDataSource: gh<_i1034.NotificationsLocalDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i489.PendingMatchesRepo>(
+      () => _i33.PendingMatchesRepoImpl(
+        pendingMatchesDataSource: gh<_i294.PendingMatchesDataSource>(),
       ),
     );
     gh.lazySingleton<_i945.QuestionnaireDataSource>(
@@ -166,6 +184,14 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i672.SubmitVerificationInfoUseCase(
         questionnaireRepo: gh<_i1006.QuestionnaireRepo>(),
       ),
+    );
+    gh.lazySingleton<_i894.GetPendingMatchesUseCase>(
+      () => _i894.GetPendingMatchesUseCase(
+        pendingMatchesRepo: gh<_i489.PendingMatchesRepo>(),
+      ),
+    );
+    gh.factory<_i193.PendingMatchesCubit>(
+      () => _i193.PendingMatchesCubit(gh<_i894.GetPendingMatchesUseCase>()),
     );
     gh.lazySingleton<_i441.RegisterUseCase>(
       () => _i441.RegisterUseCase(registerRepo: gh<_i837.RegisterRepo>()),

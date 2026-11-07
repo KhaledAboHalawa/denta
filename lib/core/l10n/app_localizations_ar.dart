@@ -719,4 +719,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get requestFirstCase => 'اطلب حالتك الأولى';
+
+  @override
+  String get edit => 'تعديل';
+
+  @override
+  String get viewAll => 'عرض الكل';
+
+  @override
+  String get requestNewCase => 'طلب حالة جديدة';
+
+  @override
+  String get pendingMatchesTitle => 'المطابقات المعلقة';
+
+  @override
+  String get pendingMatchSearching => 'جارٍ البحث عن مرضى';
+
+  @override
+  String get pendingMatchNeedsAdjustments => 'تحتاج تعديلات';
+
+  @override
+  String requestedOn(String date) {
+    return 'تم الطلب في $date';
+  }
+
+  @override
+  String get pendingMatchesLoadFailed =>
+      'تعذّر تحميل المطابقات المعلقة. اضغط لإعادة المحاولة.';
+
+  @override
+  String get pendingMatchesEmpty => 'لا توجد مطابقات معلقة حتى الآن.';
+
+  @override
+  String get matchDetailsTitle => 'تفاصيل الحالة';
+
+  @override
+  String get editMatchTitle => 'تعديل طلب الحالة';
 }

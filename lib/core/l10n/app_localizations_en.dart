@@ -719,4 +719,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get requestFirstCase => 'Request Your First Case';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get viewAll => 'View All';
+
+  @override
+  String get requestNewCase => 'Request New Case';
+
+  @override
+  String get pendingMatchesTitle => 'Pending Matches';
+
+  @override
+  String get pendingMatchSearching => 'Searching For Patients';
+
+  @override
+  String get pendingMatchNeedsAdjustments => 'Needs Adjustments';
+
+  @override
+  String requestedOn(String date) {
+    return 'Requested on $date';
+  }
+
+  @override
+  String get pendingMatchesLoadFailed =>
+      'Couldn\'t load pending matches. Tap to retry.';
+
+  @override
+  String get pendingMatchesEmpty => 'No pending matches yet.';
+
+  @override
+  String get matchDetailsTitle => 'Case Details';
+
+  @override
+  String get editMatchTitle => 'Edit Case Request';
 }

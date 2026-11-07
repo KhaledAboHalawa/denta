@@ -25,6 +25,8 @@ abstract final class AppPalette {
   static const Color primaryActive = Color(0xFFC8C8F4);
   static const Color infoDark = Color(0xFF7890A0);
   static const Color glassLight = Color(0xFFEDF1F3);
+  static const Color warningLight = Color(0xFFFEEBBB);
+  static const Color warningDark = Color(0xFFBC8F1B);
 
   // Gradients
   static const LinearGradient dentaGradient = LinearGradient(
@@ -64,6 +66,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.primaryActive,
     required this.infoDark,
     required this.glassLight,
+    required this.warningLight,
+    required this.warningDark,
     required this.dentaGradient,
   });
 
@@ -91,6 +95,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color primaryActive;
   final Color infoDark;
   final Color glassLight;
+  final Color warningLight;
+  final Color warningDark;
 
   // Gradients
   final LinearGradient dentaGradient;
@@ -115,6 +121,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     primaryActive: AppPalette.primaryActive,
     infoDark: AppPalette.infoDark,
     glassLight: AppPalette.glassLight,
+    warningLight: AppPalette.warningLight,
+    warningDark: AppPalette.warningDark,
     dentaGradient: AppPalette.dentaGradient,
   );
 
@@ -138,6 +146,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     primaryActive: AppPalette.primaryActive,
     infoDark: AppPalette.infoDark,
     glassLight: AppPalette.glassLight,
+    warningLight: AppPalette.warningLight,
+    warningDark: AppPalette.warningDark,
     dentaGradient: AppPalette.dentaGradient,
   );
 
@@ -162,6 +172,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? primaryActive,
     Color? infoDark,
     Color? glassLight,
+    Color? warningLight,
+    Color? warningDark,
     LinearGradient? dentaGradient,
   }) {
     return AppColorsExtension(
@@ -184,6 +196,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       primaryActive: primaryActive ?? this.primaryActive,
       infoDark: infoDark ?? this.infoDark,
       glassLight: glassLight ?? this.glassLight,
+      warningLight: warningLight ?? this.warningLight,
+      warningDark: warningDark ?? this.warningDark,
       dentaGradient: dentaGradient ?? this.dentaGradient,
     );
   }
@@ -215,6 +229,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       primaryActive: Color.lerp(primaryActive, other.primaryActive, t)!,
       infoDark: Color.lerp(infoDark, other.infoDark, t)!,
       glassLight: Color.lerp(glassLight, other.glassLight, t)!,
+      warningLight: Color.lerp(warningLight, other.warningLight, t)!,
+      warningDark: Color.lerp(warningDark, other.warningDark, t)!,
       dentaGradient: LinearGradient.lerp(
         dentaGradient,
         other.dentaGradient,
