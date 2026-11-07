@@ -33,4 +33,8 @@ class AppIcons {
   static const String mapPin = "assets/icons/map-pin.svg";
   static const String calendarRange = "assets/icons/calendar-range.svg";
   static const String settings = "assets/icons/settings.svg";
+  static const String emptyCaseTooth = "assets/icons/empty_case_tooth.svg";
+  static const String emptyCaseWaveArrow =
+      "assets/icons/empty_case_wave_arrow.svg";
+  static const String emptyCasePin = "assets/icons/empty_case_pin.svg";
 }

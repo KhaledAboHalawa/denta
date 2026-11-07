@@ -709,4 +709,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get titleMrs => 'السيدة';
+
+  @override
+  String get firstCaseTitle => 'لنبحث عن حالتك الأولى!';
+
+  @override
+  String get firstCaseSubtitle =>
+      'حدد متطلباتك السريرية وسنطابقك مع مريض مناسب لحالتك';
+
+  @override
+  String get requestFirstCase => 'اطلب حالتك الأولى';
 }

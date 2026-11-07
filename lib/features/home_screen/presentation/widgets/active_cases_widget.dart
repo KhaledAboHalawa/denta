@@ -3,9 +3,18 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/app_indicator.dart';
 import 'active_case_card.dart';
+import 'empty_active_case_card.dart';
 
 class ActiveCasesWidget extends StatefulWidget {
-  const ActiveCasesWidget({super.key});
+  const ActiveCasesWidget({
+    super.key,
+    required this.casesCount,
+    required this.onRequestCase,
+  });
+
+  /// Number of active cases. `0` shows [EmptyActiveCaseCard].
+  final int casesCount;
+  final VoidCallback onRequestCase;
 
   @override
   State<ActiveCasesWidget> createState() => _ActiveCasesWidgetState();
@@ -16,6 +25,10 @@ class _ActiveCasesWidgetState extends State<ActiveCasesWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.casesCount == 0) {
+      return EmptyActiveCaseCard(onRequestCase: widget.onRequestCase);
+    }
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       spacing: 12,
@@ -24,6 +37,7 @@ class _ActiveCasesWidgetState extends State<ActiveCasesWidget> {
           height: 280,
 
           child: PageView.builder(
+            itemCount: widget.casesCount,
             onPageChanged: (value) => setState(() {
               _currentIndex = value;
             }),

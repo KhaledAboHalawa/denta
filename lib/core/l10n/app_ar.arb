@@ -223,5 +223,8 @@
   "homeGreeting": "مرحبًا،",
   "titleDoctor": "د.",
   "titleMr": "السيد",
-  "titleMrs": "السيدة"
+  "titleMrs": "السيدة",
+  "firstCaseTitle": "لنبحث عن حالتك الأولى!",
+  "firstCaseSubtitle": "حدد متطلباتك السريرية وسنطابقك مع مريض مناسب لحالتك",
+  "requestFirstCase": "اطلب حالتك الأولى"
 }

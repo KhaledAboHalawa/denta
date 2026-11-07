@@ -1,0 +1,233 @@
+diff --git a/lib/core/l10n/app_ar.arb b/lib/core/l10n/app_ar.arb
+index afbfb28..fa289be 100644
+--- a/lib/core/l10n/app_ar.arb
++++ b/lib/core/l10n/app_ar.arb
+@@ -223,5 +223,8 @@
+   "homeGreeting": "مرحبًا،",
+   "titleDoctor": "د.",
+   "titleMr": "السيد",
+-  "titleMrs": "السيدة"
++  "titleMrs": "السيدة",
++  "firstCaseTitle": "لنبحث عن حالتك الأولى!",
++  "firstCaseSubtitle": "حدد متطلباتك السريرية وسنطابقك مع مريض مناسب لحالتك",
++  "requestFirstCase": "اطلب حالتك الأولى"
+ }
+\ No newline at end of file
+diff --git a/lib/core/l10n/app_en.arb b/lib/core/l10n/app_en.arb
+index 1061803..763b541 100644
+--- a/lib/core/l10n/app_en.arb
++++ b/lib/core/l10n/app_en.arb
+@@ -346,5 +346,8 @@
+   "homeGreeting": "Hello,",
+   "titleDoctor": "Dr.",
+   "titleMr": "Mr.",
+-  "titleMrs": "Mrs."
++  "titleMrs": "Mrs.",
++  "firstCaseTitle": "Let’s Find Your First Case!",
++  "firstCaseSubtitle": "Set your clinical requirements, and we’ll match you with a patient who fits your case",
++  "requestFirstCase": "Request Your First Case"
+ }
+\ No newline at end of file
+diff --git a/lib/core/utils/app_icons.dart b/lib/core/utils/app_icons.dart
+index 7573b41..164770e 100644
+--- a/lib/core/utils/app_icons.dart
++++ b/lib/core/utils/app_icons.dart
+@@ -33,4 +33,8 @@ class AppIcons {
+   static const String mapPin = "assets/icons/map-pin.svg";
+   static const String calendarRange = "assets/icons/calendar-range.svg";
+   static const String settings = "assets/icons/settings.svg";
++  static const String emptyCaseTooth = "assets/icons/empty_case_tooth.svg";
++  static const String emptyCaseWaveArrow =
++      "assets/icons/empty_case_wave_arrow.svg";
++  static const String emptyCasePin = "assets/icons/empty_case_pin.svg";
+ }
+diff --git a/lib/features/home_screen/presentation/widgets/active_cases_widget.dart b/lib/features/home_screen/presentation/widgets/active_cases_widget.dart
+index c84a791..d09aa10 100644
+--- a/lib/features/home_screen/presentation/widgets/active_cases_widget.dart
++++ b/lib/features/home_screen/presentation/widgets/active_cases_widget.dart
+@@ -3,9 +3,18 @@ import 'package:flutter/material.dart';
+ 
+ import '../../../../core/widgets/app_indicator.dart';
+ import 'active_case_card.dart';
++import 'empty_active_case_card.dart';
+ 
+ class ActiveCasesWidget extends StatefulWidget {
+-  const ActiveCasesWidget({super.key});
++  const ActiveCasesWidget({
++    super.key,
++    required this.casesCount,
++    required this.onRequestCase,
++  });
++
++  /// Number of active cases. `0` shows [EmptyActiveCaseCard].
++  final int casesCount;
++  final VoidCallback onRequestCase;
+ 
+   @override
+   State<ActiveCasesWidget> createState() => _ActiveCasesWidgetState();
+@@ -16,6 +25,10 @@ class _ActiveCasesWidgetState extends State<ActiveCasesWidget> {
+ 
+   @override
+   Widget build(BuildContext context) {
++    if (widget.casesCount == 0) {
++      return EmptyActiveCaseCard(onRequestCase: widget.onRequestCase);
++    }
++
+     return Column(
+       mainAxisSize: MainAxisSize.min,
+       spacing: 12,
+@@ -24,6 +37,7 @@ class _ActiveCasesWidgetState extends State<ActiveCasesWidget> {
+           height: 280,
+ 
+           child: PageView.builder(
++            itemCount: widget.casesCount,
+             onPageChanged: (value) => setState(() {
+               _currentIndex = value;
+             }),
+diff --git a/lib/features/home_screen/presentation/widgets/empty_active_case_card.dart b/lib/features/home_screen/presentation/widgets/empty_active_case_card.dart
+new file mode 100644
+index 0000000..553e43a
+--- /dev/null
++++ b/lib/features/home_screen/presentation/widgets/empty_active_case_card.dart
+@@ -0,0 +1,111 @@
++import 'package:flutter/material.dart';
++import 'package:flutter_svg/flutter_svg.dart';
++
++import '../../../../core/l10n/app_localizations.dart';
++import '../../../../core/theme/app_colors.dart';
++import '../../../../core/theme/app_typography.dart';
++import '../../../../core/utils/app_icons.dart';
++import '../../../../core/widgets/custom_button.dart';
++
++/// Home card shown instead of [ActiveCaseCard] when the student has no active
++/// case yet. It invites them to request their first case.
++class EmptyActiveCaseCard extends StatelessWidget {
++  const EmptyActiveCaseCard({super.key, required this.onRequestCase});
++
++  final VoidCallback onRequestCase;
++
++  @override
++  Widget build(BuildContext context) {
++    final colors = context.appColors;
++    final l10n = AppLocalizations.of(context)!;
++
++    return Container(
++      padding: const EdgeInsetsDirectional.symmetric(
++        horizontal: 20,
++        vertical: 24,
++      ),
++      margin: const EdgeInsets.symmetric(horizontal: 10),
++      decoration: BoxDecoration(
++        gradient: colors.dentaGradient,
++        borderRadius: BorderRadius.circular(12),
++        boxShadow: [
++          BoxShadow(
++            color: colors.primary.withValues(alpha: 0.35),
++            offset: const Offset(0, 3),
++            blurRadius: 7,
++          ),
++        ],
++      ),
++      child: Column(
++        mainAxisSize: MainAxisSize.min,
++        crossAxisAlignment: CrossAxisAlignment.start,
++        children: [
++          const Center(child: _HeroIllustration()),
++          const SizedBox(height: 12),
++          Text(
++            l10n.firstCaseTitle,
++            style: context.text.heading2.copyWith(color: colors.white),
++            maxLines: 2,
++            overflow: TextOverflow.ellipsis,
++          ),
++          const SizedBox(height: 16),
++          Text(
++            l10n.firstCaseSubtitle,
++            style: context.text.captionDefault.copyWith(color: colors.white),
++          ),
++          const SizedBox(height: 20),
++          CustomButton(
++            isLoading: false,
++            title: l10n.requestFirstCase,
++            onPressed: onRequestCase,
++            backgroundColor: colors.white,
++            foregroundColor: colors.primary,
++            height: 56,
++          ),
++        ],
++      ),
++    );
++  }
++}
++
++/// Tooth ⇢ dashed arrow ⇢ pin. The arrow is mirrored in RTL so it keeps
++/// pointing from the tooth to the pin.
++class _HeroIllustration extends StatelessWidget {
++  const _HeroIllustration();
++
++  static const double _iconSize = 63.639;
++
++  @override
++  Widget build(BuildContext context) {
++    final isRtl = Directionality.of(context) == TextDirection.rtl;
++
++    Widget arrow = SvgPicture.asset(
++      AppIcons.emptyCaseWaveArrow,
++      height: 28.284,
++      fit: BoxFit.fill,
++    );
++    if (isRtl) arrow = Transform.flip(flipX: true, child: arrow);
++
++    return ConstrainedBox(
++      constraints: const BoxConstraints(maxWidth: 274),
++      child: Padding(
++        padding: const EdgeInsetsDirectional.symmetric(horizontal: 21.213),
++        child: Row(
++          children: [
++            SvgPicture.asset(
++              AppIcons.emptyCaseTooth,
++              width: _iconSize,
++              height: _iconSize,
++            ),
++            Expanded(child: arrow),
++            SvgPicture.asset(
++              AppIcons.emptyCasePin,
++              width: _iconSize,
++              height: _iconSize,
++            ),
++          ],
++        ),
++      ),
++    );
++  }
++}
+diff --git a/lib/features/home_screen/presentation/widgets/home_tab_body.dart b/lib/features/home_screen/presentation/widgets/home_tab_body.dart
+index 0780773..853dae8 100644
+--- a/lib/features/home_screen/presentation/widgets/home_tab_body.dart
++++ b/lib/features/home_screen/presentation/widgets/home_tab_body.dart
+@@ -12,16 +12,22 @@ class HomeTabBody extends StatelessWidget {
+   Widget build(BuildContext context) {
+     return Padding(
+       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 24),
+-      child: const Column(
++      child: Column(
+         spacing: 18,
+         children: [
+           // TODO: replace with the signed-in user's data once it exists.
+-          HomeHeader(
++          const HomeHeader(
+             name: 'Ali El-Alfy',
+             role: UserRole.dentist,
+             gender: Gender.male,
+           ),
+-          ActiveCasesWidget(),
++          ActiveCasesWidget(
++            // TODO: replace with the real number of active cases.
++            // Set it to 0 to preview the empty state.
++            casesCount: 4,
++            // TODO: navigate to the "request a case" flow once it exists.
++            onRequestCase: () {},
++          ),
+         ],
+       ),
+     );

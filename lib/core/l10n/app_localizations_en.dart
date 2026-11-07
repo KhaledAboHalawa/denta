@@ -709,4 +709,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get titleMrs => 'Mrs.';
+
+  @override
+  String get firstCaseTitle => 'Let’s Find Your First Case!';
+
+  @override
+  String get firstCaseSubtitle =>
+      'Set your clinical requirements, and we’ll match you with a patient who fits your case';
+
+  @override
+  String get requestFirstCase => 'Request Your First Case';
 }

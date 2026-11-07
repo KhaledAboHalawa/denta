@@ -1315,6 +1315,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mrs.'**
   String get titleMrs;
+
+  /// No description provided for @firstCaseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Let’s Find Your First Case!'**
+  String get firstCaseTitle;
+
+  /// No description provided for @firstCaseSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your clinical requirements, and we’ll match you with a patient who fits your case'**
+  String get firstCaseSubtitle;
+
+  /// No description provided for @requestFirstCase.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Your First Case'**
+  String get requestFirstCase;
 }
 
 class _AppLocalizationsDelegate

@@ -346,5 +346,8 @@
   "homeGreeting": "Hello,",
   "titleDoctor": "Dr.",
   "titleMr": "Mr.",
-  "titleMrs": "Mrs."
+  "titleMrs": "Mrs.",
+  "firstCaseTitle": "Let’s Find Your First Case!",
+  "firstCaseSubtitle": "Set your clinical requirements, and we’ll match you with a patient who fits your case",
+  "requestFirstCase": "Request Your First Case"
 }

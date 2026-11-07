@@ -12,16 +12,19 @@ class HomeTabBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 24),
-      child: const Column(
+      child: Column(
         spacing: 18,
         children: [
           // TODO: replace with the signed-in user's data once it exists.
-          HomeHeader(
+          const HomeHeader(
             name: 'Ali El-Alfy',
             role: UserRole.dentist,
             gender: Gender.male,
           ),
-          ActiveCasesWidget(),
+          ActiveCasesWidget(
+            casesCount: 0,
+            onRequestCase: () {},
+          ),
         ],
       ),
     );
