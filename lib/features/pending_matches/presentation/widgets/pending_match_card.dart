@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 
@@ -138,7 +138,6 @@ class _MetaItem extends StatelessWidget {
   }
 }
 
-/// "Requested on <date>" with only the date in semi-bold, in any language.
 class _RequestedOn extends StatelessWidget {
   const _RequestedOn({required this.date});
 

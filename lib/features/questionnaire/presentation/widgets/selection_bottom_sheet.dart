@@ -2,7 +2,7 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/core/widgets/custom_text_field.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class SelectionItem<T> {
   final T value;
@@ -17,7 +17,7 @@ Future<T?> showSelectionSheet<T>(
   required List<SelectionItem<T>> items,
   T? selected,
 }) {
-  return showModalBottomSheet<T>(
+  return  showModalBottomSheet<T>(
     context: context,
     isScrollControlled: true,
     showDragHandle: true,

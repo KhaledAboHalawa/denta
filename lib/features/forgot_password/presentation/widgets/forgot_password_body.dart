@@ -1,7 +1,7 @@
 import 'package:denta/core/config/base_state/base_state.dart';
 import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/shared/auth/shared_presentation/widgets/auth_app_bar.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/dependency_injection.dart';

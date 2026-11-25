@@ -1,6 +1,6 @@
 import 'package:denta/core/localization/locale_cubit.dart';
 import 'package:denta/core/routing/app_router.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/l10n/app_localizations.dart';

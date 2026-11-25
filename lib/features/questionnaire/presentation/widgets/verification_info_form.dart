@@ -15,7 +15,7 @@ import 'package:denta/features/questionnaire/presentation/widgets/academic_year_
 import 'package:denta/features/questionnaire/presentation/widgets/id_card_upload.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/image_source_sheet.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/selection_bottom_sheet.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'confirm_cancel_questionnaire.dart';
@@ -67,26 +67,43 @@ class _VerificationInfoFormState extends State<VerificationInfoForm> {
       _cubit.doIntent(const QuestionnaireLoadUniversitiesEvent());
       return;
     }
-    _nameNode.unfocus();
+
+    await _dismissKeyboard();
+    if (!mounted) return;
+
     final l10n = AppLocalizations.of(context)!;
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final picked = await showSelectionSheet<UniversityEntity>(
-        context,
-        title: l10n.questionnaireUniversityLabel,
-        selected: state.verificationInfo.university,
-        items: (universities.data ?? [])
-            .map((u) => SelectionItem(value: u, label: u.name))
-            .toList(),
-      );
-      if (picked != null) {
-        _cubit.doIntent(QuestionnaireSelectUniversityEvent(picked));
-      }
-    });
+    final picked = await showSelectionSheet<UniversityEntity>(
+      context,
+      title: l10n.questionnaireUniversityLabel,
+      selected: state.verificationInfo.university,
+      items: (universities.data ?? [])
+          .map((u) => SelectionItem(value: u, label: u.name))
+          .toList(),
+    );
+    if (picked != null) {
+      _cubit.doIntent(QuestionnaireSelectUniversityEvent(picked));
+    }
+  }
+
+  Future<void> _dismissKeyboard() async {
+    FocusManager.instance.primaryFocus?.unfocus();
+
+    final view = View.of(context);
+    if (view.viewInsets.bottom == 0) return;
+
+    // استنى لحد ما الكيبورد تقفل، بحد أقصى حوالي نص ثانية كأمان
+    var frames = 0;
+    while (mounted && view.viewInsets.bottom > 0 && frames < 30) {
+      await WidgetsBinding.instance.endOfFrame;
+      frames++;
+    }
   }
 
   Future<void> _pickGovernorate(QuestionnaireState state) async {
     final l10n = AppLocalizations.of(context)!;
     final lang = Localizations.localeOf(context).languageCode;
+    await _dismissKeyboard();
+    if (!mounted) return;
     final picked = await showSelectionSheet<String>(
       context,
       title: l10n.questionnaireGovernorateLabel,

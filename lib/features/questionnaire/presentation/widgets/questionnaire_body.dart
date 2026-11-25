@@ -5,7 +5,7 @@ import 'package:denta/features/questionnaire/presentation/cubit/questionnaire_cu
 import 'package:denta/features/questionnaire/presentation/widgets/profile_extras_form.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/step_progress_header.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/verification_info_form.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 

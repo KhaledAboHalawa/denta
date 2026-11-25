@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 
 class SlideSwitcher extends StatefulWidget {
   const SlideSwitcher({super.key, required this.index, required this.children});

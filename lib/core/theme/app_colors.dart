@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 abstract final class AppPalette {
   // Brand
@@ -135,8 +135,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     warning: AppPalette.warning,
     info: AppPalette.info,
     white: AppPalette.white,
-    background: AppPalette.background,
-    textMain: AppPalette.textMain,
+    background: AppPalette.accent,
+    textMain: AppPalette.white,
     infoHover: AppPalette.infoHover,
     infoLight: AppPalette.infoLight,
     textLight: AppPalette.textLight,

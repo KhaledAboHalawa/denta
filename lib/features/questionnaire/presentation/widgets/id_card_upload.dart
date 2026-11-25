@@ -6,7 +6,7 @@ import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/core/utils/app_icons.dart';
 import 'package:denta/core/utils/app_helper.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/upload_drop_zone.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'file_chip.dart';
 

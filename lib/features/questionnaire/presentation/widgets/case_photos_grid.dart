@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/file_chip.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class CasePhotosGrid extends StatelessWidget {
   const CasePhotosGrid({

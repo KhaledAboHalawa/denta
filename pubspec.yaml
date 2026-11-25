@@ -39,7 +39,9 @@ dependencies:
 
   # Internationalization & Utilities
   intl: any
+  material_ui: ^1.11.1
 
+  cupertino_ui: any
 dev_dependencies:
 
   # Code Generation

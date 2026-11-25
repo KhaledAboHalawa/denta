@@ -3,7 +3,7 @@ import 'package:denta/core/utils/app_validators.dart';
 import 'package:denta/core/widgets/custom_button.dart';
 import 'package:denta/core/widgets/custom_text_field.dart';
 import 'package:denta/features/register/domain/entities/register_request_params.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 

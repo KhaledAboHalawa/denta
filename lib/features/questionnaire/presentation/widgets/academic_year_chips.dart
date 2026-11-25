@@ -2,7 +2,7 @@ import 'package:denta/core/l10n/app_localizations.dart';
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:denta/core/theme/app_typography.dart';
 import 'package:denta/features/questionnaire/domain/entities/academic_year.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AcademicYearChips extends StatelessWidget {
   const AcademicYearChips({

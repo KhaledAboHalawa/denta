@@ -11,9 +11,9 @@ import 'package:denta/core/utils/media_picker.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/case_photos_grid.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/file_chip.dart';
 import 'package:denta/features/questionnaire/presentation/widgets/upload_drop_zone.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../../core/utils/app_helper.dart';
 

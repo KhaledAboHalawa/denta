@@ -1,5 +1,5 @@
 import 'package:denta/features/home_screen/presentation/widgets/home_tab_body.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});

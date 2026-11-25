@@ -1,6 +1,6 @@
 import 'package:denta/features/main_layout/presentation/widgets/custom_nav_bar.dart';
 import 'package:denta/features/notifications/presentation/screens/notifications_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../../home_screen/presentation/screens/home_tab.dart';
 

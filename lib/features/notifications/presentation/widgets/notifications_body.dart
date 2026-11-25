@@ -1,5 +1,5 @@
 import 'package:denta/core/widgets/custom_app_bar.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/config/base_state/base_state.dart';
@@ -13,6 +13,7 @@ import 'notification_section_header.dart';
 import 'notification_swipe_tile.dart';
 import 'notification_tab.dart';
 import 'notification_tile.dart';
+import 'notifications_skeleton.dart';
 
 class NotificationsBody extends StatelessWidget {
   const NotificationsBody({super.key, this.onNotificationTap});
@@ -100,7 +101,7 @@ class NotificationsBody extends StatelessWidget {
             const SizedBox(height: 24),
             Expanded(
               child: state.response.isLoading
-                  ? const Center(child: CircularProgressIndicator())
+                  ? const NotificationsSkeleton()
                   : state.response.isError
                   ? Center(
                       child: Text(

@@ -1,8 +1,9 @@
 import 'package:denta/core/di/dependency_injection.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/routing/route_paths.dart';
@@ -11,6 +12,7 @@ import '../../../../core/theme/app_typography.dart';
 import '../../domain/entities/pending_match_entity.dart';
 import '../cubit/pending_matches_cubit.dart';
 import '../utils/pending_match_navigation.dart';
+import '../utils/pending_match_placeholders.dart';
 import 'pending_match_card.dart';
 import 'pending_matches_retry.dart';
 
@@ -41,7 +43,12 @@ class _SectionBody extends StatelessWidget {
       builder: (context, state) {
         return state.matches.when(
           initial: () => const SizedBox.shrink(),
-          loading: () => const Center(child: CircularProgressIndicator()),
+          loading: () => Skeletonizer(
+            child: _Preview(
+              matches: pendingMatchPlaceholders,
+              previewCount: _previewCount,
+            ),
+          ),
           error: (_) => PendingMatchesRetry(
             onRetry: () => context.read<PendingMatchesCubit>().doIntent(
               const PendingMatchesLoadEvent(),

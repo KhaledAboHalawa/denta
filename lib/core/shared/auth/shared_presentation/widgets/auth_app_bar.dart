@@ -1,5 +1,5 @@
 import 'package:denta/core/utils/app_images.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AuthAppBar extends StatelessWidget {
   const AuthAppBar({super.key, this.onlyLogo = false, this.onBack});

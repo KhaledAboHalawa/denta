@@ -1,7 +1,7 @@
 import 'package:denta/features/forgot_password/presentation/screens/forget_password_screen.dart';
 import 'package:denta/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:denta/features/onboarding/presentation/screens/onboarding_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cupertino_ui/cupertino_ui.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/main_layout/presentation/screens/main_screen.dart';
