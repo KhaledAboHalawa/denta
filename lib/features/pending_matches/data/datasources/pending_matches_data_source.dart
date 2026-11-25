@@ -14,7 +14,7 @@ class PendingMatchesDataSource {
   Future<Result<List<PendingMatchModel>>> getPendingMatches() async {
     return await executeApiCall<List<PendingMatchModel>>(
       apiCall: () async {
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 3));
         return Response<Map<String, dynamic>>(
           statusCode: 200,
           data: {'data': _mockMatches},

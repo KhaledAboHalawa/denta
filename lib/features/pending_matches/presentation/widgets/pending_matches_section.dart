@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/config/base_state/base_state.dart';
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/routing/route_paths.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -41,22 +42,22 @@ class _SectionBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PendingMatchesCubit, PendingMatchesState>(
       builder: (context, state) {
-        return state.matches.when(
-          initial: () => const SizedBox.shrink(),
-          loading: () => Skeletonizer(
-            child: _Preview(
-              matches: pendingMatchPlaceholders,
-              previewCount: _previewCount,
-            ),
-          ),
-          error: (_) => PendingMatchesRetry(
+        if (state.matches.isError) {
+          return PendingMatchesRetry(
             onRetry: () => context.read<PendingMatchesCubit>().doIntent(
               const PendingMatchesLoadEvent(),
             ),
+          );
+        }
+        return Skeletonizer(
+          enabled: state.matches.isLoading,
+          enableSwitchAnimation: true,
+          child: _Preview(
+            matches: state.matches.isLoading
+                ? pendingMatchPlaceholders
+                : state.matches.data ?? [],
+            previewCount: _previewCount,
           ),
-          success: (matches) => matches.isEmpty
-              ? const SizedBox.shrink()
-              : _Preview(matches: matches, previewCount: _previewCount),
         );
       },
     );
@@ -86,32 +87,41 @@ class _Preview extends StatelessWidget {
               Row(
                 spacing: 8,
                 children: [
-                  Text(l10n.pendingMatchesTitle, style: context.text.heading3),
-                  Container(
-                    width: 32,
-                    height: 32,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: colors.secondaryLight,
-                      shape: BoxShape.circle,
-                    ),
+                  Skeleton.keep(
                     child: Text(
-                      NumberFormat.decimalPattern(locale)
-                          .format(matches.length),
-                      style: context.text.bodyMedium.copyWith(
-                        color: colors.primary,
+                      l10n.pendingMatchesTitle,
+                      style: context.text.heading3,
+                    ),
+                  ),
+                  Skeleton.shade(
+                    child: Container(
+                      width: 32,
+                      height: 32,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: colors.secondaryLight,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        NumberFormat.decimalPattern(locale)
+                            .format(matches.length),
+                        style: context.text.bodyMedium.copyWith(
+                          color: colors.primary,
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
-              InkWell(
-                onTap: () => context.push(RoutePaths.pendingMatchesPath),
-                child: Text(
-                  l10n.viewAll,
-                  style: context.text.captionDefault.copyWith(
-                    decoration: TextDecoration.underline,
-                    decorationColor: colors.info,
+              Skeleton.keep(
+                child: InkWell(
+                  onTap: () => context.push(RoutePaths.pendingMatchesPath),
+                  child: Text(
+                    l10n.viewAll,
+                    style: context.text.captionDefault.copyWith(
+                      decoration: TextDecoration.underline,
+                      decorationColor: colors.info,
+                    ),
                   ),
                 ),
               ),

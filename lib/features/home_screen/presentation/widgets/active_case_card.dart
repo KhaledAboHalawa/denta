@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -24,7 +25,17 @@ class ActiveCaseCard extends StatelessWidget {
     required this.progress,
     required this.onLogSession,
   }) : assert(progress >= 0 && progress <= 1);
-
+  const ActiveCaseCard.dummy({
+    super.key,
+    this.caseTitle = 'Root Canal Treatment',
+    this.patientName = 'Salma Rashed',
+    this.clinicName = 'Alexandria Clinic',
+    required this.appointment,
+    this.currentVisit = 4,
+    this.totalVisits = 6,
+    this.progress = 1,
+    this.onLogSession,
+  });
   final String caseTitle;
   final String patientName;
   final String clinicName;
@@ -82,17 +93,21 @@ class ActiveCaseCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              Container(
-                height: 25,
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: colors.glassLight.withValues(alpha: 0.3),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Text(
-                  l10n.visitProgress(currentVisit, totalVisits),
-                  style: captionWhite,
+              Skeleton.leaf(
+                child: Container(
+                  height: 25,
+                  padding: const EdgeInsetsDirectional.symmetric(
+                    horizontal: 10,
+                  ),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: colors.glassLight.withValues(alpha: 0.3),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    l10n.visitProgress(currentVisit, totalVisits),
+                    style: captionWhite,
+                  ),
                 ),
               ),
             ],

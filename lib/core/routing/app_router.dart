@@ -18,7 +18,7 @@ import '../di/dependency_injection.dart';
 import 'route_paths.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: RoutePaths.onboardingPath,
+  initialLocation: RoutePaths.mainPath,
   routes: <RouteBase>[
     GoRoute(
       path: RoutePaths.onboardingPath,

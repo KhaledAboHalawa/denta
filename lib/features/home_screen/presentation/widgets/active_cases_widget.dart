@@ -1,5 +1,6 @@
 import 'package:denta/core/theme/app_colors.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/widgets/app_indicator.dart';
 import 'active_case_card.dart';
@@ -10,11 +11,13 @@ class ActiveCasesWidget extends StatefulWidget {
     super.key,
     required this.casesCount,
     required this.onRequestCase,
+    required this.isLoading,
   });
 
   /// Number of active cases. `0` shows [EmptyActiveCaseCard].
   final int casesCount;
   final VoidCallback onRequestCase;
+  final bool isLoading;
 
   @override
   State<ActiveCasesWidget> createState() => _ActiveCasesWidgetState();
@@ -35,29 +38,34 @@ class _ActiveCasesWidgetState extends State<ActiveCasesWidget> {
       children: [
         SizedBox(
           height: 280,
-
-          child: PageView.builder(
-            itemCount: widget.casesCount,
-            onPageChanged: (value) => setState(() {
-              _currentIndex = value;
-            }),
-            itemBuilder: (context, index) => ActiveCaseCard(
-              caseTitle: 'Root Canal Treatment',
-              patientName: 'Salma Rashed',
-              clinicName: 'Alexandria Clinic',
-              appointment: DateTime(2026, 10, 18, 15),
-              currentVisit: 4,
-              totalVisits: 6,
-              progress: 0.66,
-              onLogSession: () {},
-            ),
-          ),
+          child: widget.isLoading
+              ? Skeletonizer(
+                  child: ActiveCaseCard.dummy(appointment: DateTime.now()),
+                )
+              : PageView.builder(
+                  itemCount: widget.casesCount,
+                  onPageChanged: (value) => setState(() {
+                    _currentIndex = value;
+                  }),
+                  itemBuilder: (context, index) => ActiveCaseCard(
+                    caseTitle: 'Root Canal Treatment',
+                    patientName: 'Salma Rashed',
+                    clinicName: 'Alexandria Clinic',
+                    appointment: DateTime(2026, 10, 18, 15),
+                    currentVisit: 4,
+                    totalVisits: 6,
+                    progress: 0.66,
+                    onLogSession: () {},
+                  ),
+                ),
         ),
-        AppIndicator(
-          currentIndex: _currentIndex,
-          selected: context.appColors.primary,
-          unSelected: context.appColors.primaryActive,
-        ),
+        widget.isLoading
+            ? const SizedBox.shrink()
+            : AppIndicator(
+                currentIndex: _currentIndex,
+                selected: context.appColors.primary,
+                unSelected: context.appColors.primaryActive,
+              ),
       ],
     );
   }

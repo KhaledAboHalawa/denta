@@ -1,4 +1,5 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -22,12 +23,20 @@ class HomeTabBody extends StatelessWidget {
         spacing: 12,
         children: [
           // TODO: replace with the signed-in user's data once it exists.
-          const HomeHeader(
-            name: 'Ali El-Alfy',
-            role: UserRole.dentist,
-            gender: Gender.male,
+          const Skeletonizer(
+            enabled: false,
+            enableSwitchAnimation: true,
+            child: HomeHeader(
+              name: 'Ali El-Alfy',
+              role: UserRole.dentist,
+              gender: Gender.male,
+            ),
           ),
-          ActiveCasesWidget(casesCount: 4, onRequestCase: () {}),
+          ActiveCasesWidget(
+            casesCount: 4,
+            onRequestCase: () {},
+            isLoading: false,
+          ),
           const Expanded(child: PendingMatchesSection()),
           Padding(
             padding: EdgeInsets.fromLTRB(20, 0, 20, padding.bottom + 8),

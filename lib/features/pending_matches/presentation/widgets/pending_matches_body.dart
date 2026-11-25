@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/config/base_state/base_state.dart';
 import '../../../../core/l10n/app_localizations.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../../domain/entities/pending_match_entity.dart';
@@ -18,26 +19,27 @@ class PendingMatchesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PendingMatchesCubit, PendingMatchesState>(
       builder: (context, state) {
-        return state.matches.when(
-          initial: () => const SizedBox.shrink(),
-          loading: () =>
-              Skeletonizer(child: _MatchesList(matches: pendingMatchPlaceholders)),
-          error: (_) => PendingMatchesRetry(
+        if (state.matches.isError) {
+          return PendingMatchesRetry(
             onRetry: () => context.read<PendingMatchesCubit>().doIntent(
               const PendingMatchesLoadEvent(),
             ),
+          );
+        }
+        if (state.matches.isSuccess && state.matches.data!.isEmpty) {
+          return Center(
+            child: Text(
+              AppLocalizations.of(context)!.pendingMatchesEmpty,
+              style: context.text.bodyDefault,
+            ),
+          );
+        }
+        return Skeletonizer(
+          enabled: state.matches.isLoading,
+          enableSwitchAnimation: true,
+          child: _MatchesList(
+            matches: state.matches.data ?? pendingMatchPlaceholders,
           ),
-          success: (matches) {
-            if (matches.isEmpty) {
-              return Center(
-                child: Text(
-                  AppLocalizations.of(context)!.pendingMatchesEmpty,
-                  style: context.text.bodyDefault,
-                ),
-              );
-            }
-            return _MatchesList(matches: matches);
-          },
         );
       },
     );
