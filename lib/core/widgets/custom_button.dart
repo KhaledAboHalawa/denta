@@ -24,31 +24,34 @@ class CustomButton extends StatelessWidget {
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: shrink ? null : double.infinity,
-      height: height,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          side: BorderSide(
-            color: onPressed == null
-                ? Colors.transparent
-                : backgroundColor ?? context.appColors.primary,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 600),
+      child: SizedBox(
+        width: shrink ? null : double.infinity,
+        height: height,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: backgroundColor,
+            side: BorderSide(
+              color: onPressed == null
+                  ? Colors.transparent
+                  : backgroundColor ?? context.appColors.primary,
+            ),
           ),
-        ),
-        onPressed: isLoading ? () {} : onPressed,
-        child: isLoading
-            ? const CircularProgressIndicator(
-                color: Colors.white,
-                strokeWidth: 3,
-                constraints: BoxConstraints(minWidth: 23, minHeight: 23),
-              )
-            : Text(
-                title,
-                style: context.text.buttonDefault.copyWith(
-                  color: foregroundColor,
+          onPressed: isLoading ? () {} : onPressed,
+          child: isLoading
+              ? const CircularProgressIndicator(
+                  color: Colors.white,
+                  strokeWidth: 3,
+                  constraints: BoxConstraints(minWidth: 23, minHeight: 23),
+                )
+              : Text(
+                  title,
+                  style: context.text.buttonDefault.copyWith(
+                    color: foregroundColor,
+                  ),
                 ),
-              ),
+        ),
       ),
     );
   }

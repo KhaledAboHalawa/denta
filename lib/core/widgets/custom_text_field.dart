@@ -73,131 +73,134 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (widget.labelText != null)
           Text(widget.labelText!, style: context.text.bodyMedium),
         const SizedBox(height: 6),
-        SizedBox(
-          height: widget.height,
-          child: Focus(
-            onFocusChange: (focus) {
-              setState(() {
-                _isFocused = focus;
-              });
-            },
-            child: TextFormField(
-              enableInteractiveSelection: !widget.isPassword,
-              canRequestFocus: widget.canRequestFocus ?? true,
-              validator: widget.validator,
-              keyboardType: _isMultiline
-                  ? (widget.keyboardType ?? TextInputType.multiline)
-                  : widget.keyboardType,
-              maxLines: _isMultiline ? null : 1,
-              expands: _isMultiline,
-              textAlignVertical: _isMultiline ? TextAlignVertical.top : null,
-              inputFormatters: widget.maxLength == null
-                  ? null
-                  : [LengthLimitingTextInputFormatter(widget.maxLength)],
-              focusNode: widget.focusNode,
-              onFieldSubmitted: widget.onSubmitted,
-              onChanged: widget.onChange,
-              controller: widget.controller,
-              obscureText: widget.isPassword && _obscureText,
-              decoration: InputDecoration(
-                prefixIcon: widget.prefixIcon != null
-                    ? Icon(
-                        widget.prefixIcon,
-                        color: _isFocused
-                            ? context.appColors.primary
-                            : context.appColors.info,
-                      )
-                    : null,
-                floatingLabelBehavior: .never,
-                helperText:
-                    widget.helperText ??
-                    (widget.reserveHelperSpace ? " " : null),
-                helperStyle: widget.helperText != null
-                    ? context.text.captionDefault.copyWith(
-                        color: context.appColors.infoDark,
-                      )
-                    : context.text.captionDefault.copyWith(height: .75),
-                errorStyle: context.text.captionDefault.copyWith(
-                  color: context.appColors.error,
-                ),
-                suffixIcon: widget.isPassword
-                    ? IconButton(
-                        style: IconButton.styleFrom(
-                          highlightColor: Colors.transparent,
-                        ),
-                        icon: AnimatedCrossFade(
-                          firstChild: Icon(
-                            Icons.visibility_outlined,
-                            size: 20,
-                            color: _isFocused
-                                ? context.appColors.primary
-                                : context.appColors.info,
-                          ),
-                          secondChild: Icon(
-                            Icons.visibility_off_outlined,
-                            size: 20,
-                            color: _isFocused
-                                ? context.appColors.primary
-                                : context.appColors.info,
-                          ),
-                          crossFadeState: _obscureText
-                              ? CrossFadeState.showSecond
-                              : CrossFadeState.showFirst,
-                          duration: const Duration(milliseconds: 300),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },
-                      )
-                    : null,
-                fillColor: Colors.transparent,
-                hintText: widget.hint,
-                hintStyle: context.text.captionDefault.copyWith(
-                  color: _isFocused ? context.appColors.primary : null,
-                ),
-                contentPadding:
-                    widget.contentPadding ??
-                    const EdgeInsets.symmetric(horizontal: 8),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: context.appColors.info,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: context.appColors.primary,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                disabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: context.appColors.info,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 600),
+          child: SizedBox(
+            height: widget.height,
+            child: Focus(
+              onFocusChange: (focus) {
+                setState(() {
+                  _isFocused = focus;
+                });
+              },
+              child: TextFormField(
+                enableInteractiveSelection: !widget.isPassword,
+                canRequestFocus: widget.canRequestFocus ?? true,
+                validator: widget.validator,
+                keyboardType: _isMultiline
+                    ? (widget.keyboardType ?? TextInputType.multiline)
+                    : widget.keyboardType,
+                maxLines: _isMultiline ? null : 1,
+                expands: _isMultiline,
+                textAlignVertical: _isMultiline ? TextAlignVertical.top : null,
+                inputFormatters: widget.maxLength == null
+                    ? null
+                    : [LengthLimitingTextInputFormatter(widget.maxLength)],
+                focusNode: widget.focusNode,
+                onFieldSubmitted: widget.onSubmitted,
+                onChanged: widget.onChange,
+                controller: widget.controller,
+                obscureText: widget.isPassword && _obscureText,
+                decoration: InputDecoration(
+                  prefixIcon: widget.prefixIcon != null
+                      ? Icon(
+                          widget.prefixIcon,
+                          color: _isFocused
+                              ? context.appColors.primary
+                              : context.appColors.info,
+                        )
+                      : null,
+                  floatingLabelBehavior: .never,
+                  helperText:
+                      widget.helperText ??
+                      (widget.reserveHelperSpace ? " " : null),
+                  helperStyle: widget.helperText != null
+                      ? context.text.captionDefault.copyWith(
+                          color: context.appColors.infoDark,
+                        )
+                      : context.text.captionDefault.copyWith(height: .75),
+                  errorStyle: context.text.captionDefault.copyWith(
                     color: context.appColors.error,
-                    width: 1.0,
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: context.appColors.error,
-                    width: 1.0,
+                  suffixIcon: widget.isPassword
+                      ? IconButton(
+                          style: IconButton.styleFrom(
+                            highlightColor: Colors.transparent,
+                          ),
+                          icon: AnimatedCrossFade(
+                            firstChild: Icon(
+                              Icons.visibility_outlined,
+                              size: 20,
+                              color: _isFocused
+                                  ? context.appColors.primary
+                                  : context.appColors.info,
+                            ),
+                            secondChild: Icon(
+                              Icons.visibility_off_outlined,
+                              size: 20,
+                              color: _isFocused
+                                  ? context.appColors.primary
+                                  : context.appColors.info,
+                            ),
+                            crossFadeState: _obscureText
+                                ? CrossFadeState.showSecond
+                                : CrossFadeState.showFirst,
+                            duration: const Duration(milliseconds: 300),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                        )
+                      : null,
+                  fillColor: Colors.transparent,
+                  hintText: widget.hint,
+                  hintStyle: context.text.captionDefault.copyWith(
+                    color: _isFocused ? context.appColors.primary : null,
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
+                  contentPadding:
+                      widget.contentPadding ??
+                      const EdgeInsets.symmetric(horizontal: 8),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: context.appColors.info,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: context.appColors.primary,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: context.appColors.info,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: context.appColors.error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: context.appColors.error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
+                cursorHeight: 20,
+                style: context.text.bodyDefault,
               ),
-              cursorHeight: 20,
-              style: context.text.bodyDefault,
             ),
           ),
         ),
